@@ -43,4 +43,9 @@ Here's a sample "posts list".
 This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
 We need to clean up the themes, make theme usage guides with theme-specific markup examples.
 
+## To-do for me
 
+I need to:
+*   Sort out the CSS with the email button
+*   Choose which theme to go with and stick to it
+*   Learn how to write an introductory blog post
