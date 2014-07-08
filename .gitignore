@@ -1,5 +1,8 @@
 # Backup files
 *~
 
+# Vim swap files
+*.swp
+
 # Locked files
 *.lock
