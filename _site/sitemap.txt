@@ -1,0 +1,11 @@
+
+http://drewsberry.github.io/tags.html
+http://drewsberry.github.io/pages.html
+http://drewsberry.github.io/index.html
+http://drewsberry.github.io/sitemap.txt
+http://drewsberry.github.io/categories.html
+http://drewsberry.github.io/archive.html
+http://drewsberry.github.io/atom.xml
+http://drewsberry.github.io/rss.xml
+
+http://drewsberry.github.io/lessons/2011/12/29/jekyll-introduction
