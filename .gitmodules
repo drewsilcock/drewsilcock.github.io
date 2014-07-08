@@ -1,3 +1,7 @@
 [submodule "dinky"]
     path = _theme_packages/dinky
     url = git://github.com/sodabrew/theme-dinky
+
+[submodule "the-minimum"]
+    path = _theme_packages/the-minimum
+    url = git://github.com/jekyllbootstrap/theme-the-minimum
