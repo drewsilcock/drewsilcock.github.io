@@ -6,3 +6,6 @@
 
 # Locked files
 *.lock
+
+# Stupid Apple files
+*.DS_Store
