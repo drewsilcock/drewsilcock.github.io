@@ -68,7 +68,7 @@ cd icmake-7.21.00
 
 Now the `INSTALL.im` file needs to be altered to reflect our local installation. This means replacing all the file installation locations with local directories as such, where <USER> should be replaced with your username:
 
-{% highlight c %}
+{% highlight cpp %}
 #define BINDIR      "/home/<USER>/.local/bin"
 #define SKELDIR     "/home/<USER>/.local/share/icmake"
 #define MANDIR      "/home/<USER>/.local/share/man"
