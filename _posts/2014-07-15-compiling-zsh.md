@@ -59,7 +59,6 @@ git clone git://github.com/zsh-users/zsh.git
 # Move into root zsh source directory
 cd zsh
 
-{% highlight bash %}
 # Produce config.h.in, needed to produce config.status from ./configure
 autoheader
 
