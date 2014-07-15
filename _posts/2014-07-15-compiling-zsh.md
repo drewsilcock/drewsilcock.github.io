@@ -173,6 +173,9 @@ autoheader
 # Produce the configure file from aclocal.m4 and configure.ac
 autoconf
 
+# Give autotools a timestamp for recompilation
+date < stamp-h.in
+
 # Produce Makefile and config.h via config.status
 ./configure --prefix=$HOME/.local --enable-shared
 
@@ -214,6 +217,22 @@ chsh -s $HOME/.local/bin/zsh
 {% endhighlight %}
 
 Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.
+
+# Troubleshooting
+
+If, when installing `zsh`, either `make` or `make install` fail despite all other programs being compiled and present, you may need to run `make realclean` to remove ALL compiled files, and start the compilation from `autoheader`. This sometimes happens if you run `./configure` before installing `yodl`, meaning the `config.h` and `Makefile` files have been built without knowledge of `yodl` and need to be purged.
+
+If `zsh` isn't recognising the `ncurses` library when running `./configure`, and instead giving the following error:
+
+{% highlight bash %}
+configure: error: "No terminal handling library was found on your system.
+This is probably a library called 'curses' or 'ncurses'. You may
+need to install a package called 'curses-devel' or 'ncurses-devel' on your
+system."
+See `config.log' for more details.
+{ %endhighlight %}
+
+Then this means that you haven't got the `ncurses` library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting `CPPFLAGS` and `LDFLAGS`.
 
 # References 
 
