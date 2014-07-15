@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Compiling zsh Without Root
+title: Compiling zsh without root
 ---
 
 This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.
@@ -240,4 +240,4 @@ Then this means that you haven't got the `ncurses` library in your library path.
 
 <a href="https://en.wikipedia.org/wiki/GNU_build_system#mediaviewer/File:Autoconf-automake-process.svg">This autotools flow chart from Wikipedia</a>
 
-<a href="https://github.com/zsh-users/zsh/blob/master/INSTALL">The somewhat cryptic and involved `zsh` INSTALL file.</a>
+<a href="https://github.com/zsh-users/zsh/blob/master/INSTALL">The somewhat cryptic and involved zsh INSTALL file.</a>
