@@ -5,9 +5,9 @@ title: Compiling zsh without root
 
 This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.
 
-# Step 1: Dependencies
+## Step 1: Dependencies
 
-## ncurses
+### ncurses
 To compile `zsh`, you need `ncurses`. This needs to be compiled with the flag `-fPIC`. This can be achieved as follows:
 
 {% highlight bash %}
@@ -51,7 +51,7 @@ make install
 
 Note that the `--enable-shared` configure flag ensures that libtool builds shared libraries for ncurses, needed for `zsh` later on.
 
-## icmake
+### icmake
 
 Now, this may be all you need, but if you don't have it installed, you also need the documentation builder `yodl`, which in turn needs `icmake`. If these are installed already, you can skip straight ahead to Part 2.
 
@@ -92,7 +92,7 @@ Now, technically, this will compile all the files you actually need in `tmp`, bu
 
 If you then want to clear up the temporary compiled files, delete the directory `tmp` with `rm -rf tmp`.
 
-# yodl
+### yodl
 
 Now to move onto yodl. Again, we need to specify that we want to install locally by putting `BASE = "/home/as1423/.local" at the start of the function `setLocations()` located at the end of `INSTALL.im', so that the function looks like:
 
@@ -144,7 +144,7 @@ Now we're ready to actually install yodl:
 
 Note that the `/` designates that we are installing with respect to the root of our filesystem. This is fine, though, because we've already specified in `INSTALL.im` that we want everything to be installed locally into `$HOME/.local$. Now `yodl` should be successfully installed.
 
-# Step 2: Tell environment where ncurses is
+## Step 2: Tell environment where ncurses is
 Before compiling `zsh`, you need to tell your environment where your newly compiled files are (if you haven't already). This can be achieved with:
 
 {% highlight bash %}
@@ -156,7 +156,7 @@ export CFLAGS=-I$INSTALL_PATH/include
 export CPPFLAGS="-I$INSTALL_PATH/include" LDFLAGS="-L$INSTALL_PATH/lib"
 {% endhighlight %}
 
-# Step 3: Compiling `zsh`
+## Step 3: Compiling `zsh`
 
 Now, we're finally ready to move onto compiling `zsh`:
 
@@ -186,7 +186,7 @@ make
 make install
 {% endhighlight %}
 
-# Step 4: Enjoy `zsh`!
+## Step 4: Enjoy `zsh`!
 After these steps have been completed, zsh should be ready and compiled to use in your ~/.local/bin folder. If you like `zsh`, you'll love `ohmyzsh`. This can be installed by:
 
 {% highlight bash %}
@@ -213,7 +213,7 @@ chsh -s $HOME/.local/bin/zsh
 
 Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.
 
-# Troubleshooting
+## Troubleshooting
 
 If, when installing `zsh`, either `make` or `make install` fail despite all other programs being compiled and present, you may need to run `make realclean` to remove ALL compiled files, and start the compilation from `autoheader`. This sometimes happens if you run `./configure` before installing `yodl`, meaning the `config.h` and `Makefile` files have been built without knowledge of `yodl` and need to be purged.
 
@@ -229,7 +229,7 @@ See `config.log' for more details.
 
 Then this means that you haven't got the `ncurses` library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting `CPPFLAGS` and `LDFLAGS`.
 
-# References 
+## References 
 
 <a href="https://unix.stackexchange.com/questions/123597/building-zsh-without-admin-priv-no-terminal-handling-library-found">This stackoverflow post</a>
 

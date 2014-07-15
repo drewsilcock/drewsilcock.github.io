@@ -5,7 +5,7 @@ title: Personal Cheatsheet
 
 Herein lies my personal cheatsheet for all things I find useful and wish not to forget.
 
-# Git
+## Git
 
 These are the things you need to do when using `git` on a new computer:
 
@@ -20,9 +20,9 @@ git config --global user.email <EMAIL>
 git config --global credential.helper cache
 {% endhighlight %}
 
-# Vim
+## Vim
 
-## Editing over scp
+### Editing over scp
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
