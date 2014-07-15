@@ -230,7 +230,7 @@ This is probably a library called 'curses' or 'ncurses'. You may
 need to install a package called 'curses-devel' or 'ncurses-devel' on your
 system."
 See `config.log' for more details.
-{ %endhighlight %}
+{% endhighlight %}
 
 Then this means that you haven't got the `ncurses` library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting `CPPFLAGS` and `LDFLAGS`.
 
