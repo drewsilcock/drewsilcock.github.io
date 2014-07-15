@@ -10,8 +10,13 @@ Herein lies my personal cheatsheet for all things I find useful and wish not to 
 These are the things you need to do when using `git` on a new computer:
 
 {% highlight bash %}
+# Change username associated with commits
 git config --global user.name "<USER>"
+
+# Change email associated with commits
 git config --global user.email <EMAIL>
+
+# Cache uname and passwd for convenience (only on git >= 1.7.9)
 git config --global credential.helper cache
 {% endhighlight %}
 
