@@ -203,12 +203,7 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 {% endhighlight %}
 
-Once you've done this, edit oh-my-zsh to your needs, e.g.
-
-{% highlight bash %}
-# Change your theme to your preference, I enjoy jonathan
-echo "ZSH_THEME=jonathan" >> ~/.zshrc
-{% endhighlight %}
+Once you've done this, edit oh-my-zsh to your needs, e.g. if you want to change the theme, replace `ZSH_THEME="robbyrussell" with the theme of your choice. I particularly enjoy `jonathan`.
 
 And finally, change your shell to `zsh`:
 
