@@ -39,13 +39,13 @@ Note that the `--enable-shared` configure flag ensures that libtool builds share
 Before compiling `zsh`, you need to tell your environment where your newly compiled files are (if you haven't already). This can be achieved with:
 
 {% highlight bash %}
-INSTALl_PATH='$HOME/.local'
+INSTALL_PATH='$HOME/.local'
 
 export PATH=$INSTALL_PATH/bin/:$PATH
 export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
 export CFLAGS=-I$INSTALL_PATH/include
-export CPPFLAGS="-I$INSTALLATION_PATH/include"
-export LDFLAGS="-L$INSTALLATION_PATH/lib"
+export CPPFLAGS="-I$INSTALL_PATH/include"
+export LDFLAGS="-L$INSTALL_PATH/lib"
 {% endhighlight %}
 
 ## Step 3: Compiling `zsh`
