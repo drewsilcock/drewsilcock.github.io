@@ -108,8 +108,8 @@ chsh -s $HOME/.local/bin/zsh
 Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.
 
 ## Sources of information:
-https://unix.stackexchange.com/questions/123597/building-zsh-without-admin-priv-no-terminal-handling-library-found
+<a href="https://unix.stackexchange.com/questions/123597/building-zsh-without-admin-priv-no-terminal-handling-library-found">This stackoverflow post</a>
 
-https://en.wikipedia.org/wiki/GNU_build_system#mediaviewer/File:Autoconf-automake-process.svg
+<a href="https://en.wikipedia.org/wiki/GNU_build_system#mediaviewer/File:Autoconf-automake-process.svg">This autotools flow chart from Wikipedia</a>
 
-https://github.com/zsh-users/zsh/blob/master/INSTALL
+<a href="https://github.com/zsh-users/zsh/blob/master/INSTALL">The somewhat cryptic and involved `zsh` INSTALL file.</a>
