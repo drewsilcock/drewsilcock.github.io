@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Personal Cheatsheet
+permalink: personal-cheatsheet
 ---
 
 Herein lies my personal cheatsheet for all things I find useful and wish not to forget.
@@ -58,4 +59,12 @@ This simple function allows you to write to the remote file via `scp` each time 
 
 {% highlight vim %}
 :call RemoteSave()
+{% endhighlight %}
+
+## sshfs
+
+To allow other non-root users to access a filesystem mounted over ssh, use:
+
+{% highlight bash %}
+sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 {% endhighlight %}
