@@ -14,7 +14,7 @@ baseurl:          /
 
 author:
   name:           'Drew Silcock'
-  url:            https://twitter.com/drewsberry
+  #url:            https://twitter.com/drewsberry
 
 paginate:         1
 
@@ -22,5 +22,4 @@ paginate:         1
 version:          1.0.1
 
 github:
-  #repo:           https://github.com/poole/hyde
   repo:           https://github.com/drewsberry/drewsberry.github.io
