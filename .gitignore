@@ -9,3 +9,6 @@
 
 # Stupid Apple files
 *.DS_Store
+
+# Jekyll build files
+_site/*
