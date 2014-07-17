@@ -10,7 +10,7 @@ Herein lies my personal cheatsheet for all things I find useful and wish not to 
 
 These are the things you need to do when using `git` on a new computer:
 
-{% highlight bash linenos %}
+{% highlight bash linenos=table %}
 # Change username associated with commits
 git config --global user.name "<USER>"
 
@@ -27,13 +27,13 @@ git config --global credential.helper cache
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
-{% highlight vim linenos %}
+{% highlight vim linenos=table %}
 vim scp://user@servername//path/to/file
 {% endhighlight %}
 
 However, trying to save gives the error:
 
-{% highlight vim linenos %}
+{% highlight vim linenos=table %}
 E382: Cannot write, 'buftype' option is set
 {% endhighlight %}
 
@@ -41,14 +41,14 @@ In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meani
 
 This can be circumvented by clearing `buftype`, as is the default with local file editing:
 
-{% highlight vim linenos %}
+{% highlight vim linenos=table %}
 :set buftype=
 :w
 {% endhighlight %}
 
 However, the buffer returns back to it's initial state of being set to `nofile`. It is therefore useful to define a function in `~/.vimrc` to save you the typing to do both in one go:
 
-{% highlight vim linenos %}
+{% highlight vim linenos=table %}
 function RemoteSave ()
     set buftype=
     write
@@ -57,7 +57,7 @@ endfunction
 
 This simple function allows you to write to the remote file via `scp` each time with one single command:
 
-{% highlight vim linenos %}
+{% highlight vim linenos=table %}
 :call RemoteSave()
 {% endhighlight %}
 
@@ -65,6 +65,6 @@ This simple function allows you to write to the remote file via `scp` each time 
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
 
-{% highlight bash linenos %}
+{% highlight bash linenos=table %}
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 {% endhighlight %}
