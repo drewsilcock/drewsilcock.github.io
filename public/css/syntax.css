@@ -97,9 +97,9 @@ pre {
     margin-bottom: 30px;
     white-space: pre;
     overflow-x: auto;
+    overflow-y: hidden;
     word-break: inherit;
     word-wrap: inherit;
-    /*overflow-y: hidden;*/
 }
 
 pre a::before {
