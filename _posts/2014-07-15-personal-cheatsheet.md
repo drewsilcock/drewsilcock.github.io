@@ -61,6 +61,13 @@ This simple function allows you to write to the remote file via `scp` each time 
 :call RemoteSave()
 {% endhighlight %}
 
+<br>Update</br>
+Whilst this is still useful cheatsheet information on how to make Vimscript functions, the [netrw plugin](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0 comes with a build-in function to do exactly this, with only one command:
+
+{% highlight vim lineanchors %}
+:Nwrite
+{% endhighlight %}
+
 ## sshfs
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
@@ -68,3 +75,17 @@ To allow other non-root users to access a filesystem mounted over ssh, use:
 {% highlight bash lineanchors %}
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 {% endhighlight %}
+
+## Photoshop
+
+Whilst I don't generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like [Photoscan](http://www.agisoft.ru/products/photoscan) (another piece of incredibly expensive proprietary software).
+
+1. Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The `w` key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.
+
+2. Next, in the "*Channels*" group, click "*New channel*" at the bottom of the group box. The image should now turn black.
+
+3. If you want to mask the selection, press `<CMD><SHIFT>I` to invert the selection and press `<SHIFT><F5>`; select "*White*" and press `<CR>`. If you want to mask everything apart from the selection, then simply press `<SHIFT><F5>`, select "*White*" and press `<CR>`
+
+4. Save the file as a format supporting alpha channels by pressing `<CMD><SHIFT>S`. For Photoscan imports, `TIFF` is recommended. Tick the box called "*Alpha Channels*" and press `<CR>` twice to save.
+
+5. (**optional**) In Photoscan, after loading the photos into the workspace with *Workflow*>*Add photos*/*Add folder*, click *Tools*>*Import*>*Import masks...*. Make sure that "*Method*" is set to "*From Alpha*" and click okay. The masked areas will then be darkened to indicate they are masked.
