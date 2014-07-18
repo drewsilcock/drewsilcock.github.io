@@ -99,7 +99,7 @@ pre {
     overflow-x: auto;
     word-break: inherit;
     word-wrap: inherit;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 pre a::before {
