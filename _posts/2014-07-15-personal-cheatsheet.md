@@ -10,7 +10,7 @@ Herein lies my personal cheatsheet for all things I find useful and wish not to 
 
 These are the things you need to do when using `git` on a new computer:
 
-{% highlight bash linenos=table %}
+{% highlight bash lineanchors %}
 # Change username associated with commits
 git config --global user.name "<USER>"
 
