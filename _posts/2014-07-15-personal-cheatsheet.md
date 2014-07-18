@@ -89,3 +89,7 @@ Whilst I don't generally like expensive proprietary software, particularly photo
 4. Save the file as a format supporting alpha channels by pressing `<CMD><SHIFT>S`. For Photoscan imports, `TIFF` is recommended. Tick the box called "*Alpha Channels*" and press `<CR>` twice to save.
 
 5. (**optional**) In Photoscan, after loading the photos into the workspace with *Workflow*>*Add photos*/*Add folder*, click *Tools*>*Import*>*Import masks...*. Make sure that "*Method*" is set to "*From Alpha*" and click okay. The masked areas will then be darkened to indicate they are masked.
+
+**Bonus Tip:** To import masks from one photo into another, simpler drag the channel onto the new photo.
+
+Note that this is based on the ancient CS3 that's installed on the Mac I'm currently using, and may not apply to newer versions.
