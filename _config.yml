@@ -1,13 +1,17 @@
 # Dependencies
-markdown:         redcarpet
+markdown:         kramdown
 pygments:         true
+pygments_options: ['lineanchors']
+
+kramdown:
+    fenced_code_blocks: true
 
 # Permalinks
 permalink:        pretty
 
 # Setup
 title:            Drew Silcock
-tagline:          'Note to self: think of tagline'
+tagline:          'Tutorials, thoughts and experiences.'
 description:      'Maybe somebody, somewhere will find this useful.'
 url:              http://drewsberry.github.io
 baseurl:          /
