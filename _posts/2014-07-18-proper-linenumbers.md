@@ -105,7 +105,7 @@ It's not quite that simple, though. These CSS counters need the `lineanchors` op
 
 ![without lineanchors](../public/media/lineno_wo_lineanchors.png)
 
-To solve this, you can either just put `lineanchors` in every `{% highlight %}` Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your `_config.yml`. Such a plugin is available [here](https://gist.github.com/danasilver/8121699), thanks to [Dana Silver](https://github.com/danasilver).
+To solve this, you can either just put `lineanchors` in every `highlight` Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your `_config.yml`. Such a plugin is available [here](https://gist.github.com/danasilver/8121699), thanks to [Dana Silver](https://github.com/danasilver).
 
 Using this plugin, you can simply specify as follows in your `_config.yml`:
 
