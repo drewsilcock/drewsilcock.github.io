@@ -10,11 +10,13 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="498.14285"
-   height="425.24698"
+   height="431.52042"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="horizontal_view.svg">
+  <title
+     id="title3006">Horizontal Camera View</title>
   <defs
      id="defs4">
     <marker
@@ -53,9 +55,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="183.43671"
-     inkscape:cy="240.57001"
+     inkscape:zoom="1.4"
+     inkscape:cx="241.13477"
+     inkscape:cy="26.315812"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -76,15 +78,35 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title>Horizontal Camera View</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Drew Silcock</dc:title>
+          </cc:Agent>
+        </dc:creator>
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-82.357143,-144.8287)">
+     transform="translate(-82.357143,-140.68345)">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 82.857143,505.21933 497.142857,0"
@@ -109,26 +131,28 @@
        y="160.21933" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="310"
-       y="155.21933"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:PT Sans;-inkscape-font-specification:PT Sans"
+       x="296.67368"
+       y="156.35202"
        id="text3027"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3029"
-         x="310"
-         y="155.21933">Camera</tspan></text>
+         x="296.67368"
+         y="156.35202"
+         style="font-size:20px;fill:#515151;fill-opacity:1">Camera</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="527.97968"
-       y="518.79077"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
+       x="506.76645"
+       y="498.58771"
        id="text3031"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3033"
-         x="527.97968"
-         y="518.79077">Ground</tspan></text>
+         x="506.76645"
+         y="498.58771"
+         style="font-size:20px;fill:#515151;fill-opacity:1">Ground</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
        d="m 337.85714,180.93361 0,324.28571"
@@ -136,27 +160,29 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="-424.20361"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-418.1427"
        y="331.56604"
        id="text3805"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"><tspan
          sodipodi:role="line"
          id="tspan3807"
-         x="-424.20361"
-         y="331.56604">Height, h</tspan></text>
+         x="-418.1427"
+         y="331.56604"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1">Height, h</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="249.70413"
-       y="527.06628"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
+       x="217.16388"
+       y="530.5152"
        id="text3809"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="249.70413"
-         y="527.06628"
-         id="tspan4461">Distance photographed, x</tspan></text>
+         x="217.16388"
+         y="530.5152"
+         id="tspan4461"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#515151;fill-opacity:1;font-family:PT Sans;-inkscape-font-specification:PT Sans">Distance photographed, x</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
        d="m 164.28571,512.36218 347.85715,0"
@@ -176,26 +202,28 @@
        transform="matrix(0.75639242,0.65411811,-0.65411811,0.75639242,243.24518,-216.27405)" />
     <text
        xml:space="preserve"
-       x="351.96429"
-       y="258.61218"
-       id="text4451"><tspan
+       x="345.90338"
+       y="264.6731"
+       id="text4451"
+       style="fill:#515151;fill-opacity:1"><tspan
          sodipodi:role="line"
          id="tspan4453"
-         x="351.96429"
-         y="258.61218">α<tspan
-   style="font-size:65.00091553%;baseline-shift:sub"
+         x="345.90338"
+         y="264.6731"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1">α<tspan
+   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1"
    id="tspan4455">x</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="214.15234"
-       y="569.50928"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
+       x="208.55444"
+       y="569.58099"
        id="text4457"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4459"
-         x="214.15234"
-         y="569.50928"
-         style="font-size:40px">HORIZONTAL</tspan></text>
+         x="208.55444"
+         y="569.58099"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#515151;fill-opacity:1;font-family:PT Sans;-inkscape-font-specification:PT Sans">HORIZONTAL</tspan></text>
   </g>
 </svg>
