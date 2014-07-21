@@ -29,7 +29,7 @@ So let's get rid of the `lineno` option altogether, and get our beautiful but fu
 
 Alex's CSS is as follows:
 
-{% highlight css %}
+{% highlight css lineanchors %}
 pre {
     counter-reset: line-numbering;
     border: solid 1px #d9d9d9;
@@ -78,13 +78,13 @@ pre a:only-of-type::before {
 }
 {% endhighlight %}
 
-Here's what it produces:
+Here's what it produces after adding it to your `syntax.css`:
 
 ![beautiful linenumbers](../public/media/lineno_beautiful.png)
 
 Note those important lines at the end of `pre a::before`:
 
-{% highlight css %}
+{% highlight css lineanchors %}
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -97,27 +97,40 @@ This tell the browser to ignore the line numbers when copying, solving one of ou
 
 In addition, the background grey of `#eee` gives the visual distinction between line numbers and code that we were lacking from `lineno=inline`. And, of course, they align properly with the actual lines of code, unlike `lineno=table`.
 
-On top of this, the `padding` gives the line numbers a consistent spacing and the solid border given by `border: solid 1px #d9d9d9` gives the code a clear separation from the main text.
+On top of this, the `padding` gives the line numbers a consistent spacing and the solid border given by `border: solid 1px #d9d9d9;` gives the code a clear separation from the main text.
 
 ## Lineanchors
 
-Problem: Line numbers now look silly
+It's not quite that simple, though. These CSS counters need the `lineanchors` option to be given for each codeblock, or it ends up looking like this:
 
 ![without lineanchors](../public/media/lineno_wo_lineanchors.png)
 
-Solution: Need lineanchors for our CSS to work
+To solve this, you can either just put `lineanchors` in every `{% highlight %}` Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your `_config.yml`. Such a plugin is available [here](https://gist.github.com/danasilver/8121699), thanks to [Dana Silver](https://github.com/danasilver).
 
-## Global plugin
+Using this plugin, you can simply specify as follows in your `_config.yml`:
 
-Problem: need to put lineanchors for every single code block
-Solution: global pygments config plugin
-Problem 2: Github Pages doesn not allow custom plugins
-Solution 2: Yet to be found
+{% highlight yaml lineanchors %}
+pygments_options: ['lineanchors']
+{% endhighlight %}
+
+Then you don't need to put it in each codeblock tag and can forget about it!
+
+Unfortuantely, GitHub Pages doesn't allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you're gonna have to stick to putting `lineanchors` in each tag. Up to you which you want to do.
 
 ## Scroll bar
 
-Problem: random y scroll bar
+Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
 
 ![annoying scroll bar](../public/media/lineno_w_yscroll.png)
 
-Solution: in syntax.css, under pre { .. }, put overflow-y: hidden
+Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
+
+{% highlight css lineanchors %}
+/* In pre { .. } */
+overflow-y: hidden;
+{% endhighlight %}
+
+This is placed in `pre { .. }`, just after `overflow-x: auto;`.
+
+After this, I finally had the beautiful line numbers that Pygments natively lacks.
+
