@@ -18,11 +18,11 @@ Firstly, let's look at how we can go from the information we have to the informa
 
 Then let us parameterise the situation as follows:
 
-* Ground distances photographed in horizontal and vertical, respectively: \(x\) and \(y\)
-* Resolution of camera: \(r_x\) and \(r_y\)
-* Height from which photo was taken: \(h\)
-* Angle of view of the camera: \(\alpha_x\) and \(\alpha_y\)
-* MMP: \(\mu_x\) and \(\mu_y\)
+* Ground distances photographed in horizontal and vertical, respectively: \\(x\\) and \\(y\\)
+* Resolution of camera: \\(r_x\\) and \\(r_y\\)
+* Height from which photo was taken: \\(h\\)
+* Angle of view of the camera: \\(\\alpha_x\\) and \\(\\alpha_y\\)
+* MMP: \\(\\mu_x\\) and \\(\\mu_y\\)
 
 The following diagrams illustrate the horizontal and vertical views that the camera sees:
 
@@ -32,17 +32,17 @@ The following diagrams illustrate the horizontal and vertical views that the cam
 
 ![vertical view](../public/media/vertical_view.svg)
 
-It is clear by basic geometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parameterised:
+It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parameterised:
 
-\[ \tan\left(\frac{\alpha_x}{2}\right) = \frac{x}{2h} \]
+\\[ \\tan\\left(\\frac{\\alpha_x}{2}\\right) = \\frac{x}{2h} \\]
 
-And the same for \(y\) Rearranging this for \(x\):
+And the same for \\(y\\) Rearranging this for \\(x\\):
 
-\[ x = 2h\tan\left(\frac{\alpha_x}{2}\right) \]
+\\[ x = 2h\\tan\\left(\\frac{\\alpha_x}{2}\\right) \\]
 
 Then the MMP is given by:
 
-\[ \mu_x = \frac{x}{r_x} = \frac{2h\tan\left(\alpha_x{2}\right)}{r_x} \]
+\\[ \\mu_x = \\frac{x}{r_x} = \\frac{2h\\tan\\left(\\alpha_x{2}\\right)}{r_x} \\]
 
 ## Finding camera resolution
 
@@ -57,9 +57,9 @@ Image Size: 4608x3456 # This is the camera resolution
 
 ## Finding angle of view
 
-The angle of view of a camera can be calculated from the camera effective's focal length, \(f\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \(d\) as follows:
+The angle of view of a camera can be calculated from the camera effective's focal length, \\(f\\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \\(d\\) as follows:
 
-\[ \alpha = 2\arctan\left(\frac{d}{2f}\right) \]
+\\[ \\alpha = 2\\arctan\\left(\\frac{d}{2f}\\right) \\]
 
 The focal length is stated on the camera specs. For my Ixus 132 the stated focal length is 5.0 mm.
 
@@ -75,14 +75,14 @@ For instance, my camera has a 1/2.3" CCD, meaning it has dimensions 6.17 mm by 4
 
 Thus, plugging these values into the equation above, my camera has angles of view of:
 
-\[ \alpha_x = 63.3\degree \\
-   \alpha_y = 48.9\degree \]
+\\[ \\alpha_x = 63.3^{\\circ} \\\\\\\\
+   \\alpha_y = 48.9^{\\circ} \\]
 
 ## Conclusion
 
 Then plugging these values into the formula given above, the MMP as a function of height is:
 
-\[ \mu_x = 0.2675h mm/pixel \\
-   \mu_y = 0.2631h mm/pixel \]
+\\[ \\mu_x = 0.2675h ~\\mathrm{mm/pixel} \\\\\\\\
+   \\mu\_y = 0.2631h ~\\mathrm{mm/pixel} \\]
 
-Where \(h\) is in meters. Thus at a typical UAV flight height of \(h = 100 m\), the MMP is 2.68 cm per pixel in the horizontal and 2.63 cm per pixel in the vertical.
+Where \\(h\\) is in meters. Thus at a typical UAV flight height of \\(h = 100~\\mathrm{m}\\) , the MMP is 2.68 cm per pixel in the horizontal and 2.63 cm per pixel in the vertical.
