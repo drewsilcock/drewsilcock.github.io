@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="498.14001"
+   width="504.14001"
    height="431.52042"
    id="svg2"
    version="1.1"
@@ -108,8 +108,8 @@
      id="layer1"
      transform="translate(-82.357143,-140.68345)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 82.857143,505.21933 497.142857,0"
+       style="fill:none;stroke:#000000;stroke-width:1.00643826px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 82.857143,505.21933 503.564977,0"
        id="path2985"
        inkscape:connector-curvature="0" />
     <path
@@ -144,13 +144,13 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
-       x="508.19501"
+       x="515.33789"
        y="502.87344"
        id="text3031"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3033"
-         x="508.19501"
+         x="515.33789"
          y="502.87344"
          style="font-size:20px;fill:#515151;fill-opacity:1">Ground</tspan></text>
     <path
