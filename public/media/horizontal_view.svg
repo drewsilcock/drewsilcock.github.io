@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="498.14285"
+   width="498.14001"
    height="431.52042"
    id="svg2"
    version="1.1"
@@ -144,14 +144,14 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
-       x="506.76645"
-       y="498.58771"
+       x="508.19501"
+       y="502.87344"
        id="text3031"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3033"
-         x="506.76645"
-         y="498.58771"
+         x="508.19501"
+         y="502.87344"
          style="font-size:20px;fill:#515151;fill-opacity:1">Ground</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
@@ -170,7 +170,7 @@
          id="tspan3807"
          x="-418.1427"
          y="331.56604"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1">Height, h</tspan></text>
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#515151;fill-opacity:1;font-family:PT Sans;-inkscape-font-specification:PT Sans">Height, h</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#515151;fill-opacity:1;stroke:none;font-family:Sans"
@@ -196,7 +196,7 @@
        sodipodi:cy="237.71933"
        sodipodi:rx="71.071426"
        sodipodi:ry="71.071426"
-       d="m 397.31966,263.45492 c -8.57607,22.07642 -27.58556,38.43032 -50.69519,43.61317 l -15.55303,-69.34876 z"
+       d="m 397.31966,263.45492 a 71.071426,71.071426 0 0 1 -50.69519,43.61317 l -15.55303,-69.34876 z"
        sodipodi:start="0.37052926"
        sodipodi:end="1.3501744"
        transform="matrix(0.75639242,0.65411811,-0.65411811,0.75639242,243.24518,-216.27405)" />
@@ -210,8 +210,8 @@
          id="tspan4453"
          x="345.90338"
          y="264.6731"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1">α<tspan
-   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;font-family:PT Sans;-inkscape-font-specification:PT Sans;fill:#515151;fill-opacity:1"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#515151;fill-opacity:1;font-family:PT Sans;-inkscape-font-specification:PT Sans">α<tspan
+   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;baseline-shift:sub;fill:#515151;fill-opacity:1;font-family:PT Sans;-inkscape-font-specification:PT Sans"
    id="tspan4455">x</tspan></tspan></text>
     <text
        xml:space="preserve"
