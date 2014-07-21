@@ -6,7 +6,7 @@ permalink: meters-per-pixel
 
 ## Aim
 
-The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taking pointing directly downwards from an aerial position such as a small UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.
+The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.
 
 ## Trigonometry
 
@@ -27,6 +27,7 @@ Then let us parameterise the situation as follows:
 The following diagrams illustrate the horizontal and vertical views that the camera sees:
 
 ![horizontal view](../public/media/horizontal_view.svg)
+-----
 ![vertical view](../public/media/vertical_view.svg)
 
 It is clear by basic geometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parameterised:
