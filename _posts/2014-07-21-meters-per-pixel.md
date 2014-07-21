@@ -42,7 +42,7 @@ And the same for \\(y\\) Rearranging this for \\(x\\):
 
 Then the MMP is given by:
 
-\\[ \\mu_x = \\frac{x}{r_x} = \\frac{2h\\tan\\left(\\alpha_x{2}\\right)}{r_x} \\]
+\\[ \\mu_x = \\frac{x}{r_x} = \\frac{2h\\tan\\left(\\frac{\\alpha_x}{2}\\right)}{r_x} \\]
 
 ## Finding camera resolution
 
