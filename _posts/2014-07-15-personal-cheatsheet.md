@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Personal Cheatsheet
+title: Personal cheatsheet
 permalink: personal-cheatsheet
 ---
 
@@ -93,3 +93,39 @@ Whilst I don't generally like expensive proprietary software, particularly photo
 **Bonus Tip:** To import masks from one photo into another, simpler drag the channel onto the new photo.
 
 Note that this is based on the ancient CS3 that's installed on the Mac I'm currently using, and may not apply to newer versions.
+
+## Python
+
+### argparse
+
+Skeleton `argparse` template:
+
+{% highlight python lineanchors %}
+# Import the library
+import argparse
+
+# Description of the program
+parser = argparse.ArgumentParser(description="Short description of the Python program.")
+
+# A compulsory positional argument
+parser.add_argument("compulsory", help="Description of argument, what it does and what the options are.")
+
+# A required normal argument
+parser.add_argument("-o", "--option", required=True, help="Short description")
+
+# An optional true/false argument
+parser.add_argument("-v", "--verbose", action="store_true", help="Short description")
+
+# Specifying the type
+parser.add_argument("-f", "--float", type=float, help="Short description")
+
+# Specifying the default value
+parser.add_argument("-n", "--name", default="drew", help="Short description")
+
+# Parse the arguments
+args = parser.parse_args()
+
+# Accessing the values of the arguments
+myArgument = args.compulsory
+myName = args.name
+{% endhighlight %}
