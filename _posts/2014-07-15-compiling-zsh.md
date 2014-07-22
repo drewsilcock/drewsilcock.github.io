@@ -2,6 +2,15 @@
 layout: post
 title: Compiling zsh without root
 permalink: compiling-zsh
+tags:
+- zsh
+- compiling
+- installation
+- ncurses
+- terminfo
+- icmake
+- yodl
+- oh-my-zsh
 ---
 
 This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.
