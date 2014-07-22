@@ -139,3 +139,15 @@ args = parser.parse_args()
 myArgument = args.compulsory
 myName = args.name
 {% endhighlight %}
+
+### Replace `~` with home directory
+
+This is just a fun little script that replaces `~` in a string with the path to the user directory, e.g. `/home/drew`. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.
+
+{% highlight python lineanchors %}
+import re
+import os
+
+# Replace '~' in fname with path to user dir
+fname = re.sub("~", os.environ['HOME'], fname)
+{% endhighlight %}
