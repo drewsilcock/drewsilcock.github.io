@@ -21,7 +21,7 @@ Firstly, let's look at how we can go from the information we have to the informa
 * Height from which photo was taken
 * Angle of view of the camera
 
-Then let us parameterise the situation as follows:
+Then let us parametrise the situation as follows:
 
 * Ground distances photographed in horizontal and vertical, respectively: \\(x\\) and \\(y\\)
 * Resolution of camera: \\(r_x\\) and \\(r_y\\)
@@ -37,7 +37,7 @@ The following diagrams illustrate the horizontal and vertical views that the cam
 
 ![vertical view](../public/media/vertical_view.svg)
 
-It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parameterised:
+It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:
 
 \\[ \\tan\\left(\\frac{\\alpha_x}{2}\\right) = \\frac{x}{2h} \\]
 
@@ -62,13 +62,13 @@ Image Size: 4608x3456 # This is the camera resolution
 
 ## Finding angle of view
 
-The angle of view of a camera can be calculated from the camera effective's focal length, \\(f\\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \\(d\\) as follows:
+The angle of view of a camera can be calculated from the camera's effective focal length, \\(f\\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \\(d\\) as follows:
 
 \\[ \\alpha = 2\\arctan\\left(\\frac{d}{2f}\\right) \\]
 
 The focal length is stated on the camera specs. For my Ixus 132 the stated focal length is 5.0 mm.
 
-To find the dimension of the camera sensor, you need to know what type of sensor it is. It'll either be a CCD sensor (Charge Coupled Device) or a CMOD sensor (Complemetary Metal-Oxide Semiconductor).
+To find the dimension of the camera sensor, you need to know what type of sensor it is. It'll either be a CCD sensor (Charge Coupled Device) or a CMOD sensor (Complementary Metal-Oxide Semiconductor).
 
 This image, courtesy of [gizmag](http://www.gizmag.com/camera-sensor-size-guide/26684/pictures#1), show the dimensions of various common sensor sizes:
 

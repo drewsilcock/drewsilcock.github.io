@@ -88,7 +88,7 @@ sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 
 ## Photoshop
 
-Whilst I don't generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like [Photoscan](http://www.agisoft.ru/products/photoscan) (another piece of incredibly expensive proprietary software).
+Whilst I don't generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like [PhotoScan](http://www.agisoft.ru/products/photoscan) (another piece of incredibly expensive proprietary software).
 
 1. Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The `w` key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.
 
@@ -96,9 +96,9 @@ Whilst I don't generally like expensive proprietary software, particularly photo
 
 3. If you want to mask the selection, press `<CMD><SHIFT>I` to invert the selection and press `<SHIFT><F5>`; select "*White*" and press `<CR>`. If you want to mask everything apart from the selection, then simply press `<SHIFT><F5>`, select "*White*" and press `<CR>`
 
-4. Save the file as a format supporting alpha channels by pressing `<CMD><SHIFT>S`. For Photoscan imports, `TIFF` is recommended. Tick the box called "*Alpha Channels*" and press `<CR>` twice to save.
+4. Save the file as a format supporting alpha channels by pressing `<CMD><SHIFT>S`. For PhotoScan imports, `TIFF` is recommended. Tick the box called "*Alpha Channels*" and press `<CR>` twice to save.
 
-5. (**optional**) In Photoscan, after loading the photos into the workspace with *Workflow*>*Add photos*/*Add folder*, click *Tools*>*Import*>*Import masks...*. Make sure that "*Method*" is set to "*From Alpha*" and click okay. The masked areas will then be darkened to indicate they are masked.
+5. (**optional**) In PhotoScan, after loading the photos into the workspace with *Workflow*>*Add photos*/*Add folder*, click *Tools*>*Import*>*Import masks...*. Make sure that "*Method*" is set to "*From Alpha*" and click okay. The masked areas will then be darkened to indicate they are masked.
 
 **Bonus Tip:** To import masks from one photo into another, simpler drag the channel onto the new photo.
 
@@ -150,4 +150,12 @@ import os
 
 # Replace '~' in fname with path to user dir
 fname = re.sub("~", os.environ['HOME'], fname)
+{% endhighlight %}
+
+### Increase size of pyplot legend
+
+Sometimes, the legend in matplotlib isn't quite big enough. Increase it with:
+
+{% highlight python lineanchors %}
+plt.legend(loc="upper left", shadow=True, borderpad=1)
 {% endhighlight %}
