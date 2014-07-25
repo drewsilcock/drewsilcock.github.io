@@ -13,7 +13,7 @@ permalink:        pretty
 title:            Drew Silcock
 tagline:          'Tutorials, thoughts and experiences.'
 description:      'Maybe somebody, somewhere will find this useful.'
-url:              http://drewsberry.github.io
+url:              http://drewsilcock.co.uk
 baseurl:          /
 
 author:
@@ -23,7 +23,7 @@ author:
 paginate:         1
 
 # Custom vars
-version:          1.0.1
+version:          1.0.2
 
 github:
   repo:           https://github.com/drewsberry/drewsberry.github.io
