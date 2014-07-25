@@ -14,7 +14,7 @@ This website is built using [Poole](http://getpoole.com), which is built on [Jek
 ## Contact Me
 
 If you want to ask me a question, tell me something or just generally fancy a chat, then
-<a href = "mailto:johnATgmailDOTcom" 
+<a href = "mailto:drewATdrewsilcockDOTcoDOTuk" 
    onclick = "this.href=this.href
               .replace(/AT/,'&#64;')
               .replace(/DOT/,'&#46;')"
