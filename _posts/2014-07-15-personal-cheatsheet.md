@@ -18,6 +18,8 @@ Herein lies my personal cheatsheet for all things I find useful and wish not to 
 
 ## Git
 
+### First commands
+
 These are the things you need to do when using `git` on a new computer:
 
 {% highlight bash %}
@@ -29,6 +31,20 @@ git config --global user.email <EMAIL>
 
 # Cache uname and passwd for convenience (only on git >= 1.7.9)
 git config --global credential.helper cache
+{% endhighlight %}
+
+### Adding remote
+
+Add remote repository:
+
+{% highlight git %}
+git remote add origin https://github.com/username/repository.git
+{% endhighlight %}
+
+Then subsequently set local branch to track remote branch:
+
+{% highlight git %}
+git branch --set-upstream master origin/<branch>
 {% endhighlight %}
 
 ## Vim
