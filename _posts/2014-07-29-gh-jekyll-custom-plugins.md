@@ -22,15 +22,15 @@ Master contains compiled HTML, source contains the Jekyll source.
 In the `.gitignore` of the `source` branch, you put the following:
 
 {% highlight bash %}
-\_site
+_site
 {% endhighlight %}
 
 Then, when you run `jekyll build` and Jekyll produces all the HTML in `_site`, git doesn't recognise it. That means that we can `cd` into `_site`, and seeing as git doesn't know the difference, we can make `_site` itself into its own git repository.
 
 Assuming you're starting off with a bog standard single branch Pages repo, you run:
 {% highlight bash %}
-# Make sure \_site is empty before we begin
-rm -rf \_site/\*
+# Make sure _site is empty before we begin
+rm -rf _site/*
 
 # Make new source branch
 git checkout -b source
@@ -44,8 +44,8 @@ git push origin source
 # Locally delete the original master branch
 git branch -D master
 
-# Make a new git repository within \_site
-cd \_site
+# Make a new git repository within _site
+cd _site
 git init
 
 # Tell Jekyll to ignore this directory
@@ -63,7 +63,7 @@ Now you've got your source branch set up in your root directory and master branc
 Now each time you want to build your site locally, you just need to run:
 {% highlight bash %}
 jekyll build
-cd \_site
+cd _site
 touch .nojekyll
 git add .
 git commit
@@ -76,9 +76,25 @@ and you have successfully built and deployed your website with Jekyll. Note that
               .replace(/DOT/,'&#46;')"
 >let me know!</a>
 
-Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here's the gist for it:
+Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the [gist of it](https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4), and this is the script:
 
-{% gist 1b9fc80682edd8bcecc4 %}
+{% highlight bash %}
+#!/bin/bash
+ 
+if [[ -z "$1" ]]; then
+  echo "Please enter a git commit message"
+  exit
+fi
+ 
+jekyll build && \
+  touch _site/.nojekyll && \
+  cd _site && \
+  git add . && \
+  git commit -am "$1" && \
+  git push origin master && \
+  cd .. && \
+  echo "Successfully built and pushed to GitHub."
+{% endhighlight %}
 
 So if I wanted to build my site locally and push it to my repository with the commit message "Latest build", I would run:
 
