@@ -4,13 +4,98 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-29T17:42:09+01:00</updated>
+ <updated>2014-07-29T18:25:55+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Custom Jekyll plugins with GitHub Pages</title>
+   <link href="http://drewsilcock.co.uk/2014/07/29/gh-jekyll-custom-plugins/"/>
+   <updated>2014-07-29T00:00:00+01:00</updated>
+   <id>http://drewsilcock.co.uk/2014/07/29/gh-jekyll-custom-plugins</id>
+   <content type="html">&lt;p&gt;So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the &lt;code&gt;--safe&lt;/code&gt; flag that it compiles your site with. So what do you do?&lt;/p&gt;
+
+&lt;p&gt;Well, if you compile the site using &lt;code&gt;jekyll&lt;/code&gt; yourself, then push the resulting compiled HTML to your GitHub Pages repository, then it works perfectly! You get your custom plugins, and you get your free GitHub Pages hosting.&lt;/p&gt;
+
+&lt;p&gt;So how do you organise the source and compiled code?&lt;/p&gt;
+
+&lt;p&gt;Some people, like &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt;, recommend two repos, one with the source code (e.g. &lt;code&gt;github.com/username/username.github.io.raw&lt;/code&gt; for the compiled HTML and &lt;code&gt;github.com/username/username.github.io&lt;/code&gt; for the compiled HTML). I don’t particularly like this. It’s one project, it should be one repo.&lt;/p&gt;
+
+&lt;p&gt;Others, like &lt;a href=&quot;http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html&quot;&gt;Alexandre Rademaker&lt;/a&gt;, have two separate branches (a &lt;code&gt;master&lt;/code&gt; for compiled HTML and a &lt;code&gt;source&lt;/code&gt; for the Jekyll source), and change branches then copy the contents of &lt;code&gt;_site&lt;/code&gt; into the master branch every time you want to push to your website.&lt;/p&gt;
+
+&lt;p&gt;I like the idea of separate branches within the same repo, but messing about with copying &lt;code&gt;_site&lt;/code&gt; seems laborious and unnecessary. Here’s my solution:&lt;/p&gt;
+
+&lt;p&gt;Two branches: source and master.&lt;/p&gt;
+
+&lt;p&gt;Master contains compiled HTML, source contains the Jekyll source.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;.gitignore&lt;/code&gt; of the &lt;code&gt;source&lt;/code&gt; branch, you put the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, when you run &lt;code&gt;jekyll build&lt;/code&gt; and Jekyll produces all the HTML in &lt;code&gt;_site&lt;/code&gt;, git doesn’t recognise it. That means that we can &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;_site&lt;/code&gt;, and seeing as git doesn’t know the difference, we can make &lt;code&gt;_site&lt;/code&gt; itself into its own git repository.&lt;/p&gt;
+
+&lt;p&gt;Assuming you’re starting off with a bog standard single branch Pages repo, you run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure \_site is empty before we begin&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;rm -rf &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site/&lt;span class=&quot;se&quot;&gt;\*&lt;/span&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git checkout -b &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell git to track source remote branch&lt;/span&gt;
+&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git branch --set-upstream &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;origin/source
+&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Upload your branch to GitHub&lt;/span&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git push origin &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
+&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git branch -D master
+&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within \_site&lt;/span&gt;
+&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;git init
+&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
+&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;touch .nojekyll
+&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Set the remote repository to push the HTML to&lt;/span&gt;
+&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/username.github.io
+&lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
+&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you’ve got your source branch set up in your root directory and master branch set up in your &lt;code&gt;_site&lt;/code&gt; directory, ready for rapid building and deployment of your Jekyll website.&lt;/p&gt;
+
+&lt;p&gt;Now each time you want to build your site locally, you just need to run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;touch .nojekyll
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git add .
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git commit
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that you need to &lt;code&gt;touch .nojekyll&lt;/code&gt; because Jekyll seems to delete the original &lt;code&gt;.nojekyll&lt;/code&gt; each time the site is built. If anyone knows a cleaner way around this, &lt;a href=&quot;mailto:drewATdrewsilcockDOTcoDOTuk&quot; onclick=&quot;this.href=this.href               .replace(/AT/,'&amp;#64;')               .replace(/DOT/,'&amp;#46;')               .replace(/DOT/,'&amp;#46;')&quot;&gt;let me know!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here’s the gist for it:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/1.js?file=b9fc80682edd8bcecc4&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekgit.sh &lt;span class=&quot;s2&quot;&gt;&amp;quot;Latest build&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Calculating meters per pixel from aerial photographs</title>

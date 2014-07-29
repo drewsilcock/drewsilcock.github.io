@@ -114,6 +114,10 @@
           
         
       
+        
+          
+        
+      
 
       <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
       <span class="sidebar-nav-item">Currently v1.0.2</span>
@@ -129,229 +133,195 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/compiling-zsh">
-        Compiling zsh without root
+      <a href="/personal-cheatsheet">
+        Personal cheatsheet
       </a>
     </h1>
 
     <span class="post-date">15 Jul 2014</span>
 
-    <p>This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.</p>
+    <p>Herein lies my personal cheatsheet for all things I find useful and wish not to forget.</p>
 
-<h2 id="step-1-dependencies">Step 1: Dependencies</h2>
+<h2 id="git">Git</h2>
 
-<h3 id="ncurses">ncurses</h3>
-<p>To compile <code>zsh</code>, you need <code>ncurses</code>. This needs to be compiled with the flag <code>-fPIC</code>. This can be achieved as follows:</p>
+<h3 id="first-commands">First commands</h3>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Download the ncurses gzipped tarball</span>
-<a name="True-2"></a>wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
+<p>These are the things you need to do when using <code>git</code> on a new computer:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Change username associated with commits</span>
+<a name="True-2"></a>git config --global user.name <span class="s2">&quot;&lt;USER&gt;&quot;</span>
 <a name="True-3"></a>
-<a name="True-4"></a><span class="c"># Extract gzipped tarball</span>
-<a name="True-5"></a>tar -zxvf ncurses.tar.gz
+<a name="True-4"></a><span class="c"># Change email associated with commits</span>
+<a name="True-5"></a>git config --global user.email &lt;EMAIL&gt;
 <a name="True-6"></a>
-<a name="True-7"></a><span class="c"># Move into root ncurses source directory</span>
-<a name="True-8"></a><span class="nb">cd </span>ncurses
-<a name="True-9"></a>
-<a name="True-10"></a><span class="c"># Set cflags and c++ flags to compile with Position Independent Code enabled</span>
-<a name="True-11"></a><span class="nb">export </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s1">&#39; -fPIC&#39;</span>
-<a name="True-12"></a><span class="nb">export </span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s1">&#39; -fPIC&#39;</span>
-<a name="True-13"></a>
-<a name="True-14"></a><span class="c"># Produce Makefile and config.h via config.status</span>
-<a name="True-15"></a>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local --enable-shared
-<a name="True-16"></a>
-<a name="True-17"></a><span class="c"># Compile</span>
-<a name="True-18"></a>make
-<a name="True-19"></a>
-<a name="True-20"></a><span class="c"># Deduce environment information and build private terminfo tree</span>
-<a name="True-21"></a><span class="nb">cd </span>progs
-<a name="True-22"></a>./capconvert
-<a name="True-23"></a><span class="nb">cd</span> ..
+<a name="True-7"></a><span class="c"># Cache uname and passwd for convenience (only on git &gt;= 1.7.9)</span>
+<a name="True-8"></a>git config --global credential.helper cache
 </code></pre></div>
 
-<p>Now before installing the compiled files, you should check to make sure that ncurses has compiled correctly by running:</p>
+<h3 id="adding-remote">Adding remote</h3>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>./test/ncurses
+<p>Add remote repository:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>git remote add origin https://github.com/username/repository.git
 </code></pre></div>
 
-<p>If this successfully opens a prompt with multiple options, then ncurses has been successfully compiled, and you can install it:</p>
+<p>Then subsequently set local branch to track remote branch:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Install ncurses to $HOME/.local</span>
-<a name="True-2"></a>make install
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>git branch --set-upstream master origin/&lt;branch&gt;
 </code></pre></div>
 
-<p>Note that the <code>--enable-shared</code> configure flag ensures that libtool builds shared libraries for ncurses, needed for <code>zsh</code> later on.</p>
+<h2 id="vim">Vim</h2>
 
-<h3 id="icmake">icmake</h3>
+<h3 id="vim-functions">Vim functions</h3>
 
-<p>Now, this may be all you need, but if you don’t have it installed, you also need the documentation builder <code>yodl</code>, which in turn needs <code>icmake</code>. If these are installed already, you can skip straight ahead to Part 2.</p>
+<p>Here’s the syntax for declaring vim script functions:</p>
 
-<p>Firstly, <code>icmake</code> is installed via:</p>
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a>functions MyFunction <span class="p">()</span>
+<a name="True-2"></a>    <span class="k">do</span> <span class="k">first</span> thing
+<a name="True-3"></a>    <span class="k">do</span> second thing
+<a name="True-4"></a><span class="k">endfunction</span>
+</code></pre></div>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Download icmake source from Sourcefourge</span>
-<a name="True-2"></a>wget http://downloads.sourceforge.net/project/icmake/icmake/7.21.00/icmake_7.21.00.orig.tar.gz
+<p>And you then call it in Vim with:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">call</span> MyFunction<span class="p">()</span>
+</code></pre></div>
+
+<h3 id="recognise-custom-filetypes">Recognise custom filetypes</h3>
+
+<p>I’ve got <code>moo.vim</code> files in my <code>~/.vim/after/syntax</code> and <code>~/.vim/after/ftplugin</code>, for all <code>moo</code> files with extension <code>.moo</code>. To get Vim to recognise these <code>.moo</code> files and apply the Vim scripts associated therewith, I need to create a file called <code>moo.vim</code> in <code>~/.vim/ftdetect/</code>, which contains the following:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span><span class="nb">BufNewFile</span> *.moo <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>moo
+</code></pre></div>
+
+<p><em>Note</em>: You may have to wipe your <code>~/.vim/view</code> before Vim recognises old files as this new filetype.</p>
+
+<h3 id="editing-over-scp">Editing over scp</h3>
+
+<p>Vim comes with the ability to edit files remotely over scp. This can be achieved via:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">vim</span> scp:<span class="sr">//</span>user@servername<span class="sr">//</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span>
+</code></pre></div>
+
+<p>However, trying to save gives the error:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a>E382: Cannot <span class="nb">write</span><span class="p">,</span> <span class="s1">&#39;buftype&#39;</span> <span class="k">option</span> <span class="k">is</span> <span class="k">set</span>
+</code></pre></div>
+
+<p>In fact, running <code>set buftype?</code> reveals that <code>buftype</code> is set to <code>nofile</code>, meaning the buffer cannot be saved to file. This can be bypassed by using <code>:Nwrite</code> from the <a href="http://www.vim.org/scripts/script.php?script_id=1075">netrw.vim</a> that comes bundled with Vim 7.0:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span>Nwrite
+</code></pre></div>
+
+<h2 id="sshfs">sshfs</h2>
+
+<p>To allow other non-root users to access a filesystem mounted over ssh, use:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
+</code></pre></div>
+
+<h2 id="photoshop">Photoshop</h2>
+
+<p>Whilst I don’t generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like <a href="http://www.agisoft.ru/products/photoscan">PhotoScan</a> (another piece of incredibly expensive proprietary software).</p>
+
+<ol>
+  <li>
+    <p>Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The <code>w</code> key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.</p>
+  </li>
+  <li>
+    <p>Next, in the “<em>Channels</em>” group, click “<em>New channel</em>” at the bottom of the group box. The image should now turn black.</p>
+  </li>
+  <li>
+    <p>If you want to mask the selection, press <code>&lt;CMD&gt;&lt;SHIFT&gt;I</code> to invert the selection and press <code>&lt;SHIFT&gt;&lt;F5&gt;</code>; select “<em>White</em>” and press <code>&lt;CR&gt;</code>. If you want to mask everything apart from the selection, then simply press <code>&lt;SHIFT&gt;&lt;F5&gt;</code>, select “<em>White</em>” and press <code>&lt;CR&gt;</code></p>
+  </li>
+  <li>
+    <p>Save the file as a format supporting alpha channels by pressing <code>&lt;CMD&gt;&lt;SHIFT&gt;S</code>. For PhotoScan imports, <code>TIFF</code> is recommended. Tick the box called “<em>Alpha Channels</em>” and press <code>&lt;CR&gt;</code> twice to save.</p>
+  </li>
+  <li>
+    <p>(<strong>optional</strong>) In PhotoScan, after loading the photos into the workspace with <em>Workflow</em>&gt;<em>Add photos</em>/<em>Add folder</em>, click <em>Tools</em>&gt;<em>Import</em>&gt;<em>Import masks…</em>. Make sure that “<em>Method</em>” is set to “<em>From Alpha</em>” and click okay. The masked areas will then be darkened to indicate they are masked.</p>
+  </li>
+</ol>
+
+<p><strong>Bonus Tip:</strong> To import masks from one photo into another, simpler drag the channel onto the new photo.</p>
+
+<p>Note that this is based on the ancient CS3 that’s installed on the Mac I’m currently using, and may not apply to newer versions.</p>
+
+<h2 id="python">Python</h2>
+
+<h3 id="argparse">argparse</h3>
+
+<p>Skeleton <code>argparse</code> template:</p>
+
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="c"># Import the library</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
 <a name="True-3"></a>
-<a name="True-4"></a><span class="c"># Unpack archive (change version as appropriate)</span>
-<a name="True-5"></a>tar -zxvf icmake_7.21.00.orig.tar.gz
-<a name="True-6"></a><span class="nb">cd </span>icmake-7.21.00
-</code></pre></div>
-
-<p>Now the <code>INSTALL.im</code> file needs to be altered to reflect our local installation. This means replacing all the file installation locations with local directories as such, where <user> should be replaced with your username:</user></p>
-
-<div class="highlight"><pre><code class="cpp"><a name="True-1"></a><span class="cp">#define BINDIR      &quot;/home/&lt;USER&gt;/.local/bin&quot;</span>
-<a name="True-2"></a><span class="cp">#define SKELDIR     &quot;/home/&lt;USER&gt;/.local/share/icmake&quot;</span>
-<a name="True-3"></a><span class="cp">#define MANDIR      &quot;/home/&lt;USER&gt;/.local/share/man&quot;</span>
-<a name="True-4"></a><span class="cp">#define LIBDIR      &quot;/home/&lt;USER&gt;/.local/lib/icmake&quot;</span>
-<a name="True-5"></a><span class="cp">#define CONFDIR     &quot;/home/&lt;USER&gt;/.local/config/icmake&quot;</span>
-<a name="True-6"></a><span class="cp">#define DOCDIR      &quot;/home/&lt;USER&gt;/.local/share/doc/icmake&quot;</span>
-<a name="True-7"></a><span class="cp">#define DOCDOCDIR   &quot;/home/&lt;USER&gt;/.local/share/doc/icmake-doc&quot;</span>
-</code></pre></div>
-
-<p>Now run the following to compile icmake:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>./icm_bootstrap /
-</code></pre></div>
-
-<p>Now, technically, this will compile all the files you actually need in <code>tmp</code>, but if you further want to install the files to ~/.local, then you simply run:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>./icm_install strip all
-</code></pre></div>
-
-<p>If you then want to clear up the temporary compiled files, delete the directory <code>tmp</code> with <code>rm -rf tmp</code>.</p>
-
-<h3 id="yodl">yodl</h3>
-
-<p>Now to move onto yodl. Again, we need to specify that we want to install locally by putting <code>BASE = "/home/as1423/.local" at the start of the function </code>setLocations()<code> located at the end of </code>INSTALL.im’, so that the function looks like:</p>
-
-<div class="highlight"><pre><code class="cpp"><a name="True-1"></a><span class="kt">void</span> <span class="nf">setLocations</span><span class="p">()</span>
-<a name="True-2"></a><span class="p">{</span>
-<a name="True-3"></a>    <span class="n">BASE</span>        <span class="o">=</span> <span class="s">&quot;/home/as1423/.local&quot;</span><span class="p">;</span>
-<a name="True-4"></a>
-<a name="True-5"></a>    <span class="c1">// make sure that BIN, STD_INCLUDE, MAN, DOC and DOCDOC all are</span>
-<a name="True-6"></a>    <span class="c1">// absolute paths</span>
-<a name="True-7"></a>
-<a name="True-8"></a>    <span class="n">BIN</span>         <span class="o">=</span> <span class="n">BASE</span> <span class="o">+</span> <span class="s">&quot;/bin&quot;</span><span class="p">;</span>
-<a name="True-9"></a>    <span class="n">DOC</span>         <span class="o">=</span> <span class="n">BASE</span> <span class="o">+</span> <span class="s">&quot;/share/doc/yodl&quot;</span><span class="p">;</span>
-<a name="True-10"></a>    <span class="n">DOCDOC</span>      <span class="o">=</span> <span class="n">BASE</span> <span class="o">+</span> <span class="s">&quot;/share/doc/yodl-doc&quot;</span><span class="p">;</span>
-<a name="True-11"></a>    <span class="n">MAN</span>         <span class="o">=</span> <span class="n">BASE</span> <span class="o">+</span> <span class="s">&quot;/share/man&quot;</span><span class="p">;</span>
-<a name="True-12"></a>    <span class="n">STD_INCLUDE</span> <span class="o">=</span> <span class="n">BASE</span> <span class="o">+</span> <span class="s">&quot;/share/yodl&quot;</span><span class="p">;</span>
-<a name="True-13"></a>
-<a name="True-14"></a>    <span class="n">COMPILER</span> <span class="o">=</span> <span class="s">&quot;gcc&quot;</span><span class="p">;</span>
-<a name="True-15"></a><span class="p">}</span>
-</code></pre></div>
-
-<p>In addition, we need to tell <code>build</code> to look in our local directory for <code>icmake</code> instead of the standard <code>/usr/bin</code> or <code>/usr/local/bin</code>. This means editing the hashbang at the top of <code>build</code> to look as follows, where again <user> is replaced by your UNIX username:</user></p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c">#!/home/&lt;USER&gt;/.local/bin/icmake -qt/tmp/yodl</span>
-</code></pre></div>
-
-<p>Now that <code>build</code> knows that we want to run our locally compiled <code>icmake</code>, we can actually build <code>yodl</code>:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># In root directory of yodl source</span>
-<a name="True-2"></a>./build programs
-<a name="True-3"></a>./build man
-<a name="True-4"></a>./build manual
-<a name="True-5"></a>./build macros
-</code></pre></div>
-
-<p>There may be a LaTeX error when running <code>./build manual</code>, but just ignore this, because it’s not vital.</p>
-
-<p>Now we’re ready to actually install yodl:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>./build install programs /
-<a name="True-2"></a>./build install man /
-<a name="True-3"></a>./build install manual /
-<a name="True-4"></a>./build install macros /
-<a name="True-5"></a>./build install docs /
-</code></pre></div>
-
-<p>Note that the <code>/</code> designates that we are installing with respect to the root of our filesystem. This is fine, though, because we’ve already specified in <code>INSTALL.im</code> that we want everything to be installed locally into <code>$HOME/.local$. Now </code>yodl` should be successfully installed.</p>
-
-<h2 id="step-2-tell-environment-where-ncurses-is">Step 2: Tell environment where ncurses is</h2>
-<p>Before compiling <code>zsh</code>, you need to tell your environment where your newly compiled files are (if you haven’t already). This can be achieved with:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="nv">INSTALL_PATH</span><span class="o">=</span><span class="s1">&#39;$HOME/.local&#39;</span>
-<a name="True-2"></a>
-<a name="True-3"></a><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$INSTALL_PATH</span>/bin:<span class="nv">$PATH</span>
-<a name="True-4"></a><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$INSTALL_PATH</span>/lib:<span class="nv">$LD_LIBRARY_PATH</span>
-<a name="True-5"></a><span class="nb">export </span><span class="nv">CFLAGS</span><span class="o">=</span>-I<span class="nv">$INSTALL_PATH</span>/include
-<a name="True-6"></a><span class="nb">export </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I$INSTALL_PATH/include&quot;</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-L$INSTALL_PATH/lib&quot;</span>
-</code></pre></div>
-
-<h2 id="step-3-compiling-zsh">Step 3: Compiling <code>zsh</code></h2>
-
-<p>Now, we’re finally ready to move onto compiling <code>zsh</code>:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Clone zsh repository from git</span>
-<a name="True-2"></a>git clone git://github.com/zsh-users/zsh.git
-<a name="True-3"></a>
-<a name="True-4"></a><span class="c"># Move into root zsh source directory</span>
-<a name="True-5"></a><span class="nb">cd </span>zsh
+<a name="True-4"></a><span class="c"># Description of the program</span>
+<a name="True-5"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Short description of the Python program.&quot;</span><span class="p">)</span>
 <a name="True-6"></a>
-<a name="True-7"></a><span class="c"># Produce config.h.in, needed to produce config.status from ./configure</span>
-<a name="True-8"></a>autoheader
+<a name="True-7"></a><span class="c"># A compulsory positional argument</span>
+<a name="True-8"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;compulsory&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Description of argument, what it does and what the options are.&quot;</span><span class="p">)</span>
 <a name="True-9"></a>
-<a name="True-10"></a><span class="c"># Produce the configure file from aclocal.m4 and configure.ac</span>
-<a name="True-11"></a>autoconf
+<a name="True-10"></a><span class="c"># A required normal argument</span>
+<a name="True-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--option&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
 <a name="True-12"></a>
-<a name="True-13"></a><span class="c"># Give autotools a timestamp for recompilation</span>
-<a name="True-14"></a>date &lt; stamp-h.in
+<a name="True-13"></a><span class="c"># An optional true/false argument</span>
+<a name="True-14"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-v&quot;</span><span class="p">,</span> <span class="s">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
 <a name="True-15"></a>
-<a name="True-16"></a><span class="c"># Produce Makefile and config.h via config.status</span>
-<a name="True-17"></a>./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/.local --enable-shared
+<a name="True-16"></a><span class="c"># Specifying the type</span>
+<a name="True-17"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--float&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
 <a name="True-18"></a>
-<a name="True-19"></a><span class="c"># Compile</span>
-<a name="True-20"></a>make
+<a name="True-19"></a><span class="c"># Specifying the default value</span>
+<a name="True-20"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="s">&quot;--name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;drew&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
 <a name="True-21"></a>
-<a name="True-22"></a><span class="c"># Install</span>
-<a name="True-23"></a>make install
+<a name="True-22"></a><span class="c"># Parse the arguments</span>
+<a name="True-23"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="True-24"></a>
+<a name="True-25"></a><span class="c"># Accessing the values of the arguments</span>
+<a name="True-26"></a><span class="n">myArgument</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">compulsory</span>
+<a name="True-27"></a><span class="n">myName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div>
 
-<h2 id="step-4-enjoy-zsh">Step 4: Enjoy <code>zsh</code>!</h2>
-<p>After these steps have been completed, zsh should be ready and compiled to use in your ~/.local/bin folder. If you like <code>zsh</code>, you’ll love <code>ohmyzsh</code>. This can be installed by:</p>
+<h3 id="replace--with-home-directory">Replace <code>~</code> with home directory</h3>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>curl -L http://install.ohmyz.sh <span class="p">|</span> sh
-</code></pre></div>
+<p>This is just a fun little script that replaces <code>~</code> in a string with the path to the user directory, e.g. <code>/home/drew</code>. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.</p>
 
-<p>Or if you don’t want o execute shell scripts from arbitrary non-https website, you can use git:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Clone repository into local dotfiles</span>
-<a name="True-2"></a>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="kn">import</span> <span class="nn">re</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">os</span>
 <a name="True-3"></a>
-<a name="True-4"></a><span class="c"># Copy template file into home directory</span>
-<a name="True-5"></a>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+<a name="True-4"></a><span class="c"># Replace &#39;~&#39; in fname with path to user dir</span>
+<a name="True-5"></a><span class="n">fname</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span> <span class="n">fname</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Once you’ve done this, edit oh-my-zsh to your needs, e.g. if you want to change the theme, replace <code>ZSH_THEME="robbyrussell" with the theme of your choice. I particularly enjoy </code>jonathan`.</p>
+<h3 id="increase-size-of-pyplot-legend">Increase size of pyplot legend</h3>
 
-<p>And finally, change your shell to <code>zsh</code>:</p>
+<p>Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>chsh -s <span class="nv">$HOME</span>/.local/bin/zsh
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">borderpad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.</p>
+<h3 id="fix-spacing-in-pyplot-multiplots">Fix spacing in pyplot multiplots</h3>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:</p>
 
-<p>If, when installing <code>zsh</code>, either <code>make</code> or <code>make install</code> fail despite all other programs being compiled and present, you may need to run <code>make realclean</code> to remove ALL compiled files, and start the compilation from <code>autoheader</code>. This sometimes happens if you run <code>./configure</code> before installing <code>yodl</code>, meaning the <code>config.h</code> and <code>Makefile</code> files have been built without knowledge of <code>yodl</code> and need to be purged.</p>
-
-<p>If <code>zsh</code> isn’t recognising the <code>ncurses</code> library when running <code>./configure</code>, and instead giving the following error:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>configure: error: <span class="s2">&quot;No terminal handling library was found on your system.</span>
-<a name="True-2"></a><span class="s2">This is probably a library called &#39;curses&#39; or &#39;ncurses&#39;. You may</span>
-<a name="True-3"></a><span class="s2">need to install a package called &#39;curses-devel&#39; or &#39;ncurses-devel&#39; on your</span>
-<a name="True-4"></a><span class="s2">system.&quot;</span>
-<a name="True-5"></a>See <span class="sb">`</span>config.log<span class="err">&#39;</span> <span class="k">for </span>more details.
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </code></pre></div>
 
-<p>Then this means that you haven’t got the <code>ncurses</code> library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting <code>CPPFLAGS</code> and <code>LDFLAGS</code>.</p>
+<p>Why is this not a standard part of matplotlib? I don’t know.</p>
 
-<h2 id="references">References</h2>
+<h2 id="perl">Perl</h2>
 
-<p><a href="https://unix.stackexchange.com/questions/123597/building-zsh-without-admin-priv-no-terminal-handling-library-found">This stackoverflow post</a></p>
+<h3 id="pie">Pie</h3>
 
-<p><a href="https://en.wikipedia.org/wiki/GNU_build_system#mediaviewer/File:Autoconf-automake-process.svg">This autotools flow chart from Wikipedia</a></p>
+<p>Probably the most useful thing that <code>perl</code> can do is <code>perl </code>-pi -e`, often lovingly called Perl Pie. The syntax is:</p>
 
-<p><a href="https://github.com/zsh-users/zsh/blob/master/INSTALL">The somewhat cryptic and involved zsh INSTALL file.</a></p>
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/string to find/string to replace/g&quot;</span> filenames
+</code></pre></div>
+
+<p>This replaces <code>string to find</code> with <code>string to replace</code> in filenames. This is fully regex compatible. For instance, if I wanted to replace <code>mispelt</code> with <code>misspelt</code> in all files ending in <code>.txt</code>, I would run:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/mispelt/misspelt/g&quot;</span> *.txt
+</code></pre></div>
+
 
   </div>
   
