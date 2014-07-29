@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Drew Silcock &middot; Tutorials, thoughts and experiences.
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/bootstrap_button.css">
+
+  <!-- CDNs-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52653050-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Drew Silcock
+        </a>
+      </h1>
+      <p class="lead">Maybe somebody, somewhere will find this useful.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/download/">Download</a>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v1.0.2</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/personal-cheatsheet">
+        Personal cheatsheet
+      </a>
+    </h1>
+
+    <span class="post-date">15 Jul 2014</span>
+
+    <p>Herein lies my personal cheatsheet for all things I find useful and wish not to forget.</p>
+
+<h2 id="git">Git</h2>
+
+<p>These are the things you need to do when using <code>git</code> on a new computer:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Change username associated with commits</span>
+<a name="True-2"></a>git config --global user.name <span class="s2">&quot;&lt;USER&gt;&quot;</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Change email associated with commits</span>
+<a name="True-5"></a>git config --global user.email &lt;EMAIL&gt;
+<a name="True-6"></a>
+<a name="True-7"></a><span class="c"># Cache uname and passwd for convenience (only on git &gt;= 1.7.9)</span>
+<a name="True-8"></a>git config --global credential.helper cache
+</code></pre></div>
+
+<h2 id="vim">Vim</h2>
+
+<h3 id="editing-over-scp">Editing over scp</h3>
+
+<p>Vim comes with the ability to edit files remotely over scp. This can be achieved via:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">vim</span> scp:<span class="sr">//</span>user@servername<span class="sr">//</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span>
+</code></pre></div>
+
+<p>However, trying to save gives the error:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a>E382: Cannot <span class="nb">write</span><span class="p">,</span> <span class="s1">&#39;buftype&#39;</span> <span class="k">option</span> <span class="k">is</span> <span class="k">set</span>
+</code></pre></div>
+
+<p>In fact, running <code>set buftype?</code> reveals that <code>buftype</code> is set to <code>nofile</code>, meaning the buffer cannot be saved to file.</p>
+
+<p>This can be circumvented by clearing <code>buftype</code>, as is the default with local file editing:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">set</span> <span class="nb">buftype</span><span class="p">=</span>
+<a name="True-2"></a><span class="p">:</span><span class="k">w</span>
+</code></pre></div>
+
+<p>However, the buffer returns back to it’s initial state of being set to <code>nofile</code>. It is therefore useful to define a function in <code>~/.vimrc</code> to save you the typing to do both in one go:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">function</span> RemoteSave <span class="p">()</span>
+<a name="True-2"></a>    <span class="k">set</span> <span class="nb">buftype</span><span class="p">=</span>
+<a name="True-3"></a>    <span class="nb">write</span>
+<a name="True-4"></a><span class="k">endfunction</span>
+</code></pre></div>
+
+<p>This simple function allows you to write to the remote file via <code>scp</code> each time with one single command:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">call</span> RemoteSave<span class="p">()</span>
+</code></pre></div>
+
+<p><br />Update&lt;/br&gt;
+Whilst this is still useful cheatsheet information on how to make Vimscript functions, the <a href="http://www.vim.org/scripts/script.php?script_id=1075">netrw plugin</a> that comes bundled with Vim 7.0 comes with a build-in function to do exactly this, with only one command:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span>Nwrite
+</code></pre></div>
+
+<h2 id="sshfs">sshfs</h2>
+
+<p>To allow other non-root users to access a filesystem mounted over ssh, use:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
+</code></pre></div>
+
+<h2 id="photoshop">Photoshop</h2>
+
+<p>Whilst I don’t generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like <a href="http://www.agisoft.ru/products/photoscan">PhotoScan</a> (another piece of incredibly expensive proprietary software).</p>
+
+<ol>
+  <li>
+    <p>Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The <code>w</code> key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.</p>
+  </li>
+  <li>
+    <p>Next, in the “<em>Channels</em>” group, click “<em>New channel</em>” at the bottom of the group box. The image should now turn black.</p>
+  </li>
+  <li>
+    <p>If you want to mask the selection, press <code>&lt;CMD&gt;&lt;SHIFT&gt;I</code> to invert the selection and press <code>&lt;SHIFT&gt;&lt;F5&gt;</code>; select “<em>White</em>” and press <code>&lt;CR&gt;</code>. If you want to mask everything apart from the selection, then simply press <code>&lt;SHIFT&gt;&lt;F5&gt;</code>, select “<em>White</em>” and press <code>&lt;CR&gt;</code></p>
+  </li>
+  <li>
+    <p>Save the file as a format supporting alpha channels by pressing <code>&lt;CMD&gt;&lt;SHIFT&gt;S</code>. For PhotoScan imports, <code>TIFF</code> is recommended. Tick the box called “<em>Alpha Channels</em>” and press <code>&lt;CR&gt;</code> twice to save.</p>
+  </li>
+  <li>
+    <p>(<strong>optional</strong>) In PhotoScan, after loading the photos into the workspace with <em>Workflow</em>&gt;<em>Add photos</em>/<em>Add folder</em>, click <em>Tools</em>&gt;<em>Import</em>&gt;<em>Import masks…</em>. Make sure that “<em>Method</em>” is set to “<em>From Alpha</em>” and click okay. The masked areas will then be darkened to indicate they are masked.</p>
+  </li>
+</ol>
+
+<p><strong>Bonus Tip:</strong> To import masks from one photo into another, simpler drag the channel onto the new photo.</p>
+
+<p>Note that this is based on the ancient CS3 that’s installed on the Mac I’m currently using, and may not apply to newer versions.</p>
+
+<h2 id="python">Python</h2>
+
+<h3 id="argparse">argparse</h3>
+
+<p>Skeleton <code>argparse</code> template:</p>
+
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="c"># Import the library</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Description of the program</span>
+<a name="True-5"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Short description of the Python program.&quot;</span><span class="p">)</span>
+<a name="True-6"></a>
+<a name="True-7"></a><span class="c"># A compulsory positional argument</span>
+<a name="True-8"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;compulsory&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Description of argument, what it does and what the options are.&quot;</span><span class="p">)</span>
+<a name="True-9"></a>
+<a name="True-10"></a><span class="c"># A required normal argument</span>
+<a name="True-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--option&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-12"></a>
+<a name="True-13"></a><span class="c"># An optional true/false argument</span>
+<a name="True-14"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-v&quot;</span><span class="p">,</span> <span class="s">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-15"></a>
+<a name="True-16"></a><span class="c"># Specifying the type</span>
+<a name="True-17"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--float&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-18"></a>
+<a name="True-19"></a><span class="c"># Specifying the default value</span>
+<a name="True-20"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="s">&quot;--name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;drew&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-21"></a>
+<a name="True-22"></a><span class="c"># Parse the arguments</span>
+<a name="True-23"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="True-24"></a>
+<a name="True-25"></a><span class="c"># Accessing the values of the arguments</span>
+<a name="True-26"></a><span class="n">myArgument</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">compulsory</span>
+<a name="True-27"></a><span class="n">myName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div>
+
+<h3 id="replace--with-home-directory">Replace <code>~</code> with home directory</h3>
+
+<p>This is just a fun little script that replaces <code>~</code> in a string with the path to the user directory, e.g. <code>/home/drew</code>. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.</p>
+
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="kn">import</span> <span class="nn">re</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Replace &#39;~&#39; in fname with path to user dir</span>
+<a name="True-5"></a><span class="n">fname</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span> <span class="n">fname</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="increase-size-of-pyplot-legend">Increase size of pyplot legend</h3>
+
+<p>Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:</p>
+
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">borderpad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page4">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page2">Newer</a>
+    
+  
+</div>
+    </div>
+
+  </body>
+
+</html>
+
