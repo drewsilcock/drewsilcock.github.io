@@ -20,7 +20,7 @@ Herein lies my personal cheatsheet for all things I find useful and wish not to 
 
 These are the things you need to do when using `git` on a new computer:
 
-{% highlight bash lineanchors %}
+{% highlight bash %}
 # Change username associated with commits
 git config --global user.name "<USER>"
 
@@ -37,7 +37,7 @@ git config --global credential.helper cache
 
 Here's the syntax for declaring vim script functions:
 
-{% highlight vim lineanchors %}
+{% highlight vim %}
 functions MyFunction ()
     do first thing
     do second thing
@@ -46,7 +46,7 @@ endfunction
 
 And you then call it in Vim with:
 
-{% highlight vim lineanchors %}
+{% highlight vim %}
 :call MyFunction()
 {% endhighlight %}
 
@@ -64,19 +64,19 @@ au BufRead,BufNewFile *.moo set filetype=moo
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
-{% highlight vim lineanchors %}
+{% highlight vim %}
 vim scp://user@servername//path/to/file
 {% endhighlight %}
 
 However, trying to save gives the error:
 
-{% highlight vim lineanchors %}
+{% highlight vim %}
 E382: Cannot write, 'buftype' option is set
 {% endhighlight %}
 
 In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meaning the buffer cannot be saved to file. This can be bypassed by using `:Nwrite` from the [netrw.vim](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0:
 
-{% highlight vim lineanchors %}
+{% highlight vim %}
 :Nwrite
 {% endhighlight %}
 
@@ -84,7 +84,7 @@ In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meani
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
 
-{% highlight bash lineanchors %}
+{% highlight bash %}
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 {% endhighlight %}
 
@@ -112,7 +112,7 @@ Note that this is based on the ancient CS3 that's installed on the Mac I'm curre
 
 Skeleton `argparse` template:
 
-{% highlight python lineanchors %}
+{% highlight python %}
 # Import the library
 import argparse
 
@@ -146,7 +146,7 @@ myName = args.name
 
 This is just a fun little script that replaces `~` in a string with the path to the user directory, e.g. `/home/drew`. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.
 
-{% highlight python lineanchors %}
+{% highlight python %}
 import re
 import os
 
@@ -158,7 +158,7 @@ fname = re.sub("~", os.environ['HOME'], fname)
 
 Sometimes, the legend in matplotlib isn't quite big enough. Increase it with:
 
-{% highlight python lineanchors %}
+{% highlight python %}
 plt.legend(loc="upper left", shadow=True, borderpad=1)
 {% endhighlight %}
 
