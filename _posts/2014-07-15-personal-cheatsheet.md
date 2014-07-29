@@ -33,6 +33,33 @@ git config --global credential.helper cache
 
 ## Vim
 
+### Vim functions
+
+Here's the syntax for declaring vim script functions:
+
+{% highlight vim lineanchors %}
+functions MyFunction ()
+    do first thing
+    do second thing
+endfunction
+{% endhighlight %}
+
+And you then call it in Vim with:
+
+{% highlight vim lineanchors %}
+:call MyFunction()
+{% endhighlight %}
+
+### Recognise custom filetypes
+
+I've got `moo.vim` files in my `~/.vim/after/syntax` and `~/.vim/after/ftplugin`, for all `moo` files with extension `.moo`. To get Vim to recognise these `.moo` files and apply the Vim scripts associated therewith, I need to create a file called `moo.vim` in `~/.vim/ftdetect/`, which contains the following:
+
+{% highlight vim %}
+au BufRead,BufNewFile *.moo set filetype=moo
+{% endhighlight %}
+
+*Note*: You may have to wipe your `~/.vim/view` before Vim recognises old files as this new filetype.
+
 ### Editing over scp
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
@@ -47,32 +74,7 @@ However, trying to save gives the error:
 E382: Cannot write, 'buftype' option is set
 {% endhighlight %}
 
-In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meaning the buffer cannot be saved to file.
-
-This can be circumvented by clearing `buftype`, as is the default with local file editing:
-
-{% highlight vim lineanchors %}
-:set buftype=
-:w
-{% endhighlight %}
-
-However, the buffer returns back to it's initial state of being set to `nofile`. It is therefore useful to define a function in `~/.vimrc` to save you the typing to do both in one go:
-
-{% highlight vim lineanchors %}
-function RemoteSave ()
-    set buftype=
-    write
-endfunction
-{% endhighlight %}
-
-This simple function allows you to write to the remote file via `scp` each time with one single command:
-
-{% highlight vim lineanchors %}
-:call RemoteSave()
-{% endhighlight %}
-
-<br>Update</br>
-Whilst this is still useful cheatsheet information on how to make Vimscript functions, the [netrw plugin](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0 comes with a build-in function to do exactly this, with only one command:
+In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meaning the buffer cannot be saved to file. This can be bypassed by using `:Nwrite` from the [netrw.vim](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0:
 
 {% highlight vim lineanchors %}
 :Nwrite
@@ -158,4 +160,30 @@ Sometimes, the legend in matplotlib isn't quite big enough. Increase it with:
 
 {% highlight python lineanchors %}
 plt.legend(loc="upper left", shadow=True, borderpad=1)
+{% endhighlight %}
+
+### Fix spacing in pyplot multiplots
+
+Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:
+
+{% highlight python %}
+plt.tight_layout()
+{% endhighlight %}
+
+Why is this not a standard part of matplotlib? I don't know.
+
+## Perl
+
+### Pie
+
+Probably the most useful thing that `perl` can do is `perl `-pi -e`, often lovingly called Perl Pie. The syntax is:
+
+{% highlight bash %}
+perl -pi -e "s/string to find/string to replace/g" filenames
+{% endhighlight %}
+
+This replaces `string to find` with `string to replace` in filenames. This is fully regex compatible. For instance, if I wanted to replace `mispelt` with `misspelt` in all files ending in `.txt`, I would run:
+
+{% highlight bash %}
+perl -pi -e "s/mispelt/misspelt/g" *.txt
 {% endhighlight %}
