@@ -61,6 +61,8 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #202020;
+  background-size: cover;
+  /* Set background size for topbar */
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -70,6 +72,8 @@ html {
     bottom: 0;
     width: 18rem;
     text-align: left;
+    background-size: 36rem 100%;
+    /* Set different background size for sticky */
   }
 }
 
