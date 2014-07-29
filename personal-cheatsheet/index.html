@@ -132,6 +132,8 @@
 
 <h2 id="git">Git</h2>
 
+<h3 id="first-commands">First commands</h3>
+
 <p>These are the things you need to do when using <code>git</code> on a new computer:</p>
 
 <div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Change username associated with commits</span>
@@ -144,7 +146,43 @@
 <a name="True-8"></a>git config --global credential.helper cache
 </code></pre></div>
 
+<h3 id="adding-remote">Adding remote</h3>
+
+<p>Add remote repository:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>git remote add origin https://github.com/username/repository.git
+</code></pre></div>
+
+<p>Then subsequently set local branch to track remote branch:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>git branch --set-upstream master origin/&lt;branch&gt;
+</code></pre></div>
+
 <h2 id="vim">Vim</h2>
+
+<h3 id="vim-functions">Vim functions</h3>
+
+<p>Here’s the syntax for declaring vim script functions:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a>functions MyFunction <span class="p">()</span>
+<a name="True-2"></a>    <span class="k">do</span> <span class="k">first</span> thing
+<a name="True-3"></a>    <span class="k">do</span> second thing
+<a name="True-4"></a><span class="k">endfunction</span>
+</code></pre></div>
+
+<p>And you then call it in Vim with:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">call</span> MyFunction<span class="p">()</span>
+</code></pre></div>
+
+<h3 id="recognise-custom-filetypes">Recognise custom filetypes</h3>
+
+<p>I’ve got <code>moo.vim</code> files in my <code>~/.vim/after/syntax</code> and <code>~/.vim/after/ftplugin</code>, for all <code>moo</code> files with extension <code>.moo</code>. To get Vim to recognise these <code>.moo</code> files and apply the Vim scripts associated therewith, I need to create a file called <code>moo.vim</code> in <code>~/.vim/ftdetect/</code>, which contains the following:</p>
+
+<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span><span class="nb">BufNewFile</span> *.moo <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>moo
+</code></pre></div>
+
+<p><em>Note</em>: You may have to wipe your <code>~/.vim/view</code> before Vim recognises old files as this new filetype.</p>
 
 <h3 id="editing-over-scp">Editing over scp</h3>
 
@@ -158,29 +196,7 @@
 <div class="highlight"><pre><code class="vim"><a name="True-1"></a>E382: Cannot <span class="nb">write</span><span class="p">,</span> <span class="s1">&#39;buftype&#39;</span> <span class="k">option</span> <span class="k">is</span> <span class="k">set</span>
 </code></pre></div>
 
-<p>In fact, running <code>set buftype?</code> reveals that <code>buftype</code> is set to <code>nofile</code>, meaning the buffer cannot be saved to file.</p>
-
-<p>This can be circumvented by clearing <code>buftype</code>, as is the default with local file editing:</p>
-
-<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">set</span> <span class="nb">buftype</span><span class="p">=</span>
-<a name="True-2"></a><span class="p">:</span><span class="k">w</span>
-</code></pre></div>
-
-<p>However, the buffer returns back to it’s initial state of being set to <code>nofile</code>. It is therefore useful to define a function in <code>~/.vimrc</code> to save you the typing to do both in one go:</p>
-
-<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="k">function</span> RemoteSave <span class="p">()</span>
-<a name="True-2"></a>    <span class="k">set</span> <span class="nb">buftype</span><span class="p">=</span>
-<a name="True-3"></a>    <span class="nb">write</span>
-<a name="True-4"></a><span class="k">endfunction</span>
-</code></pre></div>
-
-<p>This simple function allows you to write to the remote file via <code>scp</code> each time with one single command:</p>
-
-<div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span><span class="k">call</span> RemoteSave<span class="p">()</span>
-</code></pre></div>
-
-<p><br />Update&lt;/br&gt;
-Whilst this is still useful cheatsheet information on how to make Vimscript functions, the <a href="http://www.vim.org/scripts/script.php?script_id=1075">netrw plugin</a> that comes bundled with Vim 7.0 comes with a build-in function to do exactly this, with only one command:</p>
+<p>In fact, running <code>set buftype?</code> reveals that <code>buftype</code> is set to <code>nofile</code>, meaning the buffer cannot be saved to file. This can be bypassed by using <code>:Nwrite</code> from the <a href="http://www.vim.org/scripts/script.php?script_id=1075">netrw.vim</a> that comes bundled with Vim 7.0:</p>
 
 <div class="highlight"><pre><code class="vim"><a name="True-1"></a><span class="p">:</span>Nwrite
 </code></pre></div>
@@ -269,6 +285,29 @@ Whilst this is still useful cheatsheet information on how to make Vimscript func
 <p>Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:</p>
 
 <div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">borderpad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="fix-spacing-in-pyplot-multiplots">Fix spacing in pyplot multiplots</h3>
+
+<p>Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:</p>
+
+<div class="highlight"><pre><code class="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Why is this not a standard part of matplotlib? I don’t know.</p>
+
+<h2 id="perl">Perl</h2>
+
+<h3 id="pie">Pie</h3>
+
+<p>Probably the most useful thing that <code>perl</code> can do is <code>perl </code>-pi -e`, often lovingly called Perl Pie. The syntax is:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/string to find/string to replace/g&quot;</span> filenames
+</code></pre></div>
+
+<p>This replaces <code>string to find</code> with <code>string to replace</code> in filenames. This is fully regex compatible. For instance, if I wanted to replace <code>mispelt</code> with <code>misspelt</code> in all files ending in <code>.txt</code>, I would run:</p>
+
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/mispelt/misspelt/g&quot;</span> *.txt
 </code></pre></div>
 
 

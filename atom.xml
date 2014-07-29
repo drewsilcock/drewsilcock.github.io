@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-29T14:43:19+01:00</updated>
+ <updated>2014-07-29T17:42:09+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -247,6 +247,8 @@
 
 &lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
 
+&lt;h3 id=&quot;first-commands&quot;&gt;First commands&lt;/h3&gt;
+
 &lt;p&gt;These are the things you need to do when using &lt;code&gt;git&lt;/code&gt; on a new computer:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
@@ -259,7 +261,43 @@
 &lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git config --global credential.helper cache
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
+
+&lt;p&gt;Add remote repository:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/repository.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then subsequently set local branch to track remote branch:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
+
+&lt;h3 id=&quot;vim-functions&quot;&gt;Vim functions&lt;/h3&gt;
+
+&lt;p&gt;Here’s the syntax for declaring vim script functions:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you then call it in Vim with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;recognise-custom-filetypes&quot;&gt;Recognise custom filetypes&lt;/h3&gt;
+
+&lt;p&gt;I’ve got &lt;code&gt;moo.vim&lt;/code&gt; files in my &lt;code&gt;~/.vim/after/syntax&lt;/code&gt; and &lt;code&gt;~/.vim/after/ftplugin&lt;/code&gt;, for all &lt;code&gt;moo&lt;/code&gt; files with extension &lt;code&gt;.moo&lt;/code&gt;. To get Vim to recognise these &lt;code&gt;.moo&lt;/code&gt; files and apply the Vim scripts associated therewith, I need to create a file called &lt;code&gt;moo.vim&lt;/code&gt; in &lt;code&gt;~/.vim/ftdetect/&lt;/code&gt;, which contains the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: You may have to wipe your &lt;code&gt;~/.vim/view&lt;/code&gt; before Vim recognises old files as this new filetype.&lt;/p&gt;
 
 &lt;h3 id=&quot;editing-over-scp&quot;&gt;Editing over scp&lt;/h3&gt;
 
@@ -273,29 +311,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file.&lt;/p&gt;
-
-&lt;p&gt;This can be circumvented by clearing &lt;code&gt;buftype&lt;/code&gt;, as is the default with local file editing:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;buftype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;However, the buffer returns back to it’s initial state of being set to &lt;code&gt;nofile&lt;/code&gt;. It is therefore useful to define a function in &lt;code&gt;~/.vimrc&lt;/code&gt; to save you the typing to do both in one go:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; RemoteSave &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;buftype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;This simple function allows you to write to the remote file via &lt;code&gt;scp&lt;/code&gt; each time with one single command:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; RemoteSave&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;Update&amp;lt;/br&amp;gt;
-Whilst this is still useful cheatsheet information on how to make Vimscript functions, the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw plugin&lt;/a&gt; that comes bundled with Vim 7.0 comes with a build-in function to do exactly this, with only one command:&lt;/p&gt;
+&lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file. This can be bypassed by using &lt;code&gt;:Nwrite&lt;/code&gt; from the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw.vim&lt;/a&gt; that comes bundled with Vim 7.0:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -384,6 +400,29 @@ Whilst this is still useful cheatsheet information on how to make Vimscript func
 &lt;p&gt;Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;fix-spacing-in-pyplot-multiplots&quot;&gt;Fix spacing in pyplot multiplots&lt;/h3&gt;
+
+&lt;p&gt;Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Why is this not a standard part of matplotlib? I don’t know.&lt;/p&gt;
+
+&lt;h2 id=&quot;perl&quot;&gt;Perl&lt;/h2&gt;
+
+&lt;h3 id=&quot;pie&quot;&gt;Pie&lt;/h3&gt;
+
+&lt;p&gt;Probably the most useful thing that &lt;code&gt;perl&lt;/code&gt; can do is &lt;code&gt;perl &lt;/code&gt;-pi -e`, often lovingly called Perl Pie. The syntax is:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This replaces &lt;code&gt;string to find&lt;/code&gt; with &lt;code&gt;string to replace&lt;/code&gt; in filenames. This is fully regex compatible. For instance, if I wanted to replace &lt;code&gt;mispelt&lt;/code&gt; with &lt;code&gt;misspelt&lt;/code&gt; in all files ending in &lt;code&gt;.txt&lt;/code&gt;, I would run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </content>
