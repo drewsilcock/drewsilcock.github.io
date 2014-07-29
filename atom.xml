@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-29T18:25:55+01:00</updated>
+ <updated>2014-07-29T18:39:15+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -35,15 +35,15 @@
 
 &lt;p&gt;In the &lt;code&gt;.gitignore&lt;/code&gt; of the &lt;code&gt;source&lt;/code&gt; branch, you put the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;_site
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, when you run &lt;code&gt;jekyll build&lt;/code&gt; and Jekyll produces all the HTML in &lt;code&gt;_site&lt;/code&gt;, git doesn’t recognise it. That means that we can &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;_site&lt;/code&gt;, and seeing as git doesn’t know the difference, we can make &lt;code&gt;_site&lt;/code&gt; itself into its own git repository.&lt;/p&gt;
 
 &lt;p&gt;Assuming you’re starting off with a bog standard single branch Pages repo, you run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure \_site is empty before we begin&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;rm -rf &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site/&lt;span class=&quot;se&quot;&gt;\*&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure _site is empty before we begin&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;rm -rf _site/*
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git checkout -b &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
@@ -57,8 +57,8 @@
 &lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
 &lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git branch -D master
 &lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within \_site&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within _site&lt;/span&gt;
+&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
 &lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;git init
 &lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
@@ -76,7 +76,7 @@
 &lt;p&gt;Now each time you want to build your site locally, you just need to run:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;site
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;touch .nojekyll
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git add .
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git commit
@@ -85,9 +85,24 @@
 
 &lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that you need to &lt;code&gt;touch .nojekyll&lt;/code&gt; because Jekyll seems to delete the original &lt;code&gt;.nojekyll&lt;/code&gt; each time the site is built. If anyone knows a cleaner way around this, &lt;a href=&quot;mailto:drewATdrewsilcockDOTcoDOTuk&quot; onclick=&quot;this.href=this.href               .replace(/AT/,'&amp;#64;')               .replace(/DOT/,'&amp;#46;')               .replace(/DOT/,'&amp;#46;')&quot;&gt;let me know!&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here’s the gist for it:&lt;/p&gt;
+&lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the &lt;a href=&quot;https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4&quot;&gt;gist of it&lt;/a&gt;, and this is the script:&lt;/p&gt;
 
-&lt;script src=&quot;https://gist.github.com/1.js?file=b9fc80682edd8bcecc4&quot;&gt; &lt;/script&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt; 
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Please enter a git commit message&amp;quot;&lt;/span&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt; &lt;/span&gt;
+&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;jekyll build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;  touch _site/.nojekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;  git add . &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:&lt;/p&gt;
 

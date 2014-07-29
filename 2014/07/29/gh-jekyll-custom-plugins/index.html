@@ -150,15 +150,15 @@
 
 <p>In the <code>.gitignore</code> of the <code>source</code> branch, you put the following:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="se">\_</span>site
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a>_site
 </code></pre></div>
 
 <p>Then, when you run <code>jekyll build</code> and Jekyll produces all the HTML in <code>_site</code>, git doesn’t recognise it. That means that we can <code>cd</code> into <code>_site</code>, and seeing as git doesn’t know the difference, we can make <code>_site</code> itself into its own git repository.</p>
 
 <p>Assuming you’re starting off with a bog standard single branch Pages repo, you run:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Make sure \_site is empty before we begin</span>
-<a name="True-2"></a>rm -rf <span class="se">\_</span>site/<span class="se">\*</span>
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
+<a name="True-2"></a>rm -rf _site/*
 <a name="True-3"></a>
 <a name="True-4"></a><span class="c"># Make new source branch</span>
 <a name="True-5"></a>git checkout -b <span class="nb">source</span>
@@ -172,8 +172,8 @@
 <a name="True-13"></a><span class="c"># Locally delete the original master branch</span>
 <a name="True-14"></a>git branch -D master
 <a name="True-15"></a>
-<a name="True-16"></a><span class="c"># Make a new git repository within \_site</span>
-<a name="True-17"></a><span class="nb">cd</span> <span class="se">\_</span>site
+<a name="True-16"></a><span class="c"># Make a new git repository within _site</span>
+<a name="True-17"></a><span class="nb">cd </span>_site
 <a name="True-18"></a>git init
 <a name="True-19"></a>
 <a name="True-20"></a><span class="c"># Tell Jekyll to ignore this directory</span>
@@ -191,7 +191,7 @@
 <p>Now each time you want to build your site locally, you just need to run:</p>
 
 <div class="highlight"><pre><code class="bash"><a name="True-1"></a>jekyll build
-<a name="True-2"></a><span class="nb">cd</span> <span class="se">\_</span>site
+<a name="True-2"></a><span class="nb">cd </span>_site
 <a name="True-3"></a>touch .nojekyll
 <a name="True-4"></a>git add .
 <a name="True-5"></a>git commit
@@ -200,9 +200,24 @@
 
 <p>and you have successfully built and deployed your website with Jekyll. Note that you need to <code>touch .nojekyll</code> because Jekyll seems to delete the original <code>.nojekyll</code> each time the site is built. If anyone knows a cleaner way around this, <a href="mailto:drewATdrewsilcockDOTcoDOTuk" onclick="this.href=this.href               .replace(/AT/,'&#64;')               .replace(/DOT/,'&#46;')               .replace(/DOT/,'&#46;')">let me know!</a></p>
 
-<p>Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here’s the gist for it:</p>
+<p>Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the <a href="https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4">gist of it</a>, and this is the script:</p>
 
-<script src="https://gist.github.com/1.js?file=b9fc80682edd8bcecc4"> </script>
+<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c">#!/bin/bash</span>
+<a name="True-2"></a> 
+<a name="True-3"></a><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&quot;$1&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+<a name="True-4"></a><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please enter a git commit message&quot;</span>
+<a name="True-5"></a>  <span class="nb">exit</span>
+<a name="True-6"></a><span class="k">fi</span>
+<a name="True-7"></a><span class="k"> </span>
+<a name="True-8"></a>jekyll build <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-9"></a>  touch _site/.nojekyll <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-10"></a>  <span class="nb">cd </span>_site <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-11"></a>  git add . <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-12"></a>  git commit -am <span class="s2">&quot;$1&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-13"></a>  git push origin master <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-14"></a>  <span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="True-15"></a>  <span class="nb">echo</span> <span class="s2">&quot;Successfully built and pushed to GitHub.&quot;</span>
+</code></pre></div>
 
 <p>So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:</p>
 
