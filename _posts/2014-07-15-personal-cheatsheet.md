@@ -37,13 +37,13 @@ git config --global credential.helper cache
 
 Add remote repository:
 
-{% highlight git %}
+{% highlight bash %}
 git remote add origin https://github.com/username/repository.git
 {% endhighlight %}
 
 Then subsequently set local branch to track remote branch:
 
-{% highlight git %}
+{% highlight bash %}
 git branch --set-upstream master origin/<branch>
 {% endhighlight %}
 
