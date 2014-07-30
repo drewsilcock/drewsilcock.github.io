@@ -72,7 +72,6 @@ html {
     bottom: 0;
     width: 18rem;
     text-align: left;
-    /*background-size: 36rem 100%;*/
     background-size: 45rem 100%;
     /* Set different background size for sticky */
   }
