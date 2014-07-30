@@ -22,6 +22,9 @@ git config --global user.email <EMAIL>
 
 # Cache uname and passwd for convenience (only on git >= 1.7.9)
 git config --global credential.helper cache
+
+# Push to current branch only by default
+git config --global push.default current
 {% endhighlight %}
 
 ### Adding remote
