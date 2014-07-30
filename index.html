@@ -72,12 +72,6 @@
       
         
           
-            <a class="sidebar-nav-item" href="/archive/">Archive</a>
-          
-        
-      
-        
-          
         
       
         
@@ -88,25 +82,15 @@
       
         
           
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+          
             <a class="sidebar-nav-item" href="/download/">Download</a>
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
           
         
       
@@ -140,98 +124,98 @@
 
     <span class="post-date">29 Jul 2014</span>
 
-    <p>So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the <code>--safe</code> flag that it compiles your site with. So what do you do?</p>
+    
+        <p>So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the <code>--safe</code> flag that it compiles your site with. So what do you do?</p>
 
 <p>Well, if you compile the site using <code>jekyll</code> yourself, then push the resulting compiled HTML to your GitHub Pages repository, then it works perfectly! You get your custom plugins, and you get your free GitHub Pages hosting.</p>
 
 <p>So how do you organise the source and compiled code?</p>
 
-<p>Some people, like <a href="http://charliepark.org/jekyll-with-plugins/">Charlie Park</a>, recommend two repos, one with the source code (e.g. <code>github.com/username/username.github.io.raw</code> for the compiled HTML and <code>github.com/username/username.github.io</code> for the compiled HTML). I don’t particularly like this. It’s one project, it should be one repo.</p>
 
-<p>Others, like <a href="http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html">Alexandre Rademaker</a>, have two separate branches (a <code>master</code> for compiled HTML and a <code>source</code> for the Jekyll source), and change branches then copy the contents of <code>_site</code> into the master branch every time you want to push to your website.</p>
+        <p><a class="btn btn-primary btn-lg" href="/custom-jekyll-plugins">Continue reading...</a></p>
+    
 
-<p>I like the idea of separate branches within the same repo, but messing about with copying <code>_site</code> seems laborious and unnecessary. Here’s my solution:</p>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/meters-per-pixel">
+        Calculating meters per pixel from aerial photographs
+      </a>
+    </h1>
 
-<p>Two branches: source and master.</p>
+    <span class="post-date">21 Jul 2014</span>
 
-<p>Master contains compiled HTML, source contains the Jekyll source.</p>
+    
+        <h2 id="aim">Aim</h2>
 
-<p>In the <code>.gitignore</code> of the <code>source</code> branch, you put the following:</p>
+<p>The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>_site
-</code></pre></div>
 
-<p>Then, when you run <code>jekyll build</code> and Jekyll produces all the HTML in <code>_site</code>, git doesn’t recognise it. That means that we can <code>cd</code> into <code>_site</code>, and seeing as git doesn’t know the difference, we can make <code>_site</code> itself into its own git repository.</p>
+        <p><a class="btn btn-primary btn-lg" href="/meters-per-pixel">Continue reading...</a></p>
+    
 
-<p>Assuming you’re starting off with a bog standard single branch Pages repo, you run:</p>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/proper-linenumbers">
+        Proper line numbers with Jekyll
+      </a>
+    </h1>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
-<a name="True-2"></a>rm -rf _site/*
-<a name="True-3"></a>
-<a name="True-4"></a><span class="c"># Make new source branch</span>
-<a name="True-5"></a>git checkout -b <span class="nb">source</span>
-<a name="True-6"></a>
-<a name="True-7"></a><span class="c"># Tell git to track source remote branch</span>
-<a name="True-8"></a>git branch --set-upstream <span class="nb">source </span>origin/source
-<a name="True-9"></a>
-<a name="True-10"></a><span class="c"># Upload your branch to GitHub</span>
-<a name="True-11"></a>git push origin <span class="nb">source</span>
-<a name="True-12"></a>
-<a name="True-13"></a><span class="c"># Locally delete the original master branch</span>
-<a name="True-14"></a>git branch -D master
-<a name="True-15"></a>
-<a name="True-16"></a><span class="c"># Make a new git repository within _site</span>
-<a name="True-17"></a><span class="nb">cd </span>_site
-<a name="True-18"></a>git init
-<a name="True-19"></a>
-<a name="True-20"></a><span class="c"># Tell Jekyll to ignore this directory</span>
-<a name="True-21"></a>touch .nojekyll
-<a name="True-22"></a>
-<a name="True-23"></a><span class="c"># Set the remote repository to push the HTML to</span>
-<a name="True-24"></a>git remote add origin https://github.com/username/username.github.io
-<a name="True-25"></a>
-<a name="True-26"></a><span class="c"># Tell it to push to the master remote branch</span>
-<a name="True-27"></a>git branch --set-upstream master origin/master
-</code></pre></div>
+    <span class="post-date">18 Jul 2014</span>
 
-<p>Now you’ve got your source branch set up in your root directory and master branch set up in your <code>_site</code> directory, ready for rapid building and deployment of your Jekyll website.</p>
+    
+        <p>By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.</p>
 
-<p>Now each time you want to build your site locally, you just need to run:</p>
+<p>Here’s the default <code>lineno</code> option, <code>inline</code>:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>jekyll build
-<a name="True-2"></a><span class="nb">cd </span>_site
-<a name="True-3"></a>touch .nojekyll
-<a name="True-4"></a>git add .
-<a name="True-5"></a>git commit
-<a name="True-6"></a>git push origin master
-</code></pre></div>
+<p><img src="../public/media/lineno_w_inline.png" alt="lineno=inline" /></p>
 
-<p>and you have successfully built and deployed your website with Jekyll. Note that you need to <code>touch .nojekyll</code> because Jekyll seems to delete the original <code>.nojekyll</code> each time the site is built. If anyone knows a cleaner way around this, <a href="mailto:drewATdrewsilcockDOTcoDOTuk" onclick="this.href=this.href               .replace(/AT/,'&#64;')               .replace(/DOT/,'&#46;')               .replace(/DOT/,'&#46;')">let me know!</a></p>
+<p>This works, but has two main visual and practical problems:
+    * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
+    * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
 
-<p>Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the <a href="https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4">gist of it</a>, and this is the script:</p>
+<p>So what’s the alternative? 
+        <p><a class="btn btn-primary btn-lg" href="/proper-linenumbers">Continue reading...</a></p>
+    
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a><span class="c">#!/bin/bash</span>
-<a name="True-2"></a> 
-<a name="True-3"></a><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&quot;$1&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-<a name="True-4"></a><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please enter a git commit message&quot;</span>
-<a name="True-5"></a>  <span class="nb">exit</span>
-<a name="True-6"></a><span class="k">fi</span>
-<a name="True-7"></a><span class="k"> </span>
-<a name="True-8"></a>jekyll build <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-9"></a>  touch _site/.nojekyll <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-10"></a>  <span class="nb">cd </span>_site <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-11"></a>  git add . <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-12"></a>  git commit -am <span class="s2">&quot;$1&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-13"></a>  git push origin master <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-14"></a>  <span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-15"></a>  <span class="nb">echo</span> <span class="s2">&quot;Successfully built and pushed to GitHub.&quot;</span>
-</code></pre></div>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/personal-cheatsheet">
+        Personal cheatsheet
+      </a>
+    </h1>
 
-<p>So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:</p>
+    <span class="post-date">15 Jul 2014</span>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>jekgit.sh <span class="s2">&quot;Latest build&quot;</span>
-</code></pre></div>
+    
+        <p>Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.</p>
 
+
+        <p><a class="btn btn-primary btn-lg" href="/personal-cheatsheet">Continue reading...</a></p>
+    
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/compiling-zsh">
+        Compiling zsh without root
+      </a>
+    </h1>
+
+    <span class="post-date">15 Jul 2014</span>
+
+    
+        <p>This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.</p>
+
+
+        <p><a class="btn btn-primary btn-lg" href="/compiling-zsh">Continue reading...</a></p>
+    
 
   </div>
   
@@ -245,6 +229,7 @@
     <span class="pagination-item newer">Newer</span>
   
 </div>
+
     </div>
 
   </body>

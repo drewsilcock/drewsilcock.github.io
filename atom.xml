@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-30T12:54:09+01:00</updated>
+ <updated>2014-07-30T16:28:24+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -23,6 +23,8 @@
 
 &lt;p&gt;So how do you organise the source and compiled code?&lt;/p&gt;
 
+&lt;!--more--&gt;
+
 &lt;p&gt;Some people, like &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt;, recommend two repos, one with the source code (e.g. &lt;code&gt;github.com/username/username.github.io.raw&lt;/code&gt; for the compiled HTML and &lt;code&gt;github.com/username/username.github.io&lt;/code&gt; for the compiled HTML). I don’t particularly like this. It’s one project, it should be one repo.&lt;/p&gt;
 
 &lt;p&gt;Others, like &lt;a href=&quot;http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html&quot;&gt;Alexandre Rademaker&lt;/a&gt;, have two separate branches (a &lt;code&gt;master&lt;/code&gt; for compiled HTML and a &lt;code&gt;source&lt;/code&gt; for the Jekyll source), and change branches then copy the contents of &lt;code&gt;_site&lt;/code&gt; into the master branch every time you want to push to your website.&lt;/p&gt;
@@ -35,79 +37,74 @@
 
 &lt;p&gt;In the &lt;code&gt;.gitignore&lt;/code&gt; of the &lt;code&gt;source&lt;/code&gt; branch, you put the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;_site
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;_site&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, when you run &lt;code&gt;jekyll build&lt;/code&gt; and Jekyll produces all the HTML in &lt;code&gt;_site&lt;/code&gt;, git doesn’t recognise it. That means that we can &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;_site&lt;/code&gt;, and seeing as git doesn’t know the difference, we can make &lt;code&gt;_site&lt;/code&gt; itself into its own git repository.&lt;/p&gt;
 
 &lt;p&gt;Assuming you’re starting off with a bog standard single branch Pages repo, you run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure _site is empty before we begin&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;rm -rf _site/*
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git checkout -b &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell git to track source remote branch&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git branch --set-upstream &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;origin/source
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Upload your branch to GitHub&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git push origin &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git branch -D master
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within _site&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;git init
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;touch .nojekyll
-&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Set the remote repository to push the HTML to&lt;/span&gt;
-&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/username.github.io
-&lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
-&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Make sure _site is empty before we begin&lt;/span&gt;
+rm -rf _site/*
+
+&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
+git checkout -b &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Tell git to track source remote branch&lt;/span&gt;
+git branch --set-upstream &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;origin/source
+
+&lt;span class=&quot;c&quot;&gt;# Upload your branch to GitHub&lt;/span&gt;
+git push origin &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
+git branch -D master
+
+&lt;span class=&quot;c&quot;&gt;# Make a new git repository within _site&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
+git init
+
+&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
+touch .nojekyll
+
+&lt;span class=&quot;c&quot;&gt;# Set the remote repository to push the HTML to&lt;/span&gt;
+git remote add origin https://github.com/username/username.github.io
+
+&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
+git branch --set-upstream master origin/master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now you’ve got your source branch set up in your root directory and master branch set up in your &lt;code&gt;_site&lt;/code&gt; directory, ready for rapid building and deployment of your Jekyll website.&lt;/p&gt;
 
 &lt;p&gt;Now each time you want to build your site locally, you just need to run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;touch .nojekyll
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git add .
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git commit
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;git push origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jekyll build
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
+touch .nojekyll
+git add .
+git commit
+git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that you need to &lt;code&gt;touch .nojekyll&lt;/code&gt; because Jekyll seems to delete the original &lt;code&gt;.nojekyll&lt;/code&gt; each time the site is built. If anyone knows a cleaner way around this, &lt;a href=&quot;mailto:drewATdrewsilcockDOTcoDOTuk&quot; onclick=&quot;this.href=this.href               .replace(/AT/,'&amp;#64;')               .replace(/DOT/,'&amp;#46;')               .replace(/DOT/,'&amp;#46;')&quot;&gt;let me know!&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the &lt;a href=&quot;https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4&quot;&gt;gist of it&lt;/a&gt;, and this is the script:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt; 
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Please enter a git commit message&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt; &lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;jekyll build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;  touch _site/.nojekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;  git add . &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Please enter a git commit message&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+ 
+jekyll build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  touch _site/.nojekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  git add . &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekgit.sh &lt;span class=&quot;s2&quot;&gt;&amp;quot;Latest build&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jekgit.sh &lt;span class=&quot;s2&quot;&gt;&amp;quot;Latest build&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </content>
  </entry>
@@ -120,6 +117,8 @@
    <content type="html">&lt;h2 id=&quot;aim&quot;&gt;Aim&lt;/h2&gt;
 
 &lt;p&gt;The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;h2 id=&quot;trigonometry&quot;&gt;Trigonometry&lt;/h2&gt;
 
@@ -165,11 +164,10 @@
 
 &lt;p&gt;The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don’t have access to this information, it can also be read directly from the EXIF metadata using &lt;a href=&quot;http://www.sno.phy.queensu.ca/~phil/exiftool/&quot;&gt;&lt;code&gt;exiftool&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&amp;gt; exiftool photo.jpg
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;...
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resolution&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&amp;gt; exiftool photo.jpg
+...
+Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resolution&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;finding-angle-of-view&quot;&gt;Finding angle of view&lt;/h2&gt;
 
@@ -220,7 +218,7 @@
     * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
     * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.&lt;/p&gt;
 
-&lt;p&gt;So what’s the alternative? Well, Pygments has inbuilt the &lt;code&gt;table&lt;/code&gt; option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:&lt;/p&gt;
+&lt;p&gt;So what’s the alternative? &lt;!--more--&gt; Well, Pygments has inbuilt the &lt;code&gt;table&lt;/code&gt; option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_table.png&quot; alt=&quot;lineno=table&quot; /&gt;&lt;/p&gt;
 
@@ -234,53 +232,52 @@
 
 &lt;p&gt;Alex’s CSS is as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;counter-reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#d9d9d9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;23px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;overflow-x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;counter-increment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;padding-right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* space after numbers */&lt;/span&gt;
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#aaa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#eee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;margin-right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;13px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-28&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;callout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-29&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-30&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;khtml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-31&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-32&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-33&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-34&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;a name=&quot;True-35&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-36&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:first-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-37&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;padding-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-38&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;a name=&quot;True-39&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-40&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:last-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-41&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;padding-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-42&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;a name=&quot;True-43&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-44&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:only-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-45&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-46&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;counter-reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#d9d9d9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;23px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;overflow-x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;counter-increment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;padding-right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* space after numbers */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#aaa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#eee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;margin-right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;13px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;callout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;khtml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:first-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;padding-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:last-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;padding-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:only-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here’s what it produces after adding it to your &lt;code&gt;syntax.css&lt;/code&gt;:&lt;/p&gt;
 
@@ -288,13 +285,12 @@
 
 &lt;p&gt;Note those important lines at the end of &lt;code&gt;pre a::before&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;-webkit-touch-callout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;-webkit-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;-khtml-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;-moz-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;-ms-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nt&quot;&gt;user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;-webkit-touch-callout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-webkit-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-khtml-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-moz-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;-ms-user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;user-select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This tell the browser to ignore the line numbers when copying, solving one of our initial problems.&lt;/p&gt;
 
@@ -312,8 +308,7 @@
 
 &lt;p&gt;Using this plugin, you can simply specify as follows in your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments_options&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p-Indicator&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lineanchors&amp;#39;&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments_options&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p-Indicator&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lineanchors&amp;#39;&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then you don’t need to put it in each codeblock tag and can forget about it!&lt;/p&gt;
 
@@ -327,9 +322,8 @@
 
 &lt;p&gt;Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;/* In pre { .. } */&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;overflow-y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* In pre { .. } */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;overflow-y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This is placed in &lt;code&gt;pre { .. }&lt;/code&gt;, just after &lt;code&gt;overflow-x: auto;&lt;/code&gt;.&lt;/p&gt;
 
@@ -343,7 +337,9 @@
    <link href="http://drewsilcock.co.uk/personal-cheatsheet"/>
    <updated>2014-07-15T00:00:00+01:00</updated>
    <id>http://drewsilcock.co.uk/personal-cheatsheet</id>
-   <content type="html">&lt;p&gt;Herein lies my personal cheatsheet for all things I find useful and wish not to forget.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
 
@@ -351,30 +347,27 @@
 
 &lt;p&gt;These are the things you need to do when using &lt;code&gt;git&lt;/code&gt; on a new computer:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git config --global user.name &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;USER&amp;gt;&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change email associated with commits&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git config --global user.email &amp;lt;EMAIL&amp;gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Cache uname and passwd for convenience (only on git &amp;gt;= 1.7.9)&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git config --global credential.helper cache
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Push to current branch only by default&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git config --global push.default current
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
+git config --global user.name &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;USER&amp;gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Change email associated with commits&lt;/span&gt;
+git config --global user.email &amp;lt;EMAIL&amp;gt;
+
+&lt;span class=&quot;c&quot;&gt;# Cache uname and passwd for convenience (only on git &amp;gt;= 1.7.9)&lt;/span&gt;
+git config --global credential.helper cache
+
+&lt;span class=&quot;c&quot;&gt;# Push to current branch only by default&lt;/span&gt;
+git config --global push.default current&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
 
 &lt;p&gt;Add remote repository:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/repository.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add origin https://github.com/username/repository.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then subsequently set local branch to track remote branch:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
 
@@ -382,23 +375,20 @@
 
 &lt;p&gt;Here’s the syntax for declaring vim script functions:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
+    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
+&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And you then call it in Vim with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;recognise-custom-filetypes&quot;&gt;Recognise custom filetypes&lt;/h3&gt;
 
 &lt;p&gt;I’ve got &lt;code&gt;moo.vim&lt;/code&gt; files in my &lt;code&gt;~/.vim/after/syntax&lt;/code&gt; and &lt;code&gt;~/.vim/after/ftplugin&lt;/code&gt;, for all &lt;code&gt;moo&lt;/code&gt; files with extension &lt;code&gt;.moo&lt;/code&gt;. To get Vim to recognise these &lt;code&gt;.moo&lt;/code&gt; files and apply the Vim scripts associated therewith, I need to create a file called &lt;code&gt;moo.vim&lt;/code&gt; in &lt;code&gt;~/.vim/ftdetect/&lt;/code&gt;, which contains the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: You may have to wipe your &lt;code&gt;~/.vim/view&lt;/code&gt; before Vim recognises old files as this new filetype.&lt;/p&gt;
 
@@ -406,25 +396,21 @@
 
 &lt;p&gt;Vim comes with the ability to edit files remotely over scp. This can be achieved via:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;However, trying to save gives the error:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file. This can be bypassed by using &lt;code&gt;:Nwrite&lt;/code&gt; from the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw.vim&lt;/a&gt; that comes bundled with Vim 7.0:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;sshfs&quot;&gt;sshfs&lt;/h2&gt;
 
 &lt;p&gt;To allow other non-root users to access a filesystem mounted over ssh, use:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;photoshop&quot;&gt;Photoshop&lt;/h2&gt;
 
@@ -458,59 +444,55 @@
 
 &lt;p&gt;Skeleton &lt;code&gt;argparse&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Description of the program&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description of the Python program.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# A compulsory positional argument&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;compulsory&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Description of argument, what it does and what the options are.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# A required normal argument&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# An optional true/false argument&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-v&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--verbose&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;store_true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Specifying the type&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--float&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Specifying the default value&lt;/span&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;drew&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Parse the arguments&lt;/span&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Accessing the values of the arguments&lt;/span&gt;
-&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;myArgument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compulsory&lt;/span&gt;
-&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Description of the program&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description of the Python program.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# A compulsory positional argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;compulsory&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Description of argument, what it does and what the options are.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# A required normal argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# An optional true/false argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-v&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--verbose&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;store_true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Specifying the type&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--float&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Specifying the default value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;drew&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Parse the arguments&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Accessing the values of the arguments&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myArgument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compulsory&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;replace--with-home-directory&quot;&gt;Replace &lt;code&gt;~&lt;/code&gt; with home directory&lt;/h3&gt;
 
 &lt;p&gt;This is just a fun little script that replaces &lt;code&gt;~&lt;/code&gt; in a string with the path to the user directory, e.g. &lt;code&gt;/home/drew&lt;/code&gt;. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Replace &amp;#39;~&amp;#39; in fname with path to user dir&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Replace &amp;#39;~&amp;#39; in fname with path to user dir&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;increase-size-of-pyplot-legend&quot;&gt;Increase size of pyplot legend&lt;/h3&gt;
 
 &lt;p&gt;Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;fix-spacing-in-pyplot-multiplots&quot;&gt;Fix spacing in pyplot multiplots&lt;/h3&gt;
 
 &lt;p&gt;Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Why is this not a standard part of matplotlib? I don’t know.&lt;/p&gt;
 
@@ -520,13 +502,11 @@
 
 &lt;p&gt;Probably the most useful thing that &lt;code&gt;perl&lt;/code&gt; can do is &lt;code&gt;perl &lt;/code&gt;-pi -e`, often lovingly called Perl Pie. The syntax is:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This replaces &lt;code&gt;string to find&lt;/code&gt; with &lt;code&gt;string to replace&lt;/code&gt; in filenames. This is fully regex compatible. For instance, if I wanted to replace &lt;code&gt;mispelt&lt;/code&gt; with &lt;code&gt;misspelt&lt;/code&gt; in all files ending in &lt;code&gt;.txt&lt;/code&gt;, I would run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </content>
  </entry>
@@ -538,46 +518,45 @@
    <id>http://drewsilcock.co.uk/compiling-zsh</id>
    <content type="html">&lt;p&gt;This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.&lt;/p&gt;
 
+&lt;!--more--&gt;
+
 &lt;h2 id=&quot;step-1-dependencies&quot;&gt;Step 1: Dependencies&lt;/h2&gt;
 
 &lt;h3 id=&quot;ncurses&quot;&gt;ncurses&lt;/h3&gt;
 &lt;p&gt;To compile &lt;code&gt;zsh&lt;/code&gt;, you need &lt;code&gt;ncurses&lt;/code&gt;. This needs to be compiled with the flag &lt;code&gt;-fPIC&lt;/code&gt;. This can be achieved as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download the ncurses gzipped tarball&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Extract gzipped tarball&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;tar -zxvf ncurses.tar.gz
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Move into root ncurses source directory&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;ncurses
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Set cflags and c++ flags to compile with Position Independent Code enabled&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CXXFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; -fPIC&amp;#39;&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; -fPIC&amp;#39;&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Produce Makefile and config.h via config.status&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local --enable-shared
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Compile&lt;/span&gt;
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;make
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Deduce environment information and build private terminfo tree&lt;/span&gt;
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;progs
-&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;./capconvert
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Download the ncurses gzipped tarball&lt;/span&gt;
+wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Extract gzipped tarball&lt;/span&gt;
+tar -zxvf ncurses.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Move into root ncurses source directory&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;ncurses
+
+&lt;span class=&quot;c&quot;&gt;# Set cflags and c++ flags to compile with Position Independent Code enabled&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CXXFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; -fPIC&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; -fPIC&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Produce Makefile and config.h via config.status&lt;/span&gt;
+./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local --enable-shared
+
+&lt;span class=&quot;c&quot;&gt;# Compile&lt;/span&gt;
+make
+
+&lt;span class=&quot;c&quot;&gt;# Deduce environment information and build private terminfo tree&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;progs
+./capconvert
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now before installing the compiled files, you should check to make sure that ncurses has compiled correctly by running:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./test/ncurses
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./test/ncurses&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If this successfully opens a prompt with multiple options, then ncurses has been successfully compiled, and you can install it:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Install ncurses to $HOME/.local&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;make install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Install ncurses to $HOME/.local&lt;/span&gt;
+make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;--enable-shared&lt;/code&gt; configure flag ensures that libtool builds shared libraries for ncurses, needed for &lt;code&gt;zsh&lt;/code&gt; later on.&lt;/p&gt;
 
@@ -587,34 +566,30 @@
 
 &lt;p&gt;Firstly, &lt;code&gt;icmake&lt;/code&gt; is installed via:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download icmake source from Sourcefourge&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;wget http://downloads.sourceforge.net/project/icmake/icmake/7.21.00/icmake_7.21.00.orig.tar.gz
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Unpack archive (change version as appropriate)&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;tar -zxvf icmake_7.21.00.orig.tar.gz
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;icmake-7.21.00
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Download icmake source from Sourcefourge&lt;/span&gt;
+wget http://downloads.sourceforge.net/project/icmake/icmake/7.21.00/icmake_7.21.00.orig.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Unpack archive (change version as appropriate)&lt;/span&gt;
+tar -zxvf icmake_7.21.00.orig.tar.gz
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;icmake-7.21.00&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now the &lt;code&gt;INSTALL.im&lt;/code&gt; file needs to be altered to reflect our local installation. This means replacing all the file installation locations with local directories as such, where &lt;user&gt; should be replaced with your username:&lt;/user&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define BINDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/bin&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define SKELDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/icmake&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define MANDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/man&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define LIBDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/lib/icmake&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define CONFDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/config/icmake&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define DOCDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define DOCDOCDIR   &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake-doc&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define BINDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/bin&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define SKELDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/icmake&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define MANDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/man&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define LIBDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/lib/icmake&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define CONFDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/config/icmake&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define DOCDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define DOCDOCDIR   &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake-doc&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now run the following to compile icmake:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_bootstrap /
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./icm_bootstrap /&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, technically, this will compile all the files you actually need in &lt;code&gt;tmp&lt;/code&gt;, but if you further want to install the files to ~/.local, then you simply run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_install strip all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./icm_install strip all&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you then want to clear up the temporary compiled files, delete the directory &lt;code&gt;tmp&lt;/code&gt; with &lt;code&gt;rm -rf tmp&lt;/code&gt;.&lt;/p&gt;
 
@@ -622,111 +597,102 @@
 
 &lt;p&gt;Now to move onto yodl. Again, we need to specify that we want to install locally by putting &lt;code&gt;BASE = &quot;/home/as1423/.local&quot; at the start of the function &lt;/code&gt;setLocations()&lt;code&gt; located at the end of &lt;/code&gt;INSTALL.im’, so that the function looks like:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setLocations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/home/as1423/.local&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;c1&quot;&gt;// make sure that BIN, STD_INCLUDE, MAN, DOC and DOCDOC all are&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;c1&quot;&gt;// absolute paths&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;BIN&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/bin&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;DOC&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/doc/yodl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;DOCDOC&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/doc/yodl-doc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;MAN&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/man&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;STD_INCLUDE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/yodl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;COMPILER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;gcc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setLocations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/home/as1423/.local&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// make sure that BIN, STD_INCLUDE, MAN, DOC and DOCDOC all are&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// absolute paths&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;BIN&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/bin&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DOC&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/doc/yodl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DOCDOC&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/doc/yodl-doc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;MAN&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/man&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;STD_INCLUDE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/yodl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;COMPILER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;gcc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In addition, we need to tell &lt;code&gt;build&lt;/code&gt; to look in our local directory for &lt;code&gt;icmake&lt;/code&gt; instead of the standard &lt;code&gt;/usr/bin&lt;/code&gt; or &lt;code&gt;/usr/local/bin&lt;/code&gt;. This means editing the hashbang at the top of &lt;code&gt;build&lt;/code&gt; to look as follows, where again &lt;user&gt; is replaced by your UNIX username:&lt;/user&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/home/&amp;lt;USER&amp;gt;/.local/bin/icmake -qt/tmp/yodl&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/home/&amp;lt;USER&amp;gt;/.local/bin/icmake -qt/tmp/yodl&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now that &lt;code&gt;build&lt;/code&gt; knows that we want to run our locally compiled &lt;code&gt;icmake&lt;/code&gt;, we can actually build &lt;code&gt;yodl&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# In root directory of yodl source&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;./build programs
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;./build man
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;./build manual
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build macros
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# In root directory of yodl source&lt;/span&gt;
+./build programs
+./build man
+./build manual
+./build macros&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;There may be a LaTeX error when running &lt;code&gt;./build manual&lt;/code&gt;, but just ignore this, because it’s not vital.&lt;/p&gt;
 
 &lt;p&gt;Now we’re ready to actually install yodl:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./build install programs /
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;./build install man /
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;./build install manual /
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;./build install macros /
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build install docs /
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./build install programs /
+./build install man /
+./build install manual /
+./build install macros /
+./build install docs /&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;/&lt;/code&gt; designates that we are installing with respect to the root of our filesystem. This is fine, though, because we’ve already specified in &lt;code&gt;INSTALL.im&lt;/code&gt; that we want everything to be installed locally into &lt;code&gt;$HOME/.local$. Now &lt;/code&gt;yodl` should be successfully installed.&lt;/p&gt;
 
 &lt;h2 id=&quot;step-2-tell-environment-where-ncurses-is&quot;&gt;Step 2: Tell environment where ncurses is&lt;/h2&gt;
 &lt;p&gt;Before compiling &lt;code&gt;zsh&lt;/code&gt;, you need to tell your environment where your newly compiled files are (if you haven’t already). This can be achieved with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;INSTALL_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$HOME/.local&amp;#39;&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-I&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/include
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-I$INSTALL_PATH/include&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-L$INSTALL_PATH/lib&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;INSTALL_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$HOME/.local&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-I&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/include
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-I$INSTALL_PATH/include&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-L$INSTALL_PATH/lib&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;step-3-compiling-zsh&quot;&gt;Step 3: Compiling &lt;code&gt;zsh&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Now, we’re finally ready to move onto compiling &lt;code&gt;zsh&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone zsh repository from git&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git clone git://github.com/zsh-users/zsh.git
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Move into root zsh source directory&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;zsh
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Produce config.h.in, needed to produce config.status from ./configure&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;autoheader
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Produce the configure file from aclocal.m4 and configure.ac&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;autoconf
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Give autotools a timestamp for recompilation&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;date &amp;lt; stamp-h.in
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Produce Makefile and config.h via config.status&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local --enable-shared
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Compile&lt;/span&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;make
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Install&lt;/span&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;make install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Clone zsh repository from git&lt;/span&gt;
+git clone git://github.com/zsh-users/zsh.git
+
+&lt;span class=&quot;c&quot;&gt;# Move into root zsh source directory&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;zsh
+
+&lt;span class=&quot;c&quot;&gt;# Produce config.h.in, needed to produce config.status from ./configure&lt;/span&gt;
+autoheader
+
+&lt;span class=&quot;c&quot;&gt;# Produce the configure file from aclocal.m4 and configure.ac&lt;/span&gt;
+autoconf
+
+&lt;span class=&quot;c&quot;&gt;# Give autotools a timestamp for recompilation&lt;/span&gt;
+date &amp;lt; stamp-h.in
+
+&lt;span class=&quot;c&quot;&gt;# Produce Makefile and config.h via config.status&lt;/span&gt;
+./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local --enable-shared
+
+&lt;span class=&quot;c&quot;&gt;# Compile&lt;/span&gt;
+make
+
+&lt;span class=&quot;c&quot;&gt;# Install&lt;/span&gt;
+make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;step-4-enjoy-zsh&quot;&gt;Step 4: Enjoy &lt;code&gt;zsh&lt;/code&gt;!&lt;/h2&gt;
 &lt;p&gt;After these steps have been completed, zsh should be ready and compiled to use in your ~/.local/bin folder. If you like &lt;code&gt;zsh&lt;/code&gt;, you’ll love &lt;code&gt;ohmyzsh&lt;/code&gt;. This can be installed by:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;curl -L http://install.ohmyz.sh &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl -L http://install.ohmyz.sh &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Or if you don’t want o execute shell scripts from arbitrary non-https website, you can use git:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone repository into local dotfiles&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Copy template file into home directory&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Clone repository into local dotfiles&lt;/span&gt;
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+&lt;span class=&quot;c&quot;&gt;# Copy template file into home directory&lt;/span&gt;
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Once you’ve done this, edit oh-my-zsh to your needs, e.g. if you want to change the theme, replace &lt;code&gt;ZSH_THEME=&quot;robbyrussell&quot; with the theme of your choice. I particularly enjoy &lt;/code&gt;jonathan`.&lt;/p&gt;
 
 &lt;p&gt;And finally, change your shell to &lt;code&gt;zsh&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;chsh -s &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/bin/zsh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;chsh -s &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/bin/zsh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.&lt;/p&gt;
 
@@ -736,12 +702,11 @@
 
 &lt;p&gt;If &lt;code&gt;zsh&lt;/code&gt; isn’t recognising the &lt;code&gt;ncurses&lt;/code&gt; library when running &lt;code&gt;./configure&lt;/code&gt;, and instead giving the following error:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;configure: error: &lt;span class=&quot;s2&quot;&gt;&amp;quot;No terminal handling library was found on your system.&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;This is probably a library called &amp;#39;curses&amp;#39; or &amp;#39;ncurses&amp;#39;. You may&lt;/span&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;need to install a package called &amp;#39;curses-devel&amp;#39; or &amp;#39;ncurses-devel&amp;#39; on your&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;system.&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;See &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;config.log&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more details.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;configure: error: &lt;span class=&quot;s2&quot;&gt;&amp;quot;No terminal handling library was found on your system.&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;This is probably a library called &amp;#39;curses&amp;#39; or &amp;#39;ncurses&amp;#39;. You may&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;need to install a package called &amp;#39;curses-devel&amp;#39; or &amp;#39;ncurses-devel&amp;#39; on your&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;system.&amp;quot;&lt;/span&gt;
+See &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;config.log&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; more details.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then this means that you haven’t got the &lt;code&gt;ncurses&lt;/code&gt; library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting &lt;code&gt;CPPFLAGS&lt;/code&gt; and &lt;code&gt;LDFLAGS&lt;/code&gt;.&lt;/p&gt;
 
@@ -772,6 +737,8 @@
 
 &lt;p&gt;Etiam porta &lt;strong&gt;sem malesuada magna&lt;/strong&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
 
+&lt;!--more--&gt;
+
 &lt;h2 id=&quot;inline-html-elements&quot;&gt;Inline HTML elements&lt;/h2&gt;
 
 &lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
@@ -795,15 +762,14 @@
 
 &lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;return a + b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// Call the function&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;return a + b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Call the function&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
 

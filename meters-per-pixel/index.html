@@ -72,12 +72,6 @@
       
         
           
-            <a class="sidebar-nav-item" href="/archive/">Archive</a>
-          
-        
-      
-        
-          
         
       
         
@@ -88,25 +82,15 @@
       
         
           
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+          
             <a class="sidebar-nav-item" href="/download/">Download</a>
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
           
         
       
@@ -135,6 +119,8 @@
   <h2 id="aim">Aim</h2>
 
 <p>The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.</p>
+
+<!--more-->
 
 <h2 id="trigonometry">Trigonometry</h2>
 
@@ -180,11 +166,10 @@
 
 <p>The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don’t have access to this information, it can also be read directly from the EXIF metadata using <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/"><code>exiftool</code></a>:</p>
 
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>&gt; exiftool photo.jpg
-<a name="True-2"></a>...
-<a name="True-3"></a>Image Size: 4608x3456 <span class="c"># This is the camera resolution</span>
-<a name="True-4"></a>...
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">&gt; exiftool photo.jpg
+...
+Image Size: 4608x3456 <span class="c"># This is the camera resolution</span>
+...</code></pre></div>
 
 <h2 id="finding-angle-of-view">Finding angle of view</h2>
 

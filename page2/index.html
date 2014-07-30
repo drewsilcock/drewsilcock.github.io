@@ -72,12 +72,6 @@
       
         
           
-            <a class="sidebar-nav-item" href="/archive/">Archive</a>
-          
-        
-      
-        
-          
         
       
         
@@ -88,25 +82,15 @@
       
         
           
+            <a class="sidebar-nav-item" href="/archive/">Archive</a>
+          
+        
+      
+        
+      
+        
+          
             <a class="sidebar-nav-item" href="/download/">Download</a>
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
           
         
       
@@ -133,98 +117,29 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/meters-per-pixel">
-        Calculating meters per pixel from aerial photographs
+      <a href="/2012/02/07/example-content/">
+        Example content
       </a>
     </h1>
 
-    <span class="post-date">21 Jul 2014</span>
+    <span class="post-date">07 Feb 2012</span>
 
-    <h2 id="aim">Aim</h2>
+    
+        <div class="message">
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+</div>
 
-<p>The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.</p>
+<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
 
-<h2 id="trigonometry">Trigonometry</h2>
+<blockquote>
+  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+</blockquote>
 
-<p>Firstly, let’s look at how we can go from the information we have to the information we need. We need to know the following to compeltely determine the <abbr title="Meters Per Pixel">MPP</abbr> (meters per pixel):</p>
+<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
-<ul>
-  <li>Resolution of the camera</li>
-  <li>Height from which photo was taken</li>
-  <li>Angle of view of the camera</li>
-</ul>
 
-<p>Then let us parametrise the situation as follows:</p>
-
-<ul>
-  <li>Ground distances photographed in horizontal and vertical, respectively: \(x\) and \(y\)</li>
-  <li>Resolution of camera: \(r_x\) and \(r_y\)</li>
-  <li>Height from which photo was taken: \(h\)</li>
-  <li>Angle of view of the camera: \(\alpha_x\) and \(\alpha_y\)</li>
-  <li>MMP: \(\mu_x\) and \(\mu_y\)</li>
-</ul>
-
-<p>The following diagrams illustrate the horizontal and vertical views that the camera sees:</p>
-
-<p><img src="../public/media/horizontal_view.svg" alt="horizontal view" /></p>
-
-<hr />
-
-<p><img src="../public/media/vertical_view.svg" alt="vertical view" /></p>
-
-<p>It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:</p>
-
-<p>\[ \tan\left(\frac{\alpha_x}{2}\right) = \frac{x}{2h} \]</p>
-
-<p>And the same for \(y\) Rearranging this for \(x\):</p>
-
-<p>\[ x = 2h\tan\left(\frac{\alpha_x}{2}\right) \]</p>
-
-<p>Then the MMP is given by:</p>
-
-<p>\[ \mu_x = \frac{x}{r_x} = \frac{2h\tan\left(\frac{\alpha_x}{2}\right)}{r_x} \]</p>
-
-<h2 id="finding-camera-resolution">Finding camera resolution</h2>
-
-<p>The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don’t have access to this information, it can also be read directly from the EXIF metadata using <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/"><code>exiftool</code></a>:</p>
-
-<div class="highlight"><pre><code class="bash"><a name="True-1"></a>&gt; exiftool photo.jpg
-<a name="True-2"></a>...
-<a name="True-3"></a>Image Size: 4608x3456 <span class="c"># This is the camera resolution</span>
-<a name="True-4"></a>...
-</code></pre></div>
-
-<h2 id="finding-angle-of-view">Finding angle of view</h2>
-
-<p>The angle of view of a camera can be calculated from the camera’s effective focal length, \(f\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \(d\) as follows:</p>
-
-<p>\[ \alpha = 2\arctan\left(\frac{d}{2f}\right) \]</p>
-
-<p>The focal length is stated on the camera specs. For my Ixus 132 the stated focal length is 5.0 mm.</p>
-
-<p>To find the dimension of the camera sensor, you need to know what type of sensor it is. It’ll either be a CCD sensor (Charge Coupled Device) or a CMOD sensor (Complementary Metal-Oxide Semiconductor).</p>
-
-<p>This image, courtesy of <a href="http://www.gizmag.com/camera-sensor-size-guide/26684/pictures#1">gizmag</a>, show the dimensions of various common sensor sizes:</p>
-
-<p><img src="../public/media/sensor_sizes.jpg" alt="sensor sizes" /></p>
-
-<p>If your sensor is not listed here, then Wikipedia has a full table of listings for every sensor imaginable over on the page for <a href="https://en.wikipedia.org/wiki/Image_sensor_format#Table_of_sensor_formats_and_sizes">Image sensor format</a>.</p>
-
-<p>For instance, my camera has a 1/2.3” CCD, meaning it has dimensions 6.17 mm by 4.55 mm.</p>
-
-<p>Thus, plugging these values into the equation above, my camera has angles of view of:</p>
-
-<p>\[ \alpha_x = 63.3^{\circ} \\\<br />
-   \alpha_y = 48.9^{\circ} \]</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Then plugging these values into the formula given above, the MMP as a function of height is:</p>
-
-<p>\[ \mu_x = 0.2675h ~\mathrm{mm/pixel} \\\<br />
-   \mu_y = 0.2631h ~\mathrm{mm/pixel} \]</p>
-
-<p>Where \(h\) is in meters. Thus at a typical UAV flight height of \(h = 100~\mathrm{m}\) , the MMP is 2.68 cm per pixel in the horizontal and 2.63 cm per pixel in the vertical.</p>
+        <p><a class="btn btn-primary btn-lg" href="/2012/02/07/example-content/">Continue reading...</a></p>
+    
 
   </div>
   
@@ -232,7 +147,7 @@
 
 <div class="pagination">
   
-    <a class="pagination-item older" href="/page3">Older</a>
+    <span class="pagination-item older">Older</span>
   
   
     
@@ -240,6 +155,7 @@
     
   
 </div>
+
     </div>
 
   </body>
