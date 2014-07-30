@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-30T12:11:37+01:00</updated>
+ <updated>2014-07-30T12:54:09+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -359,6 +359,9 @@
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Cache uname and passwd for convenience (only on git &amp;gt;= 1.7.9)&lt;/span&gt;
 &lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git config --global credential.helper cache
+&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Push to current branch only by default&lt;/span&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git config --global push.default current
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
