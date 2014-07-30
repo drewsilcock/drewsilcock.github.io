@@ -2,11 +2,7 @@
 layout: post
 title: Proper line numbers with Jekyll
 permalink: proper-linenumbers
-tags:
-- linenumbers
-- jekyll
-- css
-- pygments
+comments: True
 ---
 
 By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.

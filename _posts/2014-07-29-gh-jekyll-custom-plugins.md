@@ -2,6 +2,7 @@
 title: Custom Jekyll plugins with GitHub Pages
 layout: post
 permalink: custom-jekyll-plugins
+comments: True
 ---
 
 So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn't support custom plugins because of the `--safe` flag that it compiles your site with. So what do you do?

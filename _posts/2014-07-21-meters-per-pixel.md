@@ -2,11 +2,7 @@
 layout: post
 title: Calculating meters per pixel from aerial photographs
 permalink: meters-per-pixel
-tags:
-- photogrammetry
-- trigonometry
-- angle of view
-- resolution
+comments: True
 ---
 
 ## Aim

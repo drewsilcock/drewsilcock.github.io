@@ -2,16 +2,7 @@
 layout: post
 title: Personal cheatsheet
 permalink: personal-cheatsheet
-tags:
-- cheatsheet
-- git
-- vim
-- scp
-- sshfs
-- agisoft
-- photoscan
-- python
-- argparse
+comments: True
 ---
 
 Herein lies my personal cheatsheet for all things I find useful and wish not to forget.
