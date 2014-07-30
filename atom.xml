@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-30T11:52:13+01:00</updated>
+ <updated>2014-07-30T12:11:37+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Custom Jekyll plugins with GitHub Pages</title>
-   <link href="http://drewsilcock.co.uk/2014/07/29/gh-jekyll-custom-plugins/"/>
+   <link href="http://drewsilcock.co.uk/custom-jekyll-plugins"/>
    <updated>2014-07-29T00:00:00+01:00</updated>
-   <id>http://drewsilcock.co.uk/2014/07/29/gh-jekyll-custom-plugins</id>
+   <id>http://drewsilcock.co.uk/gh-jekyll-custom-plugins</id>
    <content type="html">&lt;p&gt;So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the &lt;code&gt;--safe&lt;/code&gt; flag that it compiles your site with. So what do you do?&lt;/p&gt;
 
 &lt;p&gt;Well, if you compile the site using &lt;code&gt;jekyll&lt;/code&gt; yourself, then push the resulting compiled HTML to your GitHub Pages repository, then it works perfectly! You get your custom plugins, and you get your free GitHub Pages hosting.&lt;/p&gt;
