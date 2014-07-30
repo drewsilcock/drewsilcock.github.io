@@ -11,6 +11,8 @@ Well, if you compile the site using `jekyll` yourself, then push the resulting c
 
 So how do you organise the source and compiled code?
 
+<!--more-->
+
 Some people, like [Charlie Park](http://charliepark.org/jekyll-with-plugins/), recommend two repos, one with the source code (e.g. `github.com/username/username.github.io.raw` for the compiled HTML and `github.com/username/username.github.io` for the compiled HTML). I don't particularly like this. It's one project, it should be one repo.
 
 Others, like [Alexandre Rademaker](http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html), have two separate branches (a `master` for compiled HTML and a `source` for the Jekyll source), and change branches then copy the contents of `_site` into the master branch every time you want to push to your website.

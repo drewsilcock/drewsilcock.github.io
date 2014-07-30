@@ -15,8 +15,7 @@ This works, but has two main visual and practical problems:
     * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
     * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.
 
-
-So what's the alternative? Well, Pygments has inbuilt the `table` option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let's take a look:
+So what's the alternative? <!--more--> Well, Pygments has inbuilt the `table` option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let's take a look:
 
 ![lineno=table](../public/media/lineno_w_table.png)
 

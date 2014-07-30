@@ -20,7 +20,7 @@ author:
   name:           'Drew Silcock'
   #url:            https://twitter.com/drewsberry
 
-paginate:         1
+paginate:         5
 
 # Custom vars
 version:          1.0.2

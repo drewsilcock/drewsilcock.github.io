@@ -9,6 +9,8 @@ comments: True
 
 The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.
 
+<!--more-->
+
 ## Trigonometry
 
 Firstly, let's look at how we can go from the information we have to the information we need. We need to know the following to compeltely determine the <abbr title="Meters Per Pixel">MPP</abbr> (meters per pixel):
