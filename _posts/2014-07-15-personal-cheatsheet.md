@@ -184,6 +184,18 @@ plt.tight_layout()
 
 Why is this not a standard part of matplotlib? I don't know.
 
+### Change x or y ticks on pyplot plot
+
+As simple as this:
+
+{% highlight python %}
+# Automatically generate ticks for x axis
+plt.xticks(np.arange(min(x), max(x)+1, step))
+
+# Manually specify ticks for y axis
+plt.yticks([-1, 5.2, 9.0, 43, 109])
+{% endhighlight %}
+
 ## Perl
 
 ### Pie
