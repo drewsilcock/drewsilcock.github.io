@@ -123,7 +123,7 @@ Unfortuantely, GitHub Pages doesn't allow for custom Jekyll plugins for security
 
 Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
 
-![annoying scroll bar](../public/media/lineno_w_yscroll.png)
+![annoying scroll bar](/public/media/proper-linenumbers/lineno_w_yscroll.png)
 
 Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
 
