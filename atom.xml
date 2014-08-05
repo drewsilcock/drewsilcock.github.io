@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-08-05T16:51:54+01:00</updated>
+ <updated>2014-08-05T16:53:00+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -353,7 +353,7 @@
 
 &lt;p&gt;Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_yscroll.png&quot; alt=&quot;annoying scroll bar&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/proper-linenumbers/lineno_w_yscroll.png&quot; alt=&quot;annoying scroll bar&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:&lt;/p&gt;
 
