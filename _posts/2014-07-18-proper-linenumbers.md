@@ -119,6 +119,27 @@ Then you don't need to put it in each codeblock tag and can forget about it!
 
 Unfortuantely, GitHub Pages doesn't allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you're gonna have to stick to putting `lineanchors` in each tag. Up to you which you want to do.
 
+**Update:** *5-8-14*
+Dana's global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you'll need to actually type `highlight lang lineanchors` for each individual code block. Annoying.
+
+I always forget to do this, and could not be bothered to go through each codeblock in each blog post I've written, so here's a simple bash script to replace all instances of the `highlight lang` Liquid tag with its `lineanchors` equivalent:
+
+{% highlight bash lineanchors %}
+#!/bin/bash
+
+# Adds lineanchors option to all codeblock Liquid tags
+
+languages=( vim python perl ruby yaml css html bash cpp c )
+
+for lang in "${languages[@]}"
+do
+    :
+    perl -pi -e "s/highlight $lang/highlight $lang lineanchors/g" _posts/*
+done
+{% endhighlight %}
+
+If you're using more lexers, just add them into the languages array, and if you're posts are lcoated in a different place, just replace `_posts/*` with wherever your posts are.
+
 ## Scroll bar
 
 Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
