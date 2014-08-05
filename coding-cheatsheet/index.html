@@ -11,7 +11,7 @@
 
   <title>
     
-      Personal cheatsheet &middot; Drew Silcock
+      Coding cheatsheet &middot; Drew Silcock
     
   </title>
 
@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/public/media/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
+                                 <link rel="shortcut icon" href="/public/media/site/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -98,6 +98,12 @@
           
         
       
+        
+      
+        
+          
+        
+      
 
       <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
       <span class="sidebar-nav-item">Currently v1.0.3</span>
@@ -110,9 +116,9 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Personal cheatsheet</h1>
+  <h1 class="post-title">Coding cheatsheet</h1>
   <span class="post-date">15 Jul 2014</span>
-  <p>Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.</p>
+  <p>Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.</p>
 
 <!--more-->
 
@@ -271,6 +277,26 @@ git config --global push.default current</code></pre></div>
 
 <p>Why is this not a standard part of matplotlib? I don’t know.</p>
 
+<h3 id="change-x-or-y-ticks-on-pyplot-plot">Change x or y ticks on pyplot plot</h3>
+
+<p>You can use either <code>np.arange</code> or specify the ticks yourself:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Automatically generate ticks for x axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">))</span>
+
+<span class="c"># Manually specify ticks for y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">109</span><span class="p">])</span></code></pre></div>
+
+<h3 id="set-custom-limits-on-pyplot-plot">Set custom limits on pyplot plot</h3>
+
+<p>Here you can both retrieve and set the x and y limits with <code>plt.xlim</code> and <code>plt.ylim</code>:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span> <span class="c"># Returns the current x axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span> <span class="c"># Returns the current y axis limits</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span> <span class="c"># Sets the x axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">159</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c"># Sets the y axis limits</span></code></pre></div>
+
 <h2 id="perl">Perl</h2>
 
 <h3 id="pie">Pie</h3>
@@ -292,6 +318,15 @@ git config --global push.default current</code></pre></div>
     
       <li>
         <h3>
+          <a href="/calculating-overlap">
+            Calculating the overlap of aerial photos
+            <small>31 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/custom-jekyll-plugins">
             Custom Jekyll plugins with GitHub Pages
             <small>29 Jul 2014</small>
@@ -304,15 +339,6 @@ git config --global push.default current</code></pre></div>
           <a href="/meters-per-pixel">
             Calculating meters per pixel from aerial photographs
             <small>21 Jul 2014</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/proper-linenumbers">
-            Proper line numbers with Jekyll
-            <small>18 Jul 2014</small>
           </a>
         </h3>
       </li>

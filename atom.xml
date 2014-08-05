@@ -4,13 +4,46 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-07-30T18:02:53+01:00</updated>
+ <updated>2014-08-05T12:49:01+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Calculating the overlap of aerial photos</title>
+   <link href="http://drewsilcock.co.uk/calculating-overlap"/>
+   <updated>2014-07-31T00:00:00+01:00</updated>
+   <id>http://drewsilcock.co.uk/calculating-overlap</id>
+   <content type="html">&lt;p&gt;The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?&lt;/p&gt;
+
+&lt;p&gt;This post demonstrates how to go about calculating the required maximum distance between successive photos in order to ensure a certain percentage overlap between those photos, as a function of the required overlap, the angle of view of the camera and your height above the ground.&lt;/p&gt;
+
+&lt;p&gt;I then go on to show how to simply work out how fast you need to fly your UAV to achieve this overlap, given the time between successive photographs.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;calculating-inter-photo-distance&quot;&gt;Calculating inter-photo distance&lt;/h2&gt;
+
+&lt;p&gt;The geometry of the situation is shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/calculating-overlap/overlap.svg&quot; alt=&quot;geometry of overlap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s call the inter-photo distance \( d_{int} \), the angle of view \( \alpha_y \), the height \( h \) and the required overlap fraction \( \omega \) (i.e. if we want 80% overlap, then \( \omega = 0.8 \)).&lt;/p&gt;
+
+&lt;p&gt;\[ d_{int} = 2h\tan\left(\frac{\alpha_y}{2}\right) - \mathrm{overlap} \\&lt;br /&gt;
+= 2h\tan\left(\frac{\alpha_y}{2}\right) - 2h\omega\tan\left(\frac{\alpha_y}{2}\right) \\&lt;br /&gt;
+= 2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right] \]&lt;/p&gt;
+
+&lt;h2 id=&quot;calculating-uav-speed&quot;&gt;Calculating UAV speed&lt;/h2&gt;
+
+&lt;p&gt;The speed that a UAV must fly at, \( v_{UAV} \) , given the time interval between successive photos, \( t_{int} \), is then simply given by:&lt;/p&gt;
+
+&lt;p&gt;\[ v_{UAV} = \frac{d_{int}}{t_{int}} = \]&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Custom Jekyll plugins with GitHub Pages</title>
@@ -142,11 +175,11 @@ jekyll build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt
 
 &lt;p&gt;The following diagrams illustrate the horizontal and vertical views that the camera sees:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/horizontal_view.svg&quot; alt=&quot;horizontal view&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/meters-per-pixel/horizontal_view.svg&quot; alt=&quot;horizontal view&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/vertical_view.svg&quot; alt=&quot;vertical view&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/meters-per-pixel/vertical_view.svg&quot; alt=&quot;vertical view&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:&lt;/p&gt;
 
@@ -181,7 +214,7 @@ Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resol
 
 &lt;p&gt;This image, courtesy of &lt;a href=&quot;http://www.gizmag.com/camera-sensor-size-guide/26684/pictures#1&quot;&gt;gizmag&lt;/a&gt;, show the dimensions of various common sensor sizes:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/sensor_sizes.jpg&quot; alt=&quot;sensor sizes&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/meters-per-pixel/sensor_sizes.jpg&quot; alt=&quot;sensor sizes&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If your sensor is not listed here, then Wikipedia has a full table of listings for every sensor imaginable over on the page for &lt;a href=&quot;https://en.wikipedia.org/wiki/Image_sensor_format#Table_of_sensor_formats_and_sizes&quot;&gt;Image sensor format&lt;/a&gt;.&lt;/p&gt;
 
@@ -212,19 +245,21 @@ Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resol
 
 &lt;p&gt;Here’s the default &lt;code&gt;lineno&lt;/code&gt; option, &lt;code&gt;inline&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_inline.png&quot; alt=&quot;lineno=inline&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/proper-linenumbers/lineno_w_inline.png&quot; alt=&quot;lineno=inline&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This works, but has two main visual and practical problems:
-    * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
-    * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.&lt;/p&gt;
+1. There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
+2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.&lt;/p&gt;
 
-&lt;p&gt;So what’s the alternative? &lt;!--more--&gt; Well, Pygments has inbuilt the &lt;code&gt;table&lt;/code&gt; option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:&lt;/p&gt;
+&lt;p&gt;So what’s the alternative? &lt;!--more--&gt; &lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_table.png&quot; alt=&quot;lineno=table&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Well, Pygments has inbuilt the &lt;code&gt;table&lt;/code&gt; option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:&lt;/p&gt;
 
-&lt;p&gt;Well, as you can see, this doesn’t really look good either. The main problems areL=:
-    * The size of the line number table is inconsistent between codeblocks, and
-    * The line numbers don’t align with the actual lines of code&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/proper-linenumbers/lineno_w_table.png&quot; alt=&quot;lineno=table&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, as you can see, this doesn’t really look good either. The main problems are:
+1. The size of the line number table is inconsistent between codeblocks, and
+2. The line numbers don’t align with the actual lines of code&lt;/p&gt;
 
 &lt;p&gt;So let’s get rid of the &lt;code&gt;lineno&lt;/code&gt; option altogether, and get our beautiful but functional line numbers through &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Counters&quot;&gt;CSS counters&lt;/a&gt;, as described in an article by &lt;a href=&quot;http://alexpeattie.com/blog/github-style-syntax-highlighting-with-pygments/&quot;&gt;Alex Peattie&lt;/a&gt;.&lt;/p&gt;
 
@@ -281,7 +316,7 @@ Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resol
 
 &lt;p&gt;Here’s what it produces after adding it to your &lt;code&gt;syntax.css&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_beautiful.png&quot; alt=&quot;beautiful linenumbers&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/proper-linenumbers/lineno_beautiful.png&quot; alt=&quot;beautiful linenumbers&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Note those important lines at the end of &lt;code&gt;pre a::before&lt;/code&gt;:&lt;/p&gt;
 
@@ -302,7 +337,7 @@ Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resol
 
 &lt;p&gt;It’s not quite that simple, though. These CSS counters need the &lt;code&gt;lineanchors&lt;/code&gt; option to be given for each codeblock, or it ends up looking like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_wo_lineanchors.png&quot; alt=&quot;without lineanchors&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/proper-linenumbers/lineno_wo_lineanchors.png&quot; alt=&quot;without lineanchors&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To solve this, you can either just put &lt;code&gt;lineanchors&lt;/code&gt; in every &lt;code&gt;highlight&lt;/code&gt; Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your &lt;code&gt;_config.yml&lt;/code&gt;. Such a plugin is available &lt;a href=&quot;https://gist.github.com/danasilver/8121699&quot;&gt;here&lt;/a&gt;, thanks to &lt;a href=&quot;https://github.com/danasilver&quot;&gt;Dana Silver&lt;/a&gt;.&lt;/p&gt;
 
@@ -328,185 +363,6 @@ Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resol
 &lt;p&gt;This is placed in &lt;code&gt;pre { .. }&lt;/code&gt;, just after &lt;code&gt;overflow-x: auto;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;After this, I finally had the beautiful line numbers that Pygments natively lacks.&lt;/p&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>Personal cheatsheet</title>
-   <link href="http://drewsilcock.co.uk/personal-cheatsheet"/>
-   <updated>2014-07-15T00:00:00+01:00</updated>
-   <id>http://drewsilcock.co.uk/personal-cheatsheet</id>
-   <content type="html">&lt;p&gt;Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
-
-&lt;h3 id=&quot;first-commands&quot;&gt;First commands&lt;/h3&gt;
-
-&lt;p&gt;These are the things you need to do when using &lt;code&gt;git&lt;/code&gt; on a new computer:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
-git config --global user.name &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;USER&amp;gt;&amp;quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Change email associated with commits&lt;/span&gt;
-git config --global user.email &amp;lt;EMAIL&amp;gt;
-
-&lt;span class=&quot;c&quot;&gt;# Cache uname and passwd for convenience (only on git &amp;gt;= 1.7.9)&lt;/span&gt;
-git config --global credential.helper cache
-
-&lt;span class=&quot;c&quot;&gt;# Push to current branch only by default&lt;/span&gt;
-git config --global push.default current&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
-
-&lt;p&gt;Add remote repository:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add origin https://github.com/username/repository.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Then subsequently set local branch to track remote branch:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
-
-&lt;h3 id=&quot;vim-functions&quot;&gt;Vim functions&lt;/h3&gt;
-
-&lt;p&gt;Here’s the syntax for declaring vim script functions:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
-    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
-&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And you then call it in Vim with:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;recognise-custom-filetypes&quot;&gt;Recognise custom filetypes&lt;/h3&gt;
-
-&lt;p&gt;I’ve got &lt;code&gt;moo.vim&lt;/code&gt; files in my &lt;code&gt;~/.vim/after/syntax&lt;/code&gt; and &lt;code&gt;~/.vim/after/ftplugin&lt;/code&gt;, for all &lt;code&gt;moo&lt;/code&gt; files with extension &lt;code&gt;.moo&lt;/code&gt;. To get Vim to recognise these &lt;code&gt;.moo&lt;/code&gt; files and apply the Vim scripts associated therewith, I need to create a file called &lt;code&gt;moo.vim&lt;/code&gt; in &lt;code&gt;~/.vim/ftdetect/&lt;/code&gt;, which contains the following:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: You may have to wipe your &lt;code&gt;~/.vim/view&lt;/code&gt; before Vim recognises old files as this new filetype.&lt;/p&gt;
-
-&lt;h3 id=&quot;editing-over-scp&quot;&gt;Editing over scp&lt;/h3&gt;
-
-&lt;p&gt;Vim comes with the ability to edit files remotely over scp. This can be achieved via:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;However, trying to save gives the error:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file. This can be bypassed by using &lt;code&gt;:Nwrite&lt;/code&gt; from the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw.vim&lt;/a&gt; that comes bundled with Vim 7.0:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;sshfs&quot;&gt;sshfs&lt;/h2&gt;
-
-&lt;p&gt;To allow other non-root users to access a filesystem mounted over ssh, use:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;photoshop&quot;&gt;Photoshop&lt;/h2&gt;
-
-&lt;p&gt;Whilst I don’t generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like &lt;a href=&quot;http://www.agisoft.ru/products/photoscan&quot;&gt;PhotoScan&lt;/a&gt; (another piece of incredibly expensive proprietary software).&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The &lt;code&gt;w&lt;/code&gt; key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, in the “&lt;em&gt;Channels&lt;/em&gt;” group, click “&lt;em&gt;New channel&lt;/em&gt;” at the bottom of the group box. The image should now turn black.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If you want to mask the selection, press &lt;code&gt;&amp;lt;CMD&amp;gt;&amp;lt;SHIFT&amp;gt;I&lt;/code&gt; to invert the selection and press &lt;code&gt;&amp;lt;SHIFT&amp;gt;&amp;lt;F5&amp;gt;&lt;/code&gt;; select “&lt;em&gt;White&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt;. If you want to mask everything apart from the selection, then simply press &lt;code&gt;&amp;lt;SHIFT&amp;gt;&amp;lt;F5&amp;gt;&lt;/code&gt;, select “&lt;em&gt;White&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Save the file as a format supporting alpha channels by pressing &lt;code&gt;&amp;lt;CMD&amp;gt;&amp;lt;SHIFT&amp;gt;S&lt;/code&gt;. For PhotoScan imports, &lt;code&gt;TIFF&lt;/code&gt; is recommended. Tick the box called “&lt;em&gt;Alpha Channels&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt; twice to save.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;(&lt;strong&gt;optional&lt;/strong&gt;) In PhotoScan, after loading the photos into the workspace with &lt;em&gt;Workflow&lt;/em&gt;&amp;gt;&lt;em&gt;Add photos&lt;/em&gt;/&lt;em&gt;Add folder&lt;/em&gt;, click &lt;em&gt;Tools&lt;/em&gt;&amp;gt;&lt;em&gt;Import&lt;/em&gt;&amp;gt;&lt;em&gt;Import masks…&lt;/em&gt;. Make sure that “&lt;em&gt;Method&lt;/em&gt;” is set to “&lt;em&gt;From Alpha&lt;/em&gt;” and click okay. The masked areas will then be darkened to indicate they are masked.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Bonus Tip:&lt;/strong&gt; To import masks from one photo into another, simpler drag the channel onto the new photo.&lt;/p&gt;
-
-&lt;p&gt;Note that this is based on the ancient CS3 that’s installed on the Mac I’m currently using, and may not apply to newer versions.&lt;/p&gt;
-
-&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
-
-&lt;h3 id=&quot;argparse&quot;&gt;argparse&lt;/h3&gt;
-
-&lt;p&gt;Skeleton &lt;code&gt;argparse&lt;/code&gt; template:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Description of the program&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description of the Python program.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# A compulsory positional argument&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;compulsory&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Description of argument, what it does and what the options are.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# A required normal argument&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# An optional true/false argument&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-v&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--verbose&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;store_true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Specifying the type&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--float&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Specifying the default value&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;drew&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Parse the arguments&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Accessing the values of the arguments&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;myArgument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compulsory&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;replace--with-home-directory&quot;&gt;Replace &lt;code&gt;~&lt;/code&gt; with home directory&lt;/h3&gt;
-
-&lt;p&gt;This is just a fun little script that replaces &lt;code&gt;~&lt;/code&gt; in a string with the path to the user directory, e.g. &lt;code&gt;/home/drew&lt;/code&gt;. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Replace &amp;#39;~&amp;#39; in fname with path to user dir&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;increase-size-of-pyplot-legend&quot;&gt;Increase size of pyplot legend&lt;/h3&gt;
-
-&lt;p&gt;Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;fix-spacing-in-pyplot-multiplots&quot;&gt;Fix spacing in pyplot multiplots&lt;/h3&gt;
-
-&lt;p&gt;Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Why is this not a standard part of matplotlib? I don’t know.&lt;/p&gt;
-
-&lt;h2 id=&quot;perl&quot;&gt;Perl&lt;/h2&gt;
-
-&lt;h3 id=&quot;pie&quot;&gt;Pie&lt;/h3&gt;
-
-&lt;p&gt;Probably the most useful thing that &lt;code&gt;perl&lt;/code&gt; can do is &lt;code&gt;perl &lt;/code&gt;-pi -e`, often lovingly called Perl Pie. The syntax is:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;This replaces &lt;code&gt;string to find&lt;/code&gt; with &lt;code&gt;string to replace&lt;/code&gt; in filenames. This is fully regex compatible. For instance, if I wanted to replace &lt;code&gt;mispelt&lt;/code&gt; with &lt;code&gt;misspelt&lt;/code&gt; in all files ending in &lt;code&gt;.txt&lt;/code&gt;, I would run:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </content>
  </entry>
@@ -717,6 +573,205 @@ See &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;config.log&lt;span class=&quo
 &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/GNU_build_system#mediaviewer/File:Autoconf-automake-process.svg&quot;&gt;This autotools flow chart from Wikipedia&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/zsh-users/zsh/blob/master/INSTALL&quot;&gt;The somewhat cryptic and involved zsh INSTALL file.&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Coding cheatsheet</title>
+   <link href="http://drewsilcock.co.uk/coding-cheatsheet"/>
+   <updated>2014-07-15T00:00:00+01:00</updated>
+   <id>http://drewsilcock.co.uk/coding-cheatsheet</id>
+   <content type="html">&lt;p&gt;Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+
+&lt;h3 id=&quot;first-commands&quot;&gt;First commands&lt;/h3&gt;
+
+&lt;p&gt;These are the things you need to do when using &lt;code&gt;git&lt;/code&gt; on a new computer:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
+git config --global user.name &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;USER&amp;gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Change email associated with commits&lt;/span&gt;
+git config --global user.email &amp;lt;EMAIL&amp;gt;
+
+&lt;span class=&quot;c&quot;&gt;# Cache uname and passwd for convenience (only on git &amp;gt;= 1.7.9)&lt;/span&gt;
+git config --global credential.helper cache
+
+&lt;span class=&quot;c&quot;&gt;# Push to current branch only by default&lt;/span&gt;
+git config --global push.default current&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
+
+&lt;p&gt;Add remote repository:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add origin https://github.com/username/repository.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then subsequently set local branch to track remote branch:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
+
+&lt;h3 id=&quot;vim-functions&quot;&gt;Vim functions&lt;/h3&gt;
+
+&lt;p&gt;Here’s the syntax for declaring vim script functions:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
+    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
+&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you then call it in Vim with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;recognise-custom-filetypes&quot;&gt;Recognise custom filetypes&lt;/h3&gt;
+
+&lt;p&gt;I’ve got &lt;code&gt;moo.vim&lt;/code&gt; files in my &lt;code&gt;~/.vim/after/syntax&lt;/code&gt; and &lt;code&gt;~/.vim/after/ftplugin&lt;/code&gt;, for all &lt;code&gt;moo&lt;/code&gt; files with extension &lt;code&gt;.moo&lt;/code&gt;. To get Vim to recognise these &lt;code&gt;.moo&lt;/code&gt; files and apply the Vim scripts associated therewith, I need to create a file called &lt;code&gt;moo.vim&lt;/code&gt; in &lt;code&gt;~/.vim/ftdetect/&lt;/code&gt;, which contains the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: You may have to wipe your &lt;code&gt;~/.vim/view&lt;/code&gt; before Vim recognises old files as this new filetype.&lt;/p&gt;
+
+&lt;h3 id=&quot;editing-over-scp&quot;&gt;Editing over scp&lt;/h3&gt;
+
+&lt;p&gt;Vim comes with the ability to edit files remotely over scp. This can be achieved via:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;However, trying to save gives the error:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file. This can be bypassed by using &lt;code&gt;:Nwrite&lt;/code&gt; from the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw.vim&lt;/a&gt; that comes bundled with Vim 7.0:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sshfs&quot;&gt;sshfs&lt;/h2&gt;
+
+&lt;p&gt;To allow other non-root users to access a filesystem mounted over ssh, use:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;photoshop&quot;&gt;Photoshop&lt;/h2&gt;
+
+&lt;p&gt;Whilst I don’t generally like expensive proprietary software, particularly photoshop, given the importance of this small technique to my current project (on which I will write a full post soon), I felt it important to include how to mask parts of photos in Photoshop, ready to be imported into programs like &lt;a href=&quot;http://www.agisoft.ru/products/photoscan&quot;&gt;PhotoScan&lt;/a&gt; (another piece of incredibly expensive proprietary software).&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Firstly, select the region you want to mask (or keep unmasked, whichever is easier). The &lt;code&gt;w&lt;/code&gt; key switches between the Quick Selection and Magic Wand tools, both useful in their own rights.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, in the “&lt;em&gt;Channels&lt;/em&gt;” group, click “&lt;em&gt;New channel&lt;/em&gt;” at the bottom of the group box. The image should now turn black.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you want to mask the selection, press &lt;code&gt;&amp;lt;CMD&amp;gt;&amp;lt;SHIFT&amp;gt;I&lt;/code&gt; to invert the selection and press &lt;code&gt;&amp;lt;SHIFT&amp;gt;&amp;lt;F5&amp;gt;&lt;/code&gt;; select “&lt;em&gt;White&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt;. If you want to mask everything apart from the selection, then simply press &lt;code&gt;&amp;lt;SHIFT&amp;gt;&amp;lt;F5&amp;gt;&lt;/code&gt;, select “&lt;em&gt;White&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save the file as a format supporting alpha channels by pressing &lt;code&gt;&amp;lt;CMD&amp;gt;&amp;lt;SHIFT&amp;gt;S&lt;/code&gt;. For PhotoScan imports, &lt;code&gt;TIFF&lt;/code&gt; is recommended. Tick the box called “&lt;em&gt;Alpha Channels&lt;/em&gt;” and press &lt;code&gt;&amp;lt;CR&amp;gt;&lt;/code&gt; twice to save.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(&lt;strong&gt;optional&lt;/strong&gt;) In PhotoScan, after loading the photos into the workspace with &lt;em&gt;Workflow&lt;/em&gt;&amp;gt;&lt;em&gt;Add photos&lt;/em&gt;/&lt;em&gt;Add folder&lt;/em&gt;, click &lt;em&gt;Tools&lt;/em&gt;&amp;gt;&lt;em&gt;Import&lt;/em&gt;&amp;gt;&lt;em&gt;Import masks…&lt;/em&gt;. Make sure that “&lt;em&gt;Method&lt;/em&gt;” is set to “&lt;em&gt;From Alpha&lt;/em&gt;” and click okay. The masked areas will then be darkened to indicate they are masked.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Bonus Tip:&lt;/strong&gt; To import masks from one photo into another, simpler drag the channel onto the new photo.&lt;/p&gt;
+
+&lt;p&gt;Note that this is based on the ancient CS3 that’s installed on the Mac I’m currently using, and may not apply to newer versions.&lt;/p&gt;
+
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
+
+&lt;h3 id=&quot;argparse&quot;&gt;argparse&lt;/h3&gt;
+
+&lt;p&gt;Skeleton &lt;code&gt;argparse&lt;/code&gt; template:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Description of the program&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description of the Python program.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# A compulsory positional argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;compulsory&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Description of argument, what it does and what the options are.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# A required normal argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--option&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# An optional true/false argument&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-v&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--verbose&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;store_true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Specifying the type&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--float&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Specifying the default value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;drew&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Short description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Parse the arguments&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Accessing the values of the arguments&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myArgument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compulsory&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;replace--with-home-directory&quot;&gt;Replace &lt;code&gt;~&lt;/code&gt; with home directory&lt;/h3&gt;
+
+&lt;p&gt;This is just a fun little script that replaces &lt;code&gt;~&lt;/code&gt; in a string with the path to the user directory, e.g. &lt;code&gt;/home/drew&lt;/code&gt;. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Replace &amp;#39;~&amp;#39; in fname with path to user dir&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;increase-size-of-pyplot-legend&quot;&gt;Increase size of pyplot legend&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;fix-spacing-in-pyplot-multiplots&quot;&gt;Fix spacing in pyplot multiplots&lt;/h3&gt;
+
+&lt;p&gt;Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Why is this not a standard part of matplotlib? I don’t know.&lt;/p&gt;
+
+&lt;h3 id=&quot;change-x-or-y-ticks-on-pyplot-plot&quot;&gt;Change x or y ticks on pyplot plot&lt;/h3&gt;
+
+&lt;p&gt;You can use either &lt;code&gt;np.arange&lt;/code&gt; or specify the ticks yourself:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Automatically generate ticks for x axis&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Manually specify ticks for y axis&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;9.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;set-custom-limits-on-pyplot-plot&quot;&gt;Set custom limits on pyplot plot&lt;/h3&gt;
+
+&lt;p&gt;Here you can both retrieve and set the x and y limits with &lt;code&gt;plt.xlim&lt;/code&gt; and &lt;code&gt;plt.ylim&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Returns the current x axis limits&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Returns the current y axis limits&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Sets the x axis limits&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;159&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Sets the y axis limits&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;perl&quot;&gt;Perl&lt;/h2&gt;
+
+&lt;h3 id=&quot;pie&quot;&gt;Pie&lt;/h3&gt;
+
+&lt;p&gt;Probably the most useful thing that &lt;code&gt;perl&lt;/code&gt; can do is &lt;code&gt;perl &lt;/code&gt;-pi -e`, often lovingly called Perl Pie. The syntax is:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This replaces &lt;code&gt;string to find&lt;/code&gt; with &lt;code&gt;string to replace&lt;/code&gt; in filenames. This is fully regex compatible. For instance, if I wanted to replace &lt;code&gt;mispelt&lt;/code&gt; with &lt;code&gt;misspelt&lt;/code&gt; in all files ending in &lt;code&gt;.txt&lt;/code&gt;, I would run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 </content>
  </entry>
  

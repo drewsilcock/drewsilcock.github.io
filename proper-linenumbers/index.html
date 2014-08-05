@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/public/media/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
+                                 <link rel="shortcut icon" href="/public/media/site/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -98,6 +98,12 @@
           
         
       
+        
+      
+        
+          
+        
+      
 
       <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
       <span class="sidebar-nav-item">Currently v1.0.3</span>
@@ -116,19 +122,21 @@
 
 <p>Here’s the default <code>lineno</code> option, <code>inline</code>:</p>
 
-<p><img src="../public/media/lineno_w_inline.png" alt="lineno=inline" /></p>
+<p><img src="/public/media/proper-linenumbers/lineno_w_inline.png" alt="lineno=inline" /></p>
 
 <p>This works, but has two main visual and practical problems:
-    * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
-    * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
+1. There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
+2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
 
-<p>So what’s the alternative? <!--more--> Well, Pygments has inbuilt the <code>table</code> option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:</p>
+<p>So what’s the alternative? <!--more--> </p>
 
-<p><img src="../public/media/lineno_w_table.png" alt="lineno=table" /></p>
+<p>Well, Pygments has inbuilt the <code>table</code> option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let’s take a look:</p>
 
-<p>Well, as you can see, this doesn’t really look good either. The main problems areL=:
-    * The size of the line number table is inconsistent between codeblocks, and
-    * The line numbers don’t align with the actual lines of code</p>
+<p><img src="/public/media/proper-linenumbers/lineno_w_table.png" alt="lineno=table" /></p>
+
+<p>Well, as you can see, this doesn’t really look good either. The main problems are:
+1. The size of the line number table is inconsistent between codeblocks, and
+2. The line numbers don’t align with the actual lines of code</p>
 
 <p>So let’s get rid of the <code>lineno</code> option altogether, and get our beautiful but functional line numbers through <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Counters">CSS counters</a>, as described in an article by <a href="http://alexpeattie.com/blog/github-style-syntax-highlighting-with-pygments/">Alex Peattie</a>.</p>
 
@@ -185,7 +193,7 @@
 
 <p>Here’s what it produces after adding it to your <code>syntax.css</code>:</p>
 
-<p><img src="../public/media/lineno_beautiful.png" alt="beautiful linenumbers" /></p>
+<p><img src="/public/media/proper-linenumbers/lineno_beautiful.png" alt="beautiful linenumbers" /></p>
 
 <p>Note those important lines at the end of <code>pre a::before</code>:</p>
 
@@ -206,7 +214,7 @@
 
 <p>It’s not quite that simple, though. These CSS counters need the <code>lineanchors</code> option to be given for each codeblock, or it ends up looking like this:</p>
 
-<p><img src="../public/media/lineno_wo_lineanchors.png" alt="without lineanchors" /></p>
+<p><img src="/public/media/proper-linenumbers/lineno_wo_lineanchors.png" alt="without lineanchors" /></p>
 
 <p>To solve this, you can either just put <code>lineanchors</code> in every <code>highlight</code> Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your <code>_config.yml</code>. Such a plugin is available <a href="https://gist.github.com/danasilver/8121699">here</a>, thanks to <a href="https://github.com/danasilver">Dana Silver</a>.</p>
 
@@ -242,6 +250,15 @@
     
       <li>
         <h3>
+          <a href="/calculating-overlap">
+            Calculating the overlap of aerial photos
+            <small>31 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/custom-jekyll-plugins">
             Custom Jekyll plugins with GitHub Pages
             <small>29 Jul 2014</small>
@@ -254,15 +271,6 @@
           <a href="/meters-per-pixel">
             Calculating meters per pixel from aerial photographs
             <small>21 Jul 2014</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/personal-cheatsheet">
-            Personal cheatsheet
-            <small>15 Jul 2014</small>
           </a>
         </h3>
       </li>

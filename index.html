@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/public/media/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
+                                 <link rel="shortcut icon" href="/public/media/site/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -98,6 +98,12 @@
           
         
       
+        
+      
+        
+          
+        
+      
 
       <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
       <span class="sidebar-nav-item">Currently v1.0.3</span>
@@ -110,6 +116,28 @@
 
     <div class="content container">
       <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/calculating-overlap">
+        Calculating the overlap of aerial photos
+      </a>
+    </h1>
+
+    <span class="post-date">31 Jul 2014</span>
+
+    
+        <p>The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?</p>
+
+<p>This post demonstrates how to go about calculating the required maximum distance between successive photos in order to ensure a certain percentage overlap between those photos, as a function of the required overlap, the angle of view of the camera and your height above the ground.</p>
+
+<p>I then go on to show how to simply work out how fast you need to fly your UAV to achieve this overlap, given the time between successive photographs.</p>
+
+
+        <p><a class="btn btn-primary btn-lg" href="/calculating-overlap">Continue reading...</a></p>
+    
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -167,32 +195,14 @@
 
 <p>Here’s the default <code>lineno</code> option, <code>inline</code>:</p>
 
-<p><img src="../public/media/lineno_w_inline.png" alt="lineno=inline" /></p>
+<p><img src="/public/media/proper-linenumbers/lineno_w_inline.png" alt="lineno=inline" /></p>
 
 <p>This works, but has two main visual and practical problems:
-    * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
-    * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
+1. There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
+2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
 
 <p>So what’s the alternative? 
         <p><a class="btn btn-primary btn-lg" href="/proper-linenumbers">Continue reading...</a></p>
-    
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/personal-cheatsheet">
-        Personal cheatsheet
-      </a>
-    </h1>
-
-    <span class="post-date">15 Jul 2014</span>
-
-    
-        <p>Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.</p>
-
-
-        <p><a class="btn btn-primary btn-lg" href="/personal-cheatsheet">Continue reading...</a></p>
     
 
   </div>
@@ -219,7 +229,7 @@
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/page2">Older</a>
   
   
     <span class="pagination-item newer">Newer</span>
