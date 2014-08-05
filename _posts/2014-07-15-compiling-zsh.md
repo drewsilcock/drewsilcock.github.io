@@ -14,7 +14,7 @@ This article describes how to compile zshell on a Linux machine without root, fo
 ### ncurses
 To compile `zsh`, you need `ncurses`. This needs to be compiled with the flag `-fPIC`. This can be achieved as follows:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Download the ncurses gzipped tarball
 wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
 
@@ -42,13 +42,13 @@ cd ..
 
 Now before installing the compiled files, you should check to make sure that ncurses has compiled correctly by running:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 ./test/ncurses
 {% endhighlight %}
 
 If this successfully opens a prompt with multiple options, then ncurses has been successfully compiled, and you can install it:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Install ncurses to $HOME/.local
 make install
 {% endhighlight %}
@@ -61,7 +61,7 @@ Now, this may be all you need, but if you don't have it installed, you also need
 
 Firstly, `icmake` is installed via:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Download icmake source from Sourcefourge
 wget http://downloads.sourceforge.net/project/icmake/icmake/7.21.00/icmake_7.21.00.orig.tar.gz
 
@@ -72,7 +72,7 @@ cd icmake-7.21.00
 
 Now the `INSTALL.im` file needs to be altered to reflect our local installation. This means replacing all the file installation locations with local directories as such, where <USER> should be replaced with your username:
 
-{% highlight cpp %}
+{% highlight c lineanchorspp lineanchors %}
 #define BINDIR      "/home/<USER>/.local/bin"
 #define SKELDIR     "/home/<USER>/.local/share/icmake"
 #define MANDIR      "/home/<USER>/.local/share/man"
@@ -84,13 +84,13 @@ Now the `INSTALL.im` file needs to be altered to reflect our local installation.
 
 Now run the following to compile icmake:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 ./icm_bootstrap /
 {% endhighlight %}
 
 Now, technically, this will compile all the files you actually need in `tmp`, but if you further want to install the files to ~/.local, then you simply run:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 ./icm_install strip all
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ If you then want to clear up the temporary compiled files, delete the directory 
 
 Now to move onto yodl. Again, we need to specify that we want to install locally by putting `BASE = "/home/as1423/.local" at the start of the function `setLocations()` located at the end of `INSTALL.im', so that the function looks like:
 
-{% highlight cpp %}
+{% highlight c lineanchorspp lineanchors %}
 void setLocations()
 {
     BASE        = "/home/as1423/.local";
@@ -120,13 +120,13 @@ void setLocations()
 
 In addition, we need to tell `build` to look in our local directory for `icmake` instead of the standard `/usr/bin` or `/usr/local/bin`. This means editing the hashbang at the top of `build` to look as follows, where again <USER> is replaced by your UNIX username:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 #!/home/<USER>/.local/bin/icmake -qt/tmp/yodl
 {% endhighlight %}
 
 Now that `build` knows that we want to run our locally compiled `icmake`, we can actually build `yodl`:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # In root directory of yodl source
 ./build programs
 ./build man
@@ -138,7 +138,7 @@ There may be a LaTeX error when running `./build manual`, but just ignore this, 
 
 Now we're ready to actually install yodl:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 ./build install programs /
 ./build install man /
 ./build install manual /
@@ -151,7 +151,7 @@ Note that the `/` designates that we are installing with respect to the root of 
 ## Step 2: Tell environment where ncurses is
 Before compiling `zsh`, you need to tell your environment where your newly compiled files are (if you haven't already). This can be achieved with:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 INSTALL_PATH='$HOME/.local'
 
 export PATH=$INSTALL_PATH/bin:$PATH
@@ -164,7 +164,7 @@ export CPPFLAGS="-I$INSTALL_PATH/include" LDFLAGS="-L$INSTALL_PATH/lib"
 
 Now, we're finally ready to move onto compiling `zsh`:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Clone zsh repository from git
 git clone git://github.com/zsh-users/zsh.git
 
@@ -193,13 +193,13 @@ make install
 ## Step 4: Enjoy `zsh`!
 After these steps have been completed, zsh should be ready and compiled to use in your ~/.local/bin folder. If you like `zsh`, you'll love `ohmyzsh`. This can be installed by:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 curl -L http://install.ohmyz.sh | sh
 {% endhighlight %}
 
 Or if you don't want o execute shell scripts from arbitrary non-https website, you can use git:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Clone repository into local dotfiles
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
@@ -211,7 +211,7 @@ Once you've done this, edit oh-my-zsh to your needs, e.g. if you want to change 
 
 And finally, change your shell to `zsh`:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 chsh -s $HOME/.local/bin/zsh
 {% endhighlight %}
 
@@ -223,7 +223,7 @@ If, when installing `zsh`, either `make` or `make install` fail despite all othe
 
 If `zsh` isn't recognising the `ncurses` library when running `./configure`, and instead giving the following error:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 configure: error: "No terminal handling library was found on your system.
 This is probably a library called 'curses' or 'ncurses'. You may
 need to install a package called 'curses-devel' or 'ncurses-devel' on your

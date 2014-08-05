@@ -16,7 +16,7 @@ Herein lies my personal coding cheatsheet for all things I find useful and wish 
 
 These are the things you need to do when using `git` on a new computer:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 # Change username associated with commits
 git config --global user.name "<USER>"
 
@@ -40,13 +40,13 @@ git config --global color.ui true
 
 Add remote repository:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 git remote add origin https://github.com/username/repository.git
 {% endhighlight %}
 
 Then subsequently set local branch to track remote branch:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 git branch --set-upstream master origin/<branch>
 {% endhighlight %}
 
@@ -58,7 +58,7 @@ Adding submodules in a git repository is as simple as editing the file `.gitmodu
 I'm not sure what highlighter to use for this. If anyone knows a better one, do let me know.
 {% endcomment %}
 
-{% highlight python %}
+{% highlight python lineanchors %}
 [submodule "libfoo"]
     path = include/foo
     url = git://github.com/foo/libfoo.git
@@ -70,7 +70,7 @@ I'm not sure what highlighter to use for this. If anyone knows a better one, do 
 
 Then a quick:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 git submodule init
 git submodule update
 {% endhighlight %}
@@ -81,7 +81,7 @@ git submodule update
 
 Here's the syntax for declaring vim script functions:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 functions MyFunction ()
     do first thing
     do second thing
@@ -90,7 +90,7 @@ endfunction
 
 And you then call it in Vim with:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 :call MyFunction()
 {% endhighlight %}
 
@@ -98,7 +98,7 @@ And you then call it in Vim with:
 
 I've got `moo.vim` files in my `~/.vim/after/syntax` and `~/.vim/after/ftplugin`, for all `moo` files with extension `.moo`. To get Vim to recognise these `.moo` files and apply the Vim scripts associated therewith, I need to create a file called `moo.vim` in `~/.vim/ftdetect/`, which contains the following:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 au BufRead,BufNewFile *.moo set filetype=moo
 {% endhighlight %}
 
@@ -108,19 +108,19 @@ au BufRead,BufNewFile *.moo set filetype=moo
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 vim scp://user@servername//path/to/file
 {% endhighlight %}
 
 However, trying to save gives the error:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 E382: Cannot write, 'buftype' option is set
 {% endhighlight %}
 
 In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meaning the buffer cannot be saved to file. This can be bypassed by using `:Nwrite` from the [netrw.vim](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0:
 
-{% highlight vim %}
+{% highlight vim lineanchors %}
 :Nwrite
 {% endhighlight %}
 
@@ -128,7 +128,7 @@ In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meani
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 {% endhighlight %}
 
@@ -156,7 +156,7 @@ Note that this is based on the ancient CS3 that's installed on the Mac I'm curre
 
 Skeleton `argparse` template:
 
-{% highlight python %}
+{% highlight python lineanchors %}
 # Import the library
 import argparse
 
@@ -190,7 +190,7 @@ myName = args.name
 
 This is just a fun little script that replaces `~` in a string with the path to the user directory, e.g. `/home/drew`. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.
 
-{% highlight python %}
+{% highlight python lineanchors %}
 import re
 import os
 
@@ -202,7 +202,7 @@ fname = re.sub("~", os.environ['HOME'], fname)
 
 Sometimes, the legend in matplotlib isn't quite big enough. Increase it with:
 
-{% highlight python %}
+{% highlight python lineanchors %}
 plt.legend(loc="upper left", shadow=True, borderpad=1)
 {% endhighlight %}
 
@@ -210,7 +210,7 @@ plt.legend(loc="upper left", shadow=True, borderpad=1)
 
 Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:
 
-{% highlight python %}
+{% highlight python lineanchors %}
 plt.tight_layout()
 {% endhighlight %}
 
@@ -220,7 +220,7 @@ Why is this not a standard part of matplotlib? I don't know.
 
 You can use either `np.arange` or specify the ticks yourself:
 
-{% highlight python %}
+{% highlight python lineanchors %}
 # Automatically generate ticks for x axis
 plt.xticks(np.arange(min(x), max(x)+1, step))
 
@@ -232,7 +232,7 @@ plt.yticks([-1, 5.2, 9.0, 43, 109])
 
 Here you can both retrieve and set the x and y limits with `plt.xlim` and `plt.ylim`:
 
-{% highlight python %}
+{% highlight python lineanchors %}
 plt.xlim() # Returns the current x axis limits
 plt.ylim() # Returns the current y axis limits
 
@@ -246,12 +246,12 @@ plt.ylim(159, 4) # Sets the y axis limits
 
 Probably the most useful thing that `perl` can do is `perl -pi -e`, often lovingly called Perl Pie. The syntax is:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 perl -pi -e "s/string to find/string to replace/g" filenames
 {% endhighlight %}
 
 This replaces `string to find` with `string to replace` in filenames. This is fully regex compatible. For instance, if I wanted to replace `mispelt` with `misspelt` in all files ending in `.txt`, I would run:
 
-{% highlight bash %}
+{% highlight bash lineanchors %}
 perl -pi -e "s/mispelt/misspelt/g" *.txt
 {% endhighlight %}

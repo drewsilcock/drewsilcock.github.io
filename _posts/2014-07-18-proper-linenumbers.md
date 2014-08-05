@@ -31,7 +31,7 @@ So let's get rid of the `lineno` option altogether, and get our beautiful but fu
 
 Alex's CSS is as follows:
 
-{% highlight css %}
+{% highlight c lineanchorsss lineanchors %}
 pre {
     counter-reset: line-numbering;
     border: solid 1px #d9d9d9;
@@ -86,7 +86,7 @@ Here's what it produces after adding it to your `syntax.css`:
 
 Note those important lines at the end of `pre a::before`:
 
-{% highlight css %}
+{% highlight c lineanchorsss lineanchors %}
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -111,7 +111,7 @@ To solve this, you can either just put `lineanchors` in every `highlight` Liquid
 
 Using this plugin, you can simply specify as follows in your `_config.yml`:
 
-{% highlight yaml %}
+{% highlight yaml lineanchors %}
 pygments_options: ['lineanchors']
 {% endhighlight %}
 
@@ -127,7 +127,7 @@ Another problem I had, although I am unsure whether this problem is universal/re
 
 Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
 
-{% highlight css %}
+{% highlight c lineanchorsss lineanchors %}
 /* In pre { .. } */
 overflow-y: hidden;
 {% endhighlight %}
