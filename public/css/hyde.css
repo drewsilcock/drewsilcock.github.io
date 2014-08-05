@@ -57,7 +57,7 @@ html {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-image: url('/public/media/pillars.png');
+  background-image: url('/public/media/site/pillars.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #202020;
