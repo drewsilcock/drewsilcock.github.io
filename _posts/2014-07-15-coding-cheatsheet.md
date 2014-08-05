@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Personal cheatsheet
-permalink: personal-cheatsheet
+title: Coding cheatsheet
+permalink: coding-cheatsheet
 comments: True
+redirect_from: /personal-cheatsheet
 ---
 
-Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
+Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
 
 <!--more-->
 
@@ -183,6 +184,30 @@ plt.tight_layout()
 {% endhighlight %}
 
 Why is this not a standard part of matplotlib? I don't know.
+
+### Change x or y ticks on pyplot plot
+
+You can use either `np.arange` or specify the ticks yourself:
+
+{% highlight python %}
+# Automatically generate ticks for x axis
+plt.xticks(np.arange(min(x), max(x)+1, step))
+
+# Manually specify ticks for y axis
+plt.yticks([-1, 5.2, 9.0, 43, 109])
+{% endhighlight %}
+
+### Set custom limits on pyplot plot
+
+Here you can both retrieve and set the x and y limits with `plt.xlim` and `plt.ylim`:
+
+{% highlight python %}
+plt.xlim() # Returns the current x axis limits
+plt.ylim() # Returns the current y axis limits
+
+plt.xlim(0, 127) # Sets the x axis limits
+plt.ylim(159, 4) # Sets the y axis limits
+{% endhighlight %}
 
 ## Perl
 

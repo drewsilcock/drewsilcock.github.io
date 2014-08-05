@@ -12,16 +12,16 @@ Here's the default `lineno` option, `inline`:
 ![lineno=inline](../public/media/lineno_w_inline.png)
 
 This works, but has two main visual and practical problems:
-    * There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
-    * When trying to copy code from the codeblocks, the line numbers are included, annoyingly.
+1. There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
+2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.
 
 So what's the alternative? <!--more--> Well, Pygments has inbuilt the `table` option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let's take a look:
 
 ![lineno=table](../public/media/lineno_w_table.png)
 
-Well, as you can see, this doesn't really look good either. The main problems areL=:
-    * The size of the line number table is inconsistent between codeblocks, and
-    * The line numbers don't align with the actual lines of code
+Well, as you can see, this doesn't really look good either. The main problems are:
+1. The size of the line number table is inconsistent between codeblocks, and
+2. The line numbers don't align with the actual lines of code
 
 So let's get rid of the `lineno` option altogether, and get our beautiful but functional line numbers through [CSS counters](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Counters), as described in an article by [Alex Peattie](http://alexpeattie.com/blog/github-style-syntax-highlighting-with-pygments/).
 
