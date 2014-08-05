@@ -148,13 +148,14 @@ I always forget to do this, and could not be bothered to go through each codeblo
 # Adds lineanchors option to all codeblock Liquid tags
 
 languages=( vim python perl ruby yaml css html bash cpp c )
+posts="path/to/posts"
 
 for lang in "${languages[@]}"
 do
     :
-    perl -pi -e "s/highlight $lang/highlight $lang lineanchors/g" _posts/*
+    perl -pi -e "s/highlight $lang/highlight $lang lineanchors/g" $posts
 done
 {% endhighlight %}
 
-If you're using more lexers, just add them into the languages array, and if you're posts are lcoated in a different place, just replace `_posts/*` with wherever your posts are.
+Change `$posts` to correspond to the location of your blog posts, the contents of which you wish to replace. If you're using more lexers, just add them into the languages array.
 
