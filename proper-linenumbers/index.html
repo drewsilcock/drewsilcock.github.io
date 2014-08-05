@@ -226,8 +226,9 @@
 
 <p>Unfortuantely, GitHub Pages doesn’t allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you’re gonna have to stick to putting <code>lineanchors</code> in each tag. Up to you which you want to do.</p>
 
-<p><strong>Update:</strong> <em>5-8-14</em>
-Dana’s global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you’ll need to actually type <code>highlight lang lineanchors</code> for each individual code block. Annoying.</p>
+<p><strong>Update:</strong> <em>5-8-14</em></p>
+
+<p>Dana’s global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you’ll need to actually type <code>highlight lang lineanchors</code> for each individual code block. Annoying.</p>
 
 <p>I always forget to do this, and could not be bothered to go through each codeblock in each blog post I’ve written, so here’s a simple bash script to replace all instances of the <code>highlight lang</code> Liquid tag with its <code>lineanchors</code> equivalent:</p>
 
