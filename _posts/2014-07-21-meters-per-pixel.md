@@ -29,11 +29,11 @@ Then let us parametrise the situation as follows:
 
 The following diagrams illustrate the horizontal and vertical views that the camera sees:
 
-![horizontal view](../public/media/horizontal_view.svg)
+![horizontal view](/public/media/meters-per-pixel/horizontal_view.svg)
 
 -----
 
-![vertical view](../public/media/vertical_view.svg)
+![vertical view](/public/media/meters-per-pixel/vertical_view.svg)
 
 It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:
 
@@ -70,7 +70,7 @@ To find the dimension of the camera sensor, you need to know what type of sensor
 
 This image, courtesy of [gizmag](http://www.gizmag.com/camera-sensor-size-guide/26684/pictures#1), show the dimensions of various common sensor sizes:
 
-![sensor sizes](../public/media/sensor_sizes.jpg)
+![sensor sizes](/public/media/meters-per-pixel/sensor_sizes.jpg)
 
 If your sensor is not listed here, then Wikipedia has a full table of listings for every sensor imaginable over on the page for [Image sensor format](https://en.wikipedia.org/wiki/Image_sensor_format#Table_of_sensor_formats_and_sizes).
 

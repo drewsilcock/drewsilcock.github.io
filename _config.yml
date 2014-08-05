@@ -9,6 +9,8 @@ kramdown:
 # Permalinks
 permalink:        pretty
 
+safe: false
+
 # Setup
 title:            Drew Silcock
 tagline:          'Nebulous thoughts'
@@ -22,8 +24,20 @@ author:
 
 paginate:         5
 
+gems:
+    - jekyll-redirect-from
+
 # Custom vars
 version:          1.0.3
+
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/atom.xml"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "change_frequency"
+    priority_name: "priority"
 
 github:
   repo:           https://github.com/drewsberry/drewsberry.github.io
