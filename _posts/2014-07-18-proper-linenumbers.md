@@ -119,6 +119,23 @@ Then you don't need to put it in each codeblock tag and can forget about it!
 
 Unfortuantely, GitHub Pages doesn't allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you're gonna have to stick to putting `lineanchors` in each tag. Up to you which you want to do.
 
+## Scroll bar
+
+Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
+
+![annoying scroll bar](../public/media/lineno_w_yscroll.png)
+
+Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
+
+{% highlight c lineanchorsss lineanchors %}
+/* In pre { .. } */
+overflow-y: hidden;
+{% endhighlight %}
+
+This is placed in `pre { .. }`, just after `overflow-x: auto;`.
+
+After this, I finally had the beautiful line numbers that Pygments natively lacks.
+
 **Update:** *5-8-14*
 
 Dana's global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you'll need to actually type `highlight lang lineanchors` for each individual code block. Annoying.
@@ -140,21 +157,4 @@ done
 {% endhighlight %}
 
 If you're using more lexers, just add them into the languages array, and if you're posts are lcoated in a different place, just replace `_posts/*` with wherever your posts are.
-
-## Scroll bar
-
-Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
-
-![annoying scroll bar](../public/media/lineno_w_yscroll.png)
-
-Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
-
-{% highlight c lineanchorsss lineanchors %}
-/* In pre { .. } */
-overflow-y: hidden;
-{% endhighlight %}
-
-This is placed in `pre { .. }`, just after `overflow-x: auto;`.
-
-After this, I finally had the beautiful line numbers that Pygments natively lacks.
 
