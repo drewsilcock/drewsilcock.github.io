@@ -28,6 +28,12 @@ git config --global credential.helper cache
 
 # Push to current branch only by default
 git config --global push.default current
+
+# Tell git to use vim as text editor
+git config --global core.editor vim
+
+# Tell git to colour its output
+git config --global color.ui true
 {% endhighlight %}
 
 ### Adding remote
@@ -42,6 +48,31 @@ Then subsequently set local branch to track remote branch:
 
 {% highlight bash %}
 git branch --set-upstream master origin/<branch>
+{% endhighlight %}
+
+### Git submodules
+
+Adding submodules in a git repository is as simple as editing the file `.gitmodules` in the root of the repository, with the following syntax:
+
+{% comment %}
+I'm not sure what highlighter to use for this. If anyone knows a better one, do let me know.
+{% endcomment %}
+
+{% highlight python %}
+[submodule "libfoo"]
+    path = include/foo
+    url = git://github.com/foo/libfoo.git
+
+[submodule "libbar"]
+    path = include/bar
+    url = git://github.com/bar/libbar.git
+{% endhighlight %}
+
+Then a quick:
+
+{% highlight bash %}
+git submodule init
+git submodule update
 {% endhighlight %}
 
 ## Vim
