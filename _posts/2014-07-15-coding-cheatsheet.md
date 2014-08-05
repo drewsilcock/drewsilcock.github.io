@@ -213,7 +213,7 @@ plt.ylim(159, 4) # Sets the y axis limits
 
 ### Pie
 
-Probably the most useful thing that `perl` can do is `perl `-pi -e`, often lovingly called Perl Pie. The syntax is:
+Probably the most useful thing that `perl` can do is `perl -pi -e`, often lovingly called Perl Pie. The syntax is:
 
 {% highlight bash %}
 perl -pi -e "s/string to find/string to replace/g" filenames
