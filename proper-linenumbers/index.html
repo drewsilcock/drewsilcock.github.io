@@ -144,52 +144,52 @@
 
 <p>Alex’s CSS is as follows:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pre</span> <span class="p">{</span>
-    <span class="k">counter-reset</span><span class="o">:</span> <span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">;</span>
-    <span class="k">border</span><span class="o">:</span> <span class="k">solid</span> <span class="m">1px</span> <span class="m">#d9d9d9</span><span class="p">;</span>
-    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">background</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="p">;</span>
-    <span class="k">overflow-x</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
-    <span class="n">word</span><span class="o">-</span><span class="n">break</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-    <span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">pre</span> <span class="nt">a</span><span class="o">:</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">);</span>
-  <span class="k">counter-increment</span><span class="o">:</span> <span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">;</span>
-  <span class="k">padding-right</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span> <span class="c">/* space after numbers */</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
-  <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
-  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">7</span><span class="p">;</span>
-  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-  <span class="k">color</span><span class="o">:</span> <span class="m">#aaa</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
-  <span class="k">margin-right</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span> <span class="m">10px</span><span class="p">;</span>
-  <span class="k">font-size</span><span class="o">:</span> <span class="m">13px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">touch</span><span class="o">-</span><span class="n">callout</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">pre</span> <span class="nt">a</span><span class="nd">:first-of-type</span><span class="o">:</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">padding-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">pre</span> <span class="nt">a</span><span class="nd">:last-of-type</span><span class="o">:</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">pre</span> <span class="nt">a</span><span class="nd">:only-of-type</span><span class="o">:</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><a name="True-1"></a><span class="n">pre</span> <span class="p">{</span>
+<a name="True-2"></a>    <span class="n">counter</span><span class="o">-</span><span class="nl">reset</span><span class="p">:</span> <span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">;</span>
+<a name="True-3"></a>    <span class="nl">border</span><span class="p">:</span> <span class="n">solid</span> <span class="mi">1</span><span class="n">px</span> <span class="err">#</span><span class="n">d9d9d9</span><span class="p">;</span>
+<a name="True-4"></a>    <span class="n">border</span><span class="o">-</span><span class="nl">radius</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<a name="True-5"></a>    <span class="nl">background</span><span class="p">:</span> <span class="err">#</span><span class="n">fff</span><span class="p">;</span>
+<a name="True-6"></a>    <span class="nl">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<a name="True-7"></a>    <span class="n">line</span><span class="o">-</span><span class="nl">height</span><span class="p">:</span> <span class="mi">23</span><span class="n">px</span><span class="p">;</span>
+<a name="True-8"></a>    <span class="n">margin</span><span class="o">-</span><span class="nl">bottom</span><span class="p">:</span> <span class="mi">30</span><span class="n">px</span><span class="p">;</span>
+<a name="True-9"></a>    <span class="n">white</span><span class="o">-</span><span class="nl">space</span><span class="p">:</span> <span class="n">pre</span><span class="p">;</span>
+<a name="True-10"></a>    <span class="n">overflow</span><span class="o">-</span><span class="nl">x</span><span class="p">:</span> <span class="k">auto</span><span class="p">;</span>
+<a name="True-11"></a>    <span class="n">word</span><span class="o">-</span><span class="k">break</span><span class="o">:</span> <span class="n">inherit</span><span class="p">;</span>
+<a name="True-12"></a>    <span class="n">word</span><span class="o">-</span><span class="nl">wrap</span><span class="p">:</span> <span class="n">inherit</span><span class="p">;</span>
+<a name="True-13"></a><span class="p">}</span>
+<a name="True-14"></a>
+<a name="True-15"></a><span class="n">pre</span> <span class="n">a</span><span class="o">::</span><span class="n">before</span> <span class="p">{</span>
+<a name="True-16"></a>  <span class="nl">content</span><span class="p">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">);</span>
+<a name="True-17"></a>  <span class="n">counter</span><span class="o">-</span><span class="nl">increment</span><span class="p">:</span> <span class="n">line</span><span class="o">-</span><span class="n">numbering</span><span class="p">;</span>
+<a name="True-18"></a>  <span class="n">padding</span><span class="o">-</span><span class="nl">right</span><span class="p">:</span> <span class="mi">1</span><span class="n">em</span><span class="p">;</span> <span class="cm">/* space after numbers */</span>
+<a name="True-19"></a>  <span class="nl">width</span><span class="p">:</span> <span class="mi">25</span><span class="n">px</span><span class="p">;</span>
+<a name="True-20"></a>  <span class="n">text</span><span class="o">-</span><span class="nl">align</span><span class="p">:</span> <span class="n">right</span><span class="p">;</span>
+<a name="True-21"></a>  <span class="nl">opacity</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">;</span>
+<a name="True-22"></a>  <span class="nl">display</span><span class="p">:</span> <span class="kr">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+<a name="True-23"></a>  <span class="nl">color</span><span class="p">:</span> <span class="err">#</span><span class="n">aaa</span><span class="p">;</span>
+<a name="True-24"></a>  <span class="nl">background</span><span class="p">:</span> <span class="err">#</span><span class="n">eee</span><span class="p">;</span>
+<a name="True-25"></a>  <span class="n">margin</span><span class="o">-</span><span class="nl">right</span><span class="p">:</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+<a name="True-26"></a>  <span class="nl">padding</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<a name="True-27"></a>  <span class="n">font</span><span class="o">-</span><span class="nl">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+<a name="True-28"></a>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">touch</span><span class="o">-</span><span class="nl">callout</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-29"></a>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-30"></a>  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-31"></a>  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-32"></a>  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-33"></a>  <span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-34"></a><span class="p">}</span>
+<a name="True-35"></a>
+<a name="True-36"></a><span class="n">pre</span> <span class="nl">a</span><span class="p">:</span><span class="n">first</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">type</span><span class="o">::</span><span class="n">before</span> <span class="p">{</span>
+<a name="True-37"></a>  <span class="n">padding</span><span class="o">-</span><span class="nl">top</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<a name="True-38"></a><span class="p">}</span>
+<a name="True-39"></a>
+<a name="True-40"></a><span class="n">pre</span> <span class="nl">a</span><span class="p">:</span><span class="n">last</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">type</span><span class="o">::</span><span class="n">before</span> <span class="p">{</span>
+<a name="True-41"></a>  <span class="n">padding</span><span class="o">-</span><span class="nl">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<a name="True-42"></a><span class="p">}</span>
+<a name="True-43"></a>
+<a name="True-44"></a><span class="n">pre</span> <span class="nl">a</span><span class="p">:</span><span class="n">only</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">type</span><span class="o">::</span><span class="n">before</span> <span class="p">{</span>
+<a name="True-45"></a>  <span class="nl">padding</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<a name="True-46"></a><span class="p">}</span></code></pre></div>
 
 <p>Here’s what it produces after adding it to your <code>syntax.css</code>:</p>
 
@@ -197,12 +197,12 @@
 
 <p>Note those important lines at the end of <code>pre a::before</code>:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">-webkit-touch-callout</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
-  <span class="nt">-webkit-user-select</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
-  <span class="nt">-khtml-user-select</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
-  <span class="nt">-moz-user-select</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
-  <span class="nt">-ms-user-select</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
-  <span class="nt">user-select</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><a name="True-1"></a><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">touch</span><span class="o">-</span><span class="nl">callout</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-2"></a>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-3"></a>  <span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-4"></a>  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-5"></a>  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<a name="True-6"></a>  <span class="n">user</span><span class="o">-</span><span class="nl">select</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span></code></pre></div>
 
 <p>This tell the browser to ignore the line numbers when copying, solving one of our initial problems.</p>
 
@@ -220,11 +220,30 @@
 
 <p>Using this plugin, you can simply specify as follows in your <code>_config.yml</code>:</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">pygments_options</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&#39;lineanchors&#39;</span><span class="p-Indicator">]</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">pygments_options</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&#39;lineanchors&#39;</span><span class="p-Indicator">]</span></code></pre></div>
 
 <p>Then you don’t need to put it in each codeblock tag and can forget about it!</p>
 
 <p>Unfortuantely, GitHub Pages doesn’t allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you’re gonna have to stick to putting <code>lineanchors</code> in each tag. Up to you which you want to do.</p>
+
+<p><strong>Update:</strong> <em>5-8-14</em>
+Dana’s global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you’ll need to actually type <code>highlight lang lineanchors</code> for each individual code block. Annoying.</p>
+
+<p>I always forget to do this, and could not be bothered to go through each codeblock in each blog post I’ve written, so here’s a simple bash script to replace all instances of the <code>highlight lang</code> Liquid tag with its <code>lineanchors</code> equivalent:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c">#!/bin/bash</span>
+<a name="True-2"></a>
+<a name="True-3"></a><span class="c"># Adds lineanchors option to all codeblock Liquid tags</span>
+<a name="True-4"></a>
+<a name="True-5"></a><span class="nv">languages</span><span class="o">=(</span> vim python perl ruby yaml css html bash cpp c <span class="o">)</span>
+<a name="True-6"></a>
+<a name="True-7"></a><span class="k">for</span> lang in <span class="s2">&quot;${languages[@]}&quot;</span>
+<a name="True-8"></a><span class="k">do</span>
+<a name="True-9"></a>    :
+<a name="True-10"></a>    perl -pi -e <span class="s2">&quot;s/highlight $lang/highlight $lang lineanchors/g&quot;</span> _posts/*
+<a name="True-11"></a><span class="k">done</span></code></pre></div>
+
+<p>If you’re using more lexers, just add them into the languages array, and if you’re posts are lcoated in a different place, just replace <code>_posts/*</code> with wherever your posts are.</p>
 
 <h2 id="scroll-bar">Scroll bar</h2>
 
@@ -234,8 +253,8 @@
 
 <p>Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* In pre { .. } */</span>
-<span class="nt">overflow-y</span><span class="o">:</span> <span class="nt">hidden</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><a name="True-1"></a><span class="cm">/* In pre { .. } */</span>
+<a name="True-2"></a><span class="n">overflow</span><span class="o">-</span><span class="nl">y</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span></code></pre></div>
 
 <p>This is placed in <code>pre { .. }</code>, just after <code>overflow-x: auto;</code>.</p>
 

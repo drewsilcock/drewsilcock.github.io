@@ -128,27 +128,50 @@
 
 <p>These are the things you need to do when using <code>git</code> on a new computer:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Change username associated with commits</span>
-git config --global user.name <span class="s2">&quot;&lt;USER&gt;&quot;</span>
-
-<span class="c"># Change email associated with commits</span>
-git config --global user.email &lt;EMAIL&gt;
-
-<span class="c"># Cache uname and passwd for convenience (only on git &gt;= 1.7.9)</span>
-git config --global credential.helper cache
-
-<span class="c"># Push to current branch only by default</span>
-git config --global push.default current</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Change username associated with commits</span>
+<a name="True-2"></a>git config --global user.name <span class="s2">&quot;&lt;USER&gt;&quot;</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Change email associated with commits</span>
+<a name="True-5"></a>git config --global user.email &lt;EMAIL&gt;
+<a name="True-6"></a>
+<a name="True-7"></a><span class="c"># Cache uname and passwd for convenience (only on git &gt;= 1.7.9)</span>
+<a name="True-8"></a>git config --global credential.helper cache
+<a name="True-9"></a>
+<a name="True-10"></a><span class="c"># Push to current branch only by default</span>
+<a name="True-11"></a>git config --global push.default current
+<a name="True-12"></a>
+<a name="True-13"></a><span class="c"># Tell git to use vim as text editor</span>
+<a name="True-14"></a>git config --global core.editor vim
+<a name="True-15"></a>
+<a name="True-16"></a><span class="c"># Tell git to colour its output</span>
+<a name="True-17"></a>git config --global color.ui <span class="nb">true</span></code></pre></div>
 
 <h3 id="adding-remote">Adding remote</h3>
 
 <p>Add remote repository:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add origin https://github.com/username/repository.git</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git remote add origin https://github.com/username/repository.git</code></pre></div>
 
 <p>Then subsequently set local branch to track remote branch:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git branch --set-upstream master origin/&lt;branch&gt;</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git branch --set-upstream master origin/&lt;branch&gt;</code></pre></div>
+
+<h3 id="git-submodules">Git submodules</h3>
+
+<p>Adding submodules in a git repository is as simple as editing the file <code>.gitmodules</code> in the root of the repository, with the following syntax:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="p">[</span><span class="n">submodule</span> <span class="s">&quot;libfoo&quot;</span><span class="p">]</span>
+<a name="True-2"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">include</span><span class="o">/</span><span class="n">foo</span>
+<a name="True-3"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">libfoo</span><span class="o">.</span><span class="n">git</span>
+<a name="True-4"></a>
+<a name="True-5"></a><span class="p">[</span><span class="n">submodule</span> <span class="s">&quot;libbar&quot;</span><span class="p">]</span>
+<a name="True-6"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">include</span><span class="o">/</span><span class="n">bar</span>
+<a name="True-7"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">libbar</span><span class="o">.</span><span class="n">git</span></code></pre></div>
+
+<p>Then a quick:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git submodule init
+<a name="True-2"></a>git submodule update</code></pre></div>
 
 <h2 id="vim">Vim</h2>
 
@@ -156,20 +179,20 @@ git config --global push.default current</code></pre></div>
 
 <p>Here’s the syntax for declaring vim script functions:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim">functions MyFunction <span class="p">()</span>
-    <span class="k">do</span> <span class="k">first</span> thing
-    <span class="k">do</span> second thing
-<span class="k">endfunction</span></code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a>functions MyFunction <span class="p">()</span>
+<a name="True-2"></a>    <span class="k">do</span> <span class="k">first</span> thing
+<a name="True-3"></a>    <span class="k">do</span> second thing
+<a name="True-4"></a><span class="k">endfunction</span></code></pre></div>
 
 <p>And you then call it in Vim with:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="k">call</span> MyFunction<span class="p">()</span></code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a><span class="p">:</span><span class="k">call</span> MyFunction<span class="p">()</span></code></pre></div>
 
 <h3 id="recognise-custom-filetypes">Recognise custom filetypes</h3>
 
 <p>I’ve got <code>moo.vim</code> files in my <code>~/.vim/after/syntax</code> and <code>~/.vim/after/ftplugin</code>, for all <code>moo</code> files with extension <code>.moo</code>. To get Vim to recognise these <code>.moo</code> files and apply the Vim scripts associated therewith, I need to create a file called <code>moo.vim</code> in <code>~/.vim/ftdetect/</code>, which contains the following:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span><span class="nb">BufNewFile</span> *.moo <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>moo</code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span><span class="nb">BufNewFile</span> *.moo <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>moo</code></pre></div>
 
 <p><em>Note</em>: You may have to wipe your <code>~/.vim/view</code> before Vim recognises old files as this new filetype.</p>
 
@@ -177,21 +200,21 @@ git config --global push.default current</code></pre></div>
 
 <p>Vim comes with the ability to edit files remotely over scp. This can be achieved via:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="k">vim</span> scp:<span class="sr">//</span>user@servername<span class="sr">//</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span></code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a><span class="k">vim</span> scp:<span class="sr">//</span>user@servername<span class="sr">//</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span></code></pre></div>
 
 <p>However, trying to save gives the error:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim">E382: Cannot <span class="nb">write</span><span class="p">,</span> <span class="s1">&#39;buftype&#39;</span> <span class="k">option</span> <span class="k">is</span> <span class="k">set</span></code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a>E382: Cannot <span class="nb">write</span><span class="p">,</span> <span class="s1">&#39;buftype&#39;</span> <span class="k">option</span> <span class="k">is</span> <span class="k">set</span></code></pre></div>
 
 <p>In fact, running <code>set buftype?</code> reveals that <code>buftype</code> is set to <code>nofile</code>, meaning the buffer cannot be saved to file. This can be bypassed by using <code>:Nwrite</code> from the <a href="http://www.vim.org/scripts/script.php?script_id=1075">netrw.vim</a> that comes bundled with Vim 7.0:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="p">:</span>Nwrite</code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim"><a name="True-1"></a><span class="p">:</span>Nwrite</code></pre></div>
 
 <h2 id="sshfs">sshfs</h2>
 
 <p>To allow other non-root users to access a filesystem mounted over ssh, use:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint</code></pre></div>
 
 <h2 id="photoshop">Photoshop</h2>
 
@@ -225,55 +248,55 @@ git config --global push.default current</code></pre></div>
 
 <p>Skeleton <code>argparse</code> template:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Import the library</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-
-<span class="c"># Description of the program</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Short description of the Python program.&quot;</span><span class="p">)</span>
-
-<span class="c"># A compulsory positional argument</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;compulsory&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Description of argument, what it does and what the options are.&quot;</span><span class="p">)</span>
-
-<span class="c"># A required normal argument</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--option&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
-
-<span class="c"># An optional true/false argument</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-v&quot;</span><span class="p">,</span> <span class="s">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
-
-<span class="c"># Specifying the type</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--float&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
-
-<span class="c"># Specifying the default value</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="s">&quot;--name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;drew&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
-
-<span class="c"># Parse the arguments</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-<span class="c"># Accessing the values of the arguments</span>
-<span class="n">myArgument</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">compulsory</span>
-<span class="n">myName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="c"># Import the library</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Description of the program</span>
+<a name="True-5"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Short description of the Python program.&quot;</span><span class="p">)</span>
+<a name="True-6"></a>
+<a name="True-7"></a><span class="c"># A compulsory positional argument</span>
+<a name="True-8"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;compulsory&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Description of argument, what it does and what the options are.&quot;</span><span class="p">)</span>
+<a name="True-9"></a>
+<a name="True-10"></a><span class="c"># A required normal argument</span>
+<a name="True-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--option&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-12"></a>
+<a name="True-13"></a><span class="c"># An optional true/false argument</span>
+<a name="True-14"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-v&quot;</span><span class="p">,</span> <span class="s">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-15"></a>
+<a name="True-16"></a><span class="c"># Specifying the type</span>
+<a name="True-17"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--float&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-18"></a>
+<a name="True-19"></a><span class="c"># Specifying the default value</span>
+<a name="True-20"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="s">&quot;--name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;drew&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Short description&quot;</span><span class="p">)</span>
+<a name="True-21"></a>
+<a name="True-22"></a><span class="c"># Parse the arguments</span>
+<a name="True-23"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="True-24"></a>
+<a name="True-25"></a><span class="c"># Accessing the values of the arguments</span>
+<a name="True-26"></a><span class="n">myArgument</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">compulsory</span>
+<a name="True-27"></a><span class="n">myName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span></code></pre></div>
 
 <h3 id="replace--with-home-directory">Replace <code>~</code> with home directory</h3>
 
 <p>This is just a fun little script that replaces <code>~</code> in a string with the path to the user directory, e.g. <code>/home/drew</code>. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c"># Replace &#39;~&#39; in fname with path to user dir</span>
-<span class="n">fname</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span> <span class="n">fname</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="kn">import</span> <span class="nn">re</span>
+<a name="True-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Replace &#39;~&#39; in fname with path to user dir</span>
+<a name="True-5"></a><span class="n">fname</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">],</span> <span class="n">fname</span><span class="p">)</span></code></pre></div>
 
 <h3 id="increase-size-of-pyplot-legend">Increase size of pyplot legend</h3>
 
 <p>Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">borderpad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">borderpad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 
 <h3 id="fix-spacing-in-pyplot-multiplots">Fix spacing in pyplot multiplots</h3>
 
 <p>Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span></code></pre></div>
 
 <p>Why is this not a standard part of matplotlib? I don’t know.</p>
 
@@ -281,33 +304,33 @@ git config --global push.default current</code></pre></div>
 
 <p>You can use either <code>np.arange</code> or specify the ticks yourself:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Automatically generate ticks for x axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">))</span>
-
-<span class="c"># Manually specify ticks for y axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">109</span><span class="p">])</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="c"># Automatically generate ticks for x axis</span>
+<a name="True-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">))</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Manually specify ticks for y axis</span>
+<a name="True-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">109</span><span class="p">])</span></code></pre></div>
 
 <h3 id="set-custom-limits-on-pyplot-plot">Set custom limits on pyplot plot</h3>
 
 <p>Here you can both retrieve and set the x and y limits with <code>plt.xlim</code> and <code>plt.ylim</code>:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span> <span class="c"># Returns the current x axis limits</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span> <span class="c"># Returns the current y axis limits</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span> <span class="c"># Sets the x axis limits</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">159</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c"># Sets the y axis limits</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span> <span class="c"># Returns the current x axis limits</span>
+<a name="True-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span> <span class="c"># Returns the current y axis limits</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span> <span class="c"># Sets the x axis limits</span>
+<a name="True-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">159</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c"># Sets the y axis limits</span></code></pre></div>
 
 <h2 id="perl">Perl</h2>
 
 <h3 id="pie">Pie</h3>
 
-<p>Probably the most useful thing that <code>perl</code> can do is <code>perl </code>-pi -e`, often lovingly called Perl Pie. The syntax is:</p>
+<p>Probably the most useful thing that <code>perl</code> can do is <code>perl -pi -e</code>, often lovingly called Perl Pie. The syntax is:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">perl -pi -e <span class="s2">&quot;s/string to find/string to replace/g&quot;</span> filenames</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/string to find/string to replace/g&quot;</span> filenames</code></pre></div>
 
 <p>This replaces <code>string to find</code> with <code>string to replace</code> in filenames. This is fully regex compatible. For instance, if I wanted to replace <code>mispelt</code> with <code>misspelt</code> in all files ending in <code>.txt</code>, I would run:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">perl -pi -e <span class="s2">&quot;s/mispelt/misspelt/g&quot;</span> *.txt</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>perl -pi -e <span class="s2">&quot;s/mispelt/misspelt/g&quot;</span> *.txt</code></pre></div>
 
 
 </div>
