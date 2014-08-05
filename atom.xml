@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-08-05T16:53:00+01:00</updated>
+ <updated>2014-08-05T17:59:00+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -375,14 +375,15 @@
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Adds lineanchors option to all codeblock Liquid tags&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt; vim python perl ruby yaml css html bash cpp c &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; lang in &lt;span class=&quot;s2&quot;&gt;&amp;quot;${languages[@]}&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;    :
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;    perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/highlight $lang/highlight $lang lineanchors/g&amp;quot;&lt;/span&gt; _posts/*
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;path/to/posts&amp;quot;&lt;/span&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; lang in &lt;span class=&quot;s2&quot;&gt;&amp;quot;${languages[@]}&amp;quot;&lt;/span&gt;
+&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;    :
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;    perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/highlight $lang/highlight $lang lineanchors/g&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$posts&lt;/span&gt;
+&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;If you’re using more lexers, just add them into the languages array, and if you’re posts are lcoated in a different place, just replace &lt;code&gt;_posts/*&lt;/code&gt; with wherever your posts are.&lt;/p&gt;
+&lt;p&gt;Change &lt;code&gt;$posts&lt;/code&gt; to correspond to the location of your blog posts, the contents of which you wish to replace. If you’re using more lexers, just add them into the languages array.&lt;/p&gt;
 
 </content>
  </entry>

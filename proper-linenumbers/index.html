@@ -252,14 +252,15 @@
 <a name="True-3"></a><span class="c"># Adds lineanchors option to all codeblock Liquid tags</span>
 <a name="True-4"></a>
 <a name="True-5"></a><span class="nv">languages</span><span class="o">=(</span> vim python perl ruby yaml css html bash cpp c <span class="o">)</span>
-<a name="True-6"></a>
-<a name="True-7"></a><span class="k">for</span> lang in <span class="s2">&quot;${languages[@]}&quot;</span>
-<a name="True-8"></a><span class="k">do</span>
-<a name="True-9"></a>    :
-<a name="True-10"></a>    perl -pi -e <span class="s2">&quot;s/highlight $lang/highlight $lang lineanchors/g&quot;</span> _posts/*
-<a name="True-11"></a><span class="k">done</span></code></pre></div>
+<a name="True-6"></a><span class="nv">posts</span><span class="o">=</span><span class="s2">&quot;path/to/posts&quot;</span>
+<a name="True-7"></a>
+<a name="True-8"></a><span class="k">for</span> lang in <span class="s2">&quot;${languages[@]}&quot;</span>
+<a name="True-9"></a><span class="k">do</span>
+<a name="True-10"></a>    :
+<a name="True-11"></a>    perl -pi -e <span class="s2">&quot;s/highlight $lang/highlight $lang lineanchors/g&quot;</span> <span class="nv">$posts</span>
+<a name="True-12"></a><span class="k">done</span></code></pre></div>
 
-<p>If you’re using more lexers, just add them into the languages array, and if you’re posts are lcoated in a different place, just replace <code>_posts/*</code> with wherever your posts are.</p>
+<p>Change <code>$posts</code> to correspond to the location of your blog posts, the contents of which you wish to replace. If you’re using more lexers, just add them into the languages array.</p>
 
 
 </div>
