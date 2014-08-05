@@ -226,6 +226,21 @@
 
 <p>Unfortuantely, GitHub Pages doesn’t allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you’re gonna have to stick to putting <code>lineanchors</code> in each tag. Up to you which you want to do.</p>
 
+<h2 id="scroll-bar">Scroll bar</h2>
+
+<p>Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:</p>
+
+<p><img src="../public/media/lineno_w_yscroll.png" alt="annoying scroll bar" /></p>
+
+<p>Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><a name="True-1"></a><span class="cm">/* In pre { .. } */</span>
+<a name="True-2"></a><span class="n">overflow</span><span class="o">-</span><span class="nl">y</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span></code></pre></div>
+
+<p>This is placed in <code>pre { .. }</code>, just after <code>overflow-x: auto;</code>.</p>
+
+<p>After this, I finally had the beautiful line numbers that Pygments natively lacks.</p>
+
 <p><strong>Update:</strong> <em>5-8-14</em></p>
 
 <p>Dana’s global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you’ll need to actually type <code>highlight lang lineanchors</code> for each individual code block. Annoying.</p>
@@ -245,21 +260,6 @@
 <a name="True-11"></a><span class="k">done</span></code></pre></div>
 
 <p>If you’re using more lexers, just add them into the languages array, and if you’re posts are lcoated in a different place, just replace <code>_posts/*</code> with wherever your posts are.</p>
-
-<h2 id="scroll-bar">Scroll bar</h2>
-
-<p>Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:</p>
-
-<p><img src="../public/media/lineno_w_yscroll.png" alt="annoying scroll bar" /></p>
-
-<p>Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:</p>
-
-<div class="highlight"><pre><code class="language-c" data-lang="c"><a name="True-1"></a><span class="cm">/* In pre { .. } */</span>
-<a name="True-2"></a><span class="n">overflow</span><span class="o">-</span><span class="nl">y</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span></code></pre></div>
-
-<p>This is placed in <code>pre { .. }</code>, just after <code>overflow-x: auto;</code>.</p>
-
-<p>After this, I finally had the beautiful line numbers that Pygments natively lacks.</p>
 
 
 </div>

@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-08-05T16:51:05+01:00</updated>
+ <updated>2014-08-05T16:51:54+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -349,6 +349,21 @@
 
 &lt;p&gt;Unfortuantely, GitHub Pages doesn’t allow for custom Jekyll plugins for security reasons, so unless you want to build the site locally and push the resulting html, you’re gonna have to stick to putting &lt;code&gt;lineanchors&lt;/code&gt; in each tag. Up to you which you want to do.&lt;/p&gt;
 
+&lt;h2 id=&quot;scroll-bar&quot;&gt;Scroll bar&lt;/h2&gt;
+
+&lt;p&gt;Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_yscroll.png&quot; alt=&quot;annoying scroll bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cm&quot;&gt;/* In pre { .. } */&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is placed in &lt;code&gt;pre { .. }&lt;/code&gt;, just after &lt;code&gt;overflow-x: auto;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After this, I finally had the beautiful line numbers that Pygments natively lacks.&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; &lt;em&gt;5-8-14&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Dana’s global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 release which both I and GitHub Pages are now using. So it looks like until I get round to sorting out why the plugin is incompatible, you’ll need to actually type &lt;code&gt;highlight lang lineanchors&lt;/code&gt; for each individual code block. Annoying.&lt;/p&gt;
@@ -368,21 +383,6 @@
 &lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you’re using more lexers, just add them into the languages array, and if you’re posts are lcoated in a different place, just replace &lt;code&gt;_posts/*&lt;/code&gt; with wherever your posts are.&lt;/p&gt;
-
-&lt;h2 id=&quot;scroll-bar&quot;&gt;Scroll bar&lt;/h2&gt;
-
-&lt;p&gt;Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../public/media/lineno_w_yscroll.png&quot; alt=&quot;annoying scroll bar&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cm&quot;&gt;/* In pre { .. } */&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;This is placed in &lt;code&gt;pre { .. }&lt;/code&gt;, just after &lt;code&gt;overflow-x: auto;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;After this, I finally had the beautiful line numbers that Pygments natively lacks.&lt;/p&gt;
 
 </content>
  </entry>
