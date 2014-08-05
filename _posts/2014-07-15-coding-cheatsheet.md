@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Personal cheatsheet
-permalink: personal-cheatsheet
+title: Coding cheatsheet
+permalink: coding-cheatsheet
 comments: True
+redirect_from: /personal-cheatsheet
 ---
 
-Herein lies my personal cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
+Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
 
 <!--more-->
 
