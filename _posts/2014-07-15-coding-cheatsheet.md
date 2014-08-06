@@ -240,6 +240,26 @@ plt.xlim(0, 127) # Sets the x axis limits
 plt.ylim(159, 4) # Sets the y axis limits
 {% endhighlight %}
 
+### Find the properties of an object
+
+To find the properties of an object, you can do the following:
+
+{% highlight python lineanchors %}
+object.__dict__ # Works in some cases
+dir(object) # Should work in all cases
+
+# For example...
+dir(__builtins__)
+> ['ArithmeticError', 'AssertionError',
+    ...
+   'upgrade', 'vars', 'xrange', 'zip']
+
+__builtins__.__dict__
+> {'bytearray': <type 'bytearray'>, 'IndexError': <type 'exceptions.IndexError'>,
+>   ...,
+>  'OverflowError': <type 'exceptions.OverFlowError'>}
+{% endhighlight %}
+
 ## Perl
 
 ### Pie
