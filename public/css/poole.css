@@ -353,8 +353,8 @@ tbody tr:nth-child(odd) th {
 
 .post-meta-separator {
   display: inline;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 .post-date {

@@ -12,7 +12,19 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-meta">
+        <span class="post-date">
+            {{ post.date | date_to_string }}
+        </span>
+        <div class="post-meta-separator">
+            &#x2016;
+        </div>
+        <span class="post-categories">
+            <a href="/archive/#{{ post.categories }}">
+                {{ post.categories | first | capitalize }}
+            </a>
+        </span>
+    </span>
 
     {% if post.content contains '<!--more-->' %}
         {{ post.content | split:'<!--more-->' | first % }}
