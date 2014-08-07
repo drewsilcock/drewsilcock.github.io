@@ -320,6 +320,24 @@
 <a name="True-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span> <span class="c"># Sets the x axis limits</span>
 <a name="True-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">159</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c"># Sets the y axis limits</span></code></pre></div>
 
+<h3 id="find-the-properties-of-an-object">Find the properties of an object</h3>
+
+<p>To find the properties of an object, you can do the following:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><a name="True-1"></a><span class="nb">object</span><span class="o">.</span><span class="n">__dict__</span> <span class="c"># Works in some cases</span>
+<a name="True-2"></a><span class="nb">dir</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="c"># Should work in all cases</span>
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># For example...</span>
+<a name="True-5"></a><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)</span>
+<a name="True-6"></a><span class="o">&gt;</span> <span class="p">[</span><span class="s">&#39;ArithmeticError&#39;</span><span class="p">,</span> <span class="s">&#39;AssertionError&#39;</span><span class="p">,</span>
+<a name="True-7"></a>    <span class="o">...</span>
+<a name="True-8"></a>   <span class="s">&#39;upgrade&#39;</span><span class="p">,</span> <span class="s">&#39;vars&#39;</span><span class="p">,</span> <span class="s">&#39;xrange&#39;</span><span class="p">,</span> <span class="s">&#39;zip&#39;</span><span class="p">]</span>
+<a name="True-9"></a>
+<a name="True-10"></a><span class="n">__builtins__</span><span class="o">.</span><span class="n">__dict__</span>
+<a name="True-11"></a><span class="o">&gt;</span> <span class="p">{</span><span class="s">&#39;bytearray&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;bytearray&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;IndexError&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;exceptions.IndexError&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+<a name="True-12"></a><span class="o">&gt;</span>   <span class="o">...</span><span class="p">,</span>
+<a name="True-13"></a><span class="o">&gt;</span>  <span class="s">&#39;OverflowError&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;exceptions.OverFlowError&#39;</span><span class="o">&gt;</span><span class="p">}</span></code></pre></div>
+
 <h2 id="perl">Perl</h2>
 
 <h3 id="pie">Pie</h3>
