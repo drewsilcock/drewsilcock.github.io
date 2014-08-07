@@ -4,7 +4,7 @@ title: Coding cheatsheet
 permalink: coding-cheatsheet
 comments: True
 redirect_from: /personal-cheatsheet
-categories: cheatsheets
+categories: coding
 ---
 
 Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
