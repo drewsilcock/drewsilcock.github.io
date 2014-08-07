@@ -351,6 +351,12 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 1rem;
 }
 
+.post-meta-separator {
+  display: inline;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .post-date {
   display: inline;
   color: #9a9a9a;

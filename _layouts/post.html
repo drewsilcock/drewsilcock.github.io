@@ -7,7 +7,10 @@ layout: default
   <span class="post-meta">
       <span class="post-date">
           {{ page.date | date_to_string }}
-      </span> &#x2016;
+      </span>
+      <div class="post-meta-separator">
+          &#x2016;
+      </div>
       <span class="post-categories">
           <a href="/archive/#{{ page.categories }}">
               {{ page.categories | first | capitalize }}
