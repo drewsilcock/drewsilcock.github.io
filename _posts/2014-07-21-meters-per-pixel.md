@@ -3,11 +3,14 @@ layout: post
 title: Calculating meters per pixel from aerial photographs
 permalink: meters-per-pixel
 comments: True
+categories: Science
 ---
 
 ## Aim
 
-The aim of this post is to demonstrate how to calculate the number of meters a single pixel takes up in a photo, when taken pointing directly downwards from an aerial position such as a UAV. The example values given are those taken from the Canon Ixus 132 I am currently working with.
+Say you're doing some aerial photogrammetry, for scientific purposes. Then you need to know those pernickety little details like the resolution that your pictures will produce, and the precision you can infer from this. This post shows how to calculate how many meters each pixel of a photo taken by a particular camera corresponds to, given the required information.
+
+The trigonometry assumes that you are flying a UAV with the camera facing directly downwards. The example values given are those taken from the Canon Ixus 132 I am using for my aerial photogrammetry project.
 
 <!--more-->
 
