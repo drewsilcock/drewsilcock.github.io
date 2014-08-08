@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-08-07T13:34:00+01:00</updated>
+ <updated>2014-08-08T15:32:09+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -658,6 +658,12 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule init
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git submodule update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;git-subsubmodules&quot;&gt;Git subsubmodules&lt;/h3&gt;
+
+&lt;p&gt;If you’ve got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a &lt;code&gt;[submodule &quot;foobar&quot;]&lt;/code&gt; within both your root &lt;code&gt;.gitmodules&lt;/code&gt; and your submodule &lt;code&gt;.gitmodules&lt;/code&gt;, you need to do the following from within the root repository to update all submodules and subsubmodules:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
 

@@ -185,6 +185,12 @@
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git submodule init
 <a name="True-2"></a>git submodule update</code></pre></div>
 
+<h3 id="git-subsubmodules">Git subsubmodules</h3>
+
+<p>If you’ve got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a <code>[submodule "foobar"]</code> within both your root <code>.gitmodules</code> and your submodule <code>.gitmodules</code>, you need to do the following from within the root repository to update all submodules and subsubmodules:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git submodule update --init --recursive</code></pre></div>
+
 <h2 id="vim">Vim</h2>
 
 <h3 id="vim-functions">Vim functions</h3>
