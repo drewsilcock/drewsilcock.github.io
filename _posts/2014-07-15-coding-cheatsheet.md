@@ -76,6 +76,14 @@ git submodule init
 git submodule update
 {% endhighlight %}
 
+### Git subsubmodules
+
+If you've got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a `[submodule "foobar"]` within both your root `.gitmodules` and your submodule `.gitmodules`, you need to do the following from within the root repository to update all submodules and subsubmodules:
+
+{% highlight bash lineanchors %}
+git submodule update --init --recursive
+{% endhighlight %}
+
 ## Vim
 
 ### Vim functions
