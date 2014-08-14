@@ -1,0 +1,4 @@
+This site was created by me, Drew Silcock, based on the Hyde theme for Poole,
+which uses Jekyll. If you want to contact me, email me at: 
+
+drew [at] drewsilcock.co.uk
