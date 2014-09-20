@@ -28,7 +28,13 @@ gems:
     - jekyll-redirect-from
 
 # Custom vars
-version:          1.0.3
+version:          1.1.0
+
+exclude:
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - README.md
 
 sitemap:
     file: "/sitemap.xml"
@@ -40,4 +46,5 @@ sitemap:
     priority_name: "priority"
 
 github:
+  user:           https://github.com/drewsberry
   repo:           https://github.com/drewsberry/drewsberry.github.io
