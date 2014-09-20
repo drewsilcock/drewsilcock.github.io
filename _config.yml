@@ -30,6 +30,12 @@ gems:
 # Custom vars
 version:          1.1.0
 
+exclude:
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+
 sitemap:
     file: "/sitemap.xml"
     exclude:
