@@ -27,14 +27,14 @@ paginate:         5
 gems:
     - jekyll-redirect-from
 
-# Custom vars
-version:          1.1.0
+include: .nojekyll
 
 exclude:
     - Gemfile
     - Gemfile.lock
     - README.md
 
+# Plugins vars
 sitemap:
     file: "/sitemap.xml"
     exclude:
@@ -43,6 +43,9 @@ sitemap:
         - "/index.html"
     change_frequency_name: "change_frequency"
     priority_name: "priority"
+
+# Custom vars
+version:          1.1.0
 
 github:
   user:           https://github.com/drewsberry
