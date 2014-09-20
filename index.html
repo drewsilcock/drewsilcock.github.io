@@ -18,13 +18,14 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
   <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
   <link rel="stylesheet" href="/public/css/bootstrap_button.css">
 
   <!-- CDNs-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
@@ -50,72 +51,86 @@
 </script>
 
 
-  <body>
+  <body class="theme-base-08">
 
-    <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <a href="/">
-          Drew Silcock
-        </a>
-      </h1>
-      <p class="lead">Maybe somebody, somewhere will find this useful.</p>
-    </div>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item active" href="/">Home</a>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Maybe somebody, somewhere will find this useful.</p>
+  </div>
 
-      
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item active" href="/">Home</a>
 
-      
-      
-        
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/about/">About</a>
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/archive/">Archive</a>
-          
-        
-      
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/download/">Download</a>
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-      
+    
 
-      <a class="sidebar-nav-item" href="https://github.com/drewsberry/drewsberry.github.io">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v1.0.3</span>
-    </nav>
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/download/">Download</a>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
 
-    <p>&copy; 2014. All rights reserved.</p>
+    <a class="sidebar-nav-item" href="https://github.com/drewsberry">GitHub Profile</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
   </div>
 </div>
 
 
-    <div class="content container">
-      <div class="posts">
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Drew Silcock</a>
+            <small>Nebulous thoughts</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
   
   <div class="post">
     <h1 class="post-title">
@@ -146,7 +161,7 @@
 <p>I then go on to show how to simply work out how fast you need to fly your UAV to achieve this overlap, given the time between successive photographs.</p>
 
 
-        <p><a class="btn btn-primary btn-lg" href="/calculating-overlap">Continue reading...</a></p>
+        <p><a class="btn btn-default btn-lg" href="/calculating-overlap">Continue reading...</a></p>
     
 
   </div>
@@ -180,7 +195,7 @@
 <p>So how do you organise the source and compiled code?</p>
 
 
-        <p><a class="btn btn-primary btn-lg" href="/custom-jekyll-plugins">Continue reading...</a></p>
+        <p><a class="btn btn-default btn-lg" href="/custom-jekyll-plugins">Continue reading...</a></p>
     
 
   </div>
@@ -214,7 +229,7 @@
 <p>The trigonometry assumes that you are flying a UAV with the camera facing directly downwards. The example values given are those taken from the Canon Ixus 132 I am using for my aerial photogrammetry project.</p>
 
 
-        <p><a class="btn btn-primary btn-lg" href="/meters-per-pixel">Continue reading...</a></p>
+        <p><a class="btn btn-default btn-lg" href="/meters-per-pixel">Continue reading...</a></p>
     
 
   </div>
@@ -252,7 +267,7 @@
 2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
 
 <p>So what’s the alternative? 
-        <p><a class="btn btn-primary btn-lg" href="/proper-linenumbers">Continue reading...</a></p>
+        <p><a class="btn btn-default btn-lg" href="/proper-linenumbers">Continue reading...</a></p>
     
 
   </div>
@@ -282,7 +297,7 @@
         <p>This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.</p>
 
 
-        <p><a class="btn btn-primary btn-lg" href="/compiling-zsh">Continue reading...</a></p>
+        <p><a class="btn btn-default btn-lg" href="/compiling-zsh">Continue reading...</a></p>
     
 
   </div>
@@ -298,7 +313,28 @@
   
 </div>
 
+      </div>
     </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
 
   </body>
 
