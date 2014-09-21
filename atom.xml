@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-09-20T22:54:59+01:00</updated>
+ <updated>2014-09-21T15:25:31+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -58,7 +58,7 @@
 
 &lt;!--more--&gt;
 
-&lt;p&gt;Some people, like &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt;, recommend two repos, one with the source code (e.g. &lt;code&gt;github.com/username/username.github.io.raw&lt;/code&gt; for the compiled HTML and &lt;code&gt;github.com/username/username.github.io&lt;/code&gt; for the compiled HTML). I don’t particularly like this. It’s one project, it should be one repo.&lt;/p&gt;
+&lt;p&gt;Some people, like &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt;, recommend two repos, one with the source code (e.g. &lt;code&gt;github.com/username/username.github.io.raw&lt;/code&gt; for the website source code and &lt;code&gt;github.com/username/username.github.io&lt;/code&gt; for the compiled HTML). I don’t particularly like this; it’s one project, it should be one repo.&lt;/p&gt;
 
 &lt;p&gt;Others, like &lt;a href=&quot;http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html&quot;&gt;Alexandre Rademaker&lt;/a&gt;, have two separate branches (a &lt;code&gt;master&lt;/code&gt; for compiled HTML and a &lt;code&gt;source&lt;/code&gt; for the Jekyll source), and change branches then copy the contents of &lt;code&gt;_site&lt;/code&gt; into the master branch every time you want to push to your website.&lt;/p&gt;
 
@@ -82,27 +82,30 @@
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git checkout -b &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell git to track source remote branch&lt;/span&gt;
-&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;git branch --set-upstream &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;origin/source
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this dir&lt;/span&gt;
+&lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;touch .nojekyll
 &lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Upload your branch to GitHub&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git push origin &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell git to track source remote branch&lt;/span&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git branch --set-upstream &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;origin/source
 &lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git branch -D master
+&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Upload your branch to GitHub&lt;/span&gt;
+&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git push origin &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
 &lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within _site&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
-&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;git init
-&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
-&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;touch .nojekyll
+&lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Locally delete the original master branch&lt;/span&gt;
+&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;git branch -D master
+&lt;a name=&quot;True-18&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-19&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make a new git repository within _site&lt;/span&gt;
+&lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
+&lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;git init
 &lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Set the remote repository to push the HTML to&lt;/span&gt;
-&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/username.github.io
+&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell Jekyll to ignore this directory&lt;/span&gt;
+&lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;touch .nojekyll
 &lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
-&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Set the remote repository to push the HTML to&lt;/span&gt;
+&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/username.github.io
+&lt;a name=&quot;True-28&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-29&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
+&lt;a name=&quot;True-30&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now you’ve got your source branch set up in your root directory and master branch set up in your &lt;code&gt;_site&lt;/code&gt; directory, ready for rapid building and deployment of your Jekyll website.&lt;/p&gt;
 
@@ -110,12 +113,13 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;touch .nojekyll
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git add .
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git commit
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;git add .
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git commit
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that you need to &lt;code&gt;touch .nojekyll&lt;/code&gt; because Jekyll seems to delete the original &lt;code&gt;.nojekyll&lt;/code&gt; each time the site is built. If anyone knows a cleaner way around this, &lt;a href=&quot;mailto:drewATdrewsilcockDOTcoDOTuk&quot; onclick=&quot;this.href=this.href               .replace(/AT/,'&amp;#64;')               .replace(/DOT/,'&amp;#46;')               .replace(/DOT/,'&amp;#46;')&quot;&gt;let me know!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy &lt;code&gt;.nojekyll&lt;/code&gt; over to &lt;code&gt;_site&lt;/code&gt; where we need it, because it is a dotfile, so you need to put the following in your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;.nojekyll&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the &lt;a href=&quot;https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4&quot;&gt;gist of it&lt;/a&gt;, and this is the script:&lt;/p&gt;
 
@@ -127,13 +131,12 @@
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
 &lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt; 
 &lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;jekyll build &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;  touch _site/.nojekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;  git add . &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;  git add . &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:&lt;/p&gt;
 
