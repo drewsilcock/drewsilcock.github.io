@@ -9,13 +9,16 @@ Download the source code to this website:
 
 <div class="list-group">
   <a href="https://github.com/drewsberry/drewsberry.github.io/zipball/master" class="list-group-item">
-    <i class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .zip</a>
+    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .zip
+  </a>
 
   <a href="https://github.com/drewsberry/drewsberry.github.io/tarball/master" class="list-group-item">
-    <i class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .tar.gz</a>
+    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .tar.gz
+  </a>
 
   <a href="https://github.com/drewsberry/drewsberry.github.io" class="list-group-item">
-    <i class="fa fa-github-alt fa-fw"></i>&nbsp;View website source on GitHub</a>
+    <i style="color: black" class="fa fa-github-alt fa-fw"></i>&nbsp;View website source on GitHub
+  </a>
 </div>
 
 ## University Projects
@@ -26,11 +29,14 @@ Download the source code to the particle physics program I wrote during my inter
 
 <div class="list-group">
   <a href="https://github.com/drewsberry/Psi-Decays/zipball/master" class="list-group-item">
-    <i class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .zip</a>
+    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .zip
+  </a>
 
   <a href="https://github.com/drewsberry/Psi-Decays/tarball/master" class="list-group-item">
-    <i class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .tar.gz</a>
+    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .tar.gz
+  </a>
 
   <a href="https://github.com/drewsberry/Psi-Decays" class="list-group-item">
-    <i class="fa fa-github-alt fa-fw"></i>&nbsp;View physics project on GitHub</a>
+    <i style="color: black" class="fa fa-github-alt fa-fw"></i>&nbsp;View physics project on GitHub
+  </a>
 </div>
