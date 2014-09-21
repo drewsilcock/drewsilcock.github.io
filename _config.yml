@@ -27,7 +27,8 @@ paginate:         5
 gems:
     - jekyll-redirect-from
 
-include: .nojekyll
+include:
+    - .nojekyll
 
 exclude:
     - Gemfile
