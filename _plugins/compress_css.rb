@@ -4,7 +4,7 @@ compressor = YUI::CssCompressor.new
 
 path_to_css = './_assets/css/'
 css_filenames = ['poole.css', 'syntax.css', 'lanyon.css',
-                 'bootstrap_button.css']
+                 'bootstrap_button.css', 'font-awesome.min.css']
 
 path_to_output = './public/css/'
 output_fname = 'stylesheets.css'
