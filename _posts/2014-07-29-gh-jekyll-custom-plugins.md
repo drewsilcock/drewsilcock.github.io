@@ -14,7 +14,7 @@ So how do you organise the source and compiled code?
 
 <!--more-->
 
-Some people, like [Charlie Park](http://charliepark.org/jekyll-with-plugins/), recommend two repos, one with the source code (e.g. `github.com/username/username.github.io.raw` for the compiled HTML and `github.com/username/username.github.io` for the compiled HTML). I don't particularly like this. It's one project, it should be one repo.
+Some people, like [Charlie Park](http://charliepark.org/jekyll-with-plugins/), recommend two repos, one with the source code (e.g. `github.com/username/username.github.io.raw` for the website source code and `github.com/username/username.github.io` for the compiled HTML). I don't particularly like this; it's one project, it should be one repo.
 
 Others, like [Alexandre Rademaker](http://arademaker.github.io/blog/2011/12/01/github-pages-jekyll-plugins.html), have two separate branches (a `master` for compiled HTML and a `source` for the Jekyll source), and change branches then copy the contents of `_site` into the master branch every time you want to push to your website.
 
@@ -39,6 +39,9 @@ rm -rf _site/*
 
 # Make new source branch
 git checkout -b source
+
+# Tell Jekyll to ignore this dir
+touch .nojekyll
 
 # Tell git to track source remote branch
 git branch --set-upstream source origin/source
@@ -69,17 +72,15 @@ Now each time you want to build your site locally, you just need to run:
 {% highlight bash lineanchors %}
 jekyll build
 cd _site
-touch .nojekyll
 git add .
 git commit
 git push origin master
 {% endhighlight %}
-and you have successfully built and deployed your website with Jekyll. Note that you need to `touch .nojekyll` because Jekyll seems to delete the original `.nojekyll` each time the site is built. If anyone knows a cleaner way around this, <a href = "mailto:drewATdrewsilcockDOTcoDOTuk" 
-   onclick = "this.href=this.href
-              .replace(/AT/,'&#64;')
-              .replace(/DOT/,'&#46;')
-              .replace(/DOT/,'&#46;')"
->let me know!</a>
+and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy `.nojekyll` over to `_site` where we need it, because it is a dotfile, so you need to put the following in your `_config.yml`:
+
+{% highlight yaml lineanchors %}
+include: .nojekyll
+{% endhighlight %}
 
 Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the [gist of it](https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4), and this is the script:
 
@@ -92,7 +93,6 @@ if [[ -z "$1" ]]; then
 fi
  
 jekyll build && \
-  touch _site/.nojekyll && \
   cd _site && \
   git add . && \
   git commit -am "$1" && \
