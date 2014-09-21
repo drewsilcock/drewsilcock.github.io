@@ -26,7 +26,6 @@ paginate:         5
 
 gems:
     - jekyll-redirect-from
-    - yui-compressor
 
 include:
     - .nojekyll
