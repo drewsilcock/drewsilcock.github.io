@@ -3,6 +3,7 @@ layout: post
 title: Calculating the overlap of aerial photos
 permalink: calculating-overlap
 categories: Science
+live: false
 ---
 
 The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?
