@@ -11,7 +11,7 @@
 
   <title>
     
-      Download &middot; Drew Silcock
+      Curriculum Vitae &middot; Drew Silcock
     
   </title>
 
@@ -84,7 +84,7 @@
     
       
         
-          <a class="sidebar-nav-item active" href="/download/">Download</a>
+          <a class="sidebar-nav-item" href="/download/">Download</a>
         
       
     
@@ -124,47 +124,56 @@
       </div>
 
       <div class="container content">
-        <div class="page">
-  <h1 class="page-title">Download</h1>
-  <h2 id="website-source">Website source</h2>
+        # Curriculum Vitae
 
-<p>Download the source code to this website:</p>
+## Qualifications
 
-<div class="list-group">
-  <a href="https://github.com/drewsberry/drewsberry.github.io/zipball/master" class="list-group-item">
-    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .zip
-  </a>
+**MSci Physics**, *University of Bristol* (2011 -- present)
 
-  <a href="https://github.com/drewsberry/drewsberry.github.io/tarball/master" class="list-group-item">
-    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download website source as .tar.gz
-  </a>
+Expected 1st class honours.
 
-  <a href="https://github.com/drewsberry/drewsberry.github.io" class="list-group-item">
-    <i style="color: black" class="fa fa-github-alt fa-fw"></i>&nbsp;View website source on GitHub
-  </a>
-</div>
+**GCE A Levels**, *Bristol Cathedral Choir School* (2011)
 
-<h2 id="university-projects">University Projects</h2>
+Four A\* grades in Physics, Maths, Further Maths and Religious Studies
 
-<h3 id="particle-physics-internship-2013">Particle physics internship 2013</h3>
+**GCSEs**, *Bristol Cathedral Choir School* (2009)
 
-<p>Download the source code to the particle physics program I wrote during my internship in the summer of 2013 (for more information, see the project’s <a href="/Psi-Decays/">GitHub Page</a>):</p>
+Nine A\* grades including English, Mathematics, Science and Additional Science
 
-<div class="list-group">
-  <a href="https://github.com/drewsberry/Psi-Decays/zipball/master" class="list-group-item">
-    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .zip
-  </a>
+## Employment and Experience
 
-  <a href="https://github.com/drewsberry/Psi-Decays/tarball/master" class="list-group-item">
-    <i style="color: black" class="fa fa-file-zip-o fa-fw"></i>&nbsp;Download physics project as .tar.gz
-  </a>
+**NERC Internship**, *University of Bristol Earth Sciences Department* (2014)
 
-  <a href="https://github.com/drewsberry/Psi-Decays" class="list-group-item">
-    <i style="color: black" class="fa fa-github-alt fa-fw"></i>&nbsp;View physics project on GitHub
-  </a>
-</div>
+**Utrecht Summer School**, *Theoretical Physics* (2014)
 
-</div>
+**Skillsets**, *University of Bristol* (2013 -- 2014)
+
+**Classroom Support Assistant**, *Merchants Academy* (2013 -- 2014)
+
+**Particle Physics Internship**, *University of Bristol Particle Physics Group*, (2013)
+
+**University Open Day Steward**, *University of Bristol*, (2012 & 2013)
+
+## Technical Skills
+
+**Proficient:**
+
+*   \\( \\LaTeX \\)
+*   Python
+*   Bash
+*   zsh
+
+**Intermediate**
+
+* C
+* C++
+* GNU/Linux
+
+**Basic:**
+
+*   Ruby
+*   HTML
+*   CSS
 
       </div>
     </div>

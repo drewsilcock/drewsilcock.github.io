@@ -40,10 +40,6 @@
 
 </script>
 
-  <script type="text/javascript"
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
   <body class="theme-base-08">
 
@@ -80,6 +76,10 @@
         
       
     
+      
+    
+      
+        
       
     
       
@@ -126,137 +126,186 @@
       <div class="container content">
         <div class="posts">
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/calculating-overlap">
-        Calculating the overlap of aerial photos
-      </a>
-    </h1>
-
-    <span class="post-meta">
-        <span class="post-date">
-            31 Jul 2014
-        </span>
-        <div class="post-meta-separator">
-            &#x2016;
-        </div>
-        <span class="post-categories">
-            <a href="/archive/#science">
-                Science
-            </a>
-        </span>
-    </span>
-
     
-        <p>The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?</p>
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/using-make-and-latexmk">
+            Using make and latexmk for easy LaTeX compilation
+          </a>
+        </h1>
+
+        <span class="post-meta">
+          <span class="post-date">
+            23 Sep 2014
+          </span>
+          <div class="post-meta-separator">
+            &#x2016;
+          </div>
+          <span class="post-categories">
+            <a href="/archive/#coding">
+              Coding
+            </a>
+          </span>
+        </span>
+
+        
+          <p>Still running <code>pdflatex</code> (or equivalent) every time you want to recompile your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> document? There’s a simpler way using <code>make</code> and <code>latexmk</code>. All you need is a simple <code>Makefile</code> and you can tell <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> to automatically recompile your document every time you change a file, and run <code>pdflatex</code> the sufficient number of times to get cross-references right.</p>
+
+
+          <p><form action="/using-make-and-latexmk">
+            <button class="btn btn-default btn-lg" href="/using-make-and-latexmk">
+                Continue reading...
+            </button>
+          </form></p>
+        
+
+      </div>
+    
+  
+    
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/calculating-overlap">
+            Calculating the overlap of aerial photos
+          </a>
+        </h1>
+
+        <span class="post-meta">
+          <span class="post-date">
+            31 Jul 2014
+          </span>
+          <div class="post-meta-separator">
+            &#x2016;
+          </div>
+          <span class="post-categories">
+            <a href="/archive/#science">
+              Science
+            </a>
+          </span>
+        </span>
+
+        
+          <p>The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?</p>
 
 <p>This post demonstrates how to go about calculating the required maximum distance between successive photos in order to ensure a certain percentage overlap between those photos, as a function of the required overlap, the angle of view of the camera and your height above the ground.</p>
 
 <p>I then go on to show how to simply work out how fast you need to fly your UAV to achieve this overlap, given the time between successive photographs.</p>
 
 
-        <p><form action="/calculating-overlap">
-            <button class="btn btn-default btn-lg" href="/calculating-overlap">Continue reading...</button>
-        </form></p>
-    
+          <p><form action="/calculating-overlap">
+            <button class="btn btn-default btn-lg" href="/calculating-overlap">
+                Continue reading...
+            </button>
+          </form></p>
+        
 
-  </div>
+      </div>
+    
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/custom-jekyll-plugins">
-        Custom Jekyll plugins with GitHub Pages
-      </a>
-    </h1>
-
-    <span class="post-meta">
-        <span class="post-date">
-            29 Jul 2014
-        </span>
-        <div class="post-meta-separator">
-            &#x2016;
-        </div>
-        <span class="post-categories">
-            <a href="/archive/#coding">
-                Coding
-            </a>
-        </span>
-    </span>
-
     
-        <p>So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the <code>--safe</code> flag that it compiles your site with. So what do you do?</p>
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/custom-jekyll-plugins">
+            Custom Jekyll plugins with GitHub Pages
+          </a>
+        </h1>
+
+        <span class="post-meta">
+          <span class="post-date">
+            29 Jul 2014
+          </span>
+          <div class="post-meta-separator">
+            &#x2016;
+          </div>
+          <span class="post-categories">
+            <a href="/archive/#coding">
+              Coding
+            </a>
+          </span>
+        </span>
+
+        
+          <p>So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the <code>--safe</code> flag that it compiles your site with. So what do you do?</p>
 
 <p>Well, if you compile the site using <code>jekyll</code> yourself, then push the resulting compiled HTML to your GitHub Pages repository, then it works perfectly! You get your custom plugins, and you get your free GitHub Pages hosting.</p>
 
 <p>So how do you organise the source and compiled code?</p>
 
 
-        <p><form action="/custom-jekyll-plugins">
-            <button class="btn btn-default btn-lg" href="/custom-jekyll-plugins">Continue reading...</button>
-        </form></p>
-    
+          <p><form action="/custom-jekyll-plugins">
+            <button class="btn btn-default btn-lg" href="/custom-jekyll-plugins">
+                Continue reading...
+            </button>
+          </form></p>
+        
 
-  </div>
+      </div>
+    
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/meters-per-pixel">
-        Calculating meters per pixel from aerial photographs
-      </a>
-    </h1>
-
-    <span class="post-meta">
-        <span class="post-date">
-            21 Jul 2014
-        </span>
-        <div class="post-meta-separator">
-            &#x2016;
-        </div>
-        <span class="post-categories">
-            <a href="/archive/#science">
-                Science
-            </a>
-        </span>
-    </span>
-
     
-        <h2 id="aim">Aim</h2>
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/meters-per-pixel">
+            Calculating meters per pixel from aerial photographs
+          </a>
+        </h1>
+
+        <span class="post-meta">
+          <span class="post-date">
+            21 Jul 2014
+          </span>
+          <div class="post-meta-separator">
+            &#x2016;
+          </div>
+          <span class="post-categories">
+            <a href="/archive/#science">
+              Science
+            </a>
+          </span>
+        </span>
+
+        
+          <h2 id="aim">Aim</h2>
 
 <p>Say you’re doing some aerial photogrammetry, for scientific purposes. Then you need to know those pernickety little details like the resolution that your pictures will produce, and the precision you can infer from this. This post shows how to calculate how many meters each pixel of a photo taken by a particular camera corresponds to, given the required information.</p>
 
 <p>The trigonometry assumes that you are flying a UAV with the camera facing directly downwards. The example values given are those taken from the Canon Ixus 132 I am using for my aerial photogrammetry project.</p>
 
 
-        <p><form action="/meters-per-pixel">
-            <button class="btn btn-default btn-lg" href="/meters-per-pixel">Continue reading...</button>
-        </form></p>
-    
+          <p><form action="/meters-per-pixel">
+            <button class="btn btn-default btn-lg" href="/meters-per-pixel">
+                Continue reading...
+            </button>
+          </form></p>
+        
 
-  </div>
+      </div>
+    
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/proper-linenumbers">
-        Proper line numbers with Jekyll
-      </a>
-    </h1>
-
-    <span class="post-meta">
-        <span class="post-date">
-            18 Jul 2014
-        </span>
-        <div class="post-meta-separator">
-            &#x2016;
-        </div>
-        <span class="post-categories">
-            <a href="/archive/#coding">
-                Coding
-            </a>
-        </span>
-    </span>
-
     
-        <p>By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.</p>
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/proper-linenumbers">
+            Proper line numbers with Jekyll
+          </a>
+        </h1>
+
+        <span class="post-meta">
+          <span class="post-date">
+            18 Jul 2014
+          </span>
+          <div class="post-meta-separator">
+            &#x2016;
+          </div>
+          <span class="post-categories">
+            <a href="/archive/#coding">
+              Coding
+            </a>
+          </span>
+        </span>
+
+        
+          <p>By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.</p>
 
 <p>Here’s the default <code>lineno</code> option, <code>inline</code>:</p>
 
@@ -267,44 +316,15 @@
 2. When trying to copy code from the codeblocks, the line numbers are included, annoyingly.</p>
 
 <p>So what’s the alternative? 
-        <p><form action="/proper-linenumbers">
-            <button class="btn btn-default btn-lg" href="/proper-linenumbers">Continue reading...</button>
-        </form></p>
+          <p><form action="/proper-linenumbers">
+            <button class="btn btn-default btn-lg" href="/proper-linenumbers">
+                Continue reading...
+            </button>
+          </form></p>
+        
+
+      </div>
     
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/compiling-zsh">
-        Compiling zsh without root
-      </a>
-    </h1>
-
-    <span class="post-meta">
-        <span class="post-date">
-            15 Jul 2014
-        </span>
-        <div class="post-meta-separator">
-            &#x2016;
-        </div>
-        <span class="post-categories">
-            <a href="/archive/#coding">
-                Coding
-            </a>
-        </span>
-    </span>
-
-    
-        <p>This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.</p>
-
-
-        <p><form action="/compiling-zsh">
-            <button class="btn btn-default btn-lg" href="/compiling-zsh">Continue reading...</button>
-        </form></p>
-    
-
-  </div>
   
 </div>
 

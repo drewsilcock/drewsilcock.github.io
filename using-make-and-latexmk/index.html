@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Using make and latexmk for easy LaTeX compilation &middot; Drew Silcock
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/stylesheets.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/public/media/site/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52653050-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Maybe somebody, somewhere will find this useful.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/download/">Download</a>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/drewsberry">GitHub Profile</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Drew Silcock</a>
+            <small>Nebulous thoughts</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Using make and latexmk for easy LaTeX compilation</h1>
+  <span class="post-meta">
+      <span class="post-date">
+          23 Sep 2014
+      </span>
+      <div class="post-meta-separator">
+          &#x2016;
+      </div>
+      <span class="post-categories">
+          <a href="/archive/#coding">
+              Coding
+          </a>
+      </span>
+  </span>
+  <p>Still running <code>pdflatex</code> (or equivalent) every time you want to recompile your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> document? There’s a simpler way using <code>make</code> and <code>latexmk</code>. All you need is a simple <code>Makefile</code> and you can tell <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> to automatically recompile your document every time you change a file, and run <code>pdflatex</code> the sufficient number of times to get cross-references right.</p>
+
+<!--more-->
+
+<p>So I recently discovered <code>latexmk</code>, a utility that simplifies <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> compilation by automatically rerunning whatever compilation command you use to compile your documents (i.e. <code>pdflatex</code>, <code>xelatex</code> or whatever) the sufficient number of times in order to make sure cross-references resolve themselves fully.This in itself is super useful, but you can leverage the power of GNU <code>make</code> in addition to this to make compilation easy, continual and targeted only at changed files.</p>
+
+<p>For the purposes of this article, I assume that you’re using <code>pdflatex</code>, but all of this equally applies to <code>xelatex</code> or similar by simply replacing the <code>pdflatex</code> command with whichever you use.</p>
+
+<h2 id="latexmk">latexmk</h2>
+
+<p>The basic syntax of <code>latexmk</code> is as follows:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>latexmk <span class="nv">$OPTIONS</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S&quot;</span> yourtexfile.tex</code></pre></div>
+
+<p>Note that <code>%O</code> is replaced by <code>latexmk</code> with the options given to <code>latexmk</code>, and <code>%S</code> is replaced with the source file name, in this example <code>yourtexfile.tex</code>. Some useful options to give to <code>latexmk</code> include <code>-pdf</code>, which tells <code>latexmk</code> that your final produced document is a <code>pdf</code>, and <code>-pvc</code>, which will be discussed shortly. <code>latexmk</code> also summarises the errors and warnings incurred throughout the compilation, which is very useful considering they’re usually lost in a sea of output during normal <code>pdflatex</code> compilation.</p>
+
+<p>This will automatically run <code>pdflatex</code> enough times to get those references resolved. But we can make this even more useful using the <code>pdflatex</code> option, <code>--interaction=nonstopmode</code>. This means that <code>pdflatex</code> automatically goes through the compilation, not requiring any user input. This importantly means that it goes right through any errors, not requiring the user to type <code>X</code> in to quit the compilation on error. If you prefer less verbose output, you can change <code>--interaction=nonstopmode</code> to <code>--interaction=batchmode</code>, which does the same thing, but outputs only succint, important information.</p>
+
+<p>The next useful option to pass to <code>latexmk</code> in combination with this is <code>-pvc</code>. It’s purpose is to run continuously, and update your pdf viewer every time it updates your document.</p>
+
+<h2 id="make">make</h2>
+
+<p>Finally, we can wrap all this in a <code>Makefile</code> so we don’t have to type the long <code>latexmk</code> command in, and to detect changes in files so you’re not recompiling your file on no change.</p>
+
+<p>Here’s a basic template for using <code>make</code> to simply this whole thing:</p>
+
+<div class="highlight"><pre><code class="language-makefile" data-lang="makefile"><a name="True-1"></a><span class="nv">LATEX</span><span class="o">=</span>pdflatex
+<a name="True-2"></a><span class="nv">LATEXOPT</span><span class="o">=</span>--shell-escape --interaction<span class="o">=</span>nonstopmode
+<a name="True-3"></a>
+<a name="True-4"></a><span class="nv">LATEXMK</span><span class="o">=</span>latexmk
+<a name="True-5"></a><span class="nv">LATEXMKOPT</span><span class="o">=</span>-pvc -pdf
+<a name="True-6"></a>
+<a name="True-7"></a><span class="nv">MAIN</span><span class="o">=</span>yourtexfile
+<a name="True-8"></a><span class="nv">SOURCES</span><span class="o">=</span><span class="k">$(</span>MAIN<span class="k">)</span>.tex Makefile yourothertexfiles
+<a name="True-9"></a><span class="nv">FIGURES</span> <span class="o">:=</span> <span class="k">$(</span>shell find figures/* images/* -type f<span class="k">)</span>
+<a name="True-10"></a>
+<a name="True-11"></a><span class="nf">all</span><span class="o">:</span>    <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">pdf</span>
+<a name="True-12"></a>
+<a name="True-13"></a><span class="nf">.refresh</span><span class="o">:</span>
+<a name="True-14"></a>    touch .refresh
+<a name="True-15"></a>
+<a name="True-16"></a><span class="nf">$(MAIN).pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">tex</span> .<span class="n">refresh</span> <span class="k">$(</span><span class="nv">SOURCES</span><span class="k">)</span> <span class="k">$(</span><span class="nv">FIGURES</span><span class="k">)</span>
+<a name="True-17"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> <span class="k">$(</span>LATEXMKOPT<span class="k">)</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$(LATEX) $(LATEXOPT) %O %S&quot;</span> <span class="k">$(</span>MAIN<span class="k">)</span>.tex
+<a name="True-18"></a>
+<a name="True-19"></a><span class="nf">force</span><span class="o">:</span>
+<a name="True-20"></a>        touch .refresh
+<a name="True-21"></a>        <span class="k">$(</span>MAKE<span class="k">)</span> <span class="k">$(</span>MAIN<span class="k">)</span>.pdf
+<a name="True-22"></a>
+<a name="True-23"></a><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span> <span class="n">force</span> <span class="n">all</span>
+<a name="True-24"></a>
+<a name="True-25"></a><span class="nf">clean</span><span class="o">:</span>
+<a name="True-26"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> -C <span class="k">$(</span>MAIN<span class="k">)</span>.tex
+<a name="True-27"></a>        rm -f <span class="k">$(</span>MAIN<span class="k">)</span>.pdfsync
+<a name="True-28"></a>        rm -rf *~ *.tmp
+<a name="True-29"></a>        rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk</code></pre></div>
+
+<p>If you don’t like <code>latexmk</code> running continuously, and want to run make manually, or use something like <code>watch -n 1 make</code> to update your document, then just get rid of the <code>-pvc</code> option in <code>LATEXMKOPT</code>.</p>
+
+</div>
+
+<hr>
+<p><form action="/">
+  <button class="btn btn-default btn-lg" href="/">
+      Back to home...
+  </button>
+</form></p>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/calculating-overlap">
+            Calculating the overlap of aerial photos
+            <small>31 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/custom-jekyll-plugins">
+            Custom Jekyll plugins with GitHub Pages
+            <small>29 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/meters-per-pixel">
+            Calculating meters per pixel from aerial photographs
+            <small>21 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+ 
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+  </body>
+
+</html>
+
