@@ -1,21 +1,44 @@
 require 'yui/compressor'
 
-compressor = YUI::CssCompressor.new
+module Jekyll
+    class Compressor < Generator
 
-path_to_css = './_assets/css/'
-css_filenames = ['poole.css', 'syntax.css', 'lanyon.css',
-                 'bootstrap_button.css', 'font-awesome.min.css']
+        def get_filenames(path)
+            files = Dir[path + "*"]
+            filenames = []
+            files.each do |file|
+                filenames << String(Pathname.new(file).basename)
+            end
 
-path_to_output = './public/css/'
-output_fname = 'stylesheets.css'
+            return filenames
+        end
 
-combined_contents = ''
+        # Config defaults
+        PATH_TO_CSS = "./_assets/css/"
+        PATH_TO_OUTPUT = "./public/css/"
+        OUTPUT_FNAME = "stylesheets.css"
 
-css_filenames.each do |fname|
-    combined_contents << File.open(path_to_css + fname).read
+        def generate(site)
+            # Configuration
+            compressor_config = site.config['compressor'] || {}
+            @config = {}
+            @config['path_to_css'] = compressor_config['path_to_css'] || PATH_TO_CSS
+            @config['css_filenames'] = compressor_config['css_filenames'] || get_filenames(@config['path_to_css'])
+            @config['path_to_output'] = compressor_config['path_to_output'] || PATH_TO_OUTPUT
+            @config['output_fname'] = compressor_config['output_fname'] || OUTPUT_FNAME
+
+            compressor = YUI::CssCompressor.new
+            
+            combined_contents = ''
+            
+            @config['css_filenames'].each do |fname|
+                combined_contents << File.open(@config['path_to_css'] + fname).read
+            end
+            
+            compressed_contents = compressor.compress(combined_contents)
+            
+            output_file = File.open(@config['path_to_output'] + @config['output_fname'], 'w')
+            output_file.write(compressed_contents)
+        end
+    end
 end
-
-compressed_contents = compressor.compress(combined_contents)
-
-output_file = File.open(path_to_output + output_fname, 'w')
-output_file.write(compressed_contents)

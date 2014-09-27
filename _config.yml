@@ -45,6 +45,18 @@ sitemap:
     change_frequency_name: "change_frequency"
     priority_name: "priority"
 
+compressor:
+    path_to_css: "./_assets/css/"
+    path_to_output: "./public/css/"
+    css_filenames:
+        - "poole.css"
+        - "syntax.css"
+        - "lanyon.css"
+        - "bootstrap_button.css"
+        - "font-awesome.min.css"
+        - "katex.min.css"
+    output_fname: "stylesheets.css"
+
 # Custom vars
 version:          1.1.0
 
