@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Using make for easy LaTeX compilation
-permalink: using-make-for-latex
+title: Using make and latexmk for easy LaTeX compilation
+permalink: using-make-and-latexmk
 categories: coding
 live: false
 ---
@@ -24,7 +24,7 @@ $ latexmk $OPTIONS -pdflatex="$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S" your
 
 Note that `%O` is replaced by `latexmk` with the options given to `latexmk`, and `%S` is replaced with the source file name, in this example `yourtexfile.tex`. Some useful options to give to `latexmk` include `-pdf`, which tells `latexmk` that your final produced document is a `pdf`, and `-pvc`, which will be discussed shortly. `latexmk` also summarises the errors and warnings incurred throughout the compilation, which is very useful considering they're usually lost in a sea of output during normal `pdflatex` compilation.
 
-This will automatically run `pdflatex` enough times to get those references resolved. But we can make this even more useful using the `pdflatex` option, `--interaction=nonstopmode`. This means that `pdflatex` automatically goes through the compilation, not requiring any user input. This importantly means that it goes right through any errors, not requiring the user to type `X` in to quit the compilation on error.
+This will automatically run `pdflatex` enough times to get those references resolved. But we can make this even more useful using the `pdflatex` option, `--interaction=nonstopmode`. This means that `pdflatex` automatically goes through the compilation, not requiring any user input. This importantly means that it goes right through any errors, not requiring the user to type `X` in to quit the compilation on error. If you prefer less verbose output, you can change `--interaction=nonstopmode` to `--interaction=batchmode`, which does the same thing, but outputs only succint, important information.
 
 The next useful option to pass to `latexmk` in combination with this is `-pvc`. It's purpose is to run continuously, and update your pdf viewer every time it updates your document.
 
@@ -61,7 +61,9 @@ force:
 
 clean:
         $(LATEXMK) -C $(MAIN).tex
-        rm -f $(MAIN).tex
+        rm -f $(MAIN).pdfsync
         rm -rf *~ *.tmp
         rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
 {% endhighlight %}
+
+If you don't like 
