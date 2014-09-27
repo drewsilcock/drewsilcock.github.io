@@ -3,14 +3,13 @@ layout: post
 title: Using make and latexmk for easy LaTeX compilation
 permalink: using-make-and-latexmk
 categories: coding
-live: false
 ---
 
-Still running `pdflatex` (or equivalent) every time you want to recompile your \\( \\LaTeX \\) document? There's a simpler way using `make` and `latexmk`. All you need is a simple `Makefile` and you can tell \\( \\LaTeX \\) to automatically recompile your document every time you change a file, and run `pdflatex` the sufficient number of times to get cross-references right.
+Still running `pdflatex` (or equivalent) every time you want to recompile your \( \LaTeX \) document? There's a simpler way using `make` and `latexmk`. All you need is a simple `Makefile` and you can tell \( \LaTeX \) to automatically recompile your document every time you change a file, and run `pdflatex` the sufficient number of times to get cross-references right.
 
 <!--more-->
 
-So I recently discovered `latexmk`, a utility that simplifies \\( \\LaTeX \\) compilation by automatically rerunning whatever compilation command you use to compile your documents (i.e. `pdflatex`, `xelatex` or whatever) the sufficient number of times in order to make sure cross-references resolve themselves fully.This in itself is super useful, but you can leverage the power of GNU `make` in addition to this to make compilation easy, continual and targeted only at changed files.
+So I recently discovered `latexmk`, a utility that simplifies \( \LaTeX \) compilation by automatically rerunning whatever compilation command you use to compile your documents (i.e. `pdflatex`, `xelatex` or whatever) the sufficient number of times in order to make sure cross-references resolve themselves fully.This in itself is super useful, but you can leverage the power of GNU `make` in addition to this to make compilation easy, continual and targeted only at changed files.
 
 For the purposes of this article, I assume that you're using `pdflatex`, but all of this equally applies to `xelatex` or similar by simply replacing the `pdflatex` command with whichever you use.
 
@@ -39,7 +38,7 @@ LATEX=pdflatex
 LATEXOPT=--shell-escape --interaction=nonstopmode
 
 LATEXMK=latexmk
-LATEXMKOPT=-pcv -pdf
+LATEXMKOPT=-pvc -pdf
 
 MAIN=yourtexfile
 SOURCES=$(MAIN).tex Makefile yourothertexfiles
@@ -66,4 +65,4 @@ clean:
         rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
 {% endhighlight %}
 
-If you don't like 
+If you don't like `latexmk` running continuously, and want to run make manually, or use something like `watch -n 1 make` to update your document, then just get rid of the `-pvc` option in `LATEXMKOPT`.

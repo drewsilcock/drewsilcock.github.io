@@ -1,4 +1,5 @@
 require 'yui/compressor'
+require 'pathname'
 
 module Jekyll
     class Compressor < Generator
