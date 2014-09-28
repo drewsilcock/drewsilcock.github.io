@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="http://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="http://drewsilcock.co.uk/"/>
- <updated>2014-09-27T17:14:05+01:00</updated>
+ <updated>2014-09-28T23:20:52+01:00</updated>
  <id>http://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -221,7 +221,7 @@ and you have successfully built and deployed your website with Jekyll. Note that
 
 &lt;h2 id=&quot;trigonometry&quot;&gt;Trigonometry&lt;/h2&gt;
 
-&lt;p&gt;Firstly, let’s look at how we can go from the information we have to the information we need. We need to know the following to compeltely determine the &lt;abbr title=&quot;Meters Per Pixel&quot;&gt;MPP&lt;/abbr&gt; (meters per pixel):&lt;/p&gt;
+&lt;p&gt;Firstly, let’s look at how we can go from the information we have to the information we need. We need to know the following to completely determine the &lt;abbr title=&quot;Meters Per Pixel&quot;&gt;MPP&lt;/abbr&gt; (meters per pixel):&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Resolution of the camera&lt;/li&gt;
