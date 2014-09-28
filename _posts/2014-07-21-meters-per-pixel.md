@@ -16,7 +16,7 @@ The trigonometry assumes that you are flying a UAV with the camera facing direct
 
 ## Trigonometry
 
-Firstly, let's look at how we can go from the information we have to the information we need. We need to know the following to compeltely determine the <abbr title="Meters Per Pixel">MPP</abbr> (meters per pixel):
+Firstly, let's look at how we can go from the information we have to the information we need. We need to know the following to completely determine the <abbr title="Meters Per Pixel">MPP</abbr> (meters per pixel):
 
 * Resolution of the camera
 * Height from which photo was taken
