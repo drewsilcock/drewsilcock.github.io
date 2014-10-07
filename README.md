@@ -6,7 +6,21 @@ This is the source code for my personal website. It uses the [Lanyon](lanyon.get
 Requirements
 ------------
 
-You need `ruby`, `jekyll`, `node` and the gems in `Gemfile`, which can be installed with a simple `bundle install` (requires `bundler`).
+You need `ruby`, `jekyll`, `node`, `java` and the gems in `Gemfile`, which can be installed with a simple `bundle install` (requires `bundler`).
+
+On Ubuntu:
+
+```bash
+> sudo apt-get install ruby-dev
+
+> sudo apt-get install bundler
+
+> bundle install
+
+> sudo apt-get install nodejs && sudo ln -s /usr/bin/node /usr/bin/nodejs
+
+> sudo apt-get install default-jre default-jdk
+```
 
 Installation
 ------------
@@ -14,13 +28,13 @@ Installation
 To install this website locally, just run:
 
 ```bash
-git clone https://github.com/drewsberry/drewsberry.github.io.git
+> git clone https://github.com/drewsberry/drewsberry.github.io.git
 
-cd drewsberry.github.io
+> cd drewsberry.github.io
 
-bundle install
+> bundle install
 
-jekyll serve --watch
+> jekyll serve --watch
 ```
 
 Now you've got it up and running at port 4000! Note that you might have to manually rerun `jekyll build` if you want to make changes to `_config.yml`.
