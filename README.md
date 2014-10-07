@@ -39,6 +39,38 @@ To install this website locally, just run:
 
 Now you've got it up and running at port 4000! Note that you might have to manually rerun `jekyll build` if you want to make changes to `_config.yml`.
 
+The way I use git for my version control of my website, alongside GitHub pages, means I do the following:
+
+```bash
+> git clone https://github.com/drewsberry/drewsberry.github.io.git
+
+> cd drewsberry.github.io
+
+> git checkout source
+
+> git clone https://github.com/drewsberry/drewsberry.github.io.git _site
+
+> bundle install
+
+> jekyll serve --watch
+```
+
+So that when I want to compile the site and push the compiled `_site` directory to GitHub pages, I run (in the root of the repo):
+
+```bash
+> git checkout source
+
+> jekyll build
+
+> cd _site
+
+> git checkout master
+
+> git commit -am "Update website"
+
+> cd ..
+```
+
 Copyright
 ---------
 
