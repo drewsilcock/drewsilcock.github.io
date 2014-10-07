@@ -7,7 +7,7 @@ redirect_from: /personal-cheatsheet
 categories: coding
 ---
 
-Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.
+Here's a load of quick snippets of easy-to-forget but often used commands, tricks and tips. It's got useful info about git, Vim, Python and Perl.
 
 <!--more-->
 
@@ -51,7 +51,7 @@ Then subsequently set local branch to track remote branch:
 git branch --set-upstream master origin/<branch>
 {% endhighlight %}
 
-### Git submodules
+### Setting up git submodules
 
 Adding submodules in a git repository is as simple as editing the file `.gitmodules` in the root of the repository, with the following syntax:
 
@@ -75,6 +75,26 @@ Then a quick:
 git submodule init
 git submodule update
 {% endhighlight %}
+
+### Updating git submodules
+
+You might be tempted to think that updating all your submodules from their respective remotes is as simple as running `git submodule update`. But no, what that does is update the submodules to the version checked out in the remote of the root repo. What you need is to update the version of the submodules that is checked out by the root repo. Here's how to do it, assuming your submodule is called `subm`:
+
+{% highlight bash lineanchors %}
+# Change into your submodule directory
+cd subm
+
+# Pull from the submodule remote
+git pull origin master # Or whatever remote/branch you're updating from
+
+# Go back into the root repo directory
+cd ..
+
+# Check out the updated submodule
+git commit -am "Update subm"
+{% endhighlight %}
+
+And you're done! It can be a bit annoying for updating loads of subdirectories, so I'm working on a short script to do it all for you. I'll update here once I finish it.
 
 ### Git subsubmodules
 
