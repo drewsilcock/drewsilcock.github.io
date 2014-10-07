@@ -35,10 +35,12 @@ Here's a basic template for using `make` to simply this whole thing:
 
 {% highlight makefile lineanchors %}
 LATEX=pdflatex
-LATEXOPT=--shell-escape --interaction=nonstopmode
+LATEXOPT=--shell-escape
+NONSTOP=--interaction=nonstopmode
 
 LATEXMK=latexmk
-LATEXMKOPT=-pvc -pdf
+LATEXMKOPT=-pdf
+CONTINUOUS=-pvc
 
 MAIN=yourtexfile
 SOURCES=$(MAIN).tex Makefile yourothertexfiles
@@ -50,19 +52,30 @@ all:    $(MAIN).pdf
     touch .refresh
 
 $(MAIN).pdf: $(MAIN).tex .refresh $(SOURCES) $(FIGURES)
-        $(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN).tex
+        $(LATEXMK) $(LATEXMKOPT) $(CONTINUOUS) \
+            -pdflatex="$(LATEX) $(LATEXOPT) $(NONSTOP) %O %S" $(MAIN)
 
 force:
         touch .refresh
-        $(MAKE) $(MAIN).pdf
-
-.PHONY: clean force all
+        rm $(MAIN).pdf
+        $(LATEXMK) $(LATEXMKOPT) $(CONTINUOUS) \
+            -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN)
 
 clean:
-        $(LATEXMK) -C $(MAIN).tex
+        $(LATEXMK) -C $(MAIN)
         rm -f $(MAIN).pdfsync
         rm -rf *~ *.tmp
         rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
+
+once:
+        $(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN)
+
+debug:
+        $(LATEX) $(LATEXOPT) $(MAIN)
+
+.PHONY: clean force once all
 {% endhighlight %}
 
-If you don't like `latexmk` running continuously, and want to run make manually, or use something like `watch -n 1 make` to update your document, then just get rid of the `-pvc` option in `LATEXMKOPT`.
+If you don't like `latexmk` running continuously, and want to run make manually, or use something like `watch -n 1 make` to update your document, then just get rid of the `-pvc` option in `LATEXMKOPT`. Otherwise, if you only need to compile the document once and don't need to run `latexmk` continuously for recompilation, just run `make once`.
+
+Using this template and copying it across your \( \LaTeX \) documents hugely saves time on continually retyping in the compilation command, and means you can leave `latexmk` running in the background and ignore it (unless there's an error, in which case you can run `make debug` to view the errors).
