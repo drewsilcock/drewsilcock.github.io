@@ -166,36 +166,49 @@
 <p>Here’s a basic template for using <code>make</code> to simply this whole thing:</p>
 
 <div class="highlight"><pre><code class="language-makefile" data-lang="makefile"><a name="True-1"></a><span class="nv">LATEX</span><span class="o">=</span>pdflatex
-<a name="True-2"></a><span class="nv">LATEXOPT</span><span class="o">=</span>--shell-escape --interaction<span class="o">=</span>nonstopmode
-<a name="True-3"></a>
-<a name="True-4"></a><span class="nv">LATEXMK</span><span class="o">=</span>latexmk
-<a name="True-5"></a><span class="nv">LATEXMKOPT</span><span class="o">=</span>-pvc -pdf
-<a name="True-6"></a>
-<a name="True-7"></a><span class="nv">MAIN</span><span class="o">=</span>yourtexfile
-<a name="True-8"></a><span class="nv">SOURCES</span><span class="o">=</span><span class="k">$(</span>MAIN<span class="k">)</span>.tex Makefile yourothertexfiles
-<a name="True-9"></a><span class="nv">FIGURES</span> <span class="o">:=</span> <span class="k">$(</span>shell find figures/* images/* -type f<span class="k">)</span>
-<a name="True-10"></a>
-<a name="True-11"></a><span class="nf">all</span><span class="o">:</span>    <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">pdf</span>
+<a name="True-2"></a><span class="nv">LATEXOPT</span><span class="o">=</span>--shell-escape
+<a name="True-3"></a><span class="nv">NONSTOP</span><span class="o">=</span>--interaction<span class="o">=</span>nonstopmode
+<a name="True-4"></a>
+<a name="True-5"></a><span class="nv">LATEXMK</span><span class="o">=</span>latexmk
+<a name="True-6"></a><span class="nv">LATEXMKOPT</span><span class="o">=</span>-pdf
+<a name="True-7"></a><span class="nv">CONTINUOUS</span><span class="o">=</span>-pvc
+<a name="True-8"></a>
+<a name="True-9"></a><span class="nv">MAIN</span><span class="o">=</span>yourtexfile
+<a name="True-10"></a><span class="nv">SOURCES</span><span class="o">=</span><span class="k">$(</span>MAIN<span class="k">)</span>.tex Makefile yourothertexfiles
+<a name="True-11"></a><span class="nv">FIGURES</span> <span class="o">:=</span> <span class="k">$(</span>shell find figures/* images/* -type f<span class="k">)</span>
 <a name="True-12"></a>
-<a name="True-13"></a><span class="nf">.refresh</span><span class="o">:</span>
-<a name="True-14"></a>    touch .refresh
-<a name="True-15"></a>
-<a name="True-16"></a><span class="nf">$(MAIN).pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">tex</span> .<span class="n">refresh</span> <span class="k">$(</span><span class="nv">SOURCES</span><span class="k">)</span> <span class="k">$(</span><span class="nv">FIGURES</span><span class="k">)</span>
-<a name="True-17"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> <span class="k">$(</span>LATEXMKOPT<span class="k">)</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$(LATEX) $(LATEXOPT) %O %S&quot;</span> <span class="k">$(</span>MAIN<span class="k">)</span>.tex
-<a name="True-18"></a>
-<a name="True-19"></a><span class="nf">force</span><span class="o">:</span>
-<a name="True-20"></a>        touch .refresh
-<a name="True-21"></a>        <span class="k">$(</span>MAKE<span class="k">)</span> <span class="k">$(</span>MAIN<span class="k">)</span>.pdf
-<a name="True-22"></a>
-<a name="True-23"></a><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span> <span class="n">force</span> <span class="n">all</span>
-<a name="True-24"></a>
-<a name="True-25"></a><span class="nf">clean</span><span class="o">:</span>
-<a name="True-26"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> -C <span class="k">$(</span>MAIN<span class="k">)</span>.tex
-<a name="True-27"></a>        rm -f <span class="k">$(</span>MAIN<span class="k">)</span>.pdfsync
-<a name="True-28"></a>        rm -rf *~ *.tmp
-<a name="True-29"></a>        rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk</code></pre></div>
+<a name="True-13"></a><span class="nf">all</span><span class="o">:</span>    <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">pdf</span>
+<a name="True-14"></a>
+<a name="True-15"></a><span class="nf">.refresh</span><span class="o">:</span>
+<a name="True-16"></a>    touch .refresh
+<a name="True-17"></a>
+<a name="True-18"></a><span class="nf">$(MAIN).pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">MAIN</span><span class="k">)</span>.<span class="n">tex</span> .<span class="n">refresh</span> <span class="k">$(</span><span class="nv">SOURCES</span><span class="k">)</span> <span class="k">$(</span><span class="nv">FIGURES</span><span class="k">)</span>
+<a name="True-19"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> <span class="k">$(</span>LATEXMKOPT<span class="k">)</span> <span class="k">$(</span>CONTINUOUS<span class="k">)</span> <span class="se">\</span>
+<a name="True-20"></a>            -pdflatex<span class="o">=</span><span class="s2">&quot;$(LATEX) $(LATEXOPT) $(NONSTOP) %O %S&quot;</span> <span class="k">$(</span>MAIN<span class="k">)</span>
+<a name="True-21"></a>
+<a name="True-22"></a><span class="nf">force</span><span class="o">:</span>
+<a name="True-23"></a>        touch .refresh
+<a name="True-24"></a>        rm <span class="k">$(</span>MAIN<span class="k">)</span>.pdf
+<a name="True-25"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> <span class="k">$(</span>LATEXMKOPT<span class="k">)</span> <span class="k">$(</span>CONTINUOUS<span class="k">)</span> <span class="se">\</span>
+<a name="True-26"></a>            -pdflatex<span class="o">=</span><span class="s2">&quot;$(LATEX) $(LATEXOPT) %O %S&quot;</span> <span class="k">$(</span>MAIN<span class="k">)</span>
+<a name="True-27"></a>
+<a name="True-28"></a><span class="nf">clean</span><span class="o">:</span>
+<a name="True-29"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> -C <span class="k">$(</span>MAIN<span class="k">)</span>
+<a name="True-30"></a>        rm -f <span class="k">$(</span>MAIN<span class="k">)</span>.pdfsync
+<a name="True-31"></a>        rm -rf *~ *.tmp
+<a name="True-32"></a>        rm -f *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk
+<a name="True-33"></a>
+<a name="True-34"></a><span class="nf">once</span><span class="o">:</span>
+<a name="True-35"></a>        <span class="k">$(</span>LATEXMK<span class="k">)</span> <span class="k">$(</span>LATEXMKOPT<span class="k">)</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$(LATEX) $(LATEXOPT) %O %S&quot;</span> <span class="k">$(</span>MAIN<span class="k">)</span>
+<a name="True-36"></a>
+<a name="True-37"></a><span class="nf">debug</span><span class="o">:</span>
+<a name="True-38"></a>        <span class="k">$(</span>LATEX<span class="k">)</span> <span class="k">$(</span>LATEXOPT<span class="k">)</span> <span class="k">$(</span>MAIN<span class="k">)</span>
+<a name="True-39"></a>
+<a name="True-40"></a><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span> <span class="n">force</span> <span class="n">once</span> <span class="n">all</span></code></pre></div>
 
-<p>If you don’t like <code>latexmk</code> running continuously, and want to run make manually, or use something like <code>watch -n 1 make</code> to update your document, then just get rid of the <code>-pvc</code> option in <code>LATEXMKOPT</code>.</p>
+<p>If you don’t like <code>latexmk</code> running continuously, and want to run make manually, or use something like <code>watch -n 1 make</code> to update your document, then just get rid of the <code>-pvc</code> option in <code>LATEXMKOPT</code>. Otherwise, if you only need to compile the document once and don’t need to run <code>latexmk</code> continuously for recompilation, just run <code>make once</code>.</p>
+
+<p>Using this template and copying it across your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> documents hugely saves time on continually retyping in the compilation command, and means you can leave <code>latexmk</code> running in the background and ignore it (unless there’s an error, in which case you can run <code>make debug</code> to view the errors).</p>
 
 </div>
 

@@ -139,7 +139,7 @@
           </a>
       </span>
   </span>
-  <p>Herein lies my personal coding cheatsheet for all things I find useful and wish not to forget. It features golden nuggets concerning git, vim, python and perl.</p>
+  <p>Here’s a load of quick snippets of easy-to-forget but often used commands, tricks and tips. It’s got useful info about git, Vim, Python and Perl.</p>
 
 <!--more-->
 
@@ -177,7 +177,7 @@
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git branch --set-upstream master origin/&lt;branch&gt;</code></pre></div>
 
-<h3 id="git-submodules">Git submodules</h3>
+<h3 id="setting-up-git-submodules">Setting up git submodules</h3>
 
 <p>Adding submodules in a git repository is as simple as editing the file <code>.gitmodules</code> in the root of the repository, with the following syntax:</p>
 
@@ -193,6 +193,24 @@
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>git submodule init
 <a name="True-2"></a>git submodule update</code></pre></div>
+
+<h3 id="updating-git-submodules">Updating git submodules</h3>
+
+<p>You might be tempted to think that updating all your submodules from their respective remotes is as simple as running <code>git submodule update</code>. But no, what that does is update the submodules to the version checked out in the remote of the root repo. What you need is to update the version of the submodules that is checked out by the root repo. Here’s how to do it, assuming your submodule is called <code>subm</code>:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Change into your submodule directory</span>
+<a name="True-2"></a><span class="nb">cd </span>subm
+<a name="True-3"></a>
+<a name="True-4"></a><span class="c"># Pull from the submodule remote</span>
+<a name="True-5"></a>git pull origin master <span class="c"># Or whatever remote/branch you&#39;re updating from</span>
+<a name="True-6"></a>
+<a name="True-7"></a><span class="c"># Go back into the root repo directory</span>
+<a name="True-8"></a><span class="nb">cd</span> ..
+<a name="True-9"></a>
+<a name="True-10"></a><span class="c"># Check out the updated submodule</span>
+<a name="True-11"></a>git commit -am <span class="s2">&quot;Update subm&quot;</span></code></pre></div>
+
+<p>And you’re done! It can be a bit annoying for updating loads of subdirectories, so I’m working on a short script to do it all for you. I’ll update here once I finish it.</p>
 
 <h3 id="git-subsubmodules">Git subsubmodules</h3>
 
