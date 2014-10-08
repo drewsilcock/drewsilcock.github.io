@@ -9,3 +9,8 @@ cventry.place {
 cventry.date {
     color: red;
 }
+
+span.centredequation {
+    margin: auto;
+    display: table;
+}

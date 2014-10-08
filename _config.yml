@@ -55,6 +55,7 @@ compressor:
         - "bootstrap_button.css"
         - "font-awesome.min.css"
         - "katex.min.css"
+        - "custom.css"
     output_fname: "stylesheets.css"
 
 # Custom vars
