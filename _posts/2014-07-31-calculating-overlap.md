@@ -21,12 +21,22 @@ The geometry of the situation is shown below:
 
 Let's call the inter-photo distance \( d_{int} \), the angle of view \( \alpha_y \), the height \( h \) and the required overlap fraction \( \omega \) (i.e. if we want 80% overlap, then \( \omega = 0.8 \)).
 
-\[ d_{int} = 2h\tan\left(\frac{\alpha_y}{2}\right) - \text{overlap} \]
-\[ = 2h\tan\left(\frac{\alpha_y}{2}\right) - 2h\omega\tan\left(\frac{\alpha_y}{2}\right) \]
-\[ = 2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right] \]
+\[ d_{int}      = 2h\tan\left(\frac{\alpha_y}{2}\right) - \text{overlap} \]
+\[ ~~~~~~~~~~~~ = 2h\tan\left(\frac{\alpha_y}{2}\right) - 2h\omega\tan\left(\frac{\alpha_y}{2}\right) \]
+\[ ~            = 2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right] \]
 
 ## Calculating UAV speed
 
 The speed that a UAV must fly at, \( v_{UAV} \) , given the time interval between successive photos, \( t_{int} \), is then simply given by:
 
-\[ v_{UAV} = \frac{d_{int}}{t_{int}} = \]
+\[ v_{UAV} = \frac{d_{int}}{t_{int}} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right]}{t_{int}} \]
+
+Taking a reasonable value for the angle of view, \(\alpha_y = 48.9^{\circ}\), the time interval betweem successive photos, \(t_{int} = 5\) seconds and taking \( \omega = 0.8 \) thus gives the very reasonable value for the velocity of the UAV as:
+
+\[ v_{UAV} = 0.182h ~ \text{meters/second} \]
+
+So if you're taking photos at a reasonable \( h = 50 \) meters, then:
+
+\[ v_{UAV} = 9.09 ~ \text{meters/second} \]
+
+Luckily, this is a very reasonable value! (Remembering that this is the *maximum* speed you can go before your overlap becomes too small for proper photogrammetry.)

@@ -41,14 +41,17 @@ The following diagrams illustrate the horizontal and vertical views that the cam
 It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:
 
 \[ \tan\left(\frac{\alpha_x}{2}\right) = \frac{x}{2h} \]
+\[ \tan\left(\frac{\alpha_y}{2}\right) = \frac{y}{2h} \]
 
-And the same for \(y\) Rearranging this for \(x\):
+Rearranging this for \(x\) and \(y\):
 
 \[ x = 2h\tan\left(\frac{\alpha_x}{2}\right) \]
+\[ y = 2h\tan\left(\frac{\alpha_y}{2}\right) \]
 
 Then the MMP is given by:
 
 \[ \mu_x = \frac{x}{r_x} = \frac{2h\tan\left(\frac{\alpha_x}{2}\right)}{r_x} \]
+\[ \mu_y = \frac{y}{r_y} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)}{r_y} \]
 
 ## Finding camera resolution
 
