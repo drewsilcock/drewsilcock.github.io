@@ -24,11 +24,11 @@ Firstly, let's look at how we can go from the information we have to the informa
 
 Then let us parametrise the situation as follows:
 
-* Ground distances photographed in horizontal and vertical, respectively: \(x\) and \(y\)
-* Resolution of camera: \(r_x\) and \(r_y\)
-* Height from which photo was taken: \(h\)
-* Angle of view of the camera: \(\alpha_x\) and \(\alpha_y\)
-* MMP: \(\mu_x\) and \(\mu_y\)
+* Ground distances photographed in horizontal and vertical, respectively: {% latex %}x{% endlatex %} and {% latex %}y{% endlatex %}
+* Resolution of camera: {% latex %}r_x{% endlatex %} and {% latex %}r_y{% endlatex %}
+* Height from which photo was taken: {% latex %}h{% endlatex %}
+* Angle of view of the camera: {% latex %}\alpha_x{% endlatex %} and {% latex %}\alpha_y{% endlatex %}
+* MMP: {% latex %}\mu_x{% endlatex %} and {% latex %}\mu_y{% endlatex %}
 
 The following diagrams illustrate the horizontal and vertical views that the camera sees:
 
@@ -40,18 +40,18 @@ The following diagrams illustrate the horizontal and vertical views that the cam
 
 It is clear by basic trigonometry that the tangent of half the angle of view is equal to half the ratio of the ground distance and the height. As parametrised:
 
-\[ \tan\left(\frac{\alpha_x}{2}\right) = \frac{x}{2h} \]
-\[ \tan\left(\frac{\alpha_y}{2}\right) = \frac{y}{2h} \]
+{% latex centred %} \tan\left(\frac{\alpha_x}{2}\right) = \frac{x}{2h} {% endlatex %}
+{% latex centred %} \tan\left(\frac{\alpha_y}{2}\right) = \frac{y}{2h} {% endlatex %}
 
-Rearranging this for \(x\) and \(y\):
+Rearranging this for {% latex %}x{% endlatex %} and {% latex %}y{% endlatex %}:
 
-\[ x = 2h\tan\left(\frac{\alpha_x}{2}\right) \]
-\[ y = 2h\tan\left(\frac{\alpha_y}{2}\right) \]
+{% latex centred %} x = 2h\tan\left(\frac{\alpha_x}{2}\right) {% endlatex %}
+{% latex centred %} y = 2h\tan\left(\frac{\alpha_y}{2}\right) {% endlatex %}
 
 Then the MMP is given by:
 
-\[ \mu_x = \frac{x}{r_x} = \frac{2h\tan\left(\frac{\alpha_x}{2}\right)}{r_x} \]
-\[ \mu_y = \frac{y}{r_y} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)}{r_y} \]
+{% latex centred %} \mu_x = \frac{x}{r_x} = \frac{2h\tan\left(\frac{\alpha_x}{2}\right)}{r_x} {% endlatex %}
+{% latex centred %} \mu_y = \frac{y}{r_y} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)}{r_y} {% endlatex %}
 
 ## Finding camera resolution
 
@@ -66,9 +66,9 @@ Image Size: 4608x3456 # This is the camera resolution
 
 ## Finding angle of view
 
-The angle of view of a camera can be calculated from the camera's effective focal length, \(f\) (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, \(d\) as follows:
+The angle of view of a camera can be calculated from the camera's effective focal length, {% latex %}f{% endlatex %} (which excluding macro photography is approximately equal to the stated focal length), and the dimension of the sensor in that direction, {% latex %}d{% endlatex %} as follows:
 
-\[ \alpha = 2\arctan\left(\frac{d}{2f}\right) \]
+{% latex centred %} \alpha = 2\arctan\left(\frac{d}{2f}\right) {% endlatex %}
 
 The focal length is stated on the camera specs. For my Ixus 132 the stated focal length is 5.0 mm.
 
@@ -84,14 +84,14 @@ For instance, my camera has a 1/2.3" CCD, meaning it has dimensions 6.17 mm by 4
 
 Thus, plugging these values into the equation above, my camera has angles of view of:
 
-\[ \alpha_x = 63.3^{\circ} \]
-\[ \alpha_y = 48.9^{\circ} \]
+{% latex centred %} \alpha_x = 63.3^{\circ} {% endlatex %}
+{% latex centred %} \alpha_y = 48.9^{\circ} {% endlatex %}
 
 ## Conclusion
 
 Then plugging these values into the formula given above, the MMP as a function of height is:
 
-\[ \mu_x = 0.2675h ~\text{mm/pixel} \]
-\[ \mu_y = 0.2631h ~\text{mm/pixel} \]
+{% latex centred %} \mu_x = 0.2675h ~\text{mm/pixel} {% endlatex %}
+{% latex centred %} \mu_y = 0.2631h ~\text{mm/pixel} {% endlatex %}
 
-Where \(h\) is in meters. Thus at a typical UAV flight height of \(h = 100~\text{m}\) , the MMP is 2.68 cm per pixel in the horizontal and 2.63 cm per pixel in the vertical.
+Where {% latex %}h{% endlatex %} is in meters. Thus at a typical UAV flight height of {% latex %}h = 100~\text{m}{% endlatex %} , the MMP is 2.68 cm per pixel in the horizontal and 2.63 cm per pixel in the vertical.

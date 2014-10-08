@@ -19,24 +19,24 @@ The geometry of the situation is shown below:
 
 ![geometry of overlap](/public/media/calculating-overlap/overlap.svg)
 
-Let's call the inter-photo distance \( d_{int} \), the angle of view \( \alpha_y \), the height \( h \) and the required overlap fraction \( \omega \) (i.e. if we want 80% overlap, then \( \omega = 0.8 \)).
+Let's call the inter-photo distance {% latex %} d_{int} {% endlatex %}, the angle of view {% latex %} \alpha_y {% endlatex %}, the height {% latex %} h {% endlatex %} and the required overlap fraction {% latex %} \omega {% endlatex %} (i.e. if we want 80% overlap, then {% latex %} \omega = 0.8 {% endlatex %}).
 
-\[ d_{int}      = 2h\tan\left(\frac{\alpha_y}{2}\right) - \text{overlap} \]
-\[ ~~~~~~~~~~~~ = 2h\tan\left(\frac{\alpha_y}{2}\right) - 2h\omega\tan\left(\frac{\alpha_y}{2}\right) \]
-\[ ~            = 2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right] \]
+{% latex centred %} d_{int}      = 2h\tan\left(\frac{\alpha_y}{2}\right) - \text{overlap} {% endlatex %}
+{% latex centred %} ~~~~~~~~~~~~ = 2h\tan\left(\frac{\alpha_y}{2}\right) - 2h\omega\tan\left(\frac{\alpha_y}{2}\right) {% endlatex %}
+{% latex centred %} ~            = 2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right] {% endlatex %}
 
 ## Calculating UAV speed
 
-The speed that a UAV must fly at, \( v_{UAV} \) , given the time interval between successive photos, \( t_{int} \), is then simply given by:
+The speed that a UAV must fly at, {% latex %} v_{UAV} {% endlatex %} , given the time interval between successive photos, {% latex %} t_{int} {% endlatex %}, is then simply given by:
 
-\[ v_{UAV} = \frac{d_{int}}{t_{int}} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right]}{t_{int}} \]
+{% latex centred %} v_{UAV} = \frac{d_{int}}{t_{int}} = \frac{2h\tan\left(\frac{\alpha_y}{2}\right)\left[ 1 - \omega \right]}{t_{int}} {% endlatex %}
 
-Taking a reasonable value for the angle of view, \(\alpha_y = 48.9^{\circ}\), the time interval betweem successive photos, \(t_{int} = 5\) seconds and taking \( \omega = 0.8 \) thus gives the very reasonable value for the velocity of the UAV as:
+Taking a reasonable value for the angle of view, {% latex %}\alpha_y = 48.9^{\circ}{% endlatex %}, the time interval betweem successive photos, {% latex %}t_{int} = 5{% endlatex %} seconds and taking {% latex %} \omega = 0.8 {% endlatex %} thus gives the very reasonable value for the velocity of the UAV as:
 
-\[ v_{UAV} = 0.182h ~ \text{meters/second} \]
+{% latex centred %} v_{UAV} = 0.182h ~ \text{meters/second} {% endlatex %}
 
-So if you're taking photos at a reasonable \( h = 50 \) meters, then:
+So if you're taking photos at a reasonable {% latex %} h = 50 {% endlatex %} meters, then:
 
-\[ v_{UAV} = 9.09 ~ \text{meters/second} \]
+{% latex centred %} v_{UAV} = 9.09 ~ \text{meters/second} {% endlatex %}
 
 Luckily, this is a very reasonable value! (Remembering that this is the *maximum* speed you can go before your overlap becomes too small for proper photogrammetry.)
