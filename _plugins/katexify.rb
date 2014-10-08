@@ -45,7 +45,7 @@ module Jekyll
 
         def match_centred(match)
             s = "\\displaystyle " + match
-            div_open = "<div style='text-align: center;'>"
+            div_open = "<div style='text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;'>"
             div_close = "</div>"
 
             return div_open + eqn_to_html(s) + div_close
