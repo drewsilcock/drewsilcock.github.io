@@ -1,3 +1,5 @@
+## General
+
 # Dependencies
 markdown:         kramdown
 highlighter:	  pygments
@@ -35,7 +37,9 @@ exclude:
     - Gemfile.lock
     - README.md
 
-# Plugins vars
+## Plugins vars
+
+# Config for sitemap_generator.rb
 sitemap:
     file: "/sitemap.xml"
     exclude:
@@ -45,6 +49,7 @@ sitemap:
     change_frequency_name: "change_frequency"
     priority_name: "priority"
 
+# Config for css_compressor.rb plugin
 compressor:
     path_to_css: "./_assets/css/"
     path_to_output: "./public/css/"
@@ -58,7 +63,12 @@ compressor:
         - "custom.css"
     output_fname: "stylesheets.css"
 
-# Custom vars
+# Config for katex_block.rb plugin
+katex:
+    path_to_js: "./public/js/katex.min.js"
+
+## Custom vars
+#
 version:          1.1.0
 
 github:
