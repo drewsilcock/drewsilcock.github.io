@@ -1,8 +1,1 @@
-# Compiled site
 _site
-
-# Vim backup files
-*~
-
-# Machine specific Gemfile.lock
-Gemfile.lock

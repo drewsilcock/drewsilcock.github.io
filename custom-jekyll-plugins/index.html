@@ -163,8 +163,9 @@
 
 <p>Then, when you run <code>jekyll build</code> and Jekyll produces all the HTML in <code>_site</code>, git doesn’t recognise it. That means that we can <code>cd</code> into <code>_site</code>, and seeing as git doesn’t know the difference, we can make <code>_site</code> itself into its own git repository.</p>
 
-<p>Assuming you’re starting off with a bog standard single branch Pages repo, you run:
-&lt;div class="highlight"&gt;&lt;pre&gt;<code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
+<p>Assuming you’re starting off with a bog standard single branch Pages repo, you run:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
 <a name="True-2"></a>rm -rf _site/*
 <a name="True-3"></a>
 <a name="True-4"></a><span class="c"># Make new source branch</span>
@@ -193,17 +194,19 @@
 <a name="True-27"></a>git remote add origin https://github.com/username/username.github.io
 <a name="True-28"></a>
 <a name="True-29"></a><span class="c"># Tell it to push to the master remote branch</span>
-<a name="True-30"></a>git branch --set-upstream master origin/master</code>&lt;/pre&gt;&lt;/div&gt;</p>
+<a name="True-30"></a>git branch --set-upstream master origin/master</code></pre></div>
 
 <p>Now you’ve got your source branch set up in your root directory and master branch set up in your <code>_site</code> directory, ready for rapid building and deployment of your Jekyll website.</p>
 
-<p>Now each time you want to build your site locally, you just need to run:
-&lt;div class="highlight"&gt;&lt;pre&gt;<code class="language-bash" data-lang="bash"><a name="True-1"></a>jekyll build
+<p>Now each time you want to build your site locally, you just need to run:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekyll build
 <a name="True-2"></a><span class="nb">cd </span>_site
 <a name="True-3"></a>git add .
 <a name="True-4"></a>git commit
-<a name="True-5"></a>git push origin master</code>&lt;/pre&gt;&lt;/div&gt;
-and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy <code>.nojekyll</code> over to <code>_site</code> where we need it, because it is a dotfile, so you need to put the following in your <code>_config.yml</code>:</p>
+<a name="True-5"></a>git push origin master</code></pre></div>
+
+<p>and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy <code>.nojekyll</code> over to <code>_site</code> where we need it, because it is a dotfile, so you need to put the following in your <code>_config.yml</code>:</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.nojekyll</span></code></pre></div>
 
@@ -228,6 +231,7 @@ and you have successfully built and deployed your website with Jekyll. Note that
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekgit.sh <span class="s2">&quot;Latest build&quot;</span></code></pre></div>
 
+
 </div>
 
 <hr>
@@ -243,6 +247,15 @@ and you have successfully built and deployed your website with Jekyll. Note that
     
       <li>
         <h3>
+          <a href="/katexify">
+            katexify - a KaTeX Jekyll plugin
+            <small>07 Oct 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/using-make-and-latexmk">
             Using make and latexmk for easy LaTeX compilation
             <small>23 Sep 2014</small>
@@ -255,15 +268,6 @@ and you have successfully built and deployed your website with Jekyll. Note that
           <a href="/calculating-overlap">
             Calculating the overlap of aerial photos
             <small>31 Jul 2014</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/meters-per-pixel">
-            Calculating meters per pixel from aerial photographs
-            <small>21 Jul 2014</small>
           </a>
         </h3>
       </li>
