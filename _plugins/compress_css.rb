@@ -29,15 +29,15 @@ module Jekyll
             @config['output_fname'] = compressor_config['output_fname'] || OUTPUT_FNAME
 
             compressor = YUI::CssCompressor.new
-            
+
             combined_contents = ''
-            
+
             @config['css_filenames'].each do |fname|
                 combined_contents << File.open(@config['path_to_css'] + fname).read
             end
-            
+
             compressed_contents = compressor.compress(combined_contents)
-            
+
             output_file = File.open(@config['path_to_output'] + @config['output_fname'], 'w')
             output_file.write(compressed_contents)
         end
