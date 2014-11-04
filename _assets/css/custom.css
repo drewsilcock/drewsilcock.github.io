@@ -16,3 +16,8 @@ span.centredequation {
     margin-bottom: 0.5em;
     display: table;
 }
+
+img.centred {
+    display: block;
+    margin: auto;
+}
