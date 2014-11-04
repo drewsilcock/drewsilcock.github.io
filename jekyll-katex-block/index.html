@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Jekyll KaTeX Block &middot; Drew Silcock
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/stylesheets.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/public/media/site/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52653050-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Maybe somebody, somewhere will find this useful.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/download/">Download</a>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/drewsberry">GitHub Profile</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Drew Silcock</a>
+            <small>Nebulous thoughts</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Jekyll KaTeX Block</h1>
+  <span class="post-meta">
+      <span class="post-date">
+          04 Nov 2014
+      </span>
+      <div class="post-meta-separator">
+          &#x2016;
+      </div>
+      <span class="post-categories">
+          <a href="/archive/#coding">
+              Coding
+          </a>
+      </span>
+  </span>
+  <p>If you follow <a href="https://news.ycombinator.com/item?id=8320439">Hacker News</a>, then you might’ve seen the latest development from Khan Academy: <a href="http://khan.github.io/KaTeX/"><span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span></a>.</p>
+
+<p>Although it hasn’t yet implemented the full set of mathematical symbols, <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> promises to replace MathJax as <em>the</em> web technology for displaying mathematical expressions. This plugin utilises Jekyll’s plugin system to enable you to easily add mathematical equations to your statically generated site, by adding a Liquid block corresponding to content to be rendered by <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span>.</p>
+
+<p>It’s as simple as adding this plugin to your <code>_plugins</code> folder, pointing the plugin to your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> JavaScript file in <code>_config.yml</code>, and including the <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> CSS in the resulting web pages.</p>
+
+<p>For more information, continue reading, or if you want to just go straight to the code, head over to <a href="https://github.com/drewsberry/jekyll-katex-block">https://github.com/drewsberry/jekyll-katex-block</a>.</p>
+
+<!--more-->
+
+<h2 id="why-katex">Why KaTeX?</h2>
+
+<p>So why should you use <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span>? Well, here’s a few reasons:</p>
+
+<ul>
+  <li>It’s super fast;</li>
+  <li>It supports server side rendering;</li>
+  <li>Pure CSS (the JS is only necessary is you’re rendering client-side);</li>
+  <li>It’s <a href="http://jsperf.com/katex-vs-mathjax"><em>super</em></a> fast.</li>
+</ul>
+
+<h2 id="the-jekyll-katex-plugin">The Jekyll KaTeX plugin</h2>
+
+<p>So how does this Jekyll plugin fit in?</p>
+
+<p>Well, there are three types of Jekyll plugins:</p>
+
+<ol>
+  <li><strong>Generators</strong></li>
+  <li><strong>Converters</strong></li>
+  <li><strong>Tags</strong></li>
+</ol>
+
+<p>A subset of the <strong>Tags</strong> plugin is the <strong>Block</strong> plugin. What this does is provides access to a <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers#create-your-own-tag-blocks">Liquid block</a>, that takes the content inside the block and does with it as you specify in your plugin. Here’s an example of a Liquid block:</p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span><span class="p">%}</span>
+<a name="True-2"></a>This is the content inside the block!
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+<p>The Jekyll <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> block then provides the <code>{% latex %}</code> block, which uses <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> to compile the contents of the block into an equation. So this is how you’d use it in your post:</p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span><span class="p">%}</span>
+<a name="True-2"></a>E = \gamma mc^2
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+<p>In addition, you can pass <code>tokens</code> to blocks like so:</p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span>mytoken<span class="w"> </span><span class="p">%}</span>
+<a name="True-2"></a>Block contents
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+<p>So if you pass the <code>centred</code> token to the <code>latex</code> block like so:</p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span>centred<span class="w"> </span><span class="p">%}</span>
+<a name="True-2"></a>E = \gamma mc^2
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+<p>Then the equation will also be cented on the page, with some space above and below. This is achieved using a little bit of inline CSS injected into the equation.</p>
+
+<h2 id="how-to-install-it">How to install it</h2>
+
+<p>If you’ve already got the <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> JavaScript installed on your system, as well as the CSS files and the font files, then all you need to do is drop <a href="https://raw.githubusercontent.com/drewsberry/jekyll-katex-block/master/katex_block.rb">jekyll-katex-block.rb</a> into your <code>_plugins</code> directory in your project, and you’re ready to go!</p>
+
+<p>Just make sure that you’re loading the CSS in your web page (but <em>not</em> the JavaScript) and have the font files available.</p>
+
+<h2 id="options">Options</h2>
+
+<p>You can specify where to tell the plugin to look for your JavaScript file in your <code>_config.yml</code> with the following:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">katex</span><span class="p-Indicator">:</span>
+<a name="True-2"></a>    <span class="l-Scalar-Plain">path_to_js</span><span class="p-Indicator">:</span> <span class="s">&quot;./the/path/to/your/js&quot;</span></code></pre></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you’re seeing a bunch of weird symbols instead of your equations, then it’s probably because you’re not using UTF-8. This is what it’ll look like:</p>
+
+<p><img src="/public/media/jekyll-katex-block/katex_no_utf8.png" alt="without utf-8, your browser will get very confused" class="centred" /></p>
+
+<p>Put the following in the head of your HTML to sort it out:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span><span class="nt">&gt;</span></code></pre></div>
+
+<p>If you’re seeing your equations, but they don’t have any special formatting and just look like weird, squished, ugly versions of what you want, like this:</p>
+
+<p><img src="/public/media/jekyll-katex-block/no_font_equation.png" alt="this is what happens if you don't have the font files in the right place" class="centred" /></p>
+
+<p>Then it’s probably because your server can’t find the font files. You can test this out by doing the following:</p>
+
+<div class="highlight"><pre><code class="language-console" data-lang="console"><a name="True-1"></a><span class="gp">$</span> jekyll build
+<a name="True-2"></a><span class="gp">$</span> <span class="nb">cd </span>_site 
+<a name="True-3"></a><span class="gp">$</span> python -m SimpleHTTPServer</code></pre></div>
+
+<p>Go to your web page in question with your web browser, and look at the output of your Python session. It should say something like:</p>
+
+<div class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">Serving HTTP on 0.0.0.0 port 8000 ...</span>
+<a name="True-2"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:18:07] &quot;GET / HTTP/1.1&quot; 200 -</span></code></pre></div>
+
+<p>But if your server can’t find the font files, it’ll output the following:</p>
+
+<div class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
+<a name="True-2"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Math-Italic.woff HTTP/1.1&quot; 404 -</span>
+<a name="True-3"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
+<a name="True-4"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Size1-Regular.woff HTTP/1.1&quot; 404 -</span>
+<a name="True-5"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
+<a name="True-6"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Size3-Regular.woff HTTP/1</span></code></pre></div>
+
+<p>To solve this, put all your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> font files in in the same directory as your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> CSS file, that way it’ll automatically look for and find it. If you’re still having problems, have a look at the example <a href="https://github.com/drewsberry/jekyll-katex-block/tree/master/test">Jekyll site</a> on the GitHub repo, or comment below.</p>
+
+<p>Now you should be back to how it’s supposed to look:</p>
+
+<div style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="katex"><span class="katex-inner"><span class="strut" style="height:1.65791em;"></span><span class="strut bottom" style="height:2.55327em;vertical-align:-0.89536em;"></span><span class="base textstyle uncramped"><span class="reset-textstyle displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.054669999999999996em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size3">√</span></span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord displaystyle textstyle cramped"><span class="minner mfrac reset-textstyle displaystyle textstyle cramped"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">i</span><span class="mord mathit">h</span><span class="mord mathit">t</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">m</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span style="top:-1.4646700000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:-0.79419em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="minner mfrac reset-scriptstyle scriptstyle uncramped"><span class="vlist"><span style="top:0.6131714285714285em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="minner mfrac reset-scriptscriptstyle scriptscriptstyle cramped"><span class="vlist"><span style="top:0.51444em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">2</span><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span><span style="top:-0.20999999999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptscriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">h</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">t</span></span></span></span><span style="top:-0.22142857142857153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.5142857142857143em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit">m</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:-0.363em;margin-right:0.1em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.1em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></div>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>The plugin basically works by compiling <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> within the Ruby script using the <a href="https://rubygems.org/gems/execjs">ExecJS</a> module. The JavaScript function <code>renderToString</code> is then called from this compiled JavaScript on the content inside the block. This converts the content from <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="latex-logo"><span class="l">L</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> to HTML.</p>
+
+<p>The Ruby code to actually do this looks like this:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="c1"># Compile the KaTeX JavaScript</span>
+<a name="True-2"></a><span class="n">katexsrc</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_katex_js</span><span class="p">)</span><span class="o">.</span><span class="n">read</span>
+<a name="True-3"></a><span class="vi">@katex</span> <span class="o">=</span> <span class="no">ExecJS</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">katexsrc</span><span class="p">)</span>
+<a name="True-4"></a>
+<a name="True-5"></a><span class="c1"># Turn a LaTeX string into HTML equation</span>
+<a name="True-6"></a><span class="n">equation_string</span> <span class="o">=</span> <span class="s2">&quot;E = \gamma mc^2&quot;</span>
+<a name="True-7"></a><span class="n">html</span> <span class="o">=</span> <span class="vi">@katex</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;katex.renderToString&quot;</span><span class="p">,</span> <span class="n">equation_string</span><span class="p">)</span></code></pre></div>
+
+<p>The <code>@</code> sign indicates that the <code>katex</code> variable is an instance variable, which basically means that it’s available to all the methods within the current class. The block itself is a class inheriting from <code>Liquid::Block</code>. It’s a member of the <code>Jekyll::Tags</code> module, which makes it accessible to Jekyll on runtime.</p>
+
+<p>As with all tags, it then needs to be registered. This is where you tell Liquid what identifier the tag should have, i.e. what string inside the {% and %} brackets should activate the plugin. This looks like the following:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Tags</span><span class="o">::</span><span class="no">KatexBlock</span><span class="p">)</span></code></pre></div>
+
+<p>Where <code>KatexBlock</code> is the <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> block class.</p>
+
+<p>To see the full code, head over to the <a href="https://github.com/drewsberry/jekyll-katex-block">GitHub repository</a>.</p>
+
+</div>
+
+<hr>
+<p><form action="/">
+  <button class="btn btn-default btn-lg" href="/">
+      Back to home...
+  </button>
+</form></p>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/using-make-and-latexmk">
+            Using make and latexmk for easy LaTeX compilation
+            <small>23 Sep 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/calculating-overlap">
+            Calculating the overlap of aerial photos
+            <small>31 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/custom-jekyll-plugins">
+            Custom Jekyll plugins with GitHub Pages
+            <small>29 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+    <!-- Message inviting everyone to comment -->
+    <div class="discuss">
+        If you liked this post, have any questions or fancy having a good discussion, please leave a comment below, or 
+        <a href = "mailto:drewATdrewsilcockDOTcoDOTuk" 
+           onclick = "this.href=this.href
+                      .replace(/AT/,'&#64;')
+                      .replace(/DOT/,'&#46;')
+                      .replace(/DOT/,'&#46;')"
+        >send me an email.</a>
+    </div>
+
+    <!-- Add Disqus comments -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'drewsilcock'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+  </body>
+
+</html>
+
