@@ -4,9 +4,6 @@
 # Vim swap files
 *.swp
 
-# Locked files
-*.lock
-
 # Stupid Apple files
 *.DS_Store
 
