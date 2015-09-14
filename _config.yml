@@ -17,7 +17,8 @@ safe: false
 title:            Drew Silcock
 tagline:          'Nebulous thoughts'
 description:      'Maybe somebody, somewhere will find this useful.'
-url:              http://drewsilcock.co.uk
+url:              https://drewsilcock.co.uk
+enforce_url:      drewsilcock.co.uk
 baseurl:          /
 
 author:
