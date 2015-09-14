@@ -52,7 +52,7 @@ The way I use git for my version control of my website, alongside GitHub pages, 
 
 > bundle install
 
-> jekyll serve --watch
+> bundle exec jekyll serve --watch
 ```
 
 So that when I want to compile the site and push the compiled `_site` directory to GitHub pages, I run (in the root of the repo):
@@ -60,7 +60,7 @@ So that when I want to compile the site and push the compiled `_site` directory 
 ```bash
 > git checkout source
 
-> jekyll build
+> bundle exec jekyll build
 
 > cd _site
 
