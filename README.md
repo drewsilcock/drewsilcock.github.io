@@ -34,7 +34,7 @@ To install this website locally, just run:
 
 > bundle install
 
-> jekyll serve --watch
+> bundle exec jekyll serve --watch
 ```
 
 Now you've got it up and running at port 4000! Note that you might have to manually rerun `jekyll build` if you want to make changes to `_config.yml`.
