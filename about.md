@@ -14,7 +14,7 @@ This website is built using [Poole](http://getpoole.com), which is built on [Jek
 ## Contact Me
 
 If you want to ask me a question, tell me something or just generally fancy a chat, then
-<a href = "mailto:drewATdrewsilcockDOTcoDOTuk" 
+<a href = "mailto:drewATdrewsilcockDOTcoDOTuk"
    onclick = "this.href=this.href
               .replace(/AT/,'&#64;')
               .replace(/DOT/,'&#46;')
@@ -23,6 +23,9 @@ If you want to ask me a question, tell me something or just generally fancy a ch
 
 ## Public Key
 
+Cryptography is important for everyone, even if you don't have anything to hide. To verify anything I've signed or to decrypt messages I've encrypted for your eyes only, here's my public PGP key:
+
+{% highlight lua lineanchors %}
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 
@@ -75,3 +78,4 @@ QL9HoGW+yhjT2jmi/OzHVwvYoQJL4A2vttdhMM96d+7baju8lsmyzr/Paza1/iYh
 9aa7RVjEtPn0cCXzY3qyKvM=
 =r1oZ
 -----END PGP PUBLIC KEY BLOCK-----
+{% endhighlight %}
