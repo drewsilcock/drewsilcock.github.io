@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="https://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="https://drewsilcock.co.uk/"/>
- <updated>2015-09-14T22:59:58+01:00</updated>
+ <updated>2015-11-16T17:02:18+00:00</updated>
  <id>https://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -101,7 +101,7 @@
 
 &lt;p&gt;If you’re seeing your equations, but they don’t have any special formatting and just look like weird, squished, ugly versions of what you want, like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don&#39;t have the font files in the right place&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don't have the font files in the right place&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then it’s probably because your server can’t find the font files. You can test this out by doing the following:&lt;/p&gt;
 
