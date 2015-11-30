@@ -23,7 +23,7 @@ If you want to ask me a question, tell me something or just generally fancy a ch
 
 ## Public Key
 
-Cryptography is important for everyone, even if you don't have anything to hide. To verify anything I've signed or to decrypt messages I've encrypted for your eyes only, here's my public PGP key:
+Cryptography is important for everyone, even if you don't have anything to hide. To verify anything I've signed or to decrypt messages, you can either verify my identity using [keybase](https://keybase.io/drewsberry) or directly using my public PGP key:
 
 {% highlight lua lineanchors %}
 -----BEGIN PGP PUBLIC KEY BLOCK-----
