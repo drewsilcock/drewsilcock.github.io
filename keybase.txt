@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/drewsberry
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://drewsilcock.co.uk
+  * I am drewsberry (https://keybase.io/drewsberry) on keybase.
+  * I have a public key with fingerprint 32AE 9006 2229 F440 8D5A  3716 F68B AB3B 4A08 2356
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010103b7f0bf9b1d72728fec10abe026a1c0328bc01a9095349200b9d0cb5729fb290a",
+            "fingerprint": "32ae90062229f4408d5a3716f68bab3b4a082356",
+            "host": "keybase.io",
+            "key_id": "f68bab3b4a082356",
+            "kid": "010103b7f0bf9b1d72728fec10abe026a1c0328bc01a9095349200b9d0cb5729fb290a",
+            "uid": "a56162540fe82c3c8a063761b16c6419",
+            "username": "drewsberry"
+        },
+        "service": {
+            "hostname": "drewsilcock.co.uk",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1448874311,
+    "expire_in": 157680000,
+    "prev": "15e030f862e7758aacbe754ff52bd048191e523f5123701e595b1dbbd86ba1ff",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.49
+Comment: https://keybase.io/crypto
+
+yMNMAnicrZJrTFRHFMeXIm8BFUFe2nqNSsojc9/3rhoUCKCoCJSlWMhy5+5cuDx2
+t/tgoQSKpBrwFQxSA0h5hIIGMWxjbdQm7VJradFaIHxAMVWxgjbdNhYVrJbeJW3S
+D/3YmQ8zc+b3/885J3PV313l6/bsSP+WXd4bNG4jjo+sKk3eypQqDBp0lZi6CitB
+Swsq1SGzRVsi6zA1BnBlkpCVAJR4iOtYgiU4CYk4ECACBCPgIiAJDooAF3jA0yTF
+EwBAXgdESLMEL0GCBwIWg0myvhCZjCZZb1FsSUJAPAAMQSgIRQFORwskizMSw0EB
+kpASAEeQNKMIiwxml0JJDgpmFCcblJhy0C6l9x/8/5y3dclOoBmcIWgKSIgjRFLk
+BMCQLINDnBEZCuddoBmZ9EIZUmidCdnMEJlMlVh1DKbEy2URuVrrquXfjFwqGsSS
+ONEQZy1RLIwmg8UgGkqV6yKLxWhWu+SWSqOLtyGo/dtJC2W9TmmnoihHJrNs0GNq
+XCFFi+yyximK41iKxPEYDFUYZRPSyi6CZhkOKMP1DipXLHEaARJIHEMglqU5QRAh
+YmlKkmgC6gDF4TyOaIKUaJwgWaDseVrpJIQ6joECLkmYq7Z39QZMTSppCoWKpVku
+1AsWqwlh1UOOvGUqN1+Vp8drrm+m8vVZ8c/nGwtaobq82ORnGzolRl/Sp17ZSX8R
+Nv/qZkiuNNc6tXVsfveNhNl9G4M3pNkG7YzXObu9trHM5+hkW9b95l+0q5390xFb
+3nR2DdQnq8YrghbWWfeHv1eXuHvlbEBOREH6kHO+8evY4Jqv/riT3lMeol0oCwmq
+SLrYvj6xj8+59uO2iOW7aq0zjbldHvmbG+KMXhVt8/O1b7TyC11ek+uPbE/qjL9S
+3+ufYLYPj92qV0dkFOMHp1ahrPE2VCL3ZdNN2c6C0BcPycW5AFvXBwuWygf3b4C7
+lrXDUw+OFXV0vx3t8xIPcESeObtOOxwc5d10/cuoVV6O6E1XT5xjIvqlnzUpHdvF
+jK0XczM3OwZ/GFmEE+UL2d/t95+70Dmyt3eAyC/7xG/T94mjxe+f0sQ/nHjsHHPM
+7PTMPuMeji+3ZuUNWhouH39cVzOXUPhZW9Lz9o54554dv7EtHmc/Tn4rdbFb7O15
+kmKfnuSfP0pLvnngQKzq8ED+KBVQk3Gpz0t972V3S+TkRPHnj17XtB5z4N/c9ek8
+3nNSEzsQ+sxvxj0jMrns5LKx1WtmQ9vyMkFqVHNduu3b0cCCsICDa482w0OeT7nD
+w0Pn/5zeowsKPx3Won/i/eunH+aYqtcUV1UmB6b9bubeeWFveHrt+q079xo9xr0z
+Tmz76dUse+h8UGQmzLu9o700P/BC5u3T+/4CXjq6aQ==
+=s1ph
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/drewsberry
+
+==================================================================
