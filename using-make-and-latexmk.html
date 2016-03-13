@@ -25,8 +25,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/public/media/site/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/media/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/media/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/media/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/media/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/media/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/media/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/media/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/media/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/media/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/public/media/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/public/media/icons/manifest.json">
+  <link rel="mask-icon" href="/public/media/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/public/media/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ac4142">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -108,7 +124,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -154,7 +170,7 @@
 
 <p>The basic syntax of <code>latexmk</code> is as follows:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>latexmk <span class="nv">$OPTIONS</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S&quot;</span> yourtexfile.tex</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>latexmk <span class="nv">$OPTIONS</span> -pdflatex<span class="o">=</span><span class="s2">&quot;$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S&quot;</span> yourtexfile.tex</code></pre></figure>
 
 <p>Note that <code>%O</code> is replaced by <code>latexmk</code> with the options given to <code>latexmk</code>, and <code>%S</code> is replaced with the source file name, in this example <code>yourtexfile.tex</code>. Some useful options to give to <code>latexmk</code> include <code>-pdf</code>, which tells <code>latexmk</code> that your final produced document is a <code>pdf</code>, and <code>-pvc</code>, which will be discussed shortly. <code>latexmk</code> also summarises the errors and warnings incurred throughout the compilation, which is very useful considering they’re usually lost in a sea of output during normal <code>pdflatex</code> compilation.</p>
 
@@ -168,7 +184,7 @@
 
 <p>Here’s a basic template for using <code>make</code> to simply this whole thing:</p>
 
-<div class="highlight"><pre><code class="language-makefile" data-lang="makefile"><a name="True-1"></a><span class="nv">LATEX</span><span class="o">=</span>pdflatex
+<figure class="highlight"><pre><code class="language-makefile" data-lang="makefile"><a name="True-1"></a><span class="nv">LATEX</span><span class="o">=</span>pdflatex
 <a name="True-2"></a><span class="nv">LATEXOPT</span><span class="o">=</span>--shell-escape
 <a name="True-3"></a><span class="nv">NONSTOP</span><span class="o">=</span>--interaction<span class="o">=</span>nonstopmode
 <a name="True-4"></a>
@@ -207,7 +223,7 @@
 <a name="True-37"></a><span class="nf">debug</span><span class="o">:</span>
 <a name="True-38"></a>        <span class="k">$(</span>LATEX<span class="k">)</span> <span class="k">$(</span>LATEXOPT<span class="k">)</span> <span class="k">$(</span>MAIN<span class="k">)</span>
 <a name="True-39"></a>
-<a name="True-40"></a><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span> <span class="n">force</span> <span class="n">once</span> <span class="n">all</span></code></pre></div>
+<a name="True-40"></a><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span> <span class="n">force</span> <span class="n">once</span> <span class="n">all</span></code></pre></figure>
 
 <p>If you don’t like <code>latexmk</code> running continuously, and want to run make manually, or use something like <code>watch -n 1 make</code> to update your document, then just get rid of the <code>-pvc</code> option in <code>LATEXMKOPT</code>. Otherwise, if you only need to compile the document once and don’t need to run <code>latexmk</code> continuously for recompilation, just run <code>make once</code>.</p>
 

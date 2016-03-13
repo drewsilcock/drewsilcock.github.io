@@ -25,8 +25,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/public/media/site/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/media/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/media/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/media/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/media/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/media/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/media/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/media/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/media/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/media/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/public/media/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/public/media/icons/manifest.json">
+  <link rel="mask-icon" href="/public/media/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/public/media/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ac4142">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -108,7 +124,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -137,7 +153,7 @@
           &#x2016;
       </div>
       <span class="post-categories">
-          <a href="/archive/#coding">
+          <a href="/archive/#Coding">
               Coding
           </a>
       </span>
@@ -162,13 +178,13 @@
 
 <p>In the <code>.gitignore</code> of the <code>source</code> branch, you put the following:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>_site</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>_site</code></pre></figure>
 
 <p>Then, when you run <code>jekyll build</code> and Jekyll produces all the HTML in <code>_site</code>, git doesn’t recognise it. That means that we can <code>cd</code> into <code>_site</code>, and seeing as git doesn’t know the difference, we can make <code>_site</code> itself into its own git repository.</p>
 
 <p>Assuming you’re starting off with a bog standard single branch Pages repo, you run:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c"># Make sure _site is empty before we begin</span>
 <a name="True-2"></a>rm -rf _site/*
 <a name="True-3"></a>
 <a name="True-4"></a><span class="c"># Make new source branch</span>
@@ -197,25 +213,25 @@
 <a name="True-27"></a>git remote add origin https://github.com/username/username.github.io
 <a name="True-28"></a>
 <a name="True-29"></a><span class="c"># Tell it to push to the master remote branch</span>
-<a name="True-30"></a>git branch --set-upstream master origin/master</code></pre></div>
+<a name="True-30"></a>git branch --set-upstream master origin/master</code></pre></figure>
 
 <p>Now you’ve got your source branch set up in your root directory and master branch set up in your <code>_site</code> directory, ready for rapid building and deployment of your Jekyll website.</p>
 
 <p>Now each time you want to build your site locally, you just need to run:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekyll build
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekyll build
 <a name="True-2"></a><span class="nb">cd </span>_site
 <a name="True-3"></a>git add .
 <a name="True-4"></a>git commit
-<a name="True-5"></a>git push origin master</code></pre></div>
+<a name="True-5"></a>git push origin master</code></pre></figure>
 
 <p>and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy <code>.nojekyll</code> over to <code>_site</code> where we need it, because it is a dotfile, so you need to put the following in your <code>_config.yml</code>:</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.nojekyll</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.nojekyll</span></code></pre></figure>
 
 <p>Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the <a href="https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4">gist of it</a>, and this is the script:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c">#!/bin/bash</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a><span class="c">#!/bin/bash</span>
 <a name="True-2"></a> 
 <a name="True-3"></a><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&quot;$1&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
 <a name="True-4"></a>  <span class="nb">echo</span> <span class="s2">&quot;Please enter a git commit message&quot;</span>
@@ -228,11 +244,11 @@
 <a name="True-11"></a>  git commit -am <span class="s2">&quot;$1&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <a name="True-12"></a>  git push origin master <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <a name="True-13"></a>  <span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<a name="True-14"></a>  <span class="nb">echo</span> <span class="s2">&quot;Successfully built and pushed to GitHub.&quot;</span></code></pre></div>
+<a name="True-14"></a>  <span class="nb">echo</span> <span class="s2">&quot;Successfully built and pushed to GitHub.&quot;</span></code></pre></figure>
 
 <p>So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekgit.sh <span class="s2">&quot;Latest build&quot;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><a name="True-1"></a>jekgit.sh <span class="s2">&quot;Latest build&quot;</span></code></pre></figure>
 
 
 </div>

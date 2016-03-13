@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="https://drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="https://drewsilcock.co.uk/"/>
- <updated>2015-11-30T09:13:28+00:00</updated>
+ <updated>2016-03-13T18:51:53+00:00</updated>
  <id>https://drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -52,27 +52,27 @@
 
 &lt;p&gt;A subset of the &lt;strong&gt;Tags&lt;/strong&gt; plugin is the &lt;strong&gt;Block&lt;/strong&gt; plugin. What this does is provides access to a &lt;a href=&quot;https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers#create-your-own-tag-blocks&quot;&gt;Liquid block&lt;/a&gt;, that takes the content inside the block and does with it as you specify in your plugin. Here’s an example of a Liquid block:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;myblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;myblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;This is the content inside the block!
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endmyblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endmyblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The Jekyll &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; block then provides the &lt;code&gt;{% latex %}&lt;/code&gt; block, which uses &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; to compile the contents of the block into an equation. So this is how you’d use it in your post:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;latex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;latex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;E = \gamma mc^2
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endlatex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endlatex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;In addition, you can pass &lt;code&gt;tokens&lt;/code&gt; to blocks like so:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;myblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mytoken&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;myblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mytoken&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;Block contents
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endmyblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endmyblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;So if you pass the &lt;code&gt;centred&lt;/code&gt; token to the &lt;code&gt;latex&lt;/code&gt; block like so:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;latex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;centred&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;latex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;centred&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;E = \gamma mc^2
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endlatex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endlatex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then the equation will also be cented on the page, with some space above and below. This is achieved using a little bit of inline CSS injected into the equation.&lt;/p&gt;
 
@@ -86,8 +86,8 @@
 
 &lt;p&gt;You can specify where to tell the plugin to look for your JavaScript file in your &lt;code&gt;_config.yml&lt;/code&gt; with the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;katex&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path_to_js&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;./the/path/to/your/js&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;katex&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path_to_js&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;./the/path/to/your/js&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
 
@@ -97,31 +97,31 @@
 
 &lt;p&gt;Put the following in the head of your HTML to sort it out:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;If you’re seeing your equations, but they don’t have any special formatting and just look like weird, squished, ugly versions of what you want, like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don't have the font files in the right place&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don&#39;t have the font files in the right place&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then it’s probably because your server can’t find the font files. You can test this out by doing the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; jekyll build
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; jekyll build
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site 
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; python -m SimpleHTTPServer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; python -m SimpleHTTPServer&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Go to your web page in question with your web browser, and look at the output of your Python session. It should say something like:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-pycon&quot; data-lang=&quot;pycon&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;Serving HTTP on 0.0.0.0 port 8000 ...&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:18:07] &amp;quot;GET / HTTP/1.1&amp;quot; 200 -&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-pycon&quot; data-lang=&quot;pycon&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;Serving HTTP on 0.0.0.0 port 8000 ...&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:18:07] &amp;quot;GET / HTTP/1.1&amp;quot; 200 -&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;But if your server can’t find the font files, it’ll output the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-pycon&quot; data-lang=&quot;pycon&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-pycon&quot; data-lang=&quot;pycon&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] &amp;quot;GET /fonts/KaTeX_Math-Italic.woff HTTP/1.1&amp;quot; 404 -&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] &amp;quot;GET /fonts/KaTeX_Size1-Regular.woff HTTP/1.1&amp;quot; 404 -&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] &amp;quot;GET /fonts/KaTeX_Size3-Regular.woff HTTP/1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;go&quot;&gt;127.0.0.1 - - [04/Nov/2014 12:23:26] &amp;quot;GET /fonts/KaTeX_Size3-Regular.woff HTTP/1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To solve this, put all your &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; font files in in the same directory as your &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; CSS file, that way it’ll automatically look for and find it. If you’re still having problems, have a look at the example &lt;a href=&quot;https://github.com/drewsberry/jekyll-katex-block/tree/master/test&quot;&gt;Jekyll site&lt;/a&gt; on the GitHub repo, or comment below.&lt;/p&gt;
 
@@ -135,19 +135,19 @@
 
 &lt;p&gt;The Ruby code to actually do this looks like this:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;# Compile the KaTeX JavaScript&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;# Compile the KaTeX JavaScript&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;katexsrc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path_to_katex_js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;vi&quot;&gt;@katex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ExecJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;katexsrc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;# Turn a LaTeX string into HTML equation&lt;/span&gt;
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;equation_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;E = \gamma mc^2&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@katex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;katex.renderToString&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;equation_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@katex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;katex.renderToString&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;equation_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The &lt;code&gt;@&lt;/code&gt; sign indicates that the &lt;code&gt;katex&lt;/code&gt; variable is an instance variable, which basically means that it’s available to all the methods within the current class. The block itself is a class inheriting from &lt;code&gt;Liquid::Block&lt;/code&gt;. It’s a member of the &lt;code&gt;Jekyll::Tags&lt;/code&gt; module, which makes it accessible to Jekyll on runtime.&lt;/p&gt;
 
 &lt;p&gt;As with all tags, it then needs to be registered. This is where you tell Liquid what identifier the tag should have, i.e. what string inside the {% and %} brackets should activate the plugin. This looks like the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;latex&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;KatexBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;latex&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;KatexBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Where &lt;code&gt;KatexBlock&lt;/code&gt; is the &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; block class.&lt;/p&gt;
 
@@ -172,7 +172,7 @@
 
 &lt;p&gt;The basic syntax of &lt;code&gt;latexmk&lt;/code&gt; is as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;latexmk &lt;span class=&quot;nv&quot;&gt;$OPTIONS&lt;/span&gt; -pdflatex&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S&amp;quot;&lt;/span&gt; yourtexfile.tex&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;latexmk &lt;span class=&quot;nv&quot;&gt;$OPTIONS&lt;/span&gt; -pdflatex&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S&amp;quot;&lt;/span&gt; yourtexfile.tex&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Note that &lt;code&gt;%O&lt;/code&gt; is replaced by &lt;code&gt;latexmk&lt;/code&gt; with the options given to &lt;code&gt;latexmk&lt;/code&gt;, and &lt;code&gt;%S&lt;/code&gt; is replaced with the source file name, in this example &lt;code&gt;yourtexfile.tex&lt;/code&gt;. Some useful options to give to &lt;code&gt;latexmk&lt;/code&gt; include &lt;code&gt;-pdf&lt;/code&gt;, which tells &lt;code&gt;latexmk&lt;/code&gt; that your final produced document is a &lt;code&gt;pdf&lt;/code&gt;, and &lt;code&gt;-pvc&lt;/code&gt;, which will be discussed shortly. &lt;code&gt;latexmk&lt;/code&gt; also summarises the errors and warnings incurred throughout the compilation, which is very useful considering they’re usually lost in a sea of output during normal &lt;code&gt;pdflatex&lt;/code&gt; compilation.&lt;/p&gt;
 
@@ -186,7 +186,7 @@
 
 &lt;p&gt;Here’s a basic template for using &lt;code&gt;make&lt;/code&gt; to simply this whole thing:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;LATEX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pdflatex
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-makefile&quot; data-lang=&quot;makefile&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;LATEX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pdflatex
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;LATEXOPT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;--shell-escape
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;NONSTOP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;--interaction&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nonstopmode
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
@@ -225,7 +225,7 @@
 &lt;a name=&quot;True-37&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nf&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 &lt;a name=&quot;True-38&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;LATEX&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;LATEXOPT&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;MAIN&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
 &lt;a name=&quot;True-39&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-40&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nf&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;once&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-40&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nf&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;once&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;If you don’t like &lt;code&gt;latexmk&lt;/code&gt; running continuously, and want to run make manually, or use something like &lt;code&gt;watch -n 1 make&lt;/code&gt; to update your document, then just get rid of the &lt;code&gt;-pvc&lt;/code&gt; option in &lt;code&gt;LATEXMKOPT&lt;/code&gt;. Otherwise, if you only need to compile the document once and don’t need to run &lt;code&gt;latexmk&lt;/code&gt; continuously for recompilation, just run &lt;code&gt;make once&lt;/code&gt;.&lt;/p&gt;
 
@@ -301,13 +301,13 @@
 
 &lt;p&gt;In the &lt;code&gt;.gitignore&lt;/code&gt; of the &lt;code&gt;source&lt;/code&gt; branch, you put the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;_site&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;_site&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then, when you run &lt;code&gt;jekyll build&lt;/code&gt; and Jekyll produces all the HTML in &lt;code&gt;_site&lt;/code&gt;, git doesn’t recognise it. That means that we can &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;_site&lt;/code&gt;, and seeing as git doesn’t know the difference, we can make &lt;code&gt;_site&lt;/code&gt; itself into its own git repository.&lt;/p&gt;
 
 &lt;p&gt;Assuming you’re starting off with a bog standard single branch Pages repo, you run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure _site is empty before we begin&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make sure _site is empty before we begin&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;rm -rf _site/*
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Make new source branch&lt;/span&gt;
@@ -336,25 +336,25 @@
 &lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/username.github.io
 &lt;a name=&quot;True-28&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-29&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell it to push to the master remote branch&lt;/span&gt;
-&lt;a name=&quot;True-30&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-30&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/master&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now you’ve got your source branch set up in your root directory and master branch set up in your &lt;code&gt;_site&lt;/code&gt; directory, ready for rapid building and deployment of your Jekyll website.&lt;/p&gt;
 
 &lt;p&gt;Now each time you want to build your site locally, you just need to run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekyll build
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;_site
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;git add .
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;git commit
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy &lt;code&gt;.nojekyll&lt;/code&gt; over to &lt;code&gt;_site&lt;/code&gt; where we need it, because it is a dotfile, so you need to put the following in your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;.nojekyll&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;.nojekyll&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the &lt;a href=&quot;https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4&quot;&gt;gist of it&lt;/a&gt;, and this is the script:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt; 
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Please enter a git commit message&amp;quot;&lt;/span&gt;
@@ -367,11 +367,11 @@
 &lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;  git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 &lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;  git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 &lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .. &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Successfully built and pushed to GitHub.&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;So if I wanted to build my site locally and push it to my repository with the commit message “Latest build”, I would run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekgit.sh &lt;span class=&quot;s2&quot;&gt;&amp;quot;Latest build&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;jekgit.sh &lt;span class=&quot;s2&quot;&gt;&amp;quot;Latest build&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </content>
  </entry>
@@ -436,10 +436,10 @@
 
 &lt;p&gt;The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don’t have access to this information, it can also be read directly from the EXIF metadata using &lt;a href=&quot;http://www.sno.phy.queensu.ca/~phil/exiftool/&quot;&gt;&lt;code&gt;exiftool&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&amp;gt; exiftool photo.jpg
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&amp;gt; exiftool photo.jpg
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;...
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;Image Size: 4608x3456 &lt;span class=&quot;c&quot;&gt;# This is the camera resolution&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;finding-angle-of-view&quot;&gt;Finding angle of view&lt;/h2&gt;
 
@@ -506,7 +506,7 @@
 
 &lt;p&gt;Alex’s CSS is as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbering&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;px&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d9d9d9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -551,7 +551,7 @@
 &lt;a name=&quot;True-43&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-44&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;a name=&quot;True-45&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-46&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-46&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here’s what it produces after adding it to your &lt;code&gt;syntax.css&lt;/code&gt;:&lt;/p&gt;
 
@@ -559,12 +559,12 @@
 
 &lt;p&gt;Note those important lines at the end of &lt;code&gt;pre a::before&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;callout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;callout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;khtml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This tell the browser to ignore the line numbers when copying, solving one of our initial problems.&lt;/p&gt;
 
@@ -582,7 +582,7 @@
 
 &lt;p&gt;Using this plugin, you can simply specify as follows in your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments_options&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p-Indicator&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lineanchors&amp;#39;&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments_options&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p-Indicator&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lineanchors&amp;#39;&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then you don’t need to put it in each codeblock tag and can forget about it!&lt;/p&gt;
 
@@ -596,8 +596,8 @@
 
 &lt;p&gt;Now, I haven’t come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex’s code to get rid of it:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cm&quot;&gt;/* In pre { .. } */&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cm&quot;&gt;/* In pre { .. } */&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This is placed in &lt;code&gt;pre { .. }&lt;/code&gt;, just after &lt;code&gt;overflow-x: auto;&lt;/code&gt;.&lt;/p&gt;
 
@@ -609,7 +609,7 @@
 
 &lt;p&gt;I always forget to do this, and could not be bothered to go through each codeblock in each blog post I’ve written, so here’s a simple bash script to replace all instances of the &lt;code&gt;highlight lang&lt;/code&gt; Liquid tag with its &lt;code&gt;lineanchors&lt;/code&gt; equivalent:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Adds lineanchors option to all codeblock Liquid tags&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
@@ -620,7 +620,7 @@
 &lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
 &lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;    :
 &lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;    perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/highlight $lang/highlight $lang lineanchors/g&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$posts&lt;/span&gt;
-&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Change &lt;code&gt;$posts&lt;/code&gt; to correspond to the location of your blog posts, the contents of which you wish to replace. If you’re using more lexers, just add them into the languages array.&lt;/p&gt;
 
@@ -641,7 +641,7 @@
 &lt;h3 id=&quot;ncurses&quot;&gt;ncurses&lt;/h3&gt;
 &lt;p&gt;To compile &lt;code&gt;zsh&lt;/code&gt;, you need &lt;code&gt;ncurses&lt;/code&gt;. This needs to be compiled with the flag &lt;code&gt;-fPIC&lt;/code&gt;. This can be achieved as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download the ncurses gzipped tarball&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download the ncurses gzipped tarball&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Extract gzipped tarball&lt;/span&gt;
@@ -663,16 +663,16 @@
 &lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Deduce environment information and build private terminfo tree&lt;/span&gt;
 &lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;progs
 &lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;./capconvert
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now before installing the compiled files, you should check to make sure that ncurses has compiled correctly by running:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./test/ncurses&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./test/ncurses&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;If this successfully opens a prompt with multiple options, then ncurses has been successfully compiled, and you can install it:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Install ncurses to $HOME/.local&lt;/span&gt;
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Install ncurses to $HOME/.local&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;--enable-shared&lt;/code&gt; configure flag ensures that libtool builds shared libraries for ncurses, needed for &lt;code&gt;zsh&lt;/code&gt; later on.&lt;/p&gt;
 
@@ -682,30 +682,30 @@
 
 &lt;p&gt;Firstly, &lt;code&gt;icmake&lt;/code&gt; is installed via:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download icmake source from Sourcefourge&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Download icmake source from Sourcefourge&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;wget http://downloads.sourceforge.net/project/icmake/icmake/7.21.00/icmake_7.21.00.orig.tar.gz
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Unpack archive (change version as appropriate)&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;tar -zxvf icmake_7.21.00.orig.tar.gz
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;icmake-7.21.00&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;icmake-7.21.00&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now the &lt;code&gt;INSTALL.im&lt;/code&gt; file needs to be altered to reflect our local installation. This means replacing all the file installation locations with local directories as such, where &lt;user&gt; should be replaced with your username:&lt;/user&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define BINDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/bin&amp;quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define BINDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/bin&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define SKELDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/icmake&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define MANDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/man&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define LIBDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/lib/icmake&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define CONFDIR     &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/config/icmake&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define DOCDIR      &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define DOCDOCDIR   &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake-doc&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cp&quot;&gt;#define DOCDOCDIR   &amp;quot;/home/&amp;lt;USER&amp;gt;/.local/share/doc/icmake-doc&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now run the following to compile icmake:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_bootstrap /&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_bootstrap /&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now, technically, this will compile all the files you actually need in &lt;code&gt;tmp&lt;/code&gt;, but if you further want to install the files to ~/.local, then you simply run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_install strip all&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./icm_install strip all&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;If you then want to clear up the temporary compiled files, delete the directory &lt;code&gt;tmp&lt;/code&gt; with &lt;code&gt;rm -rf tmp&lt;/code&gt;.&lt;/p&gt;
 
@@ -713,7 +713,7 @@
 
 &lt;p&gt;Now to move onto yodl. Again, we need to specify that we want to install locally by putting &lt;code&gt;BASE = &quot;/home/as1423/.local&quot; at the start of the function &lt;/code&gt;setLocations()&lt;code&gt; located at the end of &lt;/code&gt;INSTALL.im’, so that the function looks like:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setLocations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setLocations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/home/as1423/.local&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
@@ -727,47 +727,47 @@
 &lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;STD_INCLUDE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BASE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/share/yodl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;COMPILER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;gcc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;In addition, we need to tell &lt;code&gt;build&lt;/code&gt; to look in our local directory for &lt;code&gt;icmake&lt;/code&gt; instead of the standard &lt;code&gt;/usr/bin&lt;/code&gt; or &lt;code&gt;/usr/local/bin&lt;/code&gt;. This means editing the hashbang at the top of &lt;code&gt;build&lt;/code&gt; to look as follows, where again &lt;user&gt; is replaced by your UNIX username:&lt;/user&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/home/&amp;lt;USER&amp;gt;/.local/bin/icmake -qt/tmp/yodl&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;#!/home/&amp;lt;USER&amp;gt;/.local/bin/icmake -qt/tmp/yodl&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now that &lt;code&gt;build&lt;/code&gt; knows that we want to run our locally compiled &lt;code&gt;icmake&lt;/code&gt;, we can actually build &lt;code&gt;yodl&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# In root directory of yodl source&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# In root directory of yodl source&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;./build programs
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;./build man
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;./build manual
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build macros&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build macros&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;There may be a LaTeX error when running &lt;code&gt;./build manual&lt;/code&gt;, but just ignore this, because it’s not vital.&lt;/p&gt;
 
 &lt;p&gt;Now we’re ready to actually install yodl:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./build install programs /
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;./build install programs /
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;./build install man /
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;./build install manual /
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;./build install macros /
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build install docs /&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;./build install docs /&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;/&lt;/code&gt; designates that we are installing with respect to the root of our filesystem. This is fine, though, because we’ve already specified in &lt;code&gt;INSTALL.im&lt;/code&gt; that we want everything to be installed locally into &lt;code&gt;$HOME/.local$. Now &lt;/code&gt;yodl` should be successfully installed.&lt;/p&gt;
 
 &lt;h2 id=&quot;step-2-tell-environment-where-ncurses-is&quot;&gt;Step 2: Tell environment where ncurses is&lt;/h2&gt;
 &lt;p&gt;Before compiling &lt;code&gt;zsh&lt;/code&gt;, you need to tell your environment where your newly compiled files are (if you haven’t already). This can be achieved with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;INSTALL_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$HOME/.local&amp;#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;INSTALL_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$HOME/.local&amp;#39;&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-I&lt;span class=&quot;nv&quot;&gt;$INSTALL_PATH&lt;/span&gt;/include
-&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-I$INSTALL_PATH/include&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-L$INSTALL_PATH/lib&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-I$INSTALL_PATH/include&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-L$INSTALL_PATH/lib&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;step-3-compiling-zsh&quot;&gt;Step 3: Compiling &lt;code&gt;zsh&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Now, we’re finally ready to move onto compiling &lt;code&gt;zsh&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone zsh repository from git&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone zsh repository from git&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git clone git://github.com/zsh-users/zsh.git
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Move into root zsh source directory&lt;/span&gt;
@@ -789,26 +789,26 @@
 &lt;a name=&quot;True-20&quot;&gt;&lt;/a&gt;make
 &lt;a name=&quot;True-21&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-22&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Install&lt;/span&gt;
-&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-23&quot;&gt;&lt;/a&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;step-4-enjoy-zsh&quot;&gt;Step 4: Enjoy &lt;code&gt;zsh&lt;/code&gt;!&lt;/h2&gt;
 &lt;p&gt;After these steps have been completed, zsh should be ready and compiled to use in your ~/.local/bin folder. If you like &lt;code&gt;zsh&lt;/code&gt;, you’ll love &lt;code&gt;ohmyzsh&lt;/code&gt;. This can be installed by:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;curl -L http://install.ohmyz.sh &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;curl -L http://install.ohmyz.sh &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Or if you don’t want o execute shell scripts from arbitrary non-https website, you can use git:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone repository into local dotfiles&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Clone repository into local dotfiles&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Copy template file into home directory&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Once you’ve done this, edit oh-my-zsh to your needs, e.g. if you want to change the theme, replace &lt;code&gt;ZSH_THEME=&quot;robbyrussell&quot; with the theme of your choice. I particularly enjoy &lt;/code&gt;jonathan`.&lt;/p&gt;
 
 &lt;p&gt;And finally, change your shell to &lt;code&gt;zsh&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;chsh -s &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/bin/zsh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;chsh -s &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/bin/zsh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now sit back and enjoy your effortless tab completion, directory movement and integrated git information.&lt;/p&gt;
 
@@ -818,11 +818,11 @@
 
 &lt;p&gt;If &lt;code&gt;zsh&lt;/code&gt; isn’t recognising the &lt;code&gt;ncurses&lt;/code&gt; library when running &lt;code&gt;./configure&lt;/code&gt;, and instead giving the following error:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;configure: error: &lt;span class=&quot;s2&quot;&gt;&amp;quot;No terminal handling library was found on your system.&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;configure: error: &lt;span class=&quot;s2&quot;&gt;&amp;quot;No terminal handling library was found on your system.&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;This is probably a library called &amp;#39;curses&amp;#39; or &amp;#39;ncurses&amp;#39;. You may&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;need to install a package called &amp;#39;curses-devel&amp;#39; or &amp;#39;ncurses-devel&amp;#39; on your&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;s2&quot;&gt;system.&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;See &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;config.log&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; more details.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;See &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;config.log&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; more details.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then this means that you haven’t got the &lt;code&gt;ncurses&lt;/code&gt; library in your library path. You can add it to your environment by re-running the commands in Part 2, in particular the final command exporting &lt;code&gt;CPPFLAGS&lt;/code&gt; and &lt;code&gt;LDFLAGS&lt;/code&gt;.&lt;/p&gt;
 
@@ -851,7 +851,7 @@
 
 &lt;p&gt;These are the things you need to do when using &lt;code&gt;git&lt;/code&gt; on a new computer:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change username associated with commits&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git config --global user.name &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;USER&amp;gt;&amp;quot;&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change email associated with commits&lt;/span&gt;
@@ -867,40 +867,40 @@
 &lt;a name=&quot;True-14&quot;&gt;&lt;/a&gt;git config --global core.editor vim
 &lt;a name=&quot;True-15&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-16&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Tell git to colour its output&lt;/span&gt;
-&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;git config --global color.ui &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-17&quot;&gt;&lt;/a&gt;git config --global color.ui &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;adding-remote&quot;&gt;Adding remote&lt;/h3&gt;
 
 &lt;p&gt;Add remote repository:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/repository.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git remote add origin https://github.com/username/repository.git&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then subsequently set local branch to track remote branch:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git branch --set-upstream master origin/&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;setting-up-git-submodules&quot;&gt;Setting up git submodules&lt;/h3&gt;
 
 &lt;p&gt;Adding submodules in a git repository is as simple as editing the file &lt;code&gt;.gitmodules&lt;/code&gt; in the root of the repository, with the following syntax:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submodule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;libfoo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submodule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;libfoo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libfoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submodule&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;libbar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;
-&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then a quick:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule init
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git submodule update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule init
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;git submodule update&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;updating-git-submodules&quot;&gt;Updating git submodules&lt;/h3&gt;
 
 &lt;p&gt;You might be tempted to think that updating all your submodules from their respective remotes is as simple as running &lt;code&gt;git submodule update&lt;/code&gt;. But no, what that does is update the submodules to the version checked out in the remote of the root repo. What you need is to update the version of the submodules that is checked out by the root repo. Here’s how to do it, assuming your submodule is called &lt;code&gt;subm&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change into your submodule directory&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Change into your submodule directory&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;subm
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Pull from the submodule remote&lt;/span&gt;
@@ -910,7 +910,7 @@
 &lt;a name=&quot;True-8&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
 &lt;a name=&quot;True-9&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Check out the updated submodule&lt;/span&gt;
-&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;Update subm&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;git commit -am &lt;span class=&quot;s2&quot;&gt;&amp;quot;Update subm&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And you’re done! It can be a bit annoying for updating loads of subdirectories, so I’m working on a short script to do it all for you. I’ll update here once I finish it.&lt;/p&gt;
 
@@ -918,7 +918,7 @@
 
 &lt;p&gt;If you’ve got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a &lt;code&gt;[submodule &quot;foobar&quot;]&lt;/code&gt; within both your root &lt;code&gt;.gitmodules&lt;/code&gt; and your submodule &lt;code&gt;.gitmodules&lt;/code&gt;, you need to do the following from within the root repository to update all submodules and subsubmodules:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
 
@@ -926,20 +926,20 @@
 
 &lt;p&gt;Here’s the syntax for declaring vim script functions:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;functions MyFunction &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;first&lt;/span&gt; thing
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; second thing
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And you then call it in Vim with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; MyFunction&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;recognise-custom-filetypes&quot;&gt;Recognise custom filetypes&lt;/h3&gt;
 
 &lt;p&gt;I’ve got &lt;code&gt;moo.vim&lt;/code&gt; files in my &lt;code&gt;~/.vim/after/syntax&lt;/code&gt; and &lt;code&gt;~/.vim/after/ftplugin&lt;/code&gt;, for all &lt;code&gt;moo&lt;/code&gt; files with extension &lt;code&gt;.moo&lt;/code&gt;. To get Vim to recognise these &lt;code&gt;.moo&lt;/code&gt; files and apply the Vim scripts associated therewith, I need to create a file called &lt;code&gt;moo.vim&lt;/code&gt; in &lt;code&gt;~/.vim/ftdetect/&lt;/code&gt;, which contains the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;au&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;BufRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;BufNewFile&lt;/span&gt; *.moo &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;moo&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: You may have to wipe your &lt;code&gt;~/.vim/view&lt;/code&gt; before Vim recognises old files as this new filetype.&lt;/p&gt;
 
@@ -947,21 +947,21 @@
 
 &lt;p&gt;Vim comes with the ability to edit files remotely over scp. This can be achieved via:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; scp:&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;user@servername&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;However, trying to save gives the error:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;E382: Cannot &lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;buftype&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;In fact, running &lt;code&gt;set buftype?&lt;/code&gt; reveals that &lt;code&gt;buftype&lt;/code&gt; is set to &lt;code&gt;nofile&lt;/code&gt;, meaning the buffer cannot be saved to file. This can be bypassed by using &lt;code&gt;:Nwrite&lt;/code&gt; from the &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1075&quot;&gt;netrw.vim&lt;/a&gt; that comes bundled with Vim 7.0:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;Nwrite&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;sshfs&quot;&gt;sshfs&lt;/h2&gt;
 
 &lt;p&gt;To allow other non-root users to access a filesystem mounted over ssh, use:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;photoshop&quot;&gt;Photoshop&lt;/h2&gt;
 
@@ -995,7 +995,7 @@
 
 &lt;p&gt;Skeleton &lt;code&gt;argparse&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Import the library&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Description of the program&lt;/span&gt;
@@ -1021,29 +1021,29 @@
 &lt;a name=&quot;True-24&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-25&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Accessing the values of the arguments&lt;/span&gt;
 &lt;a name=&quot;True-26&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;myArgument&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compulsory&lt;/span&gt;
-&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-27&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;replace--with-home-directory&quot;&gt;Replace &lt;code&gt;~&lt;/code&gt; with home directory&lt;/h3&gt;
 
 &lt;p&gt;This is just a fun little script that replaces &lt;code&gt;~&lt;/code&gt; in a string with the path to the user directory, e.g. &lt;code&gt;/home/drew&lt;/code&gt;. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Replace &amp;#39;~&amp;#39; in fname with path to user dir&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;increase-size-of-pyplot-legend&quot;&gt;Increase size of pyplot legend&lt;/h3&gt;
 
 &lt;p&gt;Sometimes, the legend in matplotlib isn’t quite big enough. Increase it with:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;upper left&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;borderpad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;fix-spacing-in-pyplot-multiplots&quot;&gt;Fix spacing in pyplot multiplots&lt;/h3&gt;
 
 &lt;p&gt;Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Why is this not a standard part of matplotlib? I don’t know.&lt;/p&gt;
 
@@ -1051,27 +1051,27 @@
 
 &lt;p&gt;You can use either &lt;code&gt;np.arange&lt;/code&gt; or specify the ticks yourself:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Automatically generate ticks for x axis&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Automatically generate ticks for x axis&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# Manually specify ticks for y axis&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;9.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;9.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;set-custom-limits-on-pyplot-plot&quot;&gt;Set custom limits on pyplot plot&lt;/h3&gt;
 
 &lt;p&gt;Here you can both retrieve and set the x and y limits with &lt;code&gt;plt.xlim&lt;/code&gt; and &lt;code&gt;plt.ylim&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Returns the current x axis limits&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Returns the current x axis limits&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Returns the current y axis limits&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Sets the x axis limits&lt;/span&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;159&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Sets the y axis limits&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;159&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Sets the y axis limits&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;find-the-properties-of-an-object&quot;&gt;Find the properties of an object&lt;/h3&gt;
 
 &lt;p&gt;To find the properties of an object, you can do the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dict__&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Works in some cases&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dict__&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Works in some cases&lt;/span&gt;
 &lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Should work in all cases&lt;/span&gt;
 &lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
 &lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c&quot;&gt;# For example...&lt;/span&gt;
@@ -1083,7 +1083,7 @@
 &lt;a name=&quot;True-10&quot;&gt;&lt;/a&gt;&lt;span class=&quot;n&quot;&gt;__builtins__&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dict__&lt;/span&gt;
 &lt;a name=&quot;True-11&quot;&gt;&lt;/a&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bytearray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;bytearray&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;IndexError&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;exceptions.IndexError&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 &lt;a name=&quot;True-12&quot;&gt;&lt;/a&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&amp;#39;OverflowError&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;exceptions.OverFlowError&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a name=&quot;True-13&quot;&gt;&lt;/a&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&amp;#39;OverflowError&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;exceptions.OverFlowError&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;perl&quot;&gt;Perl&lt;/h2&gt;
 
@@ -1091,11 +1091,11 @@
 
 &lt;p&gt;Probably the most useful thing that &lt;code&gt;perl&lt;/code&gt; can do is &lt;code&gt;perl -pi -e&lt;/code&gt;, often lovingly called Perl Pie. The syntax is:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/string to find/string to replace/g&amp;quot;&lt;/span&gt; filenames&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This replaces &lt;code&gt;string to find&lt;/code&gt; with &lt;code&gt;string to replace&lt;/code&gt; in filenames. This is fully regex compatible. For instance, if I wanted to replace &lt;code&gt;mispelt&lt;/code&gt; with &lt;code&gt;misspelt&lt;/code&gt; in all files ending in &lt;code&gt;.txt&lt;/code&gt;, I would run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/mispelt/misspelt/g&amp;quot;&lt;/span&gt; *.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </content>
  </entry>

@@ -25,8 +25,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/media/site/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/public/media/site/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/media/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/media/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/media/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/media/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/media/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/media/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/media/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/media/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/media/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/public/media/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/public/media/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/public/media/icons/manifest.json">
+  <link rel="mask-icon" href="/public/media/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/public/media/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ac4142">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -108,7 +124,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -177,27 +193,27 @@
 
 <p>A subset of the <strong>Tags</strong> plugin is the <strong>Block</strong> plugin. What this does is provides access to a <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers#create-your-own-tag-blocks">Liquid block</a>, that takes the content inside the block and does with it as you specify in your plugin. Here’s an example of a Liquid block:</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span><span class="p">%}</span>
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span><span class="p">%}</span>
 <a name="True-2"></a>This is the content inside the block!
-<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></figure>
 
 <p>The Jekyll <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> block then provides the <code>{% latex %}</code> block, which uses <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> to compile the contents of the block into an equation. So this is how you’d use it in your post:</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span><span class="p">%}</span>
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span><span class="p">%}</span>
 <a name="True-2"></a>E = \gamma mc^2
-<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></figure>
 
 <p>In addition, you can pass <code>tokens</code> to blocks like so:</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span>mytoken<span class="w"> </span><span class="p">%}</span>
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">myblock</span><span class="w"> </span>mytoken<span class="w"> </span><span class="p">%}</span>
 <a name="True-2"></a>Block contents
-<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endmyblock</span><span class="w"> </span><span class="p">%}</span></code></pre></figure>
 
 <p>So if you pass the <code>centred</code> token to the <code>latex</code> block like so:</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span>centred<span class="w"> </span><span class="p">%}</span>
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><a name="True-1"></a><span class="p">{%</span><span class="w"> </span><span class="nt">latex</span><span class="w"> </span>centred<span class="w"> </span><span class="p">%}</span>
 <a name="True-2"></a>E = \gamma mc^2
-<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+<a name="True-3"></a><span class="p">{%</span><span class="w"> </span><span class="nt">endlatex</span><span class="w"> </span><span class="p">%}</span></code></pre></figure>
 
 <p>Then the equation will also be cented on the page, with some space above and below. This is achieved using a little bit of inline CSS injected into the equation.</p>
 
@@ -211,8 +227,8 @@
 
 <p>You can specify where to tell the plugin to look for your JavaScript file in your <code>_config.yml</code> with the following:</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">katex</span><span class="p-Indicator">:</span>
-<a name="True-2"></a>    <span class="l-Scalar-Plain">path_to_js</span><span class="p-Indicator">:</span> <span class="s">&quot;./the/path/to/your/js&quot;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><a name="True-1"></a><span class="l-Scalar-Plain">katex</span><span class="p-Indicator">:</span>
+<a name="True-2"></a>    <span class="l-Scalar-Plain">path_to_js</span><span class="p-Indicator">:</span> <span class="s">&quot;./the/path/to/your/js&quot;</span></code></pre></figure>
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
@@ -222,7 +238,7 @@
 
 <p>Put the following in the head of your HTML to sort it out:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span><span class="nt">&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span><span class="nt">&gt;</span></code></pre></figure>
 
 <p>If you’re seeing your equations, but they don’t have any special formatting and just look like weird, squished, ugly versions of what you want, like this:</p>
 
@@ -230,23 +246,23 @@
 
 <p>Then it’s probably because your server can’t find the font files. You can test this out by doing the following:</p>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><a name="True-1"></a><span class="gp">$</span> jekyll build
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><a name="True-1"></a><span class="gp">$</span> jekyll build
 <a name="True-2"></a><span class="gp">$</span> <span class="nb">cd </span>_site 
-<a name="True-3"></a><span class="gp">$</span> python -m SimpleHTTPServer</code></pre></div>
+<a name="True-3"></a><span class="gp">$</span> python -m SimpleHTTPServer</code></pre></figure>
 
 <p>Go to your web page in question with your web browser, and look at the output of your Python session. It should say something like:</p>
 
-<div class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">Serving HTTP on 0.0.0.0 port 8000 ...</span>
-<a name="True-2"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:18:07] &quot;GET / HTTP/1.1&quot; 200 -</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">Serving HTTP on 0.0.0.0 port 8000 ...</span>
+<a name="True-2"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:18:07] &quot;GET / HTTP/1.1&quot; 200 -</span></code></pre></figure>
 
 <p>But if your server can’t find the font files, it’ll output the following:</p>
 
-<div class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
+<figure class="highlight"><pre><code class="language-pycon" data-lang="pycon"><a name="True-1"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
 <a name="True-2"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Math-Italic.woff HTTP/1.1&quot; 404 -</span>
 <a name="True-3"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
 <a name="True-4"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Size1-Regular.woff HTTP/1.1&quot; 404 -</span>
 <a name="True-5"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found</span>
-<a name="True-6"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Size3-Regular.woff HTTP/1</span></code></pre></div>
+<a name="True-6"></a><span class="go">127.0.0.1 - - [04/Nov/2014 12:23:26] &quot;GET /fonts/KaTeX_Size3-Regular.woff HTTP/1</span></code></pre></figure>
 
 <p>To solve this, put all your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> font files in in the same directory as your <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> CSS file, that way it’ll automatically look for and find it. If you’re still having problems, have a look at the example <a href="https://github.com/drewsberry/jekyll-katex-block/tree/master/test">Jekyll site</a> on the GitHub repo, or comment below.</p>
 
@@ -260,19 +276,19 @@
 
 <p>The Ruby code to actually do this looks like this:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="c1"># Compile the KaTeX JavaScript</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="c1"># Compile the KaTeX JavaScript</span>
 <a name="True-2"></a><span class="n">katexsrc</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_katex_js</span><span class="p">)</span><span class="o">.</span><span class="n">read</span>
 <a name="True-3"></a><span class="vi">@katex</span> <span class="o">=</span> <span class="no">ExecJS</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">katexsrc</span><span class="p">)</span>
 <a name="True-4"></a>
 <a name="True-5"></a><span class="c1"># Turn a LaTeX string into HTML equation</span>
 <a name="True-6"></a><span class="n">equation_string</span> <span class="o">=</span> <span class="s2">&quot;E = \gamma mc^2&quot;</span>
-<a name="True-7"></a><span class="n">html</span> <span class="o">=</span> <span class="vi">@katex</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;katex.renderToString&quot;</span><span class="p">,</span> <span class="n">equation_string</span><span class="p">)</span></code></pre></div>
+<a name="True-7"></a><span class="n">html</span> <span class="o">=</span> <span class="vi">@katex</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;katex.renderToString&quot;</span><span class="p">,</span> <span class="n">equation_string</span><span class="p">)</span></code></pre></figure>
 
 <p>The <code>@</code> sign indicates that the <code>katex</code> variable is an instance variable, which basically means that it’s available to all the methods within the current class. The block itself is a class inheriting from <code>Liquid::Block</code>. It’s a member of the <code>Jekyll::Tags</code> module, which makes it accessible to Jekyll on runtime.</p>
 
 <p>As with all tags, it then needs to be registered. This is where you tell Liquid what identifier the tag should have, i.e. what string inside the {% and %} brackets should activate the plugin. This looks like the following:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Tags</span><span class="o">::</span><span class="no">KatexBlock</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Tags</span><span class="o">::</span><span class="no">KatexBlock</span><span class="p">)</span></code></pre></figure>
 
 <p>Where <code>KatexBlock</code> is the <span class="katex"><span class="katex-inner"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:1.0302031249999999em;vertical-align:-0.34687312499999995em;"></span><span class="base textstyle uncramped"><span class="katex-logo"><span class="k">K</span><span class="a">A</span><span class="t">T</span><span class="e">E</span><span class="x">X</span></span></span></span></span> block class.</p>
 
