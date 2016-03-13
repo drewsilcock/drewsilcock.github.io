@@ -29,6 +29,11 @@ paginate:         5
 
 gems:
     - jekyll-redirect-from
+    - jekyll-paginate
+    - jekyll-sitemap
+    - pygments.rb
+    - yui/compressor
+    - execjs
 
 include:
     - .nojekyll
