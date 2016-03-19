@@ -5,7 +5,7 @@ title: About
 
 ## About me
 
-I am an undergraduate physics student studying at the University of Bristol in the United Kingdom.
+I am a programmer at [d3t Ltd](http://www.d3tltd.com) in Runcorn, Cheshire. I studied Physics at the University of Bristol and live in Liverpool in the United Kingdom.
 
 ## This website
 
@@ -14,11 +14,10 @@ This website is built using [Poole](http://getpoole.com), which is built on [Jek
 ## Contact Me
 
 If you want to ask me a question, tell me something or just generally fancy a chat, then
-<a href = "mailto:drewATdrewsilcockDOTcoDOTuk"
-   onclick = "this.href=this.href
-              .replace(/AT/,'&#64;')
-              .replace(/DOT/,'&#46;')
-              .replace(/DOT/,'&#46;')"
+<a href="mailto:drewATdrewsilcockDOTcoDOTuk"
+   onclick="this.href=this.href
+                          .replace(/AT/,'&#64;')
+                          .replace(/DOT/g,'&#46;')"
 >send me an email!</a>
 
 ## Public Key
