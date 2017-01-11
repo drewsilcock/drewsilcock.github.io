@@ -1,23 +1,10 @@
-cventry.title {
-    color: blue;
+.ds-centred {
+  display: block;
+  margin: auto;
 }
 
-cventry.place {
-    color: grey;
-}
+/* ==== Projects Page ==== */
 
-cventry.date {
-    color: red;
-}
-
-span.centredequation {
-    margin: auto;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    display: table;
-}
-
-img.centred {
-    display: block;
-    margin: auto;
+/* URL accompaniment to project title. */
+.ds-projects__url {
 }
