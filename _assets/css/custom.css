@@ -3,8 +3,29 @@
   margin: auto;
 }
 
-/* ==== Projects Page ==== */
+/* ==== Projects List Page ==== */
 
 /* URL accompaniment to project title. */
 .ds-projects__url {
+}
+
+.ds-project .btn.btn-default {
+  width: 100px;
+}
+
+.ds-project .ds-project__more {
+}
+
+.ds-project .ds-project__site {
+  float: right;
+}
+
+.ds-project .ds-project__buttons {
+  margin-top: 8px;
+}
+
+/* ==== Individual Project Page ==== */
+
+.ds-project .ds-project__content {
+  margin: 10px 0;
 }
