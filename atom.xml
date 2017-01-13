@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Drew Silcock</title>
- <link href="https://drewsilcock.co.uk/atom.xml" rel="self"/>
- <link href="https://drewsilcock.co.uk/"/>
- <updated>2017-01-08T12:08:01+00:00</updated>
- <id>https://drewsilcock.co.uk</id>
+ <link href="https://www.drewsilcock.co.uk/atom.xml" rel="self"/>
+ <link href="https://www.drewsilcock.co.uk/"/>
+ <updated>2017-01-13T18:18:53+00:00</updated>
+ <id>https://www.drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Jekyll KaTeX Block</title>
-   <link href="https://drewsilcock.co.uk/jekyll-katex-block"/>
+   <link href="https://www.drewsilcock.co.uk/jekyll-katex-block"/>
    <updated>2014-11-04T00:00:00+00:00</updated>
-   <id>https://drewsilcock.co.uk/jekyll-katex-block</id>
+   <id>https://www.drewsilcock.co.uk/jekyll-katex-block</id>
    <content type="html">&lt;p&gt;If you follow &lt;a href=&quot;https://news.ycombinator.com/item?id=8320439&quot;&gt;Hacker News&lt;/a&gt;, then you might’ve seen the latest development from Khan Academy: &lt;a href=&quot;http://khan.github.io/KaTeX/&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Although it hasn’t yet implemented the full set of mathematical symbols, &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; promises to replace MathJax as &lt;em&gt;the&lt;/em&gt; web technology for displaying mathematical expressions. This plugin utilises Jekyll’s plugin system to enable you to easily add mathematical equations to your statically generated site, by adding a Liquid block corresponding to content to be rendered by &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;katex-logo&quot;&gt;&lt;span class=&quot;k&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;.&lt;/p&gt;
@@ -93,7 +93,7 @@
 
 &lt;p&gt;If you’re seeing a bunch of weird symbols instead of your equations, then it’s probably because you’re not using UTF-8. This is what it’ll look like:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/katex_no_utf8.png&quot; alt=&quot;without utf-8, your browser will get very confused&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/katex_no_utf8.png&quot; alt=&quot;without utf-8, your browser will get very confused&quot; class=&quot;ds-centred&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Put the following in the head of your HTML to sort it out:&lt;/p&gt;
 
@@ -101,7 +101,7 @@
 
 &lt;p&gt;If you’re seeing your equations, but they don’t have any special formatting and just look like weird, squished, ugly versions of what you want, like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don&#39;t have the font files in the right place&quot; class=&quot;centred&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/media/jekyll-katex-block/no_font_equation.png&quot; alt=&quot;this is what happens if you don&#39;t have the font files in the right place&quot; class=&quot;ds-centred&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then it’s probably because your server can’t find the font files. You can test this out by doing the following:&lt;/p&gt;
 
@@ -157,9 +157,9 @@
  
  <entry>
    <title>Using make and latexmk for easy LaTeX compilation</title>
-   <link href="https://drewsilcock.co.uk/using-make-and-latexmk"/>
+   <link href="https://www.drewsilcock.co.uk/using-make-and-latexmk"/>
    <updated>2014-09-23T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/using-make-and-latexmk</id>
+   <id>https://www.drewsilcock.co.uk/using-make-and-latexmk</id>
    <content type="html">&lt;p&gt;Still running &lt;code&gt;pdflatex&lt;/code&gt; (or equivalent) every time you want to recompile your &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;latex-logo&quot;&gt;&lt;span class=&quot;l&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; document? There’s a simpler way using &lt;code&gt;make&lt;/code&gt; and &lt;code&gt;latexmk&lt;/code&gt;. All you need is a simple &lt;code&gt;Makefile&lt;/code&gt; and you can tell &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-inner&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;strut bottom&quot; style=&quot;height:1.0302031249999999em;vertical-align:-0.34687312499999995em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base textstyle uncramped&quot;&gt;&lt;span class=&quot;latex-logo&quot;&gt;&lt;span class=&quot;l&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;e&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; to automatically recompile your document every time you change a file, and run &lt;code&gt;pdflatex&lt;/code&gt; the sufficient number of times to get cross-references right.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -235,9 +235,9 @@
  
  <entry>
    <title>Calculating the overlap of aerial photos</title>
-   <link href="https://drewsilcock.co.uk/calculating-overlap"/>
+   <link href="https://www.drewsilcock.co.uk/calculating-overlap"/>
    <updated>2014-07-31T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/calculating-overlap</id>
+   <id>https://www.drewsilcock.co.uk/calculating-overlap</id>
    <content type="html">&lt;p&gt;The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?&lt;/p&gt;
 
 &lt;p&gt;This post demonstrates how to go about calculating the required maximum distance between successive photos in order to ensure a certain percentage overlap between those photos, as a function of the required overlap, the angle of view of the camera and your height above the ground.&lt;/p&gt;
@@ -278,9 +278,9 @@
  
  <entry>
    <title>Custom Jekyll plugins with GitHub Pages</title>
-   <link href="https://drewsilcock.co.uk/custom-jekyll-plugins"/>
+   <link href="https://www.drewsilcock.co.uk/custom-jekyll-plugins"/>
    <updated>2014-07-29T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/gh-jekyll-custom-plugins</id>
+   <id>https://www.drewsilcock.co.uk/gh-jekyll-custom-plugins</id>
    <content type="html">&lt;p&gt;So GitHub Pages is a fantastic resource for hosting your personal or organisation site on GitHub, for free. It even supports Jekyll! only thing is, it doesn’t support custom plugins because of the &lt;code&gt;--safe&lt;/code&gt; flag that it compiles your site with. So what do you do?&lt;/p&gt;
 
 &lt;p&gt;Well, if you compile the site using &lt;code&gt;jekyll&lt;/code&gt; yourself, then push the resulting compiled HTML to your GitHub Pages repository, then it works perfectly! You get your custom plugins, and you get your free GitHub Pages hosting.&lt;/p&gt;
@@ -378,9 +378,9 @@
  
  <entry>
    <title>Calculating meters per pixel from aerial photographs</title>
-   <link href="https://drewsilcock.co.uk/meters-per-pixel"/>
+   <link href="https://www.drewsilcock.co.uk/meters-per-pixel"/>
    <updated>2014-07-21T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/meters-per-pixel</id>
+   <id>https://www.drewsilcock.co.uk/meters-per-pixel</id>
    <content type="html">&lt;h2 id=&quot;aim&quot;&gt;Aim&lt;/h2&gt;
 
 &lt;p&gt;Say you’re doing some aerial photogrammetry, for scientific purposes. Then you need to know those pernickety little details like the resolution that your pictures will produce, and the precision you can infer from this. This post shows how to calculate how many meters each pixel of a photo taken by a particular camera corresponds to, given the required information.&lt;/p&gt;
@@ -477,9 +477,9 @@
  
  <entry>
    <title>Proper line numbers with Jekyll</title>
-   <link href="https://drewsilcock.co.uk/proper-linenumbers"/>
+   <link href="https://www.drewsilcock.co.uk/proper-linenumbers"/>
    <updated>2014-07-18T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/proper-linenumbers</id>
+   <id>https://www.drewsilcock.co.uk/proper-linenumbers</id>
    <content type="html">&lt;p&gt;By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.&lt;/p&gt;
 
 &lt;p&gt;Here’s the default &lt;code&gt;lineno&lt;/code&gt; option, &lt;code&gt;inline&lt;/code&gt;:&lt;/p&gt;
@@ -629,9 +629,9 @@
  
  <entry>
    <title>Compiling zsh without root</title>
-   <link href="https://drewsilcock.co.uk/compiling-zsh"/>
+   <link href="https://www.drewsilcock.co.uk/compiling-zsh"/>
    <updated>2014-07-15T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/compiling-zsh</id>
+   <id>https://www.drewsilcock.co.uk/compiling-zsh</id>
    <content type="html">&lt;p&gt;This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.&lt;/p&gt;
 
 &lt;!--more--&gt;
@@ -838,9 +838,9 @@
  
  <entry>
    <title>Coding cheatsheet</title>
-   <link href="https://drewsilcock.co.uk/coding-cheatsheet"/>
+   <link href="https://www.drewsilcock.co.uk/coding-cheatsheet"/>
    <updated>2014-07-15T00:00:00+01:00</updated>
-   <id>https://drewsilcock.co.uk/coding-cheatsheet</id>
+   <id>https://www.drewsilcock.co.uk/coding-cheatsheet</id>
    <content type="html">&lt;p&gt;Here’s a load of quick snippets of easy-to-forget but often used commands, tricks and tips. It’s got useful info about git, Vim, Python and Perl.&lt;/p&gt;
 
 &lt;!--more--&gt;
