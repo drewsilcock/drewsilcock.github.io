@@ -94,7 +94,7 @@ Troubleshooting
 
 If you're seeing a bunch of weird symbols instead of your equations, then it's probably because you're not using UTF-8. This is what it'll look like:
 
-<img src="/public/media/jekyll-katex-block/katex_no_utf8.png" alt="without utf-8, your browser will get very confused" class="centred">
+<img src="/public/media/jekyll-katex-block/katex_no_utf8.png" alt="without utf-8, your browser will get very confused" class="ds-centred">
 
 Put the following in the head of your HTML to sort it out:
 
@@ -104,7 +104,7 @@ Put the following in the head of your HTML to sort it out:
 
 If you're seeing your equations, but they don't have any special formatting and just look like weird, squished, ugly versions of what you want, like this:
 
-<img src="/public/media/jekyll-katex-block/no_font_equation.png" alt="this is what happens if you don't have the font files in the right place" class="centred">
+<img src="/public/media/jekyll-katex-block/no_font_equation.png" alt="this is what happens if you don't have the font files in the right place" class="ds-centred">
 
 Then it's probably because your server can't find the font files. You can test this out by doing the following:
 

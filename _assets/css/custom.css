@@ -1,23 +1,31 @@
-cventry.title {
-    color: blue;
+.ds-centred {
+  display: block;
+  margin: auto;
 }
 
-cventry.place {
-    color: grey;
+/* ==== Projects List Page ==== */
+
+/* URL accompaniment to project title. */
+.ds-projects__url {
 }
 
-cventry.date {
-    color: red;
+.ds-project .btn.btn-default {
+  width: 100px;
 }
 
-span.centredequation {
-    margin: auto;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    display: table;
+.ds-project .ds-project__more {
 }
 
-img.centred {
-    display: block;
-    margin: auto;
+.ds-project .ds-project__site {
+  float: right;
+}
+
+.ds-project .ds-project__buttons {
+  margin-top: 8px;
+}
+
+/* ==== Individual Project Page ==== */
+
+.ds-project .ds-project__content {
+  margin: 10px 0;
 }
