@@ -4,13 +4,142 @@
  <title>Drew Silcock</title>
  <link href="https://www.drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="https://www.drewsilcock.co.uk/"/>
- <updated>2017-01-13T18:18:53+00:00</updated>
+ <updated>2018-12-20T13:00:57+00:00</updated>
  <id>https://www.drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>How long is a cucumber? 🥒</title>
+   <link href="https://www.drewsilcock.co.uk/how-long-is-a-cucumber"/>
+   <updated>2018-12-20T00:00:00+00:00</updated>
+   <id>https://www.drewsilcock.co.uk/how-long-is-a-cucumber</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;Or: UTF16 handling of astral planes and implications for JavaScript string indexing&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;tldr&lt;/strong&gt;: 2.&lt;/p&gt;
+
+&lt;p&gt;String encoding in JavaScript is a bit weird. You might’ve heard this before. You might even have read about how, somewhat inexplicably, JavaScript does not use the almost universal UTF8 file encoding but instead UTF16&lt;sup&gt;*&lt;/sup&gt;. In this article I’m going to explore some of the more subtle and perplexing aspects of the weird way JavaScript encodes its strings, and what this means for common operations like string indexing.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-whats-all-this-unicode-stuff-about-then&quot;&gt;So what’s all this Unicode stuff about then?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;(If you’re already a Unicode wizard, go ahead and skip to the &lt;a href=&quot;#so-what-does-this-have-to-do-with-javascript-and-cucumberscucumber&quot;&gt;next section&lt;/a&gt;.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, Unicode is a standard for defining characters like ‘F’, ‘♡’ or ‘🥒 ‘. (if you all you see is a blank box for this, just mentally replace it with another character like ☸). The way it does this is by giving each character a corresponding ‘‘code point’’ which is a numerical value like &lt;code&gt;135&lt;/code&gt; (which happens to be this character: ‡). Usually, this numerical value is represented hexademically, meaning ‡ corresponds to code point &lt;code&gt;0x87&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Unicode standard has a total of 1,114,112 code points, corresponding to 1,114,112 possible characters&lt;sup&gt;**&lt;/sup&gt;. That’s a lot of characters. To split this up, this space is divided into 17 ‘‘planes’’, where each plane has 65,535 (or 2&lt;sup&gt;16&lt;/sup&gt;) code points. The first plane, which contains most of the commonly used characters like ‘‘9’’, ‘‘£’’, ‘‘ڞ’’ and ‘‘丧’’, is called the Basic Multilingual Plane (or BMP). This contains all of ASCII and extended ASCII; African, Middle-Eastern and non-Latin European scripts; Chinese, Japanese and Korean characters (collectively referred to as CJK characters); private use and what are known as ‘‘surrogate pairs’’. I’ll come onto what exactly surrogate pairs are used for a bit later.&lt;/p&gt;
+
+&lt;p&gt;Past this continent of common characters lies the vast, largely uninhabited and mysterious realms known as the 16 ‘‘astral planes’’ (or ‘‘supplementary planes’’, if you’re being boring).&lt;/p&gt;
+
+&lt;p&gt;The BMP takes up the first 2&lt;sup&gt;16&lt;/sup&gt; code points in the range &lt;code&gt;0x0000&lt;/code&gt; to &lt;code&gt;0xffff&lt;/code&gt;. This means that all BMP code points can be represented using only 16 bits or 2 bytes (some fewer). The astral planes, extending from &lt;code&gt;0x10000&lt;/code&gt; to the full &lt;code&gt;0x10ffff&lt;/code&gt;, need between 3 and 4 bytes to represent them.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/how-long-is-a-cucumber/astral_planes.jpg&quot; alt=&quot;The 14&amp;lt;sup&amp;gt;th&amp;lt;/sup&amp;gt; Century philosopher Nicole Oresmo&#39;s astral planes.&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The 14&lt;sup&gt;th&lt;/sup&gt; Century philosopher Nicole Oresmo demonstrates some astral plane characters. Images such as these would be distributed to the monks of the monasteries to aid their copying of Unicode manuscripts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;so-what-does-this-have-to-do-with-javascript-and-cucumbers&quot;&gt;So what does this have to do with JavaScript and cucumbers?&lt;/h3&gt;
+
+&lt;p&gt;Well, among the vast expanse of astral code points lies the cucumber, code point &lt;code&gt;0x1f952&lt;/code&gt;: 🥒 . Because the cucumber character is above the BMP, it needsmore than 16 bits to represent it. Yet, JavaScript uses UTF16 which encodes each character using only &lt;em&gt;16&lt;/em&gt; bits, so how does this work?!&lt;/p&gt;
+
+&lt;p&gt;The truth is that UTF16 essentially uses two separate code points to represent this single character. This is where the ‘‘surrogate’’ code points that I mentioned earlier come in. Unicode reserves two blocks, the ‘‘High Surrogates’’: &lt;code&gt;0xd800&lt;/code&gt; - &lt;code&gt;0xdbff&lt;/code&gt; and the ‘‘Low Surrogates’’: &lt;code&gt;0xdc00&lt;/code&gt; - &lt;code&gt;0xdfff&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Each astral code point is represented in UTF16 as one Low Surrogate and one High Surrogate by the following equation:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;mh&quot;&gt;0x1000016&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;high_surrogate&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;−&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xd80016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;×&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x40016&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;low_surrogate&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;−&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdc0016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What this means is that, in JavaScript, the cucumber character &lt;code&gt;0x1f952&lt;/code&gt; is represented as &lt;em&gt;two separate characters&lt;/em&gt;: &lt;code&gt;55358&lt;/code&gt; or &lt;code&gt;0xd83e&lt;/code&gt; (the high surrogate) and &lt;code&gt;56658&lt;/code&gt; or &lt;code&gt;0xdd52&lt;/code&gt; (the low surrogate).&lt;/p&gt;
+
+&lt;h3 id=&quot;okay-so-what-does-this-mean-for-string-indexing&quot;&gt;Okay, so what does this mean for string indexing?&lt;/h3&gt;
+
+&lt;p&gt;The astute reader may wonder what these surrogate pair representations of single characters means for the indexing of strings in JavaScript. When you have a string like &lt;code&gt;var s = &quot;hello there&quot;&lt;/code&gt;, you expect &lt;code&gt;s[0]&lt;/code&gt; to give you the first character, &lt;code&gt;s[3]&lt;/code&gt; to give you the fourth character and &lt;code&gt;s[7]&lt;/code&gt; to give you the eight character. But what about the following code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cucumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;🥒&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cucumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// -&amp;gt; 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So, even though it contains only a single character, JavaScript thinks that the cucumber string has a length of 2! We can delve a bit further:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;highSurrogate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cucumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lowSurrogate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cucumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;highSurrogate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;highSurrogate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;codePointAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// -&amp;gt; � 55358&lt;/span&gt;
+&lt;a name=&quot;True-6&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lowSurrogate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lowSurrogate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;codePointAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;a name=&quot;True-7&quot;&gt;&lt;/a&gt;&lt;span class=&quot;c1&quot;&gt;// -&amp;gt; � 56658&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What this shows is that string indexing works by assuming that all characters are within the BMP, and so are exactly 16 bits long. So the indexing picks out not the entire cucumber character, but only one of its two surrogate pairs!&lt;/p&gt;
+
+&lt;p&gt;This means that the string indexing works the same way as classical C-like array indexing, where &lt;code&gt;s[4]&lt;/code&gt; just means getting the address of &lt;code&gt;s&lt;/code&gt; and skipping forward &lt;code&gt;4 * sizeof s[0]&lt;/code&gt; bytes.&lt;/p&gt;
+
+&lt;p&gt;This maintains the O(1) speed of normal BMP string indexing, but is clearly bound to cause bugs when users are able to input astral characters into a script not expecting it! In fact, as I type out this article on http://dillinger.io, trying to remove an astral character with the ‘‘Delete’’ or ‘‘Backspace’’ buttons on a character like ‘‘😊’’ deletes not the character, but one of the &lt;em&gt;surrogates&lt;/em&gt;, leaving the other surrogate as a weird question mark (�) which really confuses the cursor positioning…&lt;/p&gt;
+
+&lt;p&gt;(It’s also a fun way to trick password forms into accepting fewer characters than they were asking for, like ‘‘😂😼😊✌️’’ which will trick JavaScript minimum character checks looking for a minimum of 8 characters.)&lt;/p&gt;
+
+&lt;h3 id=&quot;what-about-this-utf-8-business-then&quot;&gt;What about this UTF-8 business then?&lt;/h3&gt;
+
+&lt;p&gt;UTF-8 is a variable-length encoding, which means that there are no surrogate pairs and instead each character has a variable length; ASCII character are only 1 byte long, but the CJK characters are 2 bytes long. The astral code points extend to 3 and 4 bytes. What this means is that, whereas UTF16 tries (in vain) to maintain a 16-bit limit on characters, UTF8 characters are by design non-fixed size.&lt;/p&gt;
+
+&lt;p&gt;UTF-8 strings are always smaller (or same size as) UTF-16 or UTF-32 strings, which makes them the most compact Unicode encoding.&lt;/p&gt;
+
+&lt;h3 id=&quot;so-how-do-other-languages-handle-unicode&quot;&gt;So how do other languages handle Unicode?&lt;/h3&gt;
+
+&lt;p&gt;Well, JavaScript isn’t on its own:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; - natively uses 8-bit &lt;code&gt;char&lt;/code&gt; able to handle only the ASCII character set. C99 introduced &lt;code&gt;wchar_t&lt;/code&gt; meaning a 16-bit wide characters able to handle all Unicode via the surrogate pair method used by JavaScript (just don’t try to implement this yourself unless you are &lt;em&gt;really really&lt;/em&gt; into this kind of thing).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;C++&lt;/strong&gt; - natively uses 8-bit &lt;code&gt;std::string&lt;/code&gt; much like pure C. There is &lt;code&gt;std::wstring&lt;/code&gt; analogous to C’s &lt;code&gt;wchar_t&lt;/code&gt; with corresponding &lt;code&gt;std::wcout&lt;/code&gt;, &lt;code&gt;std::wcerr&lt;/code&gt;, etc.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt; - I’m not going to open this can of worms. To summarise, Python supports the full Unicode range via either UTF-16 (as per JavaScript) or UCS-4 which is where each character is 32-bits long and you don’t have to deal with any of this surrogate nonsense (although all your strings end of being &lt;em&gt;much&lt;/em&gt; larger than they need to be).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Java&lt;/strong&gt; - Java’s &lt;code&gt;char&lt;/code&gt; type is 16-bit length able to store the BMP characters only. The &lt;code&gt;String&lt;/code&gt; type uses UTF-16 to enable the full Unicode range as per JavaScript.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then again, some of the newer languages seem to have seen the errors of the past and are adapting UTF-8 for strings natively:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Go&lt;/strong&gt; - Go source code is formatted as UTF-8. Strings are actually encoding-independent slices of bytes, however as Go source code is UTF-8 this practically means that almost all string literals are UTF-8. Indexing does &lt;em&gt;not&lt;/em&gt;, however, index into the &lt;em&gt;runes&lt;/em&gt; (i.e. visible characters) but the &lt;em&gt;bytes&lt;/em&gt;. Bit weird, but there you go&lt;sup&gt;***&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; - has standard library support for UTF-8, UTF-16 &lt;em&gt;and&lt;/em&gt; UTF-32 via &lt;code&gt;string&lt;/code&gt;, &lt;code&gt;wstring&lt;/code&gt; and &lt;code&gt;dstring&lt;/code&gt; respectively, so you’re spoilt for choice!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rust&lt;/strong&gt; - uses UTF-8 strings as standard - Rust source code is UTF-8, string literals are UTF-8, the &lt;code&gt;std::string::String&lt;/code&gt; encapsulates a UTF-8 string and primitive type &lt;code&gt;str&lt;/code&gt; (the borrowed counterpart to &lt;code&gt;std::string::String&lt;/code&gt;) is always valid UTF-8. Nice!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check &lt;a href=&quot;https://unicodebook.readthedocs.io/programming_languages.html&quot;&gt;this link&lt;/a&gt; out for more information about how different programming languages handle Unicode.&lt;/p&gt;
+
+&lt;h3 id=&quot;bonus-round-utf8-string-indexing-in-rust&quot;&gt;Bonus round: UTF8 string indexing in Rust&lt;/h3&gt;
+
+&lt;p&gt;While languages like Go embrace UTF-8 but maintain indexing into bytes as the default, Rust goes further in making string indexing work on &lt;em&gt;runes&lt;/em&gt; instead of bytes.&lt;/p&gt;
+
+&lt;p&gt;This means that Rust eschews the traditional string O(1) indexing. The pro of this is that you get out of it what you actually &lt;em&gt;want&lt;/em&gt;, which is the n&lt;sup&gt;th&lt;/sup&gt; visible rune instead of the n&lt;sup&gt;th&lt;/sup&gt; byte or 16-bit char. The con is that we lose our O(1) speed string indexing as we now have to look through each previous character to check the length before we get to our rune at n, making lookup O(n).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/how-long-is-a-cucumber/string_encoding_visual.png&quot; alt=&quot;A comparison of how UTF16 and UTF8 index strings.&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A visualisation of how UTF16 constructs strings compared to UTF8. The resulting UTF8 string is shorter, but indexing is not O(n) (as opposed to O(1)) due to the multi-byte nature of the UTF8 character.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;aside-private-use-in-unicode&quot;&gt;Aside: private use in Unicode&lt;/h3&gt;
+
+&lt;p&gt;What do you see when you look at the following symbol: ‘’?&lt;/p&gt;
+
+&lt;p&gt;Some people will see a weird ‘p’-like symbol. On Linux, you might see a tiny Tux, the friendly Linux mascot: &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tux_Mono.svg/149px-Tux_Mono.svg.png&quot; alt=&quot;Tux&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s because it’s part of the “Private Use Areas” of the Unicode standard. This means that these codepoints, &lt;em&gt;by definition&lt;/em&gt;, will never have any characters assigned to them by the Unicode Consortium.&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;*&lt;/sup&gt; Technically, the &lt;a href=&quot;http://es5.github.io/x2.html#x2&quot;&gt;ECMAScript 5 specification&lt;/a&gt; with which JavaScript is compliant specifies &lt;em&gt;either&lt;/em&gt; UCS-2 &lt;em&gt;or&lt;/em&gt; UTF16 for string encoding, but we won’t delve into this too much here. For more information on this subtle distinction, go read &lt;a href=&quot;https://mathiasbynens.be/notes/javascript-encoding&quot;&gt;this article&lt;/a&gt;, it’s really interesting if you’re into your encoding.&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;**&lt;/sup&gt; In fact, the actual number of characters is significantly less than this for a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;137,468 code points are for ‘‘private use’’, meaning they will by definition never be assigned values by the Unicode Consortium.&lt;/li&gt;
+  &lt;li&gt;2,048 code points are used as ‘‘surrogates’’. I’ll discuss surrogates when it comes to UTF16 in JavaScript later in this article.&lt;/li&gt;
+  &lt;li&gt;66 code points are specified as non-characters and used internally by programs. For example, the assigned non-character &lt;code&gt;0xFFFE&lt;/code&gt; is used by programs to check whether they’ve got the endianness of a text file right, because the endian complement to &lt;code&gt;0xFFFE&lt;/code&gt; is &lt;code&gt;0xFEFF&lt;/code&gt;, which is the Byte Order Mark (BOM). If a program encounters &lt;code&gt;0xFFFE&lt;/code&gt; at the start of a file, they it knows that they’ve got the endianess the wrong way around, because &lt;code&gt;0xFFFE&lt;/code&gt; is &lt;em&gt;guaranteed&lt;/em&gt; not to be used by the file as a character.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;sup&gt;***&lt;/sup&gt;See https://blog.golang.org/strings for more information on strings in Go.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Jekyll KaTeX Block</title>
