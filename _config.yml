@@ -15,8 +15,8 @@ safe: false
 
 # Setup
 title: Drew Silcock
-tagline: Nebulous thoughts
-description: new Stream(consciousness)
+tagline: new Stream(consciousness)
+description: Nebulous Thoughts
 url: https://www.drewsilcock.co.uk
 enforce_url: www.drewsilcock.co.uk
 baseurl: /
@@ -42,6 +42,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+
+destination: "../drewsberry.github.io.build"
 
 ## Plugins vars
 
