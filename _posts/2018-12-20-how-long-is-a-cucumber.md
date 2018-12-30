@@ -220,8 +220,8 @@ In fact, the last symbol in that array - ✌️ - also known as "victory hand", 
 const victory_hand = "✌️";
 
 let i = 0;
-for (const utf16Char of victory_hand) {
-    console.log("%d: %s U+%s", i, utf16Char, utf16Char.codePointAt(0).toString(16));
+for (const c of victory_hand) {
+    console.log("%d: %s U+%s", i, c, c.codePointAt(0).toString(16));
     i++;
 }
 
