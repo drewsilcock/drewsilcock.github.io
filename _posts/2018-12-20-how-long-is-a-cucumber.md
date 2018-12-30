@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How long is a cucumber? 🥒 
+title: How long is a cucumber? 🥒
 permalink: how-long-is-a-cucumber
 comments: True
 categories: coding
@@ -40,7 +40,7 @@ Each astral code point is represented in UTF-16 as one Low Surrogate and one Hig
 0x1000016 + (high_surrogate − 0xd80016) × 0x40016 + (low_surrogate − 0xdc0016)
 {% endhighlight %}
 
-What this means is that, in JavaScript, the cucumber character `0x1f952` is represented as *two separate characters*: `55358` or `0xd83e` (the high surrogate) and `56658` or `0xdd52` (the low surrogate).
+What this means is that, in JavaScript, the cucumber character `0x1f952` is represented as *two separate codepoints*: `55358` or `0xd83e` (the high surrogate) and `56658` or `0xdd52` (the low surrogate).
 
 ### Okay, so what does this mean for string indexing?
 
@@ -70,7 +70,9 @@ This means that the string indexing works the same way as classical C-like array
 
 This maintains the O(1) speed of normal BMP string indexing, but is clearly bound to cause bugs when users are able to input astral characters into a script not expecting it! In fact, as I type out this article on http://dillinger.io, trying to remove an astral character with the ''Delete'' or ''Backspace'' buttons on a character like ''😊'' deletes not the character, but one of the *surrogates*, leaving the other surrogate as a weird question mark (�) which really confuses the cursor positioning...
 
-(It's also a fun way to trick password forms into accepting fewer characters than they were asking for, like ''😂😼😊✌️'' which will trick JavaScript minimum character checks looking for a minimum of 8 characters.)
+It's also a fun way to trick password forms into accepting fewer characters than they were asking for, like ''😂😼😊✌️'' which will trick JavaScript minimum character checks looking for a minimum of 8 characters. (This string does have a length of 8, but not quite for the reason you might think - [see note X](#note-3) for why this is.)
+
+The reason that this result is so counter-intuitive and unhelpful is that the underlying encoding used is not *relevant* to the programmer using Unicode strings. There's two separate layers of abstraction here which are being muddled thanks to indexing (and by extension iteration) giving you the underlying Unicode implementation-specific codepoint instead of the value that the programmer actually wants (and probably expects...)!
 
 ### What about this UTF-8 business then?
 
@@ -84,7 +86,7 @@ Another benefit of UTF-8 (and this applies to UTF-32 as well) is that because yo
 
 Well, JavaScript isn't on its own:
 
-- **C** - The standard types used are `char` which is generally used as an 8-bit character for ASCII (and sometimes for other purposes where `uint8_t` should *really* be used instead) and `wchar_t` (introduced in C90) for handling any Unicode code point. In truth, the standard does not specify the size of either `char` or `wchar_t` [See note 3 for more information about this](#note-3).
+- **C** - The standard types used are `char` which is generally used as an 8-bit character for ASCII (and sometimes for other purposes where `uint8_t` should *really* be used instead) and `wchar_t` (introduced in C90) for handling any Unicode code point. In truth, the standard does not specify the size of either `char` or `wchar_t` [See note 3 for more information about this](#note-4).
 - **C++** - natively uses 8-bit `std::string` much like pure C. There is `std::wstring` analogous to C's `wchar_t` with corresponding `std::wcout`, `std::wcerr`, etc.
 - **Python** - I'm not going to open this can of worms. To summarise, Python supports the full Unicode range via either UTF-16 (as per JavaScript) or UCS-4 which is where each character is 32-bits long and you don't have to deal with any of this surrogate nonsense (although all your strings end of being *much* larger than they need to be). As per usual with Python, all of these details are handles under the hood without the programmer needing to know any of the details. There are differences relating to Python 2.x vs 3.x and compile-time flags and all this confusing mess, but you can happily code away without worrying about it.
 - **Java** - Java's `char` type is 16-bit length able to store the BMP characters only. The `String` type uses UTF-16 to enable the full Unicode range as per JavaScript.
@@ -212,6 +214,34 @@ As you can see, they've still got a lot of possible codepoints to choose from!
 
 #### Note 3
 
+In fact, the last symbol in that array - ✌️ - also known as "victory hand", is within the BMP. So why does it appear as an emoji with length 2? Why, that's an excellent question. To see what's going on here, let's break down how JavaScript sees the character:
+
+{% highlight js lineanchors %}
+const victory_hand = "✌️";
+
+let i = 0;
+for (const utf16Char of victory_hand) {
+    console.log("%d: %s U+%s", i, utf16Char, utf16Char.codePointAt(0).toString(16));
+    i++;
+}
+
+// Returns:
+// 0: ✌ U+270c
+// 1: ️ U+fe0f
+{% endhighlight %}
+
+The first character is the victory hand symbol U+270c (i.e. Unicode codepoint 0x270c) that we were expecting, but what is this second codepoint, the U+fe0f?
+
+This U+fe0f codepoint is known as "variation selector-16" (i.e. the 16<sup>th</sup> codepoint within the "variation selector" range. What it does is tell the text rendering system to render the previous character not as a black-and-white normal text character but as a colourful graphical character - the emoji that we actually see.
+
+In the parlance of Unicode, the BMP victory hand and the variation selector-16 together form a "*grapheme cluster*", meaning that both codepoints together form the graphical character seen on screen.
+
+[This presentation](https://tsibley.github.io/tchrist-OSCON2011-Unicode/gbu.html) - "Unicode: Good, Bad and Ugly" - has a really thorough explanation of graphemes and the different complications around them, along with how they're handled in various languages.
+
+[Back to text](#so-what-does-this-have-to-do-with-javascript-and-cucumbers)
+
+#### Note 4
+
 C90 defines `wchar_t` as "an integral type whose range of values can represent distinct codes for all members of the largest extended character set specified among the supported locales" (ISO 9899:1990 §4.1.5).
 
 This is a classic example of C specifications not really giving away enough details to really nail down an API, which is one of the reasons that undefined behaviour is *so easy* to accidentally stumble upon in C. Classic examples of under-defined standards in C is that `char` need not be 8 bits long, `int` not needing to be 16 bits long, `double` not needing to be 4 bytes - all of these are left up to the compiler to implement.
@@ -228,4 +258,10 @@ This is a classic example of C specifications not really giving away enough deta
 - The C standard is far more vague than I initially understood in defining `char` and `wchar_t`. Post updated to reflect this (thanks to /u/tedu and /u/notriddle for explaining this).
 - Added graph depicting assignment of codepoints by the Unicode Consortium.
 - Lots of minor rephrasing and refactoring.
+
+**2018-12-30** - Minor correction, additional explanation and note.
+
+- Added note on victory hand emoji and grapheme clusters (thanks to Lars Dieckow for explaining this, and for providing the code snippet and link included in the added note).
+- The cucumber emoji is represented as two separate *codepoints*, not two separate *characters* as previously stated (thanks to Lars Dieckow for pointing this mistake out).
+- Added additional note complaining about why string indexing giving UTF-16 codepoints is unhelpful.
 
