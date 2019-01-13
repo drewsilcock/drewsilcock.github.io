@@ -4,7 +4,7 @@
  <title>Drew Silcock</title>
  <link href="https://www.drewsilcock.co.uk/atom.xml" rel="self"/>
  <link href="https://www.drewsilcock.co.uk/"/>
- <updated>2018-12-30T18:32:21+00:00</updated>
+ <updated>2019-01-13T13:04:53+00:00</updated>
  <id>https://www.drewsilcock.co.uk</id>
  <author>
    <name>Drew Silcock</name>
@@ -277,8 +277,8 @@ b. Using the &lt;code&gt;[idx]&lt;/code&gt; indexing syntax mentally implies O(1
 &lt;p&gt;&lt;strong&gt;2018-12-30&lt;/strong&gt; - Minor correction, additional explanation and note.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Added note on victory hand emoji and grapheme clusters (thanks to Lars Dieckow for explaining this, and for providing the code snippet and link included in the added note).&lt;/li&gt;
-  &lt;li&gt;The cucumber emoji is represented as two separate &lt;em&gt;codepoints&lt;/em&gt;, not two separate &lt;em&gt;characters&lt;/em&gt; as previously stated (thanks to Lars Dieckow for pointing this mistake out).&lt;/li&gt;
+  &lt;li&gt;Added note on victory hand emoji and grapheme clusters (thanks to &lt;a href=&quot;https://stackoverflow.com/users/46395/daxim&quot;&gt;Lars Dieckow&lt;/a&gt; for explaining this, and for providing the code snippet and link included in the added note).&lt;/li&gt;
+  &lt;li&gt;The cucumber emoji is represented as two separate &lt;em&gt;codepoints&lt;/em&gt;, not two separate &lt;em&gt;characters&lt;/em&gt; as previously stated (thanks to &lt;a href=&quot;https://stackoverflow.com/users/46395/daxim&quot;&gt;Lars Dieckow&lt;/a&gt; for pointing this mistake out).&lt;/li&gt;
   &lt;li&gt;Added additional note complaining about why string indexing giving UTF-16 codepoints is unhelpful.&lt;/li&gt;
 &lt;/ul&gt;
 
