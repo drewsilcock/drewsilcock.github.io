@@ -261,7 +261,7 @@ This is a classic example of C specifications not really giving away enough deta
 
 **2018-12-30** - Minor correction, additional explanation and note.
 
-- Added note on victory hand emoji and grapheme clusters (thanks to Lars Dieckow for explaining this, and for providing the code snippet and link included in the added note).
-- The cucumber emoji is represented as two separate *codepoints*, not two separate *characters* as previously stated (thanks to Lars Dieckow for pointing this mistake out).
+- Added note on victory hand emoji and grapheme clusters (thanks to [Lars Dieckow](https://stackoverflow.com/users/46395/daxim) for explaining this, and for providing the code snippet and link included in the added note).
+- The cucumber emoji is represented as two separate *codepoints*, not two separate *characters* as previously stated (thanks to [Lars Dieckow](https://stackoverflow.com/users/46395/daxim) for pointing this mistake out).
 - Added additional note complaining about why string indexing giving UTF-16 codepoints is unhelpful.
 
