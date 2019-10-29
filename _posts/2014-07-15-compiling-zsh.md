@@ -17,7 +17,7 @@ To compile `zsh`, you need `ncurses`. This needs to be compiled with the flag `-
 
 {% highlight bash lineanchors %}
 # Download the ncurses gzipped tarball
-wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
+wget ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz
 
 # Extract gzipped tarball
 tar -zxvf ncurses.tar.gz
